@@ -30,7 +30,7 @@ A ordem de `andares` é a ordem do expositor (de cima para baixo). Os ids dos pr
 
 ## Chaveiros
 
-- **Artes Marciais:** — faixa, faixa com nome, kimonos (branco, azul, rosa, traço) com escolha da cor da faixa, luva de boxe, luva dourada, medalhão lutador, placa com frase, medalha, troféu, katana, nunchaku, shuriken, yin-yang, kanji 武, portal torii
+- **Artes Marciais:** faixa, faixa com nome, kimonos (branco, azul, rosa, traço) com escolha da cor da faixa, luva de boxe, luva dourada, medalhão lutador, placa com frase, medalha, troféu, katana, nunchaku, shuriken, yin-yang, kanji 武, portal torii
 - **Animes & Desenhos:** bonequinhos (Goku, Vegeta, Naruto, Sasuke, Kakashi, Luffy, Zoro, Tanjiro, Nezuko, Pikachu, Bob Esponja, Patrick), Goku, Esfera do Dragão, Nuvem Voadora, bandana da Folha, Sharingan, Kunai, Nuvem Akatsuki, Chapéu de Palha, bandeira pirata, Brinco do Tanjiro, Pokébola, Raio do Pikachu
 
 O cliente escolhe os chaveiros e envia o pedido pronto pelo WhatsApp.
