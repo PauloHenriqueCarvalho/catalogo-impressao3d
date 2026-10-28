@@ -8,11 +8,25 @@ const LOJA = {
 };
 
 // ============================================================
+// CATEGORIAS — cada andar do expositor mostra uma categoria
+// ============================================================
+const CATEGORIAS = {
+  "artes-marciais": {
+    nome: "Artes Marciais",
+    descricao: "Karatê, judô, jiu-jitsu, boxe, muay thai e kung fu.",
+  },
+  animes: {
+    nome: "Animes & Desenhos",
+    descricao: "Dragon Ball, Naruto, One Piece, Demon Slayer, Pokémon e mais.",
+  },
+};
+
+// ============================================================
 // PRODUTOS
-// - andar: "cima" (artes marciais) ou "baixo" (animes e desenhos)
+// - categoria: uma das chaves de CATEGORIAS
 // - faixa: cor padrão da faixa; quando existe, o cliente escolhe a cor
-// - foto: caminho de uma foto real em img/chaveiros/. Se o arquivo
-//   não existir, a ilustração (arte) é usada no lugar.
+// - foto: caminho (a partir da raiz do site) de uma foto real em
+//   img/chaveiros/. Se o arquivo não existir, a ilustração é usada.
 // ============================================================
 const CORES_FAIXA = {
   Branca: "#f3f1ec", Cinza: "#8d939c", Amarela: "#f2c230", Laranja: "#f07a1a",
@@ -21,219 +35,219 @@ const CORES_FAIXA = {
 };
 
 const PRODUTOS = [
-  // ---------- 1º ANDAR · ARTES MARCIAIS ----------
+  // ---------- ARTES MARCIAIS ----------
   {
-    id: "faixa", andar: "cima", nome: "Faixa de Graduação",
+    id: "faixa", categoria: "artes-marciais", nome: "Faixa de Graduação",
     descricao: "Nó de faixa de karatê, judô ou jiu-jitsu. Escolha a cor da sua graduação.",
     faixa: "Preta", foto: "img/chaveiros/faixa.jpg", arte: "faixa",
   },
   {
-    id: "kimono", andar: "cima", nome: "Kimono Branco",
+    id: "kimono", categoria: "artes-marciais", nome: "Kimono Branco",
     descricao: "Mini kimono branco com a faixa na cor da sua graduação.",
     faixa: "Preta", foto: "img/chaveiros/kimono.jpg", arte: "kimono",
   },
   {
-    id: "kimonoazul", andar: "cima", nome: "Kimono Azul",
+    id: "kimonoazul", categoria: "artes-marciais", nome: "Kimono Azul",
     descricao: "Kimono azul com kanji de jiu-jitsu no peito e faixa na cor que quiser.",
     faixa: "Preta", foto: "img/chaveiros/kimonoazul.jpg", arte: "kimonoazul",
   },
   {
-    id: "kimonorosa", andar: "cima", nome: "Kimono Rosa",
+    id: "kimonorosa", categoria: "artes-marciais", nome: "Kimono Rosa",
     descricao: "Kimono rosa com a faixa na cor da sua graduação.",
     faixa: "Branca", foto: "img/chaveiros/kimonorosa.jpg", arte: "kimonorosa",
   },
   {
-    id: "kimonotraco", andar: "cima", nome: "Kimono Traço",
+    id: "kimonotraco", categoria: "artes-marciais", nome: "Kimono Traço",
     descricao: "Kimono branco com contorno preto marcado, estilo desenho.",
     faixa: "Amarela", foto: "img/chaveiros/kimonotraco.jpg", arte: "kimonotraco",
   },
   {
-    id: "luva", andar: "cima", nome: "Luva de Boxe",
+    id: "luva", categoria: "artes-marciais", nome: "Luva de Boxe",
     descricao: "Luva de boxe / muay thai em miniatura. Clássica vermelha ou personalizada.",
     foto: "img/chaveiros/luva.jpg", arte: "luva",
   },
   {
-    id: "luvadourada", andar: "cima", nome: "Luva Dourada",
+    id: "luvadourada", categoria: "artes-marciais", nome: "Luva Dourada",
     descricao: "Luva de boxe dourada com o nome que quiser no punho.",
     foto: "img/chaveiros/luvadourada.jpg", arte: "luvadourada",
   },
   {
-    id: "yinyang", andar: "cima", nome: "Yin-Yang",
+    id: "yinyang", categoria: "artes-marciais", nome: "Yin-Yang",
     descricao: "Símbolo do equilíbrio, em duas cores com relevo.",
     foto: "img/chaveiros/yinyang.jpg", arte: "yinyang",
   },
   {
-    id: "nunchaku", andar: "cima", nome: "Nunchaku",
+    id: "nunchaku", categoria: "artes-marciais", nome: "Nunchaku",
     descricao: "Nunchaku com dois bastões articulados — eles balançam de verdade.",
     foto: "img/chaveiros/nunchaku.jpg", arte: "nunchaku",
   },
   {
-    id: "kanji", andar: "cima", nome: "Kanji 武 (Bu)",
+    id: "kanji", categoria: "artes-marciais", nome: "Kanji 武 (Bu)",
     descricao: "Medalha com o kanji “Bu”, de Budō — o caminho marcial.",
     foto: "img/chaveiros/kanji.jpg", arte: "kanji",
   },
 
   {
-    id: "faixanome", andar: "cima", nome: "Faixa com Nome",
+    id: "faixanome", categoria: "artes-marciais", nome: "Faixa com Nome",
     descricao: "Faixa personalizada com o seu nome ou o nome da academia, na cor da graduação.",
     faixa: "Azul", foto: "img/chaveiros/faixanome.jpg", arte: "faixanome",
   },
   {
-    id: "medalha", andar: "cima", nome: "Medalha",
+    id: "medalha", categoria: "artes-marciais", nome: "Medalha",
     descricao: "Medalha de campeão com fita, em dourado, prata ou bronze.",
     foto: "img/chaveiros/medalha.jpg", arte: "medalha",
   },
   {
-    id: "trofeu", andar: "cima", nome: "Troféu",
+    id: "trofeu", categoria: "artes-marciais", nome: "Troféu",
     descricao: "Mini troféu dourado com estrela, para quem vive de competição.",
     foto: "img/chaveiros/trofeu.jpg", arte: "trofeu",
   },
   {
-    id: "katana", andar: "cima", nome: "Katana",
+    id: "katana", categoria: "artes-marciais", nome: "Katana",
     descricao: "Espada samurai com cabo trançado em vermelho e preto.",
     foto: "img/chaveiros/katana.jpg", arte: "katana",
   },
   {
-    id: "shuriken", andar: "cima", nome: "Shuriken",
+    id: "shuriken", categoria: "artes-marciais", nome: "Shuriken",
     descricao: "Estrela ninja de quatro pontas em tom metálico.",
     foto: "img/chaveiros/shuriken.jpg", arte: "shuriken",
   },
   {
-    id: "torii", andar: "cima", nome: "Portal Torii",
+    id: "torii", categoria: "artes-marciais", nome: "Portal Torii",
     descricao: "O portal japonês dos dojôs e templos, em vermelho.",
     foto: "img/chaveiros/torii.jpg", arte: "torii",
   },
   {
-    id: "lutador", andar: "cima", nome: "Medalhão Lutador",
+    id: "lutador", categoria: "artes-marciais", nome: "Medalhão Lutador",
     descricao: "Medalhão com silhueta de chute, para karatê, taekwondo e kickboxing.",
     foto: "img/chaveiros/lutador.jpg", arte: "lutador",
   },
   {
-    id: "frase", andar: "cima", nome: "Placa com Frase",
+    id: "frase", categoria: "artes-marciais", nome: "Placa com Frase",
     descricao: "Placa “Só perde quem desiste” — ou com a frase que você quiser.",
     foto: "img/chaveiros/frase.jpg", arte: "frase",
   },
 
-  // ---------- 2º ANDAR · ANIMES & DESENHOS ----------
+  // ---------- ANIMES & DESENHOS ----------
   // Bonequinhos
   {
-    id: "boneco-goku", andar: "baixo", nome: "Gokuzinho",
+    id: "boneco-goku", categoria: "animes", nome: "Gokuzinho",
     descricao: "Bonequinho do Goku com o uniforme laranja (Dragon Ball).",
     foto: "img/chaveiros/boneco-goku.jpg", arte: "boneco-goku",
   },
   {
-    id: "boneco-vegeta", andar: "baixo", nome: "Vegetinha",
+    id: "boneco-vegeta", categoria: "animes", nome: "Vegetinha",
     descricao: "Bonequinho do Vegeta com armadura saiyajin (Dragon Ball).",
     foto: "img/chaveiros/boneco-vegeta.jpg", arte: "boneco-vegeta",
   },
   {
-    id: "boneco-naruto", andar: "baixo", nome: "Narutinho",
+    id: "boneco-naruto", categoria: "animes", nome: "Narutinho",
     descricao: "Bonequinho do Naruto com bandana da Folha (Naruto).",
     foto: "img/chaveiros/boneco-naruto.jpg", arte: "boneco-naruto",
   },
   {
-    id: "boneco-sasuke", andar: "baixo", nome: "Sasukinho",
+    id: "boneco-sasuke", categoria: "animes", nome: "Sasukinho",
     descricao: "Bonequinho do Sasuke (Naruto).",
     foto: "img/chaveiros/boneco-sasuke.jpg", arte: "boneco-sasuke",
   },
   {
-    id: "boneco-kakashi", andar: "baixo", nome: "Kakashizinho",
+    id: "boneco-kakashi", categoria: "animes", nome: "Kakashizinho",
     descricao: "Bonequinho do Kakashi com máscara e colete jōnin (Naruto).",
     foto: "img/chaveiros/boneco-kakashi.jpg", arte: "boneco-kakashi",
   },
   {
-    id: "boneco-luffy", andar: "baixo", nome: "Luffyzinho",
+    id: "boneco-luffy", categoria: "animes", nome: "Luffyzinho",
     descricao: "Bonequinho do Luffy com o chapéu de palha (One Piece).",
     foto: "img/chaveiros/boneco-luffy.jpg", arte: "boneco-luffy",
   },
   {
-    id: "boneco-zoro", andar: "baixo", nome: "Zorozinho",
+    id: "boneco-zoro", categoria: "animes", nome: "Zorozinho",
     descricao: "Bonequinho do Zoro com os brincos e a faixa verde (One Piece).",
     foto: "img/chaveiros/boneco-zoro.jpg", arte: "boneco-zoro",
   },
   {
-    id: "boneco-tanjiro", andar: "baixo", nome: "Tanjirozinho",
+    id: "boneco-tanjiro", categoria: "animes", nome: "Tanjirozinho",
     descricao: "Bonequinho do Tanjiro com o haori xadrez (Demon Slayer).",
     foto: "img/chaveiros/boneco-tanjiro.jpg", arte: "boneco-tanjiro",
   },
   {
-    id: "boneco-nezuko", andar: "baixo", nome: "Nezukinha",
+    id: "boneco-nezuko", categoria: "animes", nome: "Nezukinha",
     descricao: "Boneca da Nezuko com o bambu e o kimono rosa (Demon Slayer).",
     foto: "img/chaveiros/boneco-nezuko.jpg", arte: "boneco-nezuko",
   },
   {
-    id: "boneco-pikachu", andar: "baixo", nome: "Pikachuzinho",
+    id: "boneco-pikachu", categoria: "animes", nome: "Pikachuzinho",
     descricao: "Bonequinho do Pikachu com o rabo de raio (Pokémon).",
     foto: "img/chaveiros/boneco-pikachu.jpg", arte: "boneco-pikachu",
   },
   {
-    id: "boneco-bob", andar: "baixo", nome: "Bob Esponja",
+    id: "boneco-bob", categoria: "animes", nome: "Bob Esponja",
     descricao: "Bonequinho do Bob Esponja de gravata (Bob Esponja).",
     foto: "img/chaveiros/boneco-bob.jpg", arte: "boneco-bob",
   },
   {
-    id: "boneco-patrick", andar: "baixo", nome: "Patrick",
+    id: "boneco-patrick", categoria: "animes", nome: "Patrick",
     descricao: "Bonequinho do Patrick de bermuda florida (Bob Esponja).",
     foto: "img/chaveiros/boneco-patrick.jpg", arte: "boneco-patrick",
   },
   // Símbolos
   {
-    id: "goku", andar: "baixo", nome: "Goku · Símbolo",
+    id: "goku", categoria: "animes", nome: "Goku · Símbolo",
     descricao: "Medalha laranja com o kanji do uniforme do Goku (Dragon Ball).",
     foto: "img/chaveiros/goku.jpg", arte: "goku",
   },
   {
-    id: "esfera", andar: "baixo", nome: "Esfera do Dragão",
+    id: "esfera", categoria: "animes", nome: "Esfera do Dragão",
     descricao: "Esfera de 4 estrelas, com acabamento translúcido laranja (Dragon Ball).",
     foto: "img/chaveiros/esfera.jpg", arte: "esfera",
   },
   {
-    id: "naruto", andar: "baixo", nome: "Bandana da Folha",
+    id: "naruto", categoria: "animes", nome: "Bandana da Folha",
     descricao: "Bandana ninja da Vila da Folha, com placa em tom metálico (Naruto).",
     foto: "img/chaveiros/naruto.jpg", arte: "naruto",
   },
   {
-    id: "sharingan", andar: "baixo", nome: "Sharingan",
+    id: "sharingan", categoria: "animes", nome: "Sharingan",
     descricao: "O olho vermelho com três tomoes do clã Uchiha (Naruto).",
     foto: "img/chaveiros/sharingan.jpg", arte: "sharingan",
   },
   {
-    id: "chapeu", andar: "baixo", nome: "Chapéu de Palha",
+    id: "chapeu", categoria: "animes", nome: "Chapéu de Palha",
     descricao: "O chapéu do Luffy, com fita vermelha (One Piece).",
     foto: "img/chaveiros/chapeu.jpg", arte: "chapeu",
   },
   {
-    id: "pokebola", andar: "baixo", nome: "Pokébola",
+    id: "pokebola", categoria: "animes", nome: "Pokébola",
     descricao: "Pokébola clássica em vermelho e branco (Pokémon).",
     foto: "img/chaveiros/pokebola.jpg", arte: "pokebola",
   },
   {
-    id: "kunai", andar: "baixo", nome: "Kunai",
+    id: "kunai", categoria: "animes", nome: "Kunai",
     descricao: "A faca ninja clássica, com cabo enrolado e argola (Naruto).",
     foto: "img/chaveiros/kunai.jpg", arte: "kunai",
   },
   {
-    id: "akatsuki", andar: "baixo", nome: "Nuvem Akatsuki",
+    id: "akatsuki", categoria: "animes", nome: "Nuvem Akatsuki",
     descricao: "A nuvem vermelha da Akatsuki em fundo preto (Naruto).",
     foto: "img/chaveiros/akatsuki.jpg", arte: "akatsuki",
   },
   {
-    id: "nuvem", andar: "baixo", nome: "Nuvem Voadora",
+    id: "nuvem", categoria: "animes", nome: "Nuvem Voadora",
     descricao: "A nuvem dourada do Goku (Dragon Ball).",
     foto: "img/chaveiros/nuvem.jpg", arte: "nuvem",
   },
   {
-    id: "tanjiro", andar: "baixo", nome: "Brinco do Tanjiro",
+    id: "tanjiro", categoria: "animes", nome: "Brinco do Tanjiro",
     descricao: "O brinco hanafuda do sol nascente (Demon Slayer).",
     foto: "img/chaveiros/tanjiro.jpg", arte: "tanjiro",
   },
   {
-    id: "raio", andar: "baixo", nome: "Raio do Pikachu",
+    id: "raio", categoria: "animes", nome: "Raio do Pikachu",
     descricao: "Raio amarelo, inspirado na cauda do Pikachu (Pokémon).",
     foto: "img/chaveiros/raio.jpg", arte: "raio",
   },
   {
-    id: "jollyroger", andar: "baixo", nome: "Bandeira Pirata",
+    id: "jollyroger", categoria: "animes", nome: "Bandeira Pirata",
     descricao: "A caveira pirata com o chapéu do Luffy (One Piece).",
     foto: "img/chaveiros/jollyroger.jpg", arte: "jollyroger",
   },
