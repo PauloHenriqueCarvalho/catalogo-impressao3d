@@ -46,23 +46,23 @@ Coloque aqui as fotos reais dos chaveiros com estes nomes (formato .jpg, de pref
 | boneco-pikachu.jpg | Pikachuzinho |
 | boneco-bob.jpg | Bob Esponja |
 | boneco-patrick.jpg | Patrick |
-| salao-logo.jpg | Logo do Salão |
-| salao-tesoura.jpg | Tesoura |
-| salao-secador.jpg | Secador |
-| salao-pente.jpg | Pente de Bolso |
-| salao-escova.jpg | Escova Redonda |
-| salao-chapinha.jpg | Chapinha |
-| salao-gota.jpg | Gota de Óleo |
-| salao-folha.jpg | Folha Naturelle |
-| salao-espelho.jpg | Espelhinho de Bolsa |
+| salao-nfc-agenda.jpg | Tag NFC de Agendamento |
+| salao-porta-ob.jpg | Porta-OB |
+| salao-porta-anel.jpg | Porta-Anel |
+| salao-porta-batom.jpg | Porta-Batom |
+| salao-porta-oleo.jpg | Porta-Óleo Capilar |
 | salao-elastico.jpg | Porta-Xuxinha |
-| salao-qrcode.jpg | QR Code de Agendamento |
-| salao-fidelidade.jpg | Cartão Fidelidade |
-| salao-guarda-volumes.jpg | Ficha de Guarda-Volumes |
-| salao-chave-setor.jpg | Identificador de Chaves |
-| salao-cracha.jpg | Crachá da Equipe |
-| salao-cartela.jpg | Cartela de Cores |
-| salao-grampos.jpg | Porta-Grampos |
+| salao-espelho.jpg | Espelhinho de Bolsa |
+| salao-pente.jpg | Pente de Bolso |
+| salao-capsula-grampos.jpg | Cápsula de Grampos |
+| salao-porta-comprimido.jpg | Porta-Comprimidos |
+| salao-gancho-bolsa.jpg | Gancho de Bolsa |
 | salao-abre-porta.jpg | Abre-Porta Sem Toque |
+| salao-guarda-volumes.jpg | Ficha de Guarda-Volumes |
+| salao-comanda.jpg | Comanda Numerada |
+| salao-chave-setor.jpg | Identificador de Chaves |
+| salao-nfc-equipe.jpg | Cartão NFC da Equipe |
+| salao-nfc-avaliacao.jpg | NFC de Avaliação |
+| salao-nfc-wifi.jpg | NFC do Wi-Fi |
 
 Enquanto a foto não existir, o site mostra a ilustração do chaveiro automaticamente.
