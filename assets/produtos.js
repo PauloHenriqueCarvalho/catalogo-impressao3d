@@ -19,6 +19,16 @@ const CATEGORIAS = {
     nome: "Animes & Desenhos",
     descricao: "Dragon Ball, Naruto, One Piece, Demon Slayer, Pokémon e mais.",
   },
+  "salao-brindes": {
+    nome: "Brindes para Clientes",
+    curto: "Brindes",
+    descricao: "Mimos com a marca do salão para entregar às clientes — bonitos e úteis no dia a dia.",
+  },
+  "salao-uso": {
+    nome: "Uso no Salão",
+    curto: "Uso no Salão",
+    descricao: "Peças para organizar a rotina do salão, da recepção ao estoque.",
+  },
 };
 
 // ============================================================
@@ -250,6 +260,97 @@ const PRODUTOS = [
     id: "jollyroger", categoria: "animes", nome: "Bandeira Pirata",
     descricao: "A caveira pirata com o chapéu do Luffy (One Piece).",
     foto: "img/chaveiros/jollyroger.jpg", arte: "jollyroger",
+  },
+  // ---------- SALÃO DE BELEZA ----------
+  {
+    id: "salao-logo", categoria: "salao-brindes", nome: "Logo do Salão",
+    descricao: "Medalhão com o monograma GC e “Beauté Naturelle”. Ideal para entregar a cada cliente.",
+    foto: "img/chaveiros/salao-logo.jpg", arte: "salao-logo",
+  },
+  {
+    id: "salao-tesoura", categoria: "salao-brindes", nome: "Tesoura",
+    descricao: "A tesoura do cabeleireiro, símbolo do salão, em dourado e prata.",
+    foto: "img/chaveiros/salao-tesoura.jpg", arte: "salao-tesoura",
+  },
+  {
+    id: "salao-secador", categoria: "salao-brindes", nome: "Secador",
+    descricao: "Mini secador de cabelo nas cores do salão.",
+    foto: "img/chaveiros/salao-secador.jpg", arte: "salao-secador",
+  },
+  {
+    id: "salao-pente", categoria: "salao-brindes", nome: "Pente de Bolso",
+    descricao: "Pente funcional de verdade: penteia e cabe no chaveiro.",
+    foto: "img/chaveiros/salao-pente.jpg", arte: "salao-pente",
+  },
+  {
+    id: "salao-escova", categoria: "salao-brindes", nome: "Escova Redonda",
+    descricao: "Escova redonda de modelagem, em miniatura.",
+    foto: "img/chaveiros/salao-escova.jpg", arte: "salao-escova",
+  },
+  {
+    id: "salao-chapinha", categoria: "salao-brindes", nome: "Chapinha",
+    descricao: "Prancha de cabelo em miniatura, com placas douradas.",
+    foto: "img/chaveiros/salao-chapinha.jpg", arte: "salao-chapinha",
+  },
+  {
+    id: "salao-gota", categoria: "salao-brindes", nome: "Gota de Óleo",
+    descricao: "Gota dourada que lembra os óleos e tratamentos naturais.",
+    foto: "img/chaveiros/salao-gota.jpg", arte: "salao-gota",
+  },
+  {
+    id: "salao-folha", categoria: "salao-brindes", nome: "Folha Naturelle",
+    descricao: "Folha com nervuras, a cara do conceito natural do salão.",
+    foto: "img/chaveiros/salao-folha.jpg", arte: "salao-folha",
+  },
+  {
+    id: "salao-espelho", categoria: "salao-brindes", nome: "Espelhinho de Bolsa",
+    descricao: "Chaveiro com espelho de verdade para retocar o visual.",
+    foto: "img/chaveiros/salao-espelho.jpg", arte: "salao-espelho",
+  },
+  {
+    id: "salao-elastico", categoria: "salao-brindes", nome: "Porta-Xuxinha",
+    descricao: "Guarda os elásticos de cabelo presos na chave — nunca mais perde.",
+    foto: "img/chaveiros/salao-elastico.jpg", arte: "salao-elastico",
+  },
+  {
+    id: "salao-qrcode", categoria: "salao-brindes", nome: "QR Code de Agendamento",
+    descricao: "QR code que abre o WhatsApp ou o Instagram do salão para agendar.",
+    foto: "img/chaveiros/salao-qrcode.jpg", arte: "salao-qrcode",
+  },
+  {
+    id: "salao-fidelidade", categoria: "salao-brindes", nome: "Cartão Fidelidade",
+    descricao: "Cartela com 10 marcações: a cada visita marca uma, na 10ª ganha um mimo.",
+    foto: "img/chaveiros/salao-fidelidade.jpg", arte: "salao-fidelidade",
+  },
+  {
+    id: "salao-guarda-volumes", categoria: "salao-uso", nome: "Ficha de Guarda-Volumes",
+    descricao: "Fichas numeradas para a bolsa da cliente durante o atendimento.",
+    foto: "img/chaveiros/salao-guarda-volumes.jpg", arte: "salao-guarda-volumes",
+  },
+  {
+    id: "salao-chave-setor", categoria: "salao-uso", nome: "Identificador de Chaves",
+    descricao: "Capa colorida com o nome do setor: Estoque, Caixa, Depósito…",
+    foto: "img/chaveiros/salao-chave-setor.jpg", arte: "salao-chave-setor",
+  },
+  {
+    id: "salao-cracha", categoria: "salao-uso", nome: "Crachá da Equipe",
+    descricao: "Chaveiro-crachá com o nome e a função de cada profissional.",
+    foto: "img/chaveiros/salao-cracha.jpg", arte: "salao-cracha",
+  },
+  {
+    id: "salao-cartela", categoria: "salao-uso", nome: "Cartela de Cores",
+    descricao: "Leque com tons de loiro, castanho, ruivo e preto para mostrar às clientes.",
+    foto: "img/chaveiros/salao-cartela.jpg", arte: "salao-cartela",
+  },
+  {
+    id: "salao-grampos", categoria: "salao-uso", nome: "Porta-Grampos",
+    descricao: "Barra que segura grampos e presilhas sempre à mão.",
+    foto: "img/chaveiros/salao-grampos.jpg", arte: "salao-grampos",
+  },
+  {
+    id: "salao-abre-porta", categoria: "salao-uso", nome: "Abre-Porta Sem Toque",
+    descricao: "Gancho para abrir portas e apertar botões sem encostar a mão.",
+    foto: "img/chaveiros/salao-abre-porta.jpg", arte: "salao-abre-porta",
   },
 ];
 
@@ -614,4 +715,101 @@ const ARTES = {
     <circle cx="46.5" cy="29" r="1.6" fill="#1d1d1f"/><circle cx="53.5" cy="29" r="1.6" fill="#1d1d1f"/>
     <path d="M42 22 L47 21 M53 21 L58 22" stroke="#1d1d1f" stroke-width="1.5" stroke-linecap="round"/>
     <path d="M42 39 Q50 48 58 39 Z" fill="#b23a5a" stroke="#1d1d1f" stroke-width="1.5"/>`,
+  "salao-logo": `
+    <circle cx="50" cy="50" r="40" fill="#6b7d4f"/>
+    <circle cx="50" cy="50" r="35" fill="none" stroke="#c6a15b" stroke-width="1.5"/>
+    <path d="M50 30 C46 26 42 26 40 27 C43 30 46 31 50 30 Z M50 30 C54 26 58 26 60 27 C57 30 54 31 50 30 Z" fill="#c6a15b"/>
+    <text x="50" y="57" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-style="italic" font-size="25" fill="#f4efe6">GC</text>
+    <text x="50" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-size="5.5" letter-spacing="1.2" font-weight="600" fill="#c6a15b">BEAUTÉ</text>
+    <text x="50" y="73" text-anchor="middle" font-family="Inter, sans-serif" font-size="5.5" letter-spacing="1.2" font-weight="600" fill="#c6a15b">NATURELLE</text>`,
+  "salao-tesoura": `
+    <path d="M44 30 L66 90 L61.5 91.5 L41 32 Z" fill="#c9ced6" stroke="#8d939c" stroke-width="1"/>
+    <path d="M56 30 L34 90 L38.5 91.5 L59 32 Z" fill="#dfe4ea" stroke="#8d939c" stroke-width="1"/>
+    <circle cx="39" cy="20" r="10" fill="none" stroke="#c6a15b" stroke-width="4.5"/>
+    <circle cx="61" cy="20" r="10" fill="none" stroke="#c6a15b" stroke-width="4.5"/>
+    <circle cx="50" cy="48" r="2.8" fill="#9c7a35"/>`,
+  "salao-secador": `
+    <path d="M44 44 L58 44 L54 84 Q49 89 44 84 Z" fill="#6b7d4f"/>
+    <rect x="47" y="56" width="6" height="11" rx="2" fill="#c6a15b"/>
+    <path d="M49 88 C49 94 58 94 60 90" fill="none" stroke="#4f5d39" stroke-width="2"/>
+    <rect x="16" y="16" width="56" height="32" rx="16" fill="#6b7d4f"/>
+    <path d="M72 23 L88 21 L88 43 L72 41 Z" fill="#4f5d39"/>
+    <circle cx="31" cy="32" r="10" fill="#4f5d39"/>
+    <circle cx="31" cy="32" r="5.5" fill="#c6a15b"/>
+    <path d="M44 22 H64" stroke="#ffffff55" stroke-width="3" stroke-linecap="round"/>`,
+  "salao-pente": `
+    <path d="M15 44 V70 M19 44 V70 M23 44 V70 M27 44 V70 M31 44 V70 M35 44 V70 M39 44 V70 M43 44 V70 M47 44 V70 M51 44 V70 M55 44 V70 M59 44 V70 M63 44 V70 M67 44 V70 M71 44 V70 M75 44 V70 M79 44 V70 M83 44 V70 " stroke="#c6a15b" stroke-width="2.6" stroke-linecap="round"/>
+    <rect x="10" y="28" width="80" height="18" rx="5" fill="#c6a15b"/>
+    <rect x="10" y="28" width="80" height="5" rx="2.5" fill="#e3c27e"/>
+    <text x="50" y="42" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="9" fill="#4f5d39">Beauté Naturelle</text>`,
+  "salao-escova": `
+    <rect x="44" y="6" width="12" height="40" rx="6" fill="#6b7d4f"/>
+    <rect x="46" y="10" width="3" height="30" rx="1.5" fill="#ffffff44"/>
+    <rect x="42" y="44" width="16" height="6" rx="2" fill="#c6a15b"/>
+    <rect x="36" y="50" width="28" height="42" rx="8" fill="#e8dcc8"/>
+    <g fill="#3a3027"><circle cx="41" cy="55" r="1.6"/><circle cx="47" cy="55" r="1.6"/><circle cx="53" cy="55" r="1.6"/><circle cx="59" cy="55" r="1.6"/><circle cx="41" cy="60" r="1.6"/><circle cx="47" cy="60" r="1.6"/><circle cx="53" cy="60" r="1.6"/><circle cx="59" cy="60" r="1.6"/><circle cx="41" cy="65" r="1.6"/><circle cx="47" cy="65" r="1.6"/><circle cx="53" cy="65" r="1.6"/><circle cx="59" cy="65" r="1.6"/><circle cx="41" cy="70" r="1.6"/><circle cx="47" cy="70" r="1.6"/><circle cx="53" cy="70" r="1.6"/><circle cx="59" cy="70" r="1.6"/><circle cx="41" cy="75" r="1.6"/><circle cx="47" cy="75" r="1.6"/><circle cx="53" cy="75" r="1.6"/><circle cx="59" cy="75" r="1.6"/><circle cx="41" cy="80" r="1.6"/><circle cx="47" cy="80" r="1.6"/><circle cx="53" cy="80" r="1.6"/><circle cx="59" cy="80" r="1.6"/><circle cx="41" cy="85" r="1.6"/><circle cx="47" cy="85" r="1.6"/><circle cx="53" cy="85" r="1.6"/><circle cx="59" cy="85" r="1.6"/></g>`,
+  "salao-chapinha": `
+    <path d="M45 12 L39 90 L49.5 90 L49.5 16 Z" fill="#2a2a2d"/>
+    <path d="M55 12 L61 90 L50.5 90 L50.5 16 Z" fill="#3a3a3d"/>
+    <rect x="42" y="58" width="7" height="30" rx="1.5" fill="#c6a15b"/>
+    <rect x="51" y="58" width="7" height="30" rx="1.5" fill="#e3c27e"/>
+    <circle cx="50" cy="13" r="6" fill="#6b7d4f"/>
+    <circle cx="50" cy="13" r="2.5" fill="#c6a15b"/>
+    <rect x="42" y="30" width="5" height="3" rx="1" fill="#6b7d4f"/>`,
+  "salao-gota": `
+    <path d="M50 8 C50 8 24 44 24 62 A26 26 0 0 0 76 62 C76 44 50 8 50 8 Z" fill="#d9a441" stroke="#9c7a35" stroke-width="2"/>
+    <path d="M36 58 C36 50 40 42 44 36" fill="none" stroke="#fff3d0" stroke-width="4" stroke-linecap="round"/>
+    <path d="M50 76 C50 66 56 60 62 58 C62 68 58 74 50 76 Z" fill="#6b7d4f"/>
+    <path d="M50 76 L58 62" stroke="#4f5d39" stroke-width="1.2"/>`,
+  "salao-folha": `
+    <path d="M50 8 C80 24 84 64 50 92 C16 64 20 24 50 8 Z" fill="#7d9a5a" stroke="#4f5d39" stroke-width="2"/>
+    <path d="M50 14 L50 90" stroke="#4f5d39" stroke-width="2"/>
+    <path d="M50 34 L36 26 M50 34 L64 26 M50 50 L32 40 M50 50 L68 40 M50 66 L34 58 M50 66 L66 58" stroke="#4f5d39" stroke-width="1.5" fill="none"/>`,
+  "salao-espelho": `
+    <defs><linearGradient id="g-espelho" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".5" stop-color="#dbe9ee"/><stop offset="1" stop-color="#b9cfd8"/></linearGradient></defs>
+    <circle cx="50" cy="52" r="39" fill="#c6a15b" stroke="#9c7a35" stroke-width="2"/>
+    <circle cx="50" cy="52" r="32" fill="url(#g-espelho)"/>
+    <path d="M30 46 L46 30 M34 56 L56 34" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round" opacity=".9"/>`,
+  "salao-elastico": `
+    <rect x="34" y="8" width="32" height="84" rx="16" fill="#f4efe6" stroke="#c6a15b" stroke-width="2"/>
+    <ellipse cx="50" cy="32" rx="20" ry="5" fill="none" stroke="#e07a8f" stroke-width="5"/>
+    <ellipse cx="50" cy="50" rx="20" ry="5" fill="none" stroke="#6b7d4f" stroke-width="5"/>
+    <ellipse cx="50" cy="68" rx="20" ry="5" fill="none" stroke="#1d1d1f" stroke-width="5"/>`,
+  "salao-qrcode": `
+    <rect x="16" y="8" width="68" height="86" rx="8" fill="#fff" stroke="#6b7d4f" stroke-width="3"/>
+    <path d="M40.7 14.0h4.7v4.7h-4.7zM45.4 14.0h4.7v4.7h-4.7zM54.7 14.0h4.7v4.7h-4.7zM45.4 18.7h4.7v4.7h-4.7zM50.0 18.7h4.7v4.7h-4.7zM40.7 23.3h4.7v4.7h-4.7zM45.4 23.3h4.7v4.7h-4.7zM50.0 23.3h4.7v4.7h-4.7zM54.7 23.3h4.7v4.7h-4.7zM40.7 28.0h4.7v4.7h-4.7zM50.0 28.0h4.7v4.7h-4.7zM54.7 28.0h4.7v4.7h-4.7zM36.0 32.7h4.7v4.7h-4.7zM45.4 32.7h4.7v4.7h-4.7zM54.7 32.7h4.7v4.7h-4.7zM59.4 32.7h4.7v4.7h-4.7zM64.0 32.7h4.7v4.7h-4.7zM68.7 32.7h4.7v4.7h-4.7zM22.0 37.4h4.7v4.7h-4.7zM36.0 37.4h4.7v4.7h-4.7zM45.4 37.4h4.7v4.7h-4.7zM50.0 37.4h4.7v4.7h-4.7zM54.7 37.4h4.7v4.7h-4.7zM64.0 37.4h4.7v4.7h-4.7zM68.7 37.4h4.7v4.7h-4.7zM22.0 42.0h4.7v4.7h-4.7zM26.7 42.0h4.7v4.7h-4.7zM40.7 42.0h4.7v4.7h-4.7zM64.0 42.0h4.7v4.7h-4.7zM73.4 42.0h4.7v4.7h-4.7zM22.0 46.7h4.7v4.7h-4.7zM31.3 46.7h4.7v4.7h-4.7zM36.0 46.7h4.7v4.7h-4.7zM40.7 46.7h4.7v4.7h-4.7zM64.0 46.7h4.7v4.7h-4.7zM45.4 51.4h4.7v4.7h-4.7zM59.4 51.4h4.7v4.7h-4.7zM68.7 51.4h4.7v4.7h-4.7zM54.7 56.0h4.7v4.7h-4.7zM59.4 56.0h4.7v4.7h-4.7zM68.7 56.0h4.7v4.7h-4.7zM73.4 56.0h4.7v4.7h-4.7zM40.7 60.7h4.7v4.7h-4.7zM45.4 60.7h4.7v4.7h-4.7zM50.0 60.7h4.7v4.7h-4.7zM59.4 60.7h4.7v4.7h-4.7zM64.0 60.7h4.7v4.7h-4.7zM68.7 60.7h4.7v4.7h-4.7zM40.7 65.4h4.7v4.7h-4.7zM45.4 65.4h4.7v4.7h-4.7zM68.7 65.4h4.7v4.7h-4.7zM73.4 65.4h4.7v4.7h-4.7z" fill="#1d1d1f"/><rect x="22" y="14" width="14" height="14" fill="#1d1d1f"/><rect x="24" y="16" width="10" height="10" fill="#fff"/><rect x="26" y="18" width="6" height="6" fill="#1d1d1f"/><rect x="57.4" y="14" width="14" height="14" fill="#1d1d1f"/><rect x="59.4" y="16" width="10" height="10" fill="#fff"/><rect x="61.4" y="18" width="6" height="6" fill="#1d1d1f"/><rect x="22" y="49.4" width="14" height="14" fill="#1d1d1f"/><rect x="24" y="51.4" width="10" height="10" fill="#fff"/><rect x="26" y="53.4" width="6" height="6" fill="#1d1d1f"/>
+    <text x="50" y="86" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="8" letter-spacing="1" fill="#6b7d4f">AGENDE</text>`,
+  "salao-fidelidade": `
+    <rect x="8" y="22" width="84" height="58" rx="7" fill="#f4efe6" stroke="#6b7d4f" stroke-width="2.5"/>
+    <text x="50" y="36" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="7.5" letter-spacing="1.2" fill="#6b7d4f">FIDELIDADE</text>
+    <g stroke="#6b7d4f" stroke-width="1.5"><circle cx="22" cy="50" r="4.5" fill="#c6a15b"/><circle cx="36" cy="50" r="4.5" fill="#c6a15b"/><circle cx="50" cy="50" r="4.5" fill="#c6a15b"/><circle cx="64" cy="50" r="4.5" fill="none"/><circle cx="78" cy="50" r="4.5" fill="none"/><circle cx="22" cy="66" r="4.5" fill="none"/><circle cx="36" cy="66" r="4.5" fill="none"/><circle cx="50" cy="66" r="4.5" fill="none"/><circle cx="64" cy="66" r="4.5" fill="none"/><circle cx="78" cy="66" r="4.5" fill="none"/></g>`,
+  "salao-guarda-volumes": `
+    <rect x="26" y="8" width="48" height="84" rx="10" fill="#6b7d4f"/>
+    <circle cx="50" cy="20" r="4.5" fill="none" stroke="#c6a15b" stroke-width="2"/>
+    <text x="50" y="66" text-anchor="middle" font-family="Georgia, serif" font-size="30" font-weight="700" fill="#f4efe6">07</text>
+    <rect x="34" y="76" width="32" height="2" fill="#c6a15b"/>`,
+  "salao-chave-setor": `
+    <path d="M32 10 H68 Q76 10 76 18 V44 Q76 52 66 54 L58 56 V90 H42 V56 L34 54 Q24 52 24 44 V18 Q24 10 32 10 Z" fill="#d6785a"/>
+    <rect x="29" y="22" width="42" height="17" rx="3" fill="#f4efe6"/>
+    <text x="50" y="34" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="7.5" fill="#3a3027">ESTOQUE</text>
+    <rect x="45" y="60" width="10" height="26" rx="2" fill="#00000022"/>`,
+  "salao-cracha": `
+    <rect x="24" y="8" width="52" height="84" rx="7" fill="#f4efe6" stroke="#c6a15b" stroke-width="2"/>
+    <path d="M24 15 Q24 8 31 8 H69 Q76 8 76 15 V28 H24 Z" fill="#6b7d4f"/>
+    <text x="50" y="22" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="10" fill="#f4efe6">GC</text>
+    <circle cx="50" cy="46" r="10" fill="#c9d3b8"/>
+    <circle cx="50" cy="43" r="4" fill="#6b7d4f"/><path d="M42 54 Q50 46 58 54" fill="#6b7d4f"/>
+    <text x="50" y="70" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="7" fill="#3a3027">SEU NOME</text>
+    <text x="50" y="80" text-anchor="middle" font-family="Inter, sans-serif" font-size="5" letter-spacing=".8" fill="#6b7d4f">CABELEIREIRO</text>`,
+  "salao-cartela": `
+    <g transform="rotate(-36 50 14)"><rect x="44" y="14" width="12" height="76" rx="6" fill="#f3e3b5" stroke="#00000022"/></g><g transform="rotate(-24 50 14)"><rect x="44" y="14" width="12" height="76" rx="6" fill="#e2c27a" stroke="#00000022"/></g><g transform="rotate(-12 50 14)"><rect x="44" y="14" width="12" height="76" rx="6" fill="#b9864a" stroke="#00000022"/></g><g transform="rotate(0 50 14)"><rect x="44" y="14" width="12" height="76" rx="6" fill="#7a4a26" stroke="#00000022"/></g><g transform="rotate(12 50 14)"><rect x="44" y="14" width="12" height="76" rx="6" fill="#b5532a" stroke="#00000022"/></g><g transform="rotate(24 50 14)"><rect x="44" y="14" width="12" height="76" rx="6" fill="#3b2a20" stroke="#00000022"/></g><g transform="rotate(36 50 14)"><rect x="44" y="14" width="12" height="76" rx="6" fill="#1d1d1f" stroke="#00000022"/></g>
+    <circle cx="50" cy="14" r="5" fill="#c6a15b" stroke="#9c7a35" stroke-width="1.5"/>`,
+  "salao-grampos": `
+    <g transform="translate(28 0)"><path d="M0 24 V66 M4 24 V30 L6 33 L4 36 L6 39 L4 42 L6 45 L4 48 V66" fill="none" stroke="#5a4636" stroke-width="1.8" stroke-linecap="round"/></g><g transform="translate(40 0)"><path d="M0 24 V66 M4 24 V30 L6 33 L4 36 L6 39 L4 42 L6 45 L4 48 V66" fill="none" stroke="#5a4636" stroke-width="1.8" stroke-linecap="round"/></g><g transform="translate(52 0)"><path d="M0 24 V66 M4 24 V30 L6 33 L4 36 L6 39 L4 42 L6 45 L4 48 V66" fill="none" stroke="#5a4636" stroke-width="1.8" stroke-linecap="round"/></g><g transform="translate(64 0)"><path d="M0 24 V66 M4 24 V30 L6 33 L4 36 L6 39 L4 42 L6 45 L4 48 V66" fill="none" stroke="#5a4636" stroke-width="1.8" stroke-linecap="round"/></g>
+    <rect x="18" y="30" width="64" height="22" rx="11" fill="#6b7d4f"/>
+    <text x="50" y="44.5" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="8" fill="#f4efe6">grampos</text>`,
+  "salao-abre-porta": `
+    <path d="M40 8 H60 V40 Q76 44 78 62 Q80 82 60 92 L53 85 Q67 78 66 63 Q65 52 54 50 H40 Z" fill="#c6a15b" stroke="#9c7a35" stroke-width="2" stroke-linejoin="round"/>
+    <circle cx="50" cy="18" r="4" fill="none" stroke="#9c7a35" stroke-width="2"/>
+    <path d="M44 30 H56" stroke="#9c7a35" stroke-width="2"/>`,
 };

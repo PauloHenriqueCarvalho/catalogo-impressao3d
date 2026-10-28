@@ -4,6 +4,8 @@
 //
 //   const CATALOGO = {
 //     cliente: "Nome",              // opcional: entra na mensagem do WhatsApp
+//     tema: "natural",              // opcional: paleta clara (padrão: escura)
+//     subtitulo: "Texto do topo",   // opcional
 //     andares: [
 //       "artes-marciais",            // categoria inteira
 //       { categoria: "animes", produtos: ["boneco-goku", "esfera"] }, // só alguns
@@ -27,6 +29,7 @@ const ANDARES = CATALOGO.andares.map((a) => {
   return {
     categoria: cfg.categoria,
     nome: cfg.nome || cat.nome,
+    curto: cfg.curto || cat.curto || cat.nome.split(" & ")[0],
     descricao: cfg.descricao || cat.descricao,
     produtos,
   };
@@ -34,6 +37,9 @@ const ANDARES = CATALOGO.andares.map((a) => {
 
 // ---------- Estrutura da página ----------
 function montarPagina() {
+  if (CATALOGO.tema) document.body.classList.add(`tema-${CATALOGO.tema}`);
+  const temPersonagens = ANDARES.some((a) => a.categoria === "animes");
+
   const secoes = ANDARES.map((a) => `
     <section class="secao" id="${a.categoria}">
       <div class="secao-cabecalho">
@@ -52,7 +58,7 @@ function montarPagina() {
       </a>
       <nav>
         <a href="#expositor">Chaveiros</a>
-        ${ANDARES.map((a) => `<a href="#${a.categoria}">${a.nome.split(" & ")[0]}</a>`).join("")}
+        ${ANDARES.map((a) => `<a href="#${a.categoria}">${a.curto}</a>`).join("")}
         <a href="#como-funciona">Como pedir</a>
       </nav>
     </header>
@@ -61,7 +67,7 @@ function montarPagina() {
       <div class="hero-texto">
         <p class="selo">Catálogo · Chaveiros</p>
         <h1>Verissimo <span>3D</span></h1>
-        <p class="hero-sub">Chaveiros impressos em 3D, leves, resistentes e feitos sob encomenda.</p>
+        <p class="hero-sub">${CATALOGO.subtitulo || "Chaveiros impressos em 3D, leves, resistentes e feitos sob encomenda."}</p>
         <div class="hero-acoes">
           <a class="btn btn-primario" href="#expositor">Ver chaveiros</a>
           <a class="btn btn-secundario" href="#como-funciona">Como fazer o pedido</a>
@@ -109,7 +115,7 @@ function montarPagina() {
 
     <footer class="rodape">
       <p><b>Verissimo 3D</b> · Impressão 3D sob encomenda</p>
-      <p class="rodape-pequeno">Imagens ilustrativas. Cores e tamanhos podem variar. Personagens pertencem aos seus respectivos criadores.</p>
+      <p class="rodape-pequeno">Imagens ilustrativas. Cores e tamanhos podem variar.${temPersonagens ? " Personagens pertencem aos seus respectivos criadores." : ""}</p>
     </footer>
 
     <div class="pedido" id="pedido" hidden>

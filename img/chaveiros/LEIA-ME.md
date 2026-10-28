@@ -46,5 +46,23 @@ Coloque aqui as fotos reais dos chaveiros com estes nomes (formato .jpg, de pref
 | boneco-pikachu.jpg | Pikachuzinho |
 | boneco-bob.jpg | Bob Esponja |
 | boneco-patrick.jpg | Patrick |
+| salao-logo.jpg | Logo do Salão |
+| salao-tesoura.jpg | Tesoura |
+| salao-secador.jpg | Secador |
+| salao-pente.jpg | Pente de Bolso |
+| salao-escova.jpg | Escova Redonda |
+| salao-chapinha.jpg | Chapinha |
+| salao-gota.jpg | Gota de Óleo |
+| salao-folha.jpg | Folha Naturelle |
+| salao-espelho.jpg | Espelhinho de Bolsa |
+| salao-elastico.jpg | Porta-Xuxinha |
+| salao-qrcode.jpg | QR Code de Agendamento |
+| salao-fidelidade.jpg | Cartão Fidelidade |
+| salao-guarda-volumes.jpg | Ficha de Guarda-Volumes |
+| salao-chave-setor.jpg | Identificador de Chaves |
+| salao-cracha.jpg | Crachá da Equipe |
+| salao-cartela.jpg | Cartela de Cores |
+| salao-grampos.jpg | Porta-Grampos |
+| salao-abre-porta.jpg | Abre-Porta Sem Toque |
 
 Enquanto a foto não existir, o site mostra a ilustração do chaveiro automaticamente.
