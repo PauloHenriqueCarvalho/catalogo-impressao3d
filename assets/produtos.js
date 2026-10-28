@@ -391,11 +391,6 @@ const PRODUTOS = [
     foto: "img/chaveiros/itm-trigo.jpg", arte: "itm-trigo",
   },
   {
-    id: "itm-nfc", categoria: "itamaraty-chaveiros", nome: "Tag NFC 55 Anos",
-    descricao: "Encostou o celular, abre um vídeo ou álbum de fotos dos 55 anos da empresa.",
-    foto: "img/chaveiros/itm-nfc.jpg", arte: "itm-nfc",
-  },
-  {
     id: "itm-coracao", categoria: "itamaraty-chaveiros", nome: "Coração Paixão",
     descricao: "Coração com o lema “Paixão em tudo que faz” — o espírito dos 55 anos.",
     foto: "img/chaveiros/itm-coracao.jpg", arte: "itm-coracao",
@@ -424,11 +419,6 @@ const PRODUTOS = [
     id: "itm-prendedor", categoria: "itamaraty-mesa", nome: "Prendedor de Pacote",
     descricao: "Prendedor para fechar o pacote de café ou biscoito e manter tudo fresquinho.",
     foto: "img/chaveiros/itm-prendedor.jpg", arte: "itm-prendedor",
-  },
-  {
-    id: "itm-suporte-celular", categoria: "itamaraty-mesa", nome: "Suporte de Celular",
-    descricao: "Suporte de mesa para o celular, com o selo dos 55 anos na frente.",
-    foto: "img/chaveiros/itm-suporte-celular.jpg", arte: "itm-suporte-celular",
   },
   {
     id: "itm-ima", categoria: "itamaraty-mesa", nome: "Ímã de Geladeira",
@@ -939,11 +929,6 @@ const ARTES = {
     <g transform="translate(50 88) rotate(0) scale(1.9)"><path d="M0 8 C0 -10 0 -24 0 -36" stroke="#c9a227" stroke-width="1.6" fill="none"/><ellipse cx="3.2" cy="-6" rx="2.6" ry="4.6" transform="rotate(28 3.2 -6)" fill="#c9a227"/><ellipse cx="-3.2" cy="-11" rx="2.6" ry="4.6" transform="rotate(-28 -3.2 -11)" fill="#c9a227"/><ellipse cx="3.2" cy="-16" rx="2.6" ry="4.6" transform="rotate(28 3.2 -16)" fill="#c9a227"/><ellipse cx="-3.2" cy="-21" rx="2.6" ry="4.6" transform="rotate(-28 -3.2 -21)" fill="#c9a227"/><ellipse cx="3.2" cy="-26" rx="2.6" ry="4.6" transform="rotate(28 3.2 -26)" fill="#c9a227"/><ellipse cx="-3.2" cy="-31" rx="2.6" ry="4.6" transform="rotate(-28 -3.2 -31)" fill="#c9a227"/><ellipse cx="0" cy="-37" rx="2.2" ry="4" fill="#c9a227"/></g>
     <circle cx="50" cy="56" r="13" fill="#1e3f93" stroke="#fff" stroke-width="2"/>
     <text x="50" y="61.5" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-style="italic" font-size="14" fill="#fff">55</text>`,
-  "itm-nfc": `
-    <circle cx="50" cy="50" r="40" fill="#1e3f93" stroke="#c9a227" stroke-width="2.5"/>
-    <text x="50" y="30" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-style="italic" font-size="12" fill="#e8c55a">55 anos</text>
-    <g transform="rotate(90 44 52)"><path d="M39.9 48.5 A5.4 5.4 0 0 1 48.1 48.5 M36.4 45.6 A9.9 9.9 0 0 1 51.6 45.6 M33.0 42.7 A14.4 14.4 0 0 1 55.0 42.7" fill="none" stroke="#fff" stroke-width="2.9" stroke-linecap="round"/></g><circle cx="44" cy="52" r="2.2" fill="#fff"/>
-    <text x="50" y="76" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="800" font-size="6.5" letter-spacing=".8" fill="#fff">APROXIME</text>`,
   "itm-coracao": `
     <path d="M50 90 C14 66 6 46 12 30 C18 14 40 12 50 28 C60 12 82 14 88 30 C94 46 86 66 50 90 Z" fill="#1e3f93" stroke="#c9a227" stroke-width="2.5"/>
     <text x="50" y="52" text-anchor="middle" font-family="'Brush Script MT', 'Segoe Script', cursive" font-size="20" fill="#e8c55a">Paixão</text>
@@ -988,12 +973,6 @@ const ARTES = {
     <rect x="14" y="32" width="72" height="7" rx="3.5" fill="#142c6b"/>
     <text x="50" y="30" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="800" font-size="7" fill="#fff">itamaraty 55</text>
     <rect x="16" y="88" width="68" height="8" rx="3" fill="#1e3f93"/><rect x="19" y="89" width="62" height="2" rx="1" fill="#ffffff33"/>`,
-  "itm-suporte-celular": `
-    <rect x="34" y="8" width="34" height="66" rx="5" fill="#1d1d1f" transform="rotate(-10 51 41)"/>
-    <rect x="37" y="12" width="28" height="56" rx="3" fill="#2b4fae" transform="rotate(-10 51 40)"/>
-    <path d="M18 88 L30 60 H40 L36 74 H82 L84 88 Z" fill="#1e3f93"/>
-    <text x="58" y="85" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-style="italic" font-size="10" fill="#e8c55a">55 anos</text>
-    <rect x="14" y="88" width="74" height="8" rx="3" fill="#1e3f93"/><rect x="17" y="89" width="68" height="2" rx="1" fill="#ffffff33"/>`,
   "itm-ima": `
     <rect x="12" y="10" width="76" height="76" rx="14" fill="#fff" stroke="#1e3f93" stroke-width="3"/>
     <circle cx="50" cy="38" r="22" fill="#1e3f93"/><circle cx="50" cy="38" r="19.8" fill="#fff"/><circle cx="50" cy="38" r="18.4" fill="none" stroke="#c9a227" stroke-width="0.9"/><text x="48.4" y="41.3" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-style="italic" font-size="18.7" fill="#1e3f93">55</text><text x="57.7" y="45.7" text-anchor="middle" font-family="'Brush Script MT', 'Segoe Script', cursive" font-size="5.5" fill="#c9a227">anos</text><rect x="37.9" y="47.0" width="24.200000000000003" height="6.3" rx="3.1" fill="#1e3f93" stroke="#c9a227" stroke-width=".8"/><text x="50" y="51.8" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="800" font-size="4.5" fill="#fff">itamaraty</text>

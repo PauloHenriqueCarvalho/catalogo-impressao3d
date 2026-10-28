@@ -6,6 +6,7 @@
 //     cliente: "Nome",              // opcional: entra na mensagem do WhatsApp
 //     tema: "natural",              // opcional: "natural" ou "azul" (padrão: escuro)
 //     subtitulo: "Texto do topo",   // opcional
+//     precos: { "categoria-ou-id": 4 }, // opcional: preço em reais por categoria ou produto
 //     andares: [
 //       "artes-marciais",            // categoria inteira
 //       { categoria: "animes", produtos: ["boneco-goku", "esfera"] }, // só alguns
@@ -18,6 +19,10 @@ const $ = (sel) => document.querySelector(sel);
 const BASE = new URL("..", document.currentScript.src);
 
 const FAIXAS_CLARAS = ["Branca", "Cinza", "Amarela"];
+
+const reais = (v) => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+// Preço definido na página do cliente (por produto ou por categoria); sem preço, não mostra
+const preco = (p) => CATALOGO.precos?.[p.id] ?? CATALOGO.precos?.[p.categoria] ?? null;
 
 // Andares normalizados: { categoria, nome, descricao, produtos: [...] }
 const ANDARES = CATALOGO.andares.map((a) => {
@@ -121,7 +126,7 @@ function montarPagina() {
     <div class="pedido" id="pedido" hidden>
       <div class="pedido-resumo">
         <b id="pedido-qtd">0 itens</b>
-        <span>no seu pedido</span>
+        <span id="pedido-total">no seu pedido</span>
       </div>
       <button class="btn btn-secundario btn-pequeno" id="pedido-limpar" type="button">Limpar</button>
       <a class="btn btn-primario btn-pequeno" id="pedido-enviar" target="_blank" rel="noopener">Enviar pelo WhatsApp</a>
@@ -134,7 +139,9 @@ function montarPagina() {
         <p class="selo" id="modal-categoria"></p>
         <h3 id="modal-nome"></h3>
         <p id="modal-descricao"></p>
+        <p class="preco" id="modal-preco" hidden></p>
         <div class="cores" id="modal-cores" hidden></div>
+        <label class="quantidade">Quantidade <input type="number" id="modal-qtd" min="1" value="1" inputmode="numeric"></label>
         <button class="btn btn-primario" id="modal-adicionar" type="button">Adicionar ao pedido</button>
       </div>
     </dialog>
@@ -212,6 +219,7 @@ function montarGrades() {
           <h3>${p.nome}</h3>
           <p>${p.descricao}</p>
           <div class="card-rodape">
+            ${preco(p) !== null ? `<span class="preco">${reais(preco(p))} <small>cada</small></span>` : ""}
             <button class="btn btn-primario btn-pequeno" type="button">${p.faixa ? "Escolher cor" : "Adicionar"}</button>
           </div>
         </div>`;
@@ -233,6 +241,9 @@ function abrirModal(p) {
   $("#modal-categoria").textContent = CATEGORIAS[p.categoria].nome;
   $("#modal-nome").textContent = p.nome;
   $("#modal-descricao").textContent = p.descricao;
+  $("#modal-preco").hidden = preco(p) === null;
+  if (preco(p) !== null) $("#modal-preco").innerHTML = `${reais(preco(p))} <small>cada</small>`;
+  $("#modal-qtd").value = 1;
   $("#modal").showModal();
 }
 // Seletor de cor da faixa
@@ -263,26 +274,33 @@ const pedido = new Map(); // "id|cor" -> quantidade
 
 const nomeItem = (p, cor) => (cor ? `${p.nome} (faixa ${cor.toLowerCase()})` : p.nome);
 
-function adicionar(p, cor = null) {
+function adicionar(p, cor = null, qtd = 1) {
   const chave = `${p.id}|${cor || ""}`;
-  pedido.set(chave, (pedido.get(chave) || 0) + 1);
+  pedido.set(chave, (pedido.get(chave) || 0) + qtd);
   atualizarPedido();
-  avisar(`${nomeItem(p, cor)} adicionado ao pedido`);
+  avisar(`${qtd > 1 ? `${qtd}x ` : ""}${nomeItem(p, cor)} adicionado ao pedido`);
 }
 
 function atualizarPedido() {
   const itens = [...pedido].map(([chave, qtd]) => {
     const [id, cor] = chave.split("|");
-    return { nome: nomeItem(PRODUTOS.find((x) => x.id === id), cor), qtd };
+    const p = PRODUTOS.find((x) => x.id === id);
+    return { nome: nomeItem(p, cor), qtd, preco: preco(p) };
   });
   const qtdTotal = itens.reduce((s, i) => s + i.qtd, 0);
+  const comPreco = itens.some((i) => i.preco !== null);
+  const total = itens.reduce((s, i) => s + i.qtd * (i.preco ?? 0), 0);
 
   $("#pedido").hidden = qtdTotal === 0;
   $("#pedido-qtd").textContent = `${qtdTotal} ${qtdTotal === 1 ? "item" : "itens"}`;
+  $("#pedido-total").textContent = comPreco ? `Total ${reais(total)}` : "no seu pedido";
 
-  const linhas = itens.map((i) => `• ${i.qtd}x ${i.nome}`).join("\n");
-  const apresentacao = CATALOGO.cliente ? ` Aqui é ${CATALOGO.cliente}.` : "";
-  const msg = `Olá, ${LOJA.nome}!${apresentacao} Quero encomendar:\n\n${linhas}`;
+  const linhas = itens
+    .map((i) => `• ${i.qtd}x ${i.nome}${i.preco !== null ? ` — ${reais(i.preco)} cada = ${reais(i.qtd * i.preco)}` : ""}`)
+    .join("\n");
+  const msg = `Olá, ${LOJA.nome}! Quero encomendar:\n\n${linhas}`
+    + (comPreco ? `\n\nTotal: ${reais(total)}` : "")
+    + (CATALOGO.cliente ? `\n\nCliente: ${CATALOGO.cliente}` : "");
   $("#pedido-enviar").href = `https://wa.me/${LOJA.whatsapp}?text=${encodeURIComponent(msg)}`;
 }
 
@@ -301,5 +319,9 @@ montarGrades();
 
 $("#modal-fechar").addEventListener("click", () => $("#modal").close());
 $("#modal").addEventListener("click", (e) => { if (e.target === e.currentTarget) $("#modal").close(); });
-$("#modal-adicionar").addEventListener("click", () => { adicionar(produtoAberto, corAberta); $("#modal").close(); });
+$("#modal-adicionar").addEventListener("click", () => {
+  const qtd = Math.max(1, parseInt($("#modal-qtd").value, 10) || 1);
+  adicionar(produtoAberto, corAberta, qtd);
+  $("#modal").close();
+});
 $("#pedido-limpar").addEventListener("click", () => { pedido.clear(); atualizarPedido(); });

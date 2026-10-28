@@ -69,10 +69,8 @@ Coloque aqui as fotos reais dos chaveiros com estes nomes (formato .jpg, de pref
 | itm-grao.jpg | Grão de Café |
 | itm-wafer.jpg | Wafer Itamaraty |
 | itm-trigo.jpg | Ramo de Trigo |
-| itm-nfc.jpg | Tag NFC 55 Anos |
 | itm-porta-copos.jpg | Porta-Copos 55 Anos |
 | itm-prendedor.jpg | Prendedor de Pacote |
-| itm-suporte-celular.jpg | Suporte de Celular |
 | itm-ima.jpg | Ímã de Geladeira |
 | itm-coracao.jpg | Coração Paixão |
 | itm-chocolate.jpg | Barrinha de Chocolate |

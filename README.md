@@ -22,6 +22,7 @@ const CATALOGO = {
   cliente: "Maria Silva",
   tema: "natural",          // opcional: "natural" ou "azul"; sem isso usa a escura
   subtitulo: "Texto do topo", // opcional
+  precos: { "itamaraty-chaveiros": 4.5 }, // opcional: preço por categoria ou por id de produto
   andares: [
     "animes",                                               // categoria inteira
     { categoria: "artes-marciais", produtos: ["kimono", "faixa"] }, // só alguns
@@ -36,8 +37,8 @@ A ordem de `andares` é a ordem do expositor (de cima para baixo). Os ids dos pr
 - **Artes Marciais:** faixa, faixa com nome, kimonos (branco, azul, rosa, traço) com escolha da cor da faixa, luva de boxe, luva dourada, medalhão lutador, placa com frase, medalha, troféu, katana, nunchaku, shuriken, yin-yang, kanji 武, portal torii
 - **Salão de beleza — Brindes para Clientes:** Tag NFC de Agendamento, Porta-OB, porta-anel, porta-batom, porta-óleo capilar, porta-xuxinha, espelhinho de bolsa, pente de bolso, cápsula de grampos, porta-comprimidos, gancho de bolsa, abre-porta sem toque
 - **Salão de beleza — Outras Peças (não são chaveiros):** Display NFC Instagram + Google, Placa NFC do Instagram, Placa NFC de Avaliação, Porta-Cartão com NFC
-- **Itamaraty — Chaveiros 55 Anos:** Selo 55 Anos, Chaveiro com Nome, Abridor de Garrafa 55, Xícara de Café, Grão de Café, Wafer Itamaraty, Ramo de Trigo, Tag NFC 55 Anos, Coração Paixão, Barrinha de Chocolate, Biscoito Recheado, Pacotinho de Café
-- **Itamaraty — Para a Mesa e a Cozinha (não são chaveiros):** Porta-Copos 55 Anos, Prendedor de Pacote, Suporte de Celular, Ímã de Geladeira
+- **Itamaraty — Chaveiros 55 Anos:** Selo 55 Anos, Chaveiro com Nome, Abridor de Garrafa 55, Xícara de Café, Grão de Café, Wafer Itamaraty, Ramo de Trigo, Coração Paixão, Barrinha de Chocolate, Biscoito Recheado, Pacotinho de Café
+- **Itamaraty — Para a Mesa e a Cozinha (não são chaveiros):** Porta-Copos 55 Anos, Prendedor de Pacote, Ímã de Geladeira
 - **Animes & Desenhos:** bonequinhos (Goku, Vegeta, Naruto, Sasuke, Kakashi, Luffy, Zoro, Tanjiro, Nezuko, Pikachu, Bob Esponja, Patrick), Goku, Esfera do Dragão, Nuvem Voadora, bandana da Folha, Sharingan, Kunai, Nuvem Akatsuki, Chapéu de Palha, bandeira pirata, Brinco do Tanjiro, Pokébola, Raio do Pikachu
 
 O cliente escolhe os chaveiros e envia o pedido pronto pelo WhatsApp.
