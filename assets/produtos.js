@@ -27,7 +27,7 @@ const CATEGORIAS = {
   "salao-outros": {
     nome: "Outras Peças",
     curto: "Outras Peças",
-    descricao: "Displays com NFC para o balcão e suportes práticos para a bancada do salão.",
+    descricao: "Displays com NFC para o balcão: a cliente encosta o celular e segue, avalia ou agenda.",
     peca: true, // não são chaveiros: aparecem apoiadas na prateleira
   },
 };
@@ -340,18 +340,8 @@ const PRODUTOS = [
   },
   {
     id: "salao-porta-cartao", categoria: "salao-outros", nome: "Porta-Cartão com NFC",
-    descricao: "Porta-cartões de visita para o balcão, com NFC na frente para salvar o contato ou agendar com o Gustavo.",
+    descricao: "Suporte de balcão que segura os cartões de visita do salão. Na frente tem um NFC: quem não quiser levar o cartão de papel encosta o celular e abre o WhatsApp para agendar com o Gustavo.",
     foto: "img/chaveiros/salao-porta-cartao.jpg", arte: "salao-porta-cartao",
-  },
-  {
-    id: "salao-suporte-secador", categoria: "salao-outros", nome: "Suporte de Secador e Chapinha",
-    descricao: "Suporte de parede ou bancada que encaixa o secador e a chapinha, com os fios organizados.",
-    foto: "img/chaveiros/salao-suporte-secador.jpg", arte: "salao-suporte-secador",
-  },
-  {
-    id: "salao-porta-tesouras", categoria: "salao-outros", nome: "Porta-Tesouras e Pentes",
-    descricao: "Organizador de bancada com encaixes para tesouras, pentes e escovas sempre à mão.",
-    foto: "img/chaveiros/salao-porta-tesouras.jpg", arte: "salao-porta-tesouras",
   },
 ];
 
@@ -820,26 +810,5 @@ const ARTES = {
     <path d="M14 64 H86 L80 90 H20 Z" fill="#6b7d4f"/>
     <path d="M14 64 H86 L85 68 H15 Z" fill="#4f5d39"/>
     <g transform="rotate(90 46 75)"><path d="M43.9 73.3 A2.7 2.7 0 0 1 48.1 73.3 M42.2 71.8 A5.0 5.0 0 0 1 49.8 71.8 M40.5 70.4 A7.2 7.2 0 0 1 51.5 70.4" fill="none" stroke="#f4efe6" stroke-width="1.4" stroke-linecap="round"/></g><circle cx="46" cy="75" r="1.1" fill="#f4efe6"/>
-    <rect x="12" y="88" width="76" height="8" rx="3" fill="#6b7d4f"/><rect x="15" y="89" width="70" height="2" rx="1" fill="#ffffff33"/>`,
-  "salao-suporte-secador": `
-    <rect x="58" y="6" width="26" height="86" rx="6" fill="#f4efe6" stroke="#c6a15b" stroke-width="2"/>
-    <path d="M58 26 H40 A12 12 0 0 0 40 50 H58" fill="none" stroke="#6b7d4f" stroke-width="5"/>
-    <rect x="18" y="14" width="34" height="20" rx="10" fill="#3a3a3d"/>
-    <path d="M10 18 L18 17 L18 31 L10 30 Z" fill="#2a2a2d"/>
-    <path d="M36 32 H46 L44 60 Q41 63 38 60 Z" fill="#3a3a3d"/>
-    <path d="M58 62 H48 V70 H58" fill="none" stroke="#6b7d4f" stroke-width="4"/>
-    <path d="M50 52 L47 90 H53 Z" fill="#2a2a2d"/><path d="M54 52 L57 90 H51 Z" fill="#3a3a3d"/>
-    <path d="M41 62 C40 74 30 76 30 86" fill="none" stroke="#2a2a2d" stroke-width="1.5"/>
-    <circle cx="71" cy="16" r="2.5" fill="#9c7a35"/><circle cx="71" cy="82" r="2.5" fill="#9c7a35"/>`,
-  "salao-porta-tesouras": `
-    <g stroke="#9aa0a6" stroke-width="1"><path d="M30 46 L26 10 L29 10 L33 46 Z" fill="#dfe4ea"/><path d="M36 46 L38 12 L41 12 L39 46 Z" fill="#c9ced6"/></g>
-    <circle cx="27" cy="50" r="5" fill="none" stroke="#c6a15b" stroke-width="2.5"/><circle cx="39" cy="50" r="5" fill="none" stroke="#c6a15b" stroke-width="2.5"/>
-    <rect x="50" y="10" width="7" height="40" rx="2" fill="#c6a15b"/>
-    <path d="M50 14 h-4 M50 18 h-4 M50 22 h-4 M50 26 h-4 M50 30 h-4 M50 34 h-4 M50 38 h-4" stroke="#c6a15b" stroke-width="1.5"/>
-    <rect x="64" y="20" width="8" height="34" rx="4" fill="#4f5d39"/>
-    <rect x="61" y="6" width="14" height="18" rx="6" fill="#e8dcc8"/>
-    <rect x="16" y="48" width="68" height="40" rx="8" fill="#6b7d4f"/>
-    <path d="M24 52 H44 M48 52 H60 M63 52 H75" stroke="#4f5d39" stroke-width="4" stroke-linecap="round"/>
-    <text x="50" y="74" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="9" fill="#f4efe6">Beauté Naturelle</text>
     <rect x="12" y="88" width="76" height="8" rx="3" fill="#6b7d4f"/><rect x="15" y="89" width="70" height="2" rx="1" fill="#ffffff33"/>`,
 };

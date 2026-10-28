@@ -62,7 +62,5 @@ Coloque aqui as fotos reais dos chaveiros com estes nomes (formato .jpg, de pref
 | salao-placa-instagram.jpg | Placa NFC do Instagram |
 | salao-placa-google.jpg | Placa NFC de Avaliação |
 | salao-porta-cartao.jpg | Porta-Cartão com NFC |
-| salao-suporte-secador.jpg | Suporte de Secador e Chapinha |
-| salao-porta-tesouras.jpg | Porta-Tesouras e Pentes |
 
 Enquanto a foto não existir, o site mostra a ilustração do chaveiro automaticamente.

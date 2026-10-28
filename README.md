@@ -34,7 +34,7 @@ A ordem de `andares` é a ordem do expositor (de cima para baixo). Os ids dos pr
 
 - **Artes Marciais:** faixa, faixa com nome, kimonos (branco, azul, rosa, traço) com escolha da cor da faixa, luva de boxe, luva dourada, medalhão lutador, placa com frase, medalha, troféu, katana, nunchaku, shuriken, yin-yang, kanji 武, portal torii
 - **Salão de beleza — Brindes para Clientes:** Tag NFC de Agendamento, Porta-OB, porta-anel, porta-batom, porta-óleo capilar, porta-xuxinha, espelhinho de bolsa, pente de bolso, cápsula de grampos, porta-comprimidos, gancho de bolsa, abre-porta sem toque
-- **Salão de beleza — Outras Peças (não são chaveiros):** Display NFC Instagram + Google, Placa NFC do Instagram, Placa NFC de Avaliação, Porta-Cartão com NFC, Suporte de Secador e Chapinha, Porta-Tesouras e Pentes
+- **Salão de beleza — Outras Peças (não são chaveiros):** Display NFC Instagram + Google, Placa NFC do Instagram, Placa NFC de Avaliação, Porta-Cartão com NFC
 - **Animes & Desenhos:** bonequinhos (Goku, Vegeta, Naruto, Sasuke, Kakashi, Luffy, Zoro, Tanjiro, Nezuko, Pikachu, Bob Esponja, Patrick), Goku, Esfera do Dragão, Nuvem Voadora, bandana da Folha, Sharingan, Kunai, Nuvem Akatsuki, Chapéu de Palha, bandeira pirata, Brinco do Tanjiro, Pokébola, Raio do Pikachu
 
 O cliente escolhe os chaveiros e envia o pedido pronto pelo WhatsApp.
