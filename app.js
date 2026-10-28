@@ -1,4 +1,3 @@
-const reais = (v) => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 const $ = (sel) => document.querySelector(sel);
 
 // Chaveiro completo: argola + corrente + peça
@@ -28,7 +27,15 @@ function imagemProduto(p) {
 function montarExpositor() {
   for (const andar of ["cima", "baixo"]) {
     const alvo = $(andar === "cima" ? "#andar-cima" : "#andar-baixo");
+    let fileira;
     PRODUTOS.filter((p) => p.andar === andar).forEach((p, i) => {
+      // Cada fileira do expositor tem sua própria barra com 6 ganchos
+      if (i % 6 === 0) {
+        fileira = document.createElement("div");
+        fileira.className = "fileira";
+        fileira.innerHTML = `<div class="barra"></div><div class="ganchos"></div>`;
+        alvo.appendChild(fileira);
+      }
       const b = document.createElement("button");
       b.type = "button";
       b.className = "gancho";
@@ -36,7 +43,7 @@ function montarExpositor() {
       b.setAttribute("aria-label", `Ver ${p.nome}`);
       b.innerHTML = `<span class="pino"></span><span class="pendente">${svgChaveiro(p)}</span><span class="etiqueta">${p.nome}</span>`;
       b.addEventListener("click", () => abrirModal(p));
-      alvo.appendChild(b);
+      fileira.querySelector(".ganchos").appendChild(b);
     });
   }
 }
@@ -53,7 +60,6 @@ function montarGrade(andar, seletor) {
         <h3>${p.nome}</h3>
         <p>${p.descricao}</p>
         <div class="card-rodape">
-          <span class="preco">${reais(p.preco)}</span>
           <button class="btn btn-primario btn-pequeno" type="button">Adicionar</button>
         </div>
       </div>`;
@@ -68,10 +74,9 @@ let produtoAberto = null;
 function abrirModal(p) {
   produtoAberto = p;
   $("#modal-imagem").innerHTML = imagemProduto(p);
-  $("#modal-categoria").textContent = p.andar === "cima" ? "1º andar · Artes Marciais" : "2º andar · Animes & Desenhos";
+  $("#modal-categoria").textContent = p.andar === "cima" ? "Artes Marciais" : "Animes & Desenhos";
   $("#modal-nome").textContent = p.nome;
   $("#modal-descricao").textContent = p.descricao;
-  $("#modal-preco").textContent = reais(p.preco);
   $("#modal").showModal();
 }
 $("#modal-fechar").addEventListener("click", () => $("#modal").close());
@@ -90,14 +95,12 @@ function adicionar(p) {
 function atualizarPedido() {
   const itens = [...pedido].map(([id, qtd]) => ({ p: PRODUTOS.find((x) => x.id === id), qtd }));
   const qtdTotal = itens.reduce((s, i) => s + i.qtd, 0);
-  const valor = itens.reduce((s, i) => s + i.qtd * i.p.preco, 0);
 
   $("#pedido").hidden = qtdTotal === 0;
   $("#pedido-qtd").textContent = `${qtdTotal} ${qtdTotal === 1 ? "item" : "itens"}`;
-  $("#pedido-total").textContent = reais(valor);
 
-  const linhas = itens.map((i) => `• ${i.qtd}x ${i.p.nome} (${reais(i.p.preco)})`).join("\n");
-  const msg = `Olá, ${LOJA.nome}! Quero encomendar estes chaveiros:\n\n${linhas}\n\nTotal: ${reais(valor)}`;
+  const linhas = itens.map((i) => `• ${i.qtd}x ${i.p.nome}`).join("\n");
+  const msg = `Olá, ${LOJA.nome}! Quero encomendar estes chaveiros:\n\n${linhas}`;
   $("#pedido-enviar").href = `https://wa.me/${LOJA.whatsapp}?text=${encodeURIComponent(msg)}`;
 }
 

@@ -18,7 +18,7 @@
     <span>Verissimo <b>3D</b></span>
   </a>
   <nav>
-    <a href="#expositor">Expositor</a>
+    <a href="#expositor">Chaveiros</a>
     <a href="#artes-marciais">Artes Marciais</a>
     <a href="#animes">Animes</a>
     <a href="#como-funciona">Como pedir</a>
@@ -27,12 +27,11 @@
 
 <section class="hero" id="inicio">
   <div class="hero-texto">
-    <p class="selo">Catálogo exclusivo · Chaveiros</p>
-    <h1>Chaveiros impressos em 3D <span>do tatame ao anime</span></h1>
-    <p class="hero-sub">Peças leves, resistentes e feitas sob encomenda, organizadas em um expositor de dois andares:
-      <b>artes marciais</b> em cima e <b>animes e desenhos</b> embaixo.</p>
+    <p class="selo">Catálogo · Chaveiros</p>
+    <h1>Verissimo <span>3D</span></h1>
+    <p class="hero-sub">Chaveiros impressos em 3D, leves, resistentes e feitos sob encomenda.</p>
     <div class="hero-acoes">
-      <a class="btn btn-primario" href="#expositor">Ver o expositor</a>
+      <a class="btn btn-primario" href="#expositor">Ver chaveiros</a>
       <a class="btn btn-secundario" href="#como-funciona">Como fazer o pedido</a>
     </div>
     <ul class="hero-info">
@@ -46,23 +45,21 @@
 <!-- EXPOSITOR DE DOIS ANDARES -->
 <section class="secao" id="expositor">
   <div class="secao-cabecalho">
-    <p class="selo">Expositor</p>
-    <h2>Expositor de dois andares</h2>
-    <p>Toque em um chaveiro para ver os detalhes e adicionar ao pedido.</p>
+    <p class="selo">Coleção</p>
+    <h2>Nossos chaveiros</h2>
+    <p>Toque em um chaveiro para ver os detalhes.</p>
   </div>
 
   <div class="expositor">
     <div class="expositor-placa">VERISSIMO 3D</div>
     <div class="expositor-corpo">
       <div class="andar">
-        <span class="andar-rotulo">1º andar · Artes Marciais</span>
-        <div class="barra"></div>
-        <div class="ganchos" id="andar-cima"></div>
+        <span class="andar-rotulo">Artes Marciais</span>
+        <div id="andar-cima"></div>
       </div>
       <div class="andar">
-        <span class="andar-rotulo">2º andar · Animes &amp; Desenhos</span>
-        <div class="barra"></div>
-        <div class="ganchos" id="andar-baixo"></div>
+        <span class="andar-rotulo">Animes &amp; Desenhos</span>
+        <div id="andar-baixo"></div>
       </div>
     </div>
     <div class="expositor-base"></div>
@@ -71,18 +68,18 @@
 
 <section class="secao" id="artes-marciais">
   <div class="secao-cabecalho">
-    <p class="selo">1º andar</p>
+    <p class="selo">Coleção</p>
     <h2>Artes Marciais</h2>
-    <p>Para quem vive o tatame: karatê, judô, jiu-jitsu, boxe, muay thai e kung fu.</p>
+    <p>Karatê, judô, jiu-jitsu, boxe, muay thai e kung fu.</p>
   </div>
   <div class="grade" id="grade-artes"></div>
 </section>
 
 <section class="secao" id="animes">
   <div class="secao-cabecalho">
-    <p class="selo">2º andar</p>
+    <p class="selo">Coleção</p>
     <h2>Animes &amp; Desenhos</h2>
-    <p>Os personagens e símbolos favoritos de Dragon Ball, Naruto, One Piece e mais.</p>
+    <p>Dragon Ball, Naruto, One Piece, Demon Slayer, Pokémon e mais.</p>
   </div>
   <div class="grade" id="grade-animes"></div>
 </section>
@@ -108,7 +105,7 @@
 <div class="pedido" id="pedido" hidden>
   <div class="pedido-resumo">
     <b id="pedido-qtd">0 itens</b>
-    <span id="pedido-total">R$ 0,00</span>
+    <span>no seu pedido</span>
   </div>
   <button class="btn btn-secundario btn-pequeno" id="pedido-limpar" type="button">Limpar</button>
   <a class="btn btn-primario btn-pequeno" id="pedido-enviar" target="_blank" rel="noopener">Enviar pelo WhatsApp</a>
@@ -122,7 +119,6 @@
     <p class="selo" id="modal-categoria"></p>
     <h3 id="modal-nome"></h3>
     <p id="modal-descricao"></p>
-    <p class="preco" id="modal-preco"></p>
     <button class="btn btn-primario" id="modal-adicionar" type="button">Adicionar ao pedido</button>
   </div>
 </dialog>

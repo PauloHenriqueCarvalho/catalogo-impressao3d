@@ -57,7 +57,7 @@ h1, h2, .logo, .expositor-placa { font-family: "Bebas Neue", Impact, sans-serif;
   color: var(--laranja-2); margin-bottom: 12px;
 }
 .hero h1 { font-size: clamp(2.8rem, 8vw, 5.4rem); line-height: .95; }
-.hero h1 span { display: block; color: var(--laranja); }
+.hero h1 span { color: var(--laranja); }
 .hero-sub { margin: 20px auto 0; max-width: 560px; color: var(--texto-2); font-size: 1.08rem; }
 .hero-sub b { color: var(--texto); }
 .hero-acoes { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
@@ -108,8 +108,10 @@ h1, h2, .logo, .expositor-placa { font-family: "Bebas Neue", Impact, sans-serif;
   background: var(--fundo); border: 1px solid var(--borda); color: var(--laranja-2);
   padding: 3px 12px; border-radius: 999px;
 }
+.fileira { position: relative; }
+.fileira + .fileira { margin-top: 26px; }
 .barra {
-  position: absolute; left: 10px; right: 10px; top: 42px; height: 8px; border-radius: 4px;
+  position: absolute; left: -6px; right: -6px; top: 0; height: 8px; border-radius: 4px;
   background: linear-gradient(#e2e6ec, #8d939c);
   box-shadow: 0 3px 6px rgba(0, 0, 0, .5);
 }
@@ -159,8 +161,7 @@ h1, h2, .logo, .expositor-placa { font-family: "Bebas Neue", Impact, sans-serif;
 .card-corpo { padding: 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
 .card-corpo h3 { font-size: 1.08rem; }
 .card-corpo p { color: var(--texto-2); font-size: .9rem; flex: 1; }
-.card-rodape { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 6px; }
-.preco { font-weight: 700; font-size: 1.15rem; color: var(--laranja-2); }
+.card-rodape { display: flex; align-items: center; justify-content: flex-end; gap: 10px; margin-top: 6px; }
 
 /* ---------- Passos ---------- */
 .passos { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
@@ -187,7 +188,7 @@ h1, h2, .logo, .expositor-placa { font-family: "Bebas Neue", Impact, sans-serif;
 }
 .pedido[hidden] { display: none; }
 .pedido-resumo { flex: 1; display: flex; flex-direction: column; line-height: 1.2; font-size: .9rem; }
-.pedido-resumo span { color: #c95300; font-weight: 700; }
+.pedido-resumo span { color: #666; }
 .pedido .btn-secundario { color: #111; border-color: #ddd; }
 
 /* ---------- Modal ---------- */
@@ -201,7 +202,7 @@ h1, h2, .logo, .expositor-placa { font-family: "Bebas Neue", Impact, sans-serif;
 .modal-texto { padding: 30px; display: flex; flex-direction: column; gap: 12px; justify-content: center; }
 .modal-texto .selo { margin: 0; }
 .modal-texto h3 { font-size: 1.6rem; line-height: 1.1; }
-.modal-texto p:not(.selo):not(.preco) { color: var(--texto-2); }
+.modal-texto p:not(.selo) { color: var(--texto-2); }
 .modal-fechar {
   position: absolute; top: 10px; right: 12px; z-index: 2; width: 36px; height: 36px; border-radius: 50%;
   border: 0; background: rgba(0, 0, 0, .4); color: #fff; font-size: 1.5rem; cursor: pointer;
