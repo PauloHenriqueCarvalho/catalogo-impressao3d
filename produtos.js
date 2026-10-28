@@ -158,7 +158,7 @@ const PRODUTOS = [
   },
   {
     id: "boneco-nezuko", andar: "baixo", nome: "Nezukinha",
-    descricao: "Bonequinha da Nezuko com o bambu e o kimono rosa (Demon Slayer).",
+    descricao: "Boneca da Nezuko com o bambu e o kimono rosa (Demon Slayer).",
     foto: "img/chaveiros/boneco-nezuko.jpg", arte: "boneco-nezuko",
   },
   {
@@ -253,39 +253,47 @@ function kimonoArte(tecido, contorno, extra = "", espessura = 2) {
     <path d="M46 62 L40 80 L46 80 L50 64 Z M54 62 L60 80 L54 80 L50 64 Z" style="fill: var(--faixa, #1d1d1f)" stroke="#5a5d66" stroke-width="1"/>`;
 }
 
-// ---------- Bonequinhos (chibi) ----------
-function rostoPadrao(olhos, boca = `<path d="M47 52 Q50 54.5 53 52" fill="none" stroke="#6b3a2a" stroke-width="1.5" stroke-linecap="round"/>`) {
+// ---------- Bonequinhos (proporção normal) ----------
+// A cabeça é desenhada numa escala própria (centro 50,42 / raio 19)
+// e reduzida para ficar proporcional ao corpo.
+function rostoPadrao(olhos, boca = `<path d="M46 55 Q50 57 54 55" fill="none" stroke="#8a4a3a" stroke-width="1.5" stroke-linecap="round"/>`) {
   return `
-    <ellipse cx="43" cy="45" rx="3" ry="4" fill="${olhos}"/><ellipse cx="57" cy="45" rx="3" ry="4" fill="${olhos}"/>
-    <circle cx="44" cy="43.5" r="1.1" fill="#fff"/><circle cx="58" cy="43.5" r="1.1" fill="#fff"/>
-    <ellipse cx="38" cy="51" rx="3" ry="1.6" fill="#ff8a8a" opacity=".5"/><ellipse cx="62" cy="51" rx="3" ry="1.6" fill="#ff8a8a" opacity=".5"/>
+    <ellipse cx="42" cy="44" rx="3" ry="3.5" fill="${olhos}"/><ellipse cx="58" cy="44" rx="3" ry="3.5" fill="${olhos}"/>
+    <circle cx="43" cy="43" r="1" fill="#fff"/><circle cx="59" cy="43" r="1" fill="#fff"/>
+    <path d="M38 41.5 Q42 39.5 46 41.5 M54 41.5 Q58 39.5 62 41.5" fill="none" stroke="#1d1d1f" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M37 37 L46 37.5 M54 37.5 L63 37" stroke="#1d1d1f" stroke-width="1.6" stroke-linecap="round"/>
+    <path d="M50 47 L49 51 L51.5 51" fill="none" stroke="#c98a6a" stroke-width="1.2" stroke-linecap="round"/>
     ${boca}`;
 }
 
-function corpoChibi({ pele, roupa, calca, sapato, mangas = roupa, maos = pele, extra = "" }) {
+function corpoNormal({ pele, roupa, calca, sapato, mangas = roupa, maos = pele, extra = "" }) {
   return `
-    <path d="M38 60 L30 74 M62 60 L70 74" stroke="${mangas}" stroke-width="8" stroke-linecap="round"/>
-    <circle cx="29" cy="76" r="4.5" fill="${maos}"/><circle cx="71" cy="76" r="4.5" fill="${maos}"/>
-    <rect x="40" y="78" width="8" height="11" fill="${calca}"/><rect x="52" y="78" width="8" height="11" fill="${calca}"/>
-    <ellipse cx="43" cy="91" rx="6" ry="3.5" fill="${sapato}"/><ellipse cx="57" cy="91" rx="6" ry="3.5" fill="${sapato}"/>
-    <path d="M38 58 L62 58 L65 80 L35 80 Z" fill="${roupa}"/>
+    <rect x="46" y="29" width="8" height="8" fill="${pele}"/>
+    <path d="M36 38 L28 60 M64 38 L72 60" stroke="${mangas}" stroke-width="7.5" stroke-linecap="round"/>
+    <circle cx="27.5" cy="62.5" r="3.8" fill="${maos}"/><circle cx="72.5" cy="62.5" r="3.8" fill="${maos}"/>
+    <path d="M39 56 L61 56 L64 88 L54.5 88 L50 66 L45.5 88 L36 88 Z" fill="${calca}"/>
+    <ellipse cx="40" cy="90" rx="6.5" ry="3.2" fill="${sapato}"/><ellipse cx="60" cy="90" rx="6.5" ry="3.2" fill="${sapato}"/>
+    <path d="M32 37 Q50 32 68 37 L62 58 L38 58 Z" fill="${roupa}"/>
     ${extra}`;
 }
 
-function chibi({ pele = "#ffd9b8", tras = "", corpo, olhos = "#1d1d1f", rosto, extraRosto = "", frente = "" }) {
+function personagem({ pele = PELE, atras = "", tras = "", corpo, olhos = "#1d1d1f", rosto, extraRosto = "", frente = "" }) {
   return `
-    ${tras}
+    ${atras}
     ${corpo}
-    <circle cx="31" cy="45" r="4" fill="${pele}"/><circle cx="69" cy="45" r="4" fill="${pele}"/>
-    <circle cx="50" cy="42" r="19" fill="${pele}"/>
-    ${rosto ?? rostoPadrao(olhos)}
-    ${extraRosto}
-    ${frente}`;
+    <g transform="translate(50 19) scale(.62) translate(-50 -42)">
+      ${tras}
+      <circle cx="31" cy="45" r="3.5" fill="${pele}"/><circle cx="69" cy="45" r="3.5" fill="${pele}"/>
+      <path d="M31 40 C31 24 69 24 69 40 C69 54 60 62 50 63 C40 62 31 54 31 40 Z" fill="${pele}"/>
+      ${rosto ?? rostoPadrao(olhos)}
+      ${extraRosto}
+      ${frente}
+    </g>`;
 }
 
 const PELE = "#ffd9b8";
-const SOBRANCELHA_BRAVA = `<path d="M38 38 L46 41 M62 38 L54 41" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round"/>`;
-const BOCA_SERIA = `<path d="M46 54 Q50 51.5 54 54" fill="none" stroke="#6b3a2a" stroke-width="1.5" stroke-linecap="round"/>`;
+const SOBRANCELHA_BRAVA = `<path d="M37 36 L46 39.5 M63 36 L54 39.5" stroke="#1d1d1f" stroke-width="2.4" stroke-linecap="round"/>`;
+const BOCA_SERIA = `<path d="M46 56 Q50 54 54 56" fill="none" stroke="#8a4a3a" stroke-width="1.5" stroke-linecap="round"/>`;
 
 const ARTES = {
   faixa: `
@@ -450,29 +458,31 @@ const ARTES = {
     <rect x="10" y="32" width="80" height="36" rx="4" fill="none" stroke="#e7eaee" stroke-width="1.5"/>
     <text x="50" y="47" text-anchor="middle" font-size="11" font-weight="700" fill="#1d1d1f" font-family="Inter,sans-serif">SÓ PERDE</text>
     <text x="50" y="61" text-anchor="middle" font-size="11" font-weight="700" fill="#1d1d1f" font-family="Inter,sans-serif">QUEM DESISTE</text>`,
-  "boneco-goku": chibi({
+  "boneco-goku": personagem({
     tras: `<path d="M30 46 L14 38 L28 32 L16 18 L34 22 L34 6 L48 18 L58 4 L62 20 L78 10 L74 26 L88 26 L72 44 Z" fill="#1d1d1f"/>`,
-    corpo: corpoChibi({ pele: PELE, roupa: "#f08a24", calca: "#f08a24", sapato: "#1d3c8f", extra: `
-      <path d="M44 58 L50 66 L56 58 Z" fill="#1d3c8f"/>
-      <rect x="36" y="74" width="28" height="4" fill="#1d3c8f"/>
-      <circle cx="57" cy="67" r="3" fill="#f3f1ec"/>` }),
+    corpo: corpoNormal({ pele: PELE, roupa: "#f08a24", calca: "#f08a24", sapato: "#1d3c8f", extra: `
+      <path d="M45 35 L50 43 L55 35 Z" fill="#1d3c8f"/>
+      <rect x="38" y="53" width="24" height="4" fill="#1d3c8f"/>
+      <circle cx="58" cy="42" r="2.6" fill="#f3f1ec"/>
+      <rect x="25" y="54" width="7" height="3.5" fill="#1d3c8f" transform="rotate(-20 28.5 56)"/>
+      <rect x="68" y="54" width="7" height="3.5" fill="#1d3c8f" transform="rotate(20 71.5 56)"/>` }),
     frente: `<path d="M31 40 C31 24 69 24 69 40 L65 34 L63 40 L58 31 L54 37 L50 28 L46 37 L42 31 L38 39 L35 34 Z" fill="#1d1d1f"/>`,
   }),
-  "boneco-vegeta": chibi({
+  "boneco-vegeta": personagem({
     tras: `<path d="M33 36 L28 8 L39 18 L43 4 L50 14 L57 4 L61 18 L72 8 L67 36 Z" fill="#1d1d1f"/>`,
-    corpo: corpoChibi({ pele: PELE, roupa: "#23408f", calca: "#23408f", sapato: "#f3f1ec", maos: "#f3f1ec", extra: `
-      <path d="M38 58 L62 58 L63 70 L37 70 Z" fill="#f3f1ec"/>
-      <path d="M38 58 L31 61 L35 67 Z M62 58 L69 61 L65 67 Z" fill="#e8b33a"/>` }),
+    corpo: corpoNormal({ pele: PELE, roupa: "#23408f", calca: "#23408f", sapato: "#f3f1ec", maos: "#f3f1ec", extra: `
+      <path d="M33 37 Q50 32 67 37 L64 49 L36 49 Z" fill="#f3f1ec"/>
+      <path d="M33 36 L26 38 L31 46 Z M67 36 L74 38 L69 46 Z" fill="#e8b33a"/>` }),
     rosto: rostoPadrao("#1d1d1f", BOCA_SERIA),
     extraRosto: SOBRANCELHA_BRAVA,
     frente: `<path d="M31 38 C32 26 68 26 69 38 L60 31 L50 40 L40 31 Z" fill="#1d1d1f"/>`,
   }),
-  "boneco-naruto": chibi({
+  "boneco-naruto": personagem({
     olhos: "#2f7fd6",
     tras: `<path d="M30 44 L18 36 L28 30 L20 16 L36 22 L40 6 L50 18 L60 6 L64 22 L80 16 L72 30 L82 36 L70 44 Z" fill="#f5c518"/>`,
-    corpo: corpoChibi({ pele: PELE, roupa: "#f07a1a", calca: "#f07a1a", sapato: "#1d3c8f", extra: `
-      <path d="M38 58 L62 58 L63 65 L37 65 Z" fill="#1d1d1f"/>
-      <path d="M50 65 L50 80" stroke="#f3f1ec" stroke-width="1.5"/>` }),
+    corpo: corpoNormal({ pele: PELE, roupa: "#f07a1a", calca: "#f07a1a", sapato: "#1d3c8f", extra: `
+      <path d="M32 37 Q50 32 68 37 L66 43 L34 43 Z" fill="#1d1d1f"/>
+      <path d="M50 43 L50 58" stroke="#f3f1ec" stroke-width="1.2"/>` }),
     extraRosto: `<path d="M34 48 L39 49 M34 51 L39 51 M34 54 L39 53 M66 48 L61 49 M66 51 L61 51 M66 54 L61 53" stroke="#6b3a2a" stroke-width="1"/>`,
     frente: `
       <path d="M32 36 L35 43 L39 36 L43 43 L47 36 L50 42 L53 36 L57 43 L61 36 L65 43 L68 36 Z" fill="#f5c518"/>
@@ -480,29 +490,31 @@ const ARTES = {
       <rect x="40" y="28" width="20" height="10" rx="1.5" fill="#b9c0c8" stroke="#7d858f"/>
       <path d="M50 35.5 c-3 0 -3 -4 0 -4 c2 0 2 2.5 0 2.5 M50 35.5 l4 -5" fill="none" stroke="#3a3f46" stroke-width="1"/>`,
   }),
-  "boneco-sasuke": chibi({
+  "boneco-sasuke": personagem({
     tras: `<path d="M30 44 C26 30 32 18 48 18 L58 6 L62 18 L76 10 L72 22 L84 24 L70 34 L72 46 Z" fill="#1f2433"/>`,
-    corpo: corpoChibi({ pele: PELE, roupa: "#e9e9ee", calca: "#2a2f3a", sapato: "#2a2f3a", extra: `
-      <path d="M40 59 L44 55 L56 55 L60 59" fill="none" stroke="#c9cad3" stroke-width="3"/>
-      <rect x="35" y="73" width="30" height="4" fill="#6b3fa0"/>` }),
+    corpo: corpoNormal({ pele: PELE, roupa: "#e9e9ee", calca: "#2a2f3a", sapato: "#2a2f3a", extra: `
+      <path d="M41 37 L45 33 L55 33 L59 37" fill="none" stroke="#c9cad3" stroke-width="2.5"/>
+      <rect x="37.5" y="53" width="25" height="4" fill="#6b3fa0"/>` }),
     rosto: rostoPadrao("#1d1d1f", BOCA_SERIA),
     frente: `<path d="M31 34 C33 22 67 22 69 34 L70 54 L66 54 L65 36 L58 31 L53 39 L48 31 L40 36 L35 54 L30 54 Z" fill="#1f2433"/>`,
   }),
-  "boneco-kakashi": chibi({
+  "boneco-kakashi": personagem({
     tras: `<path d="M32 40 C30 24 44 18 54 16 L50 6 L64 14 L66 4 L74 18 L86 16 L76 28 L82 34 L68 40 Z" fill="#d4d8de"/>`,
-    corpo: corpoChibi({ pele: PELE, roupa: "#2a3550", calca: "#2a3550", sapato: "#2a3550", extra: `
-      <path d="M38 58 L62 58 L63 74 L37 74 Z" fill="#5b8a3e"/>
-      <path d="M42 63 L48 63 M52 63 L58 63" stroke="#3f6a2a" stroke-width="3"/>` }),
-    rosto: `<ellipse cx="57" cy="45" rx="3" ry="2.6" fill="#1d1d1f"/><path d="M53 43 L61 43" stroke="#1d1d1f" stroke-width="1.5"/>`,
-    extraRosto: `<path d="M31 48 L69 48 C68 56 60 61 50 61 C40 61 32 56 31 48 Z" fill="#2a3550"/>`,
+    corpo: corpoNormal({ pele: PELE, roupa: "#2a3550", calca: "#2a3550", sapato: "#2a3550", extra: `
+      <path d="M33 37 Q50 32 67 37 L63 54 L37 54 Z" fill="#5b8a3e"/>
+      <path d="M41 43 L47 43 M53 43 L59 43" stroke="#3f6a2a" stroke-width="3"/>` }),
+    rosto: `<ellipse cx="58" cy="44" rx="3" ry="2.4" fill="#1d1d1f"/><path d="M54 42.5 L62 42.5" stroke="#1d1d1f" stroke-width="1.6"/>
+      <path d="M54 37.5 L63 37" stroke="#9aa0a6" stroke-width="1.6" stroke-linecap="round"/>`,
+    extraRosto: `<path d="M31 47 L69 47 C68 56 60 63 50 63 C40 63 32 56 31 47 Z" fill="#2a3550"/>`,
     frente: `
       <path d="M29 40 L71 29 L71 38 L29 52 Z" fill="#1d3c8f"/>
       <rect x="38" y="35" width="16" height="9" rx="1.5" fill="#b9c0c8" stroke="#7d858f" transform="rotate(-15 46 40)"/>`,
   }),
-  "boneco-luffy": chibi({
-    corpo: corpoChibi({ pele: PELE, roupa: "#d6262b", calca: "#2f6fb5", sapato: "#c9a46a", mangas: PELE, extra: `
-      <path d="M45 58 L50 70 L55 58 Z" fill="${PELE}"/>
-      <rect x="36" y="76" width="28" height="3" fill="#e3b75c"/>` }),
+  "boneco-luffy": personagem({
+    corpo: corpoNormal({ pele: PELE, roupa: "#d6262b", calca: PELE, sapato: "#c9a46a", mangas: PELE, extra: `
+      <path d="M45 35 L50 51 L55 35 Z" fill="${PELE}"/>
+      <rect x="38" y="54" width="24" height="3" fill="#e3b75c"/>
+      <path d="M39 56 L61 56 L62.5 72 L52.5 72 L50 64 L47.5 72 L37.5 72 Z" fill="#2f6fb5"/>` }),
     extraRosto: `<path d="M38 50 L42 50.6" stroke="#b24a3a" stroke-width="1.2" stroke-linecap="round"/>`,
     frente: `
       <path d="M31 40 C30 26 70 26 69 40 L66 36 L64 42 L60 36 L56 42 L52 35 L48 42 L44 36 L40 42 L36 36 L33 42 Z" fill="#1d1d1f"/>
@@ -510,33 +522,36 @@ const ARTES = {
       <path d="M35 29 C35 12 65 12 65 29 Z" fill="#edc36a"/>
       <rect x="35" y="23" width="30" height="5" fill="#d6262b"/>`,
   }),
-  "boneco-zoro": chibi({
-    corpo: corpoChibi({ pele: PELE, roupa: "#f3f1ec", calca: "#1d1d1f", sapato: "#1d1d1f", extra: `
-      <rect x="36" y="70" width="28" height="9" fill="#3f8a3c"/>
-      <g transform="rotate(25 66 74)"><rect x="64" y="60" width="3" height="24" fill="#1d1d1f"/><rect x="62" y="66" width="7" height="2" fill="#e8b33a"/></g>` }),
+  "boneco-zoro": personagem({
+    corpo: corpoNormal({ pele: PELE, roupa: "#f3f1ec", calca: "#1d1d1f", sapato: "#1d1d1f", extra: `
+      <path d="M45 35 L50 44 L55 35 Z" fill="${PELE}"/>
+      <rect x="38" y="48" width="24" height="9" fill="#3f8a3c"/>
+      <g transform="rotate(20 64 58)"><rect x="63" y="44" width="2.5" height="26" fill="#1d1d1f"/><rect x="61.5" y="50" width="5.5" height="1.6" fill="#e8b33a"/></g>
+      <g transform="rotate(30 66 58)"><rect x="65" y="46" width="2.5" height="24" fill="#f3f1ec" stroke="#9aa0a6" stroke-width=".5"/><rect x="63.5" y="51" width="5.5" height="1.6" fill="#e8b33a"/></g>` }),
     rosto: rostoPadrao("#1d1d1f", BOCA_SERIA),
-    extraRosto: `<path d="M38 39 L46 41 M62 39 L54 41" stroke="#2e6b30" stroke-width="2" stroke-linecap="round"/>
-      <g fill="#e8b33a"><circle cx="28" cy="47" r="1.5"/><circle cx="28" cy="50.5" r="1.5"/><circle cx="28" cy="54" r="1.5"/></g>`,
+    extraRosto: `<path d="M37 36 L46 39 M63 36 L54 39" stroke="#2e6b30" stroke-width="2.2" stroke-linecap="round"/>
+      <g fill="#e8b33a"><circle cx="28.5" cy="46" r="1.5"/><circle cx="28.5" cy="49.5" r="1.5"/><circle cx="28.5" cy="53" r="1.5"/></g>`,
     frente: `<path d="M31 40 C30 24 70 24 69 40 L64 34 L60 36 L55 31 L50 35 L45 31 L40 36 L36 34 Z" fill="#4caf50"/>`,
   }),
-  "boneco-tanjiro": chibi({
+  "boneco-tanjiro": personagem({
     olhos: "#8b1a1a",
     tras: `<path d="M30 44 L20 34 L30 30 L24 18 L38 22 L44 10 L52 20 L62 10 L64 22 L78 18 L72 30 L80 36 L70 44 Z" fill="#4a1c1c"/>`,
     corpo: `
-      <defs><pattern id="xadrez" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#1d1d1f"/><rect width="3" height="3" fill="#2e9e6a"/><rect x="3" y="3" width="3" height="3" fill="#2e9e6a"/></pattern></defs>
-      ${corpoChibi({ pele: PELE, roupa: "url(#xadrez)", calca: "#1d1d1f", sapato: "#f3f1ec", extra: `<path d="M45 58 L50 66 L55 58 Z" fill="#1d1d1f"/>` })}`,
-    extraRosto: `<g fill="#f3f1ec" stroke="#c4161c" stroke-width=".8"><rect x="26.5" y="47" width="4" height="7"/><rect x="69.5" y="47" width="4" height="7"/></g>`,
+      <defs><pattern id="xadrez" width="5" height="5" patternUnits="userSpaceOnUse"><rect width="5" height="5" fill="#1d1d1f"/><rect width="2.5" height="2.5" fill="#2e9e6a"/><rect x="2.5" y="2.5" width="2.5" height="2.5" fill="#2e9e6a"/></pattern></defs>
+      ${corpoNormal({ pele: PELE, roupa: "url(#xadrez)", calca: "#1d1d1f", sapato: "#f3f1ec", extra: `<path d="M46 35 L50 42 L54 35 Z" fill="#1d1d1f"/>` })}`,
+    extraRosto: `<g fill="#f3f1ec" stroke="#c4161c" stroke-width=".8"><rect x="27" y="47" width="4" height="7"/><rect x="69" y="47" width="4" height="7"/></g>`,
     frente: `
       <path d="M31 40 C31 24 69 24 69 40 L64 33 L60 40 L55 30 L50 37 L45 30 L40 40 L36 33 Z" fill="#4a1c1c"/>
       <path d="M37 36 q3 -3 6 0" fill="none" stroke="#b24a3a" stroke-width="1.6"/>`,
   }),
-  "boneco-nezuko": chibi({
+  "boneco-nezuko": personagem({
     olhos: "#e86aa0",
-    tras: `<path d="M30 40 C24 58 26 74 30 84 L70 84 C74 74 76 58 70 40 Z" fill="#1d1d1f"/><path d="M28 78 L72 78 L70 84 L30 84 Z" fill="#f07a1a"/>`,
-    corpo: corpoChibi({ pele: PELE, roupa: "#f5a3c0", calca: "#f5a3c0", sapato: "#2a2f3a", extra: `
-      <path d="M44 58 L50 66 L56 58" fill="none" stroke="#f3f1ec" stroke-width="2"/>
-      <rect x="36" y="70" width="28" height="6" fill="#8a5a31"/>` }),
-    rosto: rostoPadrao("#e86aa0", `<rect x="40" y="51" width="20" height="5" rx="2.5" fill="#7fa65a" stroke="#4f7a3a"/>`),
+    atras: `<path d="M36 12 C28 30 29 48 33 64 L67 64 C71 48 72 30 64 12 Z" fill="#1d1d1f"/><path d="M32 58 L68 58 L67 64 L33 64 Z" fill="#f07a1a"/>`,
+    corpo: corpoNormal({ pele: PELE, roupa: "#f5a3c0", calca: "#2a2f3a", sapato: "#2a2f3a", extra: `
+      <path d="M32 37 Q50 32 68 37 L66 78 L34 78 Z" fill="#f5a3c0"/>
+      <path d="M44 35 L50 43 L56 35" fill="none" stroke="#f3f1ec" stroke-width="2"/>
+      <rect x="37" y="48" width="26" height="6" fill="#8a5a31"/>` }),
+    rosto: rostoPadrao("#e86aa0", `<rect x="40" y="52" width="20" height="5" rx="2.5" fill="#7fa65a" stroke="#4f7a3a"/>`),
     frente: `
       <path d="M31 42 C30 24 70 24 69 42 L64 34 L58 38 L54 32 L50 36 L46 32 L42 38 L36 34 Z" fill="#1d1d1f"/>
       <path d="M60 26 L69 20 L69 31 Z M60 26 L67 33 L58 33 Z" fill="#f06ba8"/>`,
