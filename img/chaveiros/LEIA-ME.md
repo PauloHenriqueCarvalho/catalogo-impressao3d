@@ -5,7 +5,7 @@ Coloque aqui as fotos reais dos chaveiros com estes nomes (formato .jpg, de pref
 | Arquivo        | Produto              |
 |----------------|----------------------|
 | faixa.jpg      | Faixa de Graduação   |
-| kimono.jpg     | Kimono               |
+| kimono.jpg     | Kimono Branco        |
 | luva.jpg       | Luva de Boxe         |
 | yinyang.jpg    | Yin-Yang             |
 | nunchaku.jpg   | Nunchaku             |
@@ -28,5 +28,11 @@ Coloque aqui as fotos reais dos chaveiros com estes nomes (formato .jpg, de pref
 | tanjiro.jpg    | Brinco do Tanjiro |
 | raio.jpg       | Raio do Pikachu |
 | jollyroger.jpg | Bandeira Pirata |
+| kimonoazul.jpg | Kimono Azul |
+| kimonorosa.jpg | Kimono Rosa |
+| kimonotraco.jpg | Kimono Traço |
+| luvadourada.jpg | Luva Dourada |
+| lutador.jpg | Medalhão Lutador |
+| frase.jpg | Placa com Frase |
 
 Enquanto a foto não existir, o site mostra a ilustração do chaveiro automaticamente.

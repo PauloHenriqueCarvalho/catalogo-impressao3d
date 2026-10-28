@@ -2,7 +2,7 @@
 
 Landing page de catálogo de chaveiros impressos em 3D, com expositor de dois andares:
 
-- **1º andar (em cima):** Artes Marciais — faixa, faixa com nome, kimono, luva de boxe, medalha, troféu, katana, nunchaku, shuriken, yin-yang, kanji 武, portal torii
+- **1º andar (em cima):** Artes Marciais — faixa, faixa com nome, kimonos (branco, azul, rosa, traço) com escolha da cor da faixa, luva de boxe, luva dourada, medalhão lutador, placa com frase, medalha, troféu, katana, nunchaku, shuriken, yin-yang, kanji 武, portal torii
 - **2º andar (embaixo):** Animes & Desenhos — Goku, Esfera do Dragão, Nuvem Voadora, bandana da Folha, Sharingan, Kunai, Nuvem Akatsuki, Chapéu de Palha, bandeira pirata, Brinco do Tanjiro, Pokébola, Raio do Pikachu
 
 O cliente escolhe os chaveiros e envia o pedido pronto pelo WhatsApp.

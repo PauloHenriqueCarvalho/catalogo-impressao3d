@@ -10,25 +10,52 @@ const LOJA = {
 // ============================================================
 // PRODUTOS
 // - andar: "cima" (artes marciais) ou "baixo" (animes e desenhos)
+// - faixa: cor padrão da faixa; quando existe, o cliente escolhe a cor
 // - foto: caminho de uma foto real em img/chaveiros/. Se o arquivo
 //   não existir, a ilustração (arte) é usada no lugar.
 // ============================================================
+const CORES_FAIXA = {
+  Branca: "#f3f1ec", Cinza: "#8d939c", Amarela: "#f2c230", Laranja: "#f07a1a",
+  Verde: "#2e9e4f", Azul: "#1f5fbf", Roxa: "#7b3fb0", Marrom: "#7a4a26",
+  Preta: "#1d1d1f", Vermelha: "#c4161c",
+};
+
 const PRODUTOS = [
   // ---------- 1º ANDAR · ARTES MARCIAIS ----------
   {
     id: "faixa", andar: "cima", nome: "Faixa de Graduação",
     descricao: "Nó de faixa de karatê, judô ou jiu-jitsu. Escolha a cor da sua graduação.",
-    foto: "img/chaveiros/faixa.jpg", arte: "faixa",
+    faixa: "Preta", foto: "img/chaveiros/faixa.jpg", arte: "faixa",
   },
   {
-    id: "kimono", andar: "cima", nome: "Kimono",
-    descricao: "Mini kimono com faixa. Branco, azul ou preto, com a faixa na cor que quiser.",
-    foto: "img/chaveiros/kimono.jpg", arte: "kimono",
+    id: "kimono", andar: "cima", nome: "Kimono Branco",
+    descricao: "Mini kimono branco com a faixa na cor da sua graduação.",
+    faixa: "Preta", foto: "img/chaveiros/kimono.jpg", arte: "kimono",
+  },
+  {
+    id: "kimonoazul", andar: "cima", nome: "Kimono Azul",
+    descricao: "Kimono azul com kanji de jiu-jitsu no peito e faixa na cor que quiser.",
+    faixa: "Preta", foto: "img/chaveiros/kimonoazul.jpg", arte: "kimonoazul",
+  },
+  {
+    id: "kimonorosa", andar: "cima", nome: "Kimono Rosa",
+    descricao: "Kimono rosa com a faixa na cor da sua graduação.",
+    faixa: "Branca", foto: "img/chaveiros/kimonorosa.jpg", arte: "kimonorosa",
+  },
+  {
+    id: "kimonotraco", andar: "cima", nome: "Kimono Traço",
+    descricao: "Kimono branco com contorno preto marcado, estilo desenho.",
+    faixa: "Amarela", foto: "img/chaveiros/kimonotraco.jpg", arte: "kimonotraco",
   },
   {
     id: "luva", andar: "cima", nome: "Luva de Boxe",
     descricao: "Luva de boxe / muay thai em miniatura. Clássica vermelha ou personalizada.",
     foto: "img/chaveiros/luva.jpg", arte: "luva",
+  },
+  {
+    id: "luvadourada", andar: "cima", nome: "Luva Dourada",
+    descricao: "Luva de boxe dourada com o nome que quiser no punho.",
+    foto: "img/chaveiros/luvadourada.jpg", arte: "luvadourada",
   },
   {
     id: "yinyang", andar: "cima", nome: "Yin-Yang",
@@ -49,7 +76,7 @@ const PRODUTOS = [
   {
     id: "faixanome", andar: "cima", nome: "Faixa com Nome",
     descricao: "Faixa personalizada com o seu nome ou o nome da academia, na cor da graduação.",
-    foto: "img/chaveiros/faixanome.jpg", arte: "faixanome",
+    faixa: "Azul", foto: "img/chaveiros/faixanome.jpg", arte: "faixanome",
   },
   {
     id: "medalha", andar: "cima", nome: "Medalha",
@@ -75,6 +102,16 @@ const PRODUTOS = [
     id: "torii", andar: "cima", nome: "Portal Torii",
     descricao: "O portal japonês dos dojôs e templos, em vermelho.",
     foto: "img/chaveiros/torii.jpg", arte: "torii",
+  },
+  {
+    id: "lutador", andar: "cima", nome: "Medalhão Lutador",
+    descricao: "Medalhão com silhueta de chute, para karatê, taekwondo e kickboxing.",
+    foto: "img/chaveiros/lutador.jpg", arte: "lutador",
+  },
+  {
+    id: "frase", andar: "cima", nome: "Placa com Frase",
+    descricao: "Placa “Só perde quem desiste” — ou com a frase que você quiser.",
+    foto: "img/chaveiros/frase.jpg", arte: "frase",
   },
 
   // ---------- 2º ANDAR · ANIMES & DESENHOS ----------
@@ -143,21 +180,30 @@ const PRODUTOS = [
 // ============================================================
 // ILUSTRAÇÕES (SVG, viewBox 0 0 100 100) — usadas quando não há foto
 // ============================================================
+// Kimono com cor do tecido, cor do contorno e faixa na cor escolhida
+function kimonoArte(tecido, contorno, extra = "", espessura = 2) {
+  return `
+    <path d="M30 14 L50 26 L70 14 L92 30 L82 46 L72 40 L72 90 L28 90 L28 40 L18 46 L8 30 Z" fill="${tecido}" stroke="${contorno}" stroke-width="${espessura}" stroke-linejoin="round"/>
+    <path d="M38 14 L50 46 L62 14" fill="none" stroke="${contorno}" stroke-width="${espessura + 1}"/>
+    <path d="M50 46 L50 90" stroke="${contorno}" stroke-width="${espessura}" opacity=".6"/>
+    ${extra}
+    <rect x="28" y="56" width="44" height="8" style="fill: var(--faixa, #1d1d1f)" stroke="#5a5d66" stroke-width="1"/>
+    <path d="M46 62 L40 80 L46 80 L50 64 Z M54 62 L60 80 L54 80 L50 64 Z" style="fill: var(--faixa, #1d1d1f)" stroke="#5a5d66" stroke-width="1"/>`;
+}
+
 const ARTES = {
   faixa: `
-    <rect x="8" y="34" width="84" height="16" rx="3" fill="#1d1d1f" stroke="#5a5d66" stroke-width="2"/>
-    <rect x="8" y="38" width="84" height="2" fill="#3a3a3d"/>
-    <path d="M44 48 L30 88 L42 90 L50 56 Z" fill="#1d1d1f" stroke="#5a5d66" stroke-width="2"/>
-    <path d="M56 48 L70 88 L58 90 L50 56 Z" fill="#2a2a2d" stroke="#5a5d66" stroke-width="2"/>
+    <rect x="8" y="34" width="84" height="16" rx="3" style="fill: var(--faixa, #1d1d1f)" stroke="#5a5d66" stroke-width="2"/>
+    <rect x="8" y="38" width="84" height="2" fill="#000" opacity=".15"/>
+    <path d="M44 48 L30 88 L42 90 L50 56 Z" style="fill: var(--faixa, #1d1d1f)" stroke="#5a5d66" stroke-width="2"/>
+    <path d="M56 48 L70 88 L58 90 L50 56 Z" style="fill: var(--faixa, #1d1d1f)" stroke="#5a5d66" stroke-width="2"/>
     <rect x="62" y="74" width="10" height="6" transform="rotate(-20 67 77)" fill="#d6262b"/>
-    <rect x="40" y="30" width="20" height="24" rx="5" fill="#2a2a2d" stroke="#5a5d66" stroke-width="2"/>
-    <rect x="44" y="34" width="12" height="16" rx="3" fill="#3a3a3d"/>`,
-  kimono: `
-    <path d="M30 14 L50 26 L70 14 L92 30 L82 46 L72 40 L72 90 L28 90 L28 40 L18 46 L8 30 Z" fill="#f3f1ec" stroke="#cfcac0" stroke-width="2"/>
-    <path d="M38 14 L50 46 L62 14" fill="none" stroke="#cfcac0" stroke-width="3"/>
-    <path d="M50 46 L50 90" stroke="#e2ded6" stroke-width="2"/>
-    <rect x="28" y="56" width="44" height="8" fill="#1d1d1f"/>
-    <path d="M46 62 L40 80 L46 80 L50 64 Z M54 62 L60 80 L54 80 L50 64 Z" fill="#1d1d1f"/>`,
+    <rect x="40" y="30" width="20" height="24" rx="5" style="fill: var(--faixa, #1d1d1f)" stroke="#5a5d66" stroke-width="2"/>
+    <rect x="44" y="34" width="12" height="16" rx="3" fill="#000" opacity=".15"/>`,
+  kimono: kimonoArte("#f3f1ec", "#cfcac0"),
+  kimonoazul: kimonoArte("#1f5fbf", "#164a96", `<text x="62" y="38" text-anchor="middle" font-size="8" font-weight="700" fill="#f3f1ec" font-family="Noto Sans JP, Hiragino Sans, Yu Gothic, sans-serif">柔術</text>`),
+  kimonorosa: kimonoArte("#f06ba8", "#c94d86"),
+  kimonotraco: kimonoArte("#ffffff", "#1d1d1f", "", 4),
   luva: `
     <path d="M26 46 C22 20 44 10 62 14 C80 18 86 36 80 54 C76 66 70 70 66 72 L66 80 L34 80 L34 70 C28 64 27 56 26 46 Z" fill="#d6262b"/>
     <path d="M26 46 C18 44 14 54 20 62 C24 66 30 64 32 60" fill="#b51d22"/>
@@ -223,9 +269,9 @@ const ARTES = {
     <circle cx="50" cy="50" r="12" fill="#f3f1ec" stroke="#1d1d1f" stroke-width="4"/>
     <circle cx="50" cy="50" r="5" fill="#f3f1ec" stroke="#1d1d1f" stroke-width="2"/>`,
   faixanome: `
-    <rect x="6" y="36" width="88" height="28" rx="4" fill="#1d1d1f" stroke="#5a5d66" stroke-width="2"/>
+    <rect x="6" y="36" width="88" height="28" rx="4" style="fill: var(--faixa, #1d1d1f)" stroke="#5a5d66" stroke-width="2"/>
     <rect x="72" y="36" width="10" height="28" fill="#d6262b"/>
-    <text x="38" y="54.5" text-anchor="middle" font-size="11" font-weight="700" fill="#f3f1ec" font-family="Inter,sans-serif">SEU NOME</text>`,
+    <text x="38" y="54.5" text-anchor="middle" font-size="11" font-weight="700" style="fill: var(--faixa-texto, #f3f1ec)" font-family="Inter,sans-serif">SEU NOME</text>`,
   medalha: `
     <path d="M34 8 L44 8 L56 40 L46 44 Z" fill="#1d3c8f"/>
     <path d="M66 8 L56 8 L44 40 L54 44 Z" fill="#d6262b"/>
@@ -287,4 +333,25 @@ const ARTES = {
     <path d="M30 40 C30 26 70 26 70 40 Z" fill="#edc36a"/>
     <rect x="24" y="38" width="52" height="5" rx="2" fill="#e3b75c"/>
     <rect x="31" y="35" width="38" height="3" fill="#d6262b"/>`,
+  luvadourada: `
+    <defs><linearGradient id="g-ouro" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff0b0"/><stop offset=".45" stop-color="#e8b33a"/><stop offset="1" stop-color="#9c6d12"/></linearGradient></defs>
+    <path d="M26 46 C22 20 44 10 62 14 C80 18 86 36 80 54 C76 66 70 70 66 72 L66 80 L34 80 L34 70 C28 64 27 56 26 46 Z" fill="url(#g-ouro)"/>
+    <path d="M26 46 C18 44 14 54 20 62 C24 66 30 64 32 60" fill="#b9861c"/>
+    <path d="M40 30 C50 24 64 26 70 34" fill="none" stroke="#fff6d0" stroke-width="5" stroke-linecap="round"/>
+    <rect x="32" y="78" width="36" height="14" rx="3" fill="#1d1d1f"/>
+    <text x="50" y="88.5" text-anchor="middle" font-size="8" font-weight="700" fill="#e8b33a" font-family="Inter,sans-serif">NOME</text>`,
+  lutador: `
+    <circle cx="50" cy="50" r="40" fill="#f3f1ec" stroke="#1d1d1f" stroke-width="3"/>
+    <circle cx="50" cy="50" r="34" fill="none" stroke="#d6262b" stroke-width="2"/>
+    <g stroke="#1d1d1f" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M42 40 L46 58 L40 80"/>
+      <path d="M46 58 L74 36"/>
+      <path d="M30 50 L43 42 L56 46"/>
+    </g>
+    <circle cx="39" cy="29" r="6.5" fill="#1d1d1f"/>`,
+  frase: `
+    <rect x="6" y="28" width="88" height="44" rx="6" fill="#c9ced6" stroke="#8d939c" stroke-width="2"/>
+    <rect x="10" y="32" width="80" height="36" rx="4" fill="none" stroke="#e7eaee" stroke-width="1.5"/>
+    <text x="50" y="47" text-anchor="middle" font-size="11" font-weight="700" fill="#1d1d1f" font-family="Inter,sans-serif">SÓ PERDE</text>
+    <text x="50" y="61" text-anchor="middle" font-size="11" font-weight="700" fill="#1d1d1f" font-family="Inter,sans-serif">QUEM DESISTE</text>`,
 };
