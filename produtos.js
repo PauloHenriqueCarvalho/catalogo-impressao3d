@@ -4,7 +4,7 @@
 const LOJA = {
   nome: "Verissimo 3D",
   // Número do WhatsApp com DDI + DDD, só números. Ex.: "5511999998888"
-  whatsapp: "5500000000000",
+  whatsapp: "5543991950011",
 };
 
 // ============================================================
