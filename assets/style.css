@@ -137,6 +137,18 @@ h1, h2, .logo, .expositor-placa { font-family: "Bebas Neue", Impact, sans-serif;
   background: #f3f1ec; color: #1d1d1f; padding: 3px 7px; border-radius: 4px;
   transform: rotate(-2deg);
 }
+/* Peças apoiadas na prateleira (displays, suportes) */
+.fileira.prateleira { padding-bottom: 46px; }
+.fileira.prateleira .barra {
+  top: auto; bottom: 34px; height: 10px; border-radius: 2px;
+  background: linear-gradient(var(--madeira-2), var(--madeira-3));
+}
+.fileira.prateleira .ganchos { align-items: end; }
+.gancho.apoiado { justify-content: flex-end; }
+.gancho.apoiado .pino { visibility: hidden; }
+.gancho.apoiado .pendente { animation: none; max-width: 120px; }
+.gancho.apoiado:hover .pendente { transform: scale(1.08); }
+.peca-svg { max-height: 100%; }
 @keyframes balanco { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
 .expositor-base {
   height: 22px; margin: 0 -10px; border-radius: 0 0 10px 10px;

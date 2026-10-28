@@ -142,8 +142,14 @@ function montarPagina() {
     <div class="aviso" id="aviso" role="status"></div>`);
 }
 
+// Peças que não são chaveiros (displays, suportes) ficam apoiadas, sem argola
+const ehPeca = (p) => Boolean(CATEGORIAS[p.categoria].peca);
+
 // Chaveiro completo: argola + corrente + peça (com a cor da faixa, se houver)
 function svgChaveiro(p, cor = p.faixa) {
+  if (ehPeca(p)) {
+    return `<svg viewBox="0 0 100 100" class="chaveiro-svg peca-svg" aria-hidden="true"><g>${ARTES[p.arte]}</g></svg>`;
+  }
   const estilo = cor
     ? `style="--faixa: ${CORES_FAIXA[cor]}; --faixa-texto: ${FAIXAS_CLARAS.includes(cor) ? "#1d1d1f" : "#f3f1ec"}"`
     : "";
@@ -163,7 +169,7 @@ function svgChaveiro(p, cor = p.faixa) {
 function imagemProduto(p, cor) {
   const arte = `<div class="arte">${svgChaveiro(p, cor)}</div>`;
   if (!p.foto) return arte;
-  return `<img src="${new URL(p.foto, BASE).href}" alt="Chaveiro ${p.nome}" loading="lazy"
+  return `<img src="${new URL(p.foto, BASE).href}" alt="${p.nome}" loading="lazy"
             onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'arte',innerHTML:this.dataset.arte}))"
             data-arte='${svgChaveiro(p, cor).replace(/'/g, "&#39;")}'>`;
 }
@@ -177,13 +183,13 @@ function montarExpositor() {
       // Cada fileira do expositor tem sua própria barra com 6 ganchos
       if (i % 6 === 0) {
         fileira = document.createElement("div");
-        fileira.className = "fileira";
+        fileira.className = ehPeca(p) ? "fileira prateleira" : "fileira";
         fileira.innerHTML = `<div class="barra"></div><div class="ganchos"></div>`;
         alvo.appendChild(fileira);
       }
       const b = document.createElement("button");
       b.type = "button";
-      b.className = "gancho";
+      b.className = ehPeca(p) ? "gancho apoiado" : "gancho";
       b.style.setProperty("--atraso", `${(i * 0.37) % 1.6}s`);
       b.setAttribute("aria-label", `Ver ${p.nome}`);
       b.innerHTML = `<span class="pino"></span><span class="pendente">${svgChaveiro(p)}</span><span class="etiqueta">${p.nome}</span>`;
@@ -276,7 +282,7 @@ function atualizarPedido() {
 
   const linhas = itens.map((i) => `• ${i.qtd}x ${i.nome}`).join("\n");
   const apresentacao = CATALOGO.cliente ? ` Aqui é ${CATALOGO.cliente}.` : "";
-  const msg = `Olá, ${LOJA.nome}!${apresentacao} Quero encomendar estes chaveiros:\n\n${linhas}`;
+  const msg = `Olá, ${LOJA.nome}!${apresentacao} Quero encomendar:\n\n${linhas}`;
   $("#pedido-enviar").href = `https://wa.me/${LOJA.whatsapp}?text=${encodeURIComponent(msg)}`;
 }
 

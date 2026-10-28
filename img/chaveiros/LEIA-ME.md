@@ -58,11 +58,11 @@ Coloque aqui as fotos reais dos chaveiros com estes nomes (formato .jpg, de pref
 | salao-porta-comprimido.jpg | Porta-Comprimidos |
 | salao-gancho-bolsa.jpg | Gancho de Bolsa |
 | salao-abre-porta.jpg | Abre-Porta Sem Toque |
-| salao-guarda-volumes.jpg | Ficha de Guarda-Volumes |
-| salao-comanda.jpg | Comanda Numerada |
-| salao-chave-setor.jpg | Identificador de Chaves |
-| salao-nfc-equipe.jpg | Cartão NFC da Equipe |
-| salao-nfc-avaliacao.jpg | NFC de Avaliação |
-| salao-nfc-wifi.jpg | NFC do Wi-Fi |
+| salao-display-duplo.jpg | Display NFC Instagram + Google |
+| salao-placa-instagram.jpg | Placa NFC do Instagram |
+| salao-placa-google.jpg | Placa NFC de Avaliação |
+| salao-porta-cartao.jpg | Porta-Cartão com NFC |
+| salao-suporte-secador.jpg | Suporte de Secador e Chapinha |
+| salao-porta-tesouras.jpg | Porta-Tesouras e Pentes |
 
 Enquanto a foto não existir, o site mostra a ilustração do chaveiro automaticamente.

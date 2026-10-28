@@ -24,10 +24,11 @@ const CATEGORIAS = {
     curto: "Brindes",
     descricao: "Chaveiros úteis de verdade, que as clientes usam todo dia — e lembram do salão a cada uso.",
   },
-  "salao-uso": {
-    nome: "Uso no Salão",
-    curto: "Uso no Salão",
-    descricao: "Peças para organizar a rotina do salão, da recepção ao estoque.",
+  "salao-outros": {
+    nome: "Outras Peças",
+    curto: "Outras Peças",
+    descricao: "Displays com NFC para o balcão e suportes práticos para a bancada do salão.",
+    peca: true, // não são chaveiros: aparecem apoiadas na prateleira
   },
 };
 
@@ -323,34 +324,34 @@ const PRODUTOS = [
     foto: "img/chaveiros/salao-abre-porta.jpg", arte: "salao-abre-porta",
   },
   {
-    id: "salao-guarda-volumes", categoria: "salao-uso", nome: "Ficha de Guarda-Volumes",
-    descricao: "Fichas numeradas para a bolsa da cliente durante o atendimento.",
-    foto: "img/chaveiros/salao-guarda-volumes.jpg", arte: "salao-guarda-volumes",
+    id: "salao-display-duplo", categoria: "salao-outros", nome: "Display NFC Instagram + Google",
+    descricao: "Placa de balcão com duas áreas: encostou o celular de um lado, abre o Instagram do salão; do outro, a avaliação no Google.",
+    foto: "img/chaveiros/salao-display-duplo.jpg", arte: "salao-display-duplo",
   },
   {
-    id: "salao-comanda", categoria: "salao-uso", nome: "Comanda Numerada",
-    descricao: "Comanda que acompanha a cliente do lavatório ao caixa, com os serviços do dia.",
-    foto: "img/chaveiros/salao-comanda.jpg", arte: "salao-comanda",
+    id: "salao-placa-instagram", categoria: "salao-outros", nome: "Placa NFC do Instagram",
+    descricao: "Placa de pé para a recepção ou o espelho: a cliente encosta o celular e já cai no Instagram para seguir.",
+    foto: "img/chaveiros/salao-placa-instagram.jpg", arte: "salao-placa-instagram",
   },
   {
-    id: "salao-chave-setor", categoria: "salao-uso", nome: "Identificador de Chaves",
-    descricao: "Capa colorida com o nome do setor: Estoque, Caixa, Depósito…",
-    foto: "img/chaveiros/salao-chave-setor.jpg", arte: "salao-chave-setor",
+    id: "salao-placa-google", categoria: "salao-outros", nome: "Placa NFC de Avaliação",
+    descricao: "Encostou o celular, abre a página de avaliação do salão no Google. Ideal para o caixa, na hora de pagar.",
+    foto: "img/chaveiros/salao-placa-google.jpg", arte: "salao-placa-google",
   },
   {
-    id: "salao-nfc-equipe", categoria: "salao-uso", nome: "Cartão NFC da Equipe",
-    descricao: "Cada profissional com o seu: a cliente encosta o celular e abre a agenda ou o Instagram dele.",
-    foto: "img/chaveiros/salao-nfc-equipe.jpg", arte: "salao-nfc-equipe",
+    id: "salao-porta-cartao", categoria: "salao-outros", nome: "Porta-Cartão com NFC",
+    descricao: "Porta-cartões de visita para o balcão, com NFC na frente para salvar o contato ou agendar com o Gustavo.",
+    foto: "img/chaveiros/salao-porta-cartao.jpg", arte: "salao-porta-cartao",
   },
   {
-    id: "salao-nfc-avaliacao", categoria: "salao-uso", nome: "NFC de Avaliação",
-    descricao: "A cliente encosta o celular e cai direto na página para avaliar o salão no Google.",
-    foto: "img/chaveiros/salao-nfc-avaliacao.jpg", arte: "salao-nfc-avaliacao",
+    id: "salao-suporte-secador", categoria: "salao-outros", nome: "Suporte de Secador e Chapinha",
+    descricao: "Suporte de parede ou bancada que encaixa o secador e a chapinha, com os fios organizados.",
+    foto: "img/chaveiros/salao-suporte-secador.jpg", arte: "salao-suporte-secador",
   },
   {
-    id: "salao-nfc-wifi", categoria: "salao-uso", nome: "NFC do Wi-Fi",
-    descricao: "Encostou o celular, conectou no Wi-Fi do salão — sem digitar senha.",
-    foto: "img/chaveiros/salao-nfc-wifi.jpg", arte: "salao-nfc-wifi",
+    id: "salao-porta-tesouras", categoria: "salao-outros", nome: "Porta-Tesouras e Pentes",
+    descricao: "Organizador de bancada com encaixes para tesouras, pentes e escovas sempre à mão.",
+    foto: "img/chaveiros/salao-porta-tesouras.jpg", arte: "salao-porta-tesouras",
   },
 ];
 
@@ -782,40 +783,63 @@ const ARTES = {
     <path d="M40 8 H60 V40 Q76 44 78 62 Q80 82 60 92 L53 85 Q67 78 66 63 Q65 52 54 50 H40 Z" fill="#c6a15b" stroke="#9c7a35" stroke-width="2" stroke-linejoin="round"/>
     <circle cx="50" cy="18" r="4" fill="none" stroke="#9c7a35" stroke-width="2"/>
     <path d="M44 30 H56" stroke="#9c7a35" stroke-width="2"/>`,
-  "salao-guarda-volumes": `
-    <rect x="26" y="8" width="48" height="84" rx="10" fill="#6b7d4f"/>
-    <circle cx="50" cy="20" r="4.5" fill="none" stroke="#c6a15b" stroke-width="2"/>
-    <text x="50" y="66" text-anchor="middle" font-family="Georgia, serif" font-size="30" font-weight="700" fill="#f4efe6">07</text>
-    <rect x="34" y="76" width="32" height="2" fill="#c6a15b"/>`,
-  "salao-comanda": `
-    <rect x="24" y="8" width="52" height="84" rx="6" fill="#f4efe6" stroke="#6b7d4f" stroke-width="2"/>
-    <circle cx="50" cy="17" r="4" fill="none" stroke="#c6a15b" stroke-width="2"/>
-    <text x="50" y="38" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="16" fill="#6b7d4f">Nº 24</text>
-    <path d="M32 50 H68 M32 60 H68 M32 70 H68 M32 80 H58" stroke="#d8ccb6" stroke-width="1.5"/>
-    <path d="M32 48 l2 2 4 -4 M32 58 l2 2 4 -4" fill="none" stroke="#9c7a35" stroke-width="1.5"/>`,
-  "salao-chave-setor": `
-    <path d="M32 10 H68 Q76 10 76 18 V44 Q76 52 66 54 L58 56 V90 H42 V56 L34 54 Q24 52 24 44 V18 Q24 10 32 10 Z" fill="#d6785a"/>
-    <rect x="29" y="22" width="42" height="17" rx="3" fill="#f4efe6"/>
-    <text x="50" y="34" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="7.5" fill="#3a3027">ESTOQUE</text>
-    <rect x="45" y="60" width="10" height="26" rx="2" fill="#00000022"/>`,
-  "salao-nfc-equipe": `
-    <rect x="12" y="20" width="76" height="56" rx="8" fill="#f4efe6" stroke="#c6a15b" stroke-width="2"/>
-    <circle cx="32" cy="44" r="10" fill="#c9d3b8"/>
-    <circle cx="32" cy="41" r="4" fill="#6b7d4f"/><path d="M24 52 Q32 44 40 52" fill="#6b7d4f"/>
-    <text x="48" y="40" font-family="Inter, sans-serif" font-weight="700" font-size="7" fill="#3a3027">SEU NOME</text>
-    <text x="48" y="49" font-family="Inter, sans-serif" font-size="4.8" letter-spacing=".6" fill="#6b7d4f">CABELEIREIRO</text>
-    <g transform="rotate(90 72 62)"><path d="M69.9 60.3 A2.7 2.7 0 0 1 74.1 60.3 M68.2 58.8 A5.0 5.0 0 0 1 75.8 58.8 M66.5 57.4 A7.2 7.2 0 0 1 77.5 57.4" fill="none" stroke="#6b7d4f" stroke-width="1.4" stroke-linecap="round"/></g><circle cx="72" cy="62" r="1.1" fill="#6b7d4f"/>
-    <text x="20" y="68" font-family="Inter, sans-serif" font-size="4.6" fill="#6d6455">toque para agendar</text>`,
-  "salao-nfc-avaliacao": `
-    <circle cx="50" cy="50" r="40" fill="#f4efe6" stroke="#6b7d4f" stroke-width="2.5"/>
-    <g transform="rotate(90 44 40)"><path d="M40.3 36.9 A4.8 4.8 0 0 1 47.7 36.9 M37.3 34.3 A8.8 8.8 0 0 1 50.7 34.3 M34.2 31.8 A12.8 12.8 0 0 1 53.8 31.8" fill="none" stroke="#6b7d4f" stroke-width="2.6" stroke-linecap="round"/></g><circle cx="44" cy="40" r="1.9" fill="#6b7d4f"/>
-    <path transform="translate(30 64) scale(.55)" d="M0 -8 L2.4 -2.5 L8 -2.5 L3.6 1 L5.2 7 L0 3.4 L-5.2 7 L-3.6 1 L-8 -2.5 L-2.4 -2.5 Z" fill="#c6a15b"/><path transform="translate(40 64) scale(.55)" d="M0 -8 L2.4 -2.5 L8 -2.5 L3.6 1 L5.2 7 L0 3.4 L-5.2 7 L-3.6 1 L-8 -2.5 L-2.4 -2.5 Z" fill="#c6a15b"/><path transform="translate(50 64) scale(.55)" d="M0 -8 L2.4 -2.5 L8 -2.5 L3.6 1 L5.2 7 L0 3.4 L-5.2 7 L-3.6 1 L-8 -2.5 L-2.4 -2.5 Z" fill="#c6a15b"/><path transform="translate(60 64) scale(.55)" d="M0 -8 L2.4 -2.5 L8 -2.5 L3.6 1 L5.2 7 L0 3.4 L-5.2 7 L-3.6 1 L-8 -2.5 L-2.4 -2.5 Z" fill="#c6a15b"/><path transform="translate(70 64) scale(.55)" d="M0 -8 L2.4 -2.5 L8 -2.5 L3.6 1 L5.2 7 L0 3.4 L-5.2 7 L-3.6 1 L-8 -2.5 L-2.4 -2.5 Z" fill="#c6a15b"/>
-    <text x="50" y="80" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="6.5" letter-spacing="1" fill="#6b7d4f">AVALIE</text>`,
-  "salao-nfc-wifi": `
-    <circle cx="50" cy="50" r="40" fill="#6b7d4f"/>
-    <g fill="none" stroke="#f4efe6" stroke-width="4" stroke-linecap="round">
-      <path d="M30 44 Q50 26 70 44"/><path d="M37 51 Q50 39 63 51"/><path d="M44 58 Q50 53 56 58"/>
-    </g>
-    <circle cx="50" cy="64" r="3" fill="#f4efe6"/>
-    <text x="50" y="80" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="7" letter-spacing="1" fill="#c6a15b">WI-FI</text>`,
+  "salao-display-duplo": `
+    <defs><linearGradient id="g-insta" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#f9a73b"/><stop offset=".5" stop-color="#e1306c"/><stop offset="1" stop-color="#833ab4"/></linearGradient></defs>
+    <path d="M14 88 L20 10 H80 L86 88 Z" fill="#f4efe6" stroke="#c6a15b" stroke-width="2"/>
+    <text x="50" y="22" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="9" fill="#6b7d4f">Beauté Naturelle</text>
+    <path d="M50 28 V80" stroke="#e2d8c6" stroke-width="1.2"/>
+    <rect x="24" y="32" width="18" height="18" rx="5.0" fill="url(#g-insta)"/><rect x="27.6" y="35.6" width="10.8" height="10.8" rx="3.2" fill="none" stroke="#fff" stroke-width="1.3"/><circle cx="33.0" cy="41.0" r="2.7" fill="none" stroke="#fff" stroke-width="1.3"/><circle cx="36.6" cy="37.4" r="0.8" fill="#fff"/>
+    <text x="33" y="62" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="5.5" fill="#3a3027">SIGA</text>
+    <circle cx="67" cy="41" r="9" fill="#fff" stroke="#e2d8c6"/><text x="67" y="44.8" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="11.2" fill="#4285f4">G</text>
+    <path transform="translate(58.5 58) scale(0.33)" d="M0 -8 L2.4 -2.5 L8 -2.5 L3.6 1 L5.2 7 L0 3.4 L-5.2 7 L-3.6 1 L-8 -2.5 L-2.4 -2.5 Z" fill="#c6a15b"/><path transform="translate(62.8 58) scale(0.33)" d="M0 -8 L2.4 -2.5 L8 -2.5 L3.6 1 L5.2 7 L0 3.4 L-5.2 7 L-3.6 1 L-8 -2.5 L-2.4 -2.5 Z" fill="#c6a15b"/><path transform="translate(67.1 58) scale(0.33)" d="M0 -8 L2.4 -2.5 L8 -2.5 L3.6 1 L5.2 7 L0 3.4 L-5.2 7 L-3.6 1 L-8 -2.5 L-2.4 -2.5 Z" fill="#c6a15b"/><path transform="translate(71.4 58) scale(0.33)" d="M0 -8 L2.4 -2.5 L8 -2.5 L3.6 1 L5.2 7 L0 3.4 L-5.2 7 L-3.6 1 L-8 -2.5 L-2.4 -2.5 Z" fill="#c6a15b"/><path transform="translate(75.7 58) scale(0.33)" d="M0 -8 L2.4 -2.5 L8 -2.5 L3.6 1 L5.2 7 L0 3.4 L-5.2 7 L-3.6 1 L-8 -2.5 L-2.4 -2.5 Z" fill="#c6a15b"/>
+    <text x="67" y="68" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="5.5" fill="#3a3027">AVALIE</text>
+    <g transform="rotate(90 30 74)"><path d="M28.5 72.8 A1.9 1.9 0 0 1 31.5 72.8 M27.3 71.7 A3.5 3.5 0 0 1 32.7 71.7 M26.1 70.7 A5.1 5.1 0 0 1 33.9 70.7" fill="none" stroke="#6b7d4f" stroke-width="1.0" stroke-linecap="round"/></g><circle cx="30" cy="74" r="0.8" fill="#6b7d4f"/><g transform="rotate(90 64 76)"><path d="M62.5 74.8 A1.9 1.9 0 0 1 65.5 74.8 M61.3 73.7 A3.5 3.5 0 0 1 66.7 73.7 M60.1 72.7 A5.1 5.1 0 0 1 67.9 72.7" fill="none" stroke="#6b7d4f" stroke-width="1.0" stroke-linecap="round"/></g><circle cx="64" cy="76" r="0.8" fill="#6b7d4f"/>
+    <rect x="8" y="88" width="84" height="8" rx="3" fill="#6b7d4f"/><rect x="11" y="89" width="78" height="2" rx="1" fill="#ffffff33"/>`,
+  "salao-placa-instagram": `
+    <defs><linearGradient id="g-insta" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#f9a73b"/><stop offset=".5" stop-color="#e1306c"/><stop offset="1" stop-color="#833ab4"/></linearGradient></defs>
+    <rect x="22" y="8" width="56" height="78" rx="10" fill="#fff" stroke="#c6a15b" stroke-width="2"/>
+    <rect x="36" y="16" width="28" height="28" rx="7.8" fill="url(#g-insta)"/><rect x="41.6" y="21.6" width="16.8" height="16.8" rx="5.0" fill="none" stroke="#fff" stroke-width="2.0"/><circle cx="50.0" cy="30.0" r="4.2" fill="none" stroke="#fff" stroke-width="2.0"/><circle cx="55.6" cy="24.4" r="1.3" fill="#fff"/>
+    <text x="50" y="56" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="6.5" letter-spacing=".6" fill="#3a3027">SIGA O SALÃO</text>
+    <g transform="rotate(90 46 70)"><path d="M43.9 68.3 A2.7 2.7 0 0 1 48.1 68.3 M42.2 66.8 A5.0 5.0 0 0 1 49.8 66.8 M40.5 65.4 A7.2 7.2 0 0 1 51.5 65.4" fill="none" stroke="#6b7d4f" stroke-width="1.4" stroke-linecap="round"/></g><circle cx="46" cy="70" r="1.1" fill="#6b7d4f"/>
+    <path d="M40 86 L36 92 H64 L60 86 Z" fill="#c6a15b"/>
+    <rect x="28" y="90" width="44" height="8" rx="3" fill="#6b7d4f"/><rect x="31" y="91" width="38" height="2" rx="1" fill="#ffffff33"/>`,
+  "salao-placa-google": `
+    <rect x="22" y="8" width="56" height="78" rx="10" fill="#fff" stroke="#c6a15b" stroke-width="2"/>
+    <circle cx="50" cy="28" r="13" fill="#fff" stroke="#e2d8c6"/><text x="50" y="33.5" text-anchor="middle" font-family="Arial, sans-serif" font-weight="700" font-size="16.2" fill="#4285f4">G</text>
+    <path transform="translate(32.0 51) scale(0.48)" d="M0 -8 L2.4 -2.5 L8 -2.5 L3.6 1 L5.2 7 L0 3.4 L-5.2 7 L-3.6 1 L-8 -2.5 L-2.4 -2.5 Z" fill="#c6a15b"/><path transform="translate(40.2 51) scale(0.48)" d="M0 -8 L2.4 -2.5 L8 -2.5 L3.6 1 L5.2 7 L0 3.4 L-5.2 7 L-3.6 1 L-8 -2.5 L-2.4 -2.5 Z" fill="#c6a15b"/><path transform="translate(48.3 51) scale(0.48)" d="M0 -8 L2.4 -2.5 L8 -2.5 L3.6 1 L5.2 7 L0 3.4 L-5.2 7 L-3.6 1 L-8 -2.5 L-2.4 -2.5 Z" fill="#c6a15b"/><path transform="translate(56.5 51) scale(0.48)" d="M0 -8 L2.4 -2.5 L8 -2.5 L3.6 1 L5.2 7 L0 3.4 L-5.2 7 L-3.6 1 L-8 -2.5 L-2.4 -2.5 Z" fill="#c6a15b"/><path transform="translate(64.6 51) scale(0.48)" d="M0 -8 L2.4 -2.5 L8 -2.5 L3.6 1 L5.2 7 L0 3.4 L-5.2 7 L-3.6 1 L-8 -2.5 L-2.4 -2.5 Z" fill="#c6a15b"/>
+    <text x="50" y="64" text-anchor="middle" font-family="Inter, sans-serif" font-weight="700" font-size="6.5" letter-spacing=".6" fill="#3a3027">AVALIE-NOS</text>
+    <g transform="rotate(90 46 75)"><path d="M44.2 73.5 A2.4 2.4 0 0 1 47.8 73.5 M42.6 72.2 A4.4 4.4 0 0 1 49.4 72.2 M41.1 70.9 A6.4 6.4 0 0 1 50.9 70.9" fill="none" stroke="#6b7d4f" stroke-width="1.3" stroke-linecap="round"/></g><circle cx="46" cy="75" r="1.0" fill="#6b7d4f"/>
+    <path d="M40 86 L36 92 H64 L60 86 Z" fill="#c6a15b"/>
+    <rect x="28" y="90" width="44" height="8" rx="3" fill="#6b7d4f"/><rect x="31" y="91" width="38" height="2" rx="1" fill="#ffffff33"/>`,
+  "salao-porta-cartao": `
+    <rect x="22" y="30" width="56" height="34" rx="2" fill="#fff" stroke="#d8ccb6" transform="rotate(-8 50 47)"/>
+    <rect x="22" y="34" width="56" height="34" rx="2" fill="#fff" stroke="#d8ccb6" transform="rotate(-4 50 51)"/>
+    <rect x="22" y="38" width="56" height="34" rx="2" fill="#fff" stroke="#d8ccb6"/>
+    <text x="50" y="50" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="8" fill="#6b7d4f">Gustavo Campassi</text>
+    <text x="50" y="58" text-anchor="middle" font-family="Inter, sans-serif" font-size="4.5" letter-spacing="1" fill="#9c7a35">BEAUTÉ NATURELLE</text>
+    <path d="M14 64 H86 L80 90 H20 Z" fill="#6b7d4f"/>
+    <path d="M14 64 H86 L85 68 H15 Z" fill="#4f5d39"/>
+    <g transform="rotate(90 46 75)"><path d="M43.9 73.3 A2.7 2.7 0 0 1 48.1 73.3 M42.2 71.8 A5.0 5.0 0 0 1 49.8 71.8 M40.5 70.4 A7.2 7.2 0 0 1 51.5 70.4" fill="none" stroke="#f4efe6" stroke-width="1.4" stroke-linecap="round"/></g><circle cx="46" cy="75" r="1.1" fill="#f4efe6"/>
+    <rect x="12" y="88" width="76" height="8" rx="3" fill="#6b7d4f"/><rect x="15" y="89" width="70" height="2" rx="1" fill="#ffffff33"/>`,
+  "salao-suporte-secador": `
+    <rect x="58" y="6" width="26" height="86" rx="6" fill="#f4efe6" stroke="#c6a15b" stroke-width="2"/>
+    <path d="M58 26 H40 A12 12 0 0 0 40 50 H58" fill="none" stroke="#6b7d4f" stroke-width="5"/>
+    <rect x="18" y="14" width="34" height="20" rx="10" fill="#3a3a3d"/>
+    <path d="M10 18 L18 17 L18 31 L10 30 Z" fill="#2a2a2d"/>
+    <path d="M36 32 H46 L44 60 Q41 63 38 60 Z" fill="#3a3a3d"/>
+    <path d="M58 62 H48 V70 H58" fill="none" stroke="#6b7d4f" stroke-width="4"/>
+    <path d="M50 52 L47 90 H53 Z" fill="#2a2a2d"/><path d="M54 52 L57 90 H51 Z" fill="#3a3a3d"/>
+    <path d="M41 62 C40 74 30 76 30 86" fill="none" stroke="#2a2a2d" stroke-width="1.5"/>
+    <circle cx="71" cy="16" r="2.5" fill="#9c7a35"/><circle cx="71" cy="82" r="2.5" fill="#9c7a35"/>`,
+  "salao-porta-tesouras": `
+    <g stroke="#9aa0a6" stroke-width="1"><path d="M30 46 L26 10 L29 10 L33 46 Z" fill="#dfe4ea"/><path d="M36 46 L38 12 L41 12 L39 46 Z" fill="#c9ced6"/></g>
+    <circle cx="27" cy="50" r="5" fill="none" stroke="#c6a15b" stroke-width="2.5"/><circle cx="39" cy="50" r="5" fill="none" stroke="#c6a15b" stroke-width="2.5"/>
+    <rect x="50" y="10" width="7" height="40" rx="2" fill="#c6a15b"/>
+    <path d="M50 14 h-4 M50 18 h-4 M50 22 h-4 M50 26 h-4 M50 30 h-4 M50 34 h-4 M50 38 h-4" stroke="#c6a15b" stroke-width="1.5"/>
+    <rect x="64" y="20" width="8" height="34" rx="4" fill="#4f5d39"/>
+    <rect x="61" y="6" width="14" height="18" rx="6" fill="#e8dcc8"/>
+    <rect x="16" y="48" width="68" height="40" rx="8" fill="#6b7d4f"/>
+    <path d="M24 52 H44 M48 52 H60 M63 52 H75" stroke="#4f5d39" stroke-width="4" stroke-linecap="round"/>
+    <text x="50" y="74" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="9" fill="#f4efe6">Beauté Naturelle</text>
+    <rect x="12" y="88" width="76" height="8" rx="3" fill="#6b7d4f"/><rect x="15" y="89" width="70" height="2" rx="1" fill="#ffffff33"/>`,
 };
