@@ -62,5 +62,21 @@ Coloque aqui as fotos reais dos chaveiros com estes nomes (formato .jpg, de pref
 | salao-placa-instagram.jpg | Placa NFC do Instagram |
 | salao-placa-google.jpg | Placa NFC de Avaliação |
 | salao-porta-cartao.jpg | Porta-Cartão com NFC |
+| itm-55-anos.jpg | Selo 55 Anos |
+| itm-nome.jpg | Chaveiro com Nome |
+| itm-abridor.jpg | Abridor de Garrafa 55 |
+| itm-xicara.jpg | Xícara de Café |
+| itm-grao.jpg | Grão de Café |
+| itm-wafer.jpg | Wafer Itamaraty |
+| itm-trigo.jpg | Ramo de Trigo |
+| itm-nfc.jpg | Tag NFC 55 Anos |
+| itm-porta-copos.jpg | Porta-Copos 55 Anos |
+| itm-prendedor.jpg | Prendedor de Pacote |
+| itm-suporte-celular.jpg | Suporte de Celular |
+| itm-ima.jpg | Ímã de Geladeira |
+| itm-coracao.jpg | Coração Paixão |
+| itm-chocolate.jpg | Barrinha de Chocolate |
+| itm-biscoito.jpg | Biscoito Recheado |
+| itm-pacote-cafe.jpg | Pacotinho de Café |
 
 Enquanto a foto não existir, o site mostra a ilustração do chaveiro automaticamente.

@@ -24,6 +24,17 @@ const CATEGORIAS = {
     curto: "Brindes",
     descricao: "Chaveiros úteis de verdade, que as clientes usam todo dia — e lembram do salão a cada uso.",
   },
+  "itamaraty-chaveiros": {
+    nome: "Chaveiros 55 Anos",
+    curto: "55 Anos",
+    descricao: "Lembranças dos 55 anos para a equipe levar todo dia — com a marca, o café e o trigo da Itamaraty.",
+  },
+  "itamaraty-mesa": {
+    nome: "Para a Mesa e a Cozinha",
+    curto: "Mesa e Cozinha",
+    descricao: "Peças úteis para o trabalho e para casa, com o selo dos 55 anos.",
+    peca: true,
+  },
   "salao-outros": {
     nome: "Outras Peças",
     curto: "Outras Peças",
@@ -342,6 +353,87 @@ const PRODUTOS = [
     id: "salao-porta-cartao", categoria: "salao-outros", nome: "Porta-Cartão com NFC",
     descricao: "Suporte de balcão que segura os cartões de visita do salão. Na frente tem um NFC: quem não quiser levar o cartão de papel encosta o celular e abre o WhatsApp para agendar com o Gustavo.",
     foto: "img/chaveiros/salao-porta-cartao.jpg", arte: "salao-porta-cartao",
+  },
+  // ---------- ITAMARATY · 55 ANOS ----------
+  {
+    id: "itm-55-anos", categoria: "itamaraty-chaveiros", nome: "Selo 55 Anos",
+    descricao: "O selo comemorativo em azul e dourado, com relevo. A lembrança oficial do aniversário.",
+    foto: "img/chaveiros/itm-55-anos.jpg", arte: "itm-55-anos",
+  },
+  {
+    id: "itm-nome", categoria: "itamaraty-chaveiros", nome: "Chaveiro com Nome",
+    descricao: "Cada funcionário recebe o seu, com o próprio nome e o selo dos 55 anos. É o que mais emociona.",
+    foto: "img/chaveiros/itm-nome.jpg", arte: "itm-nome",
+  },
+  {
+    id: "itm-abridor", categoria: "itamaraty-chaveiros", nome: "Abridor de Garrafa 55",
+    descricao: "Chaveiro abridor com inserto de metal: útil no dia a dia e com a marca da festa.",
+    foto: "img/chaveiros/itm-abridor.jpg", arte: "itm-abridor",
+  },
+  {
+    id: "itm-xicara", categoria: "itamaraty-chaveiros", nome: "Xícara de Café",
+    descricao: "Xícara com o “55” na frente, lembrando a origem da Itamaraty no café.",
+    foto: "img/chaveiros/itm-xicara.jpg", arte: "itm-xicara",
+  },
+  {
+    id: "itm-grao", categoria: "itamaraty-chaveiros", nome: "Grão de Café",
+    descricao: "Grão de café em relevo, com o detalhe dourado dos 55 anos.",
+    foto: "img/chaveiros/itm-grao.jpg", arte: "itm-grao",
+  },
+  {
+    id: "itm-wafer", categoria: "itamaraty-chaveiros", nome: "Wafer Itamaraty",
+    descricao: "Um wafer em miniatura com a marca — divertido e a cara dos produtos da casa.",
+    foto: "img/chaveiros/itm-wafer.jpg", arte: "itm-wafer",
+  },
+  {
+    id: "itm-trigo", categoria: "itamaraty-chaveiros", nome: "Ramo de Trigo",
+    descricao: "O ramo de trigo dourado da marca, com o “55” no centro.",
+    foto: "img/chaveiros/itm-trigo.jpg", arte: "itm-trigo",
+  },
+  {
+    id: "itm-nfc", categoria: "itamaraty-chaveiros", nome: "Tag NFC 55 Anos",
+    descricao: "Encostou o celular, abre um vídeo ou álbum de fotos dos 55 anos da empresa.",
+    foto: "img/chaveiros/itm-nfc.jpg", arte: "itm-nfc",
+  },
+  {
+    id: "itm-coracao", categoria: "itamaraty-chaveiros", nome: "Coração Paixão",
+    descricao: "Coração com o lema “Paixão em tudo que faz” — o espírito dos 55 anos.",
+    foto: "img/chaveiros/itm-coracao.jpg", arte: "itm-coracao",
+  },
+  {
+    id: "itm-chocolate", categoria: "itamaraty-chaveiros", nome: "Barrinha de Chocolate",
+    descricao: "Mini barra de chocolate com a embalagem azul e dourada da festa.",
+    foto: "img/chaveiros/itm-chocolate.jpg", arte: "itm-chocolate",
+  },
+  {
+    id: "itm-biscoito", categoria: "itamaraty-chaveiros", nome: "Biscoito Recheado",
+    descricao: "Biscoito recheado em miniatura, com a marca carimbada como os de verdade.",
+    foto: "img/chaveiros/itm-biscoito.jpg", arte: "itm-biscoito",
+  },
+  {
+    id: "itm-pacote-cafe", categoria: "itamaraty-chaveiros", nome: "Pacotinho de Café",
+    descricao: "Pacote de café em miniatura, homenagem à origem da empresa no café.",
+    foto: "img/chaveiros/itm-pacote-cafe.jpg", arte: "itm-pacote-cafe",
+  },
+  {
+    id: "itm-porta-copos", categoria: "itamaraty-mesa", nome: "Porta-Copos 55 Anos",
+    descricao: "Porta-copos para a xícara de café na mesa do trabalho ou em casa.",
+    foto: "img/chaveiros/itm-porta-copos.jpg", arte: "itm-porta-copos",
+  },
+  {
+    id: "itm-prendedor", categoria: "itamaraty-mesa", nome: "Prendedor de Pacote",
+    descricao: "Prendedor para fechar o pacote de café ou biscoito e manter tudo fresquinho.",
+    foto: "img/chaveiros/itm-prendedor.jpg", arte: "itm-prendedor",
+  },
+  {
+    id: "itm-suporte-celular", categoria: "itamaraty-mesa", nome: "Suporte de Celular",
+    descricao: "Suporte de mesa para o celular, com o selo dos 55 anos na frente.",
+    foto: "img/chaveiros/itm-suporte-celular.jpg", arte: "itm-suporte-celular",
+  },
+  {
+    id: "itm-ima", categoria: "itamaraty-mesa", nome: "Ímã de Geladeira",
+    descricao: "Ímã com o selo “Paixão em tudo que faz” para a geladeira de casa.",
+    foto: "img/chaveiros/itm-ima.jpg", arte: "itm-ima",
   },
 ];
 
@@ -811,4 +903,101 @@ const ARTES = {
     <path d="M14 64 H86 L85 68 H15 Z" fill="#4f5d39"/>
     <g transform="rotate(90 46 75)"><path d="M43.9 73.3 A2.7 2.7 0 0 1 48.1 73.3 M42.2 71.8 A5.0 5.0 0 0 1 49.8 71.8 M40.5 70.4 A7.2 7.2 0 0 1 51.5 70.4" fill="none" stroke="#f4efe6" stroke-width="1.4" stroke-linecap="round"/></g><circle cx="46" cy="75" r="1.1" fill="#f4efe6"/>
     <rect x="12" y="88" width="76" height="8" rx="3" fill="#6b7d4f"/><rect x="15" y="89" width="70" height="2" rx="1" fill="#ffffff33"/>`,
+  "itm-55-anos": `
+    <circle cx="50" cy="48" r="40" fill="#1e3f93"/><circle cx="50" cy="48" r="36.0" fill="#fff"/><circle cx="50" cy="48" r="33.5" fill="none" stroke="#c9a227" stroke-width="1.6"/><text x="47.0" y="54.0" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-style="italic" font-size="34.0" fill="#1e3f93">55</text><text x="64.0" y="62.0" text-anchor="middle" font-family="'Brush Script MT', 'Segoe Script', cursive" font-size="10.0" fill="#c9a227">anos</text><rect x="28.0" y="64.3" width="44.0" height="11.4" rx="5.7" fill="#1e3f93" stroke="#c9a227" stroke-width=".8"/><text x="50" y="73.1" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="800" font-size="8.2" fill="#fff">itamaraty</text>
+    <g transform="translate(84 88) rotate(25) scale(0.55)"><path d="M0 8 C0 -10 0 -24 0 -36" stroke="#c9a227" stroke-width="1.6" fill="none"/><ellipse cx="3.2" cy="-6" rx="2.6" ry="4.6" transform="rotate(28 3.2 -6)" fill="#c9a227"/><ellipse cx="-3.2" cy="-11" rx="2.6" ry="4.6" transform="rotate(-28 -3.2 -11)" fill="#c9a227"/><ellipse cx="3.2" cy="-16" rx="2.6" ry="4.6" transform="rotate(28 3.2 -16)" fill="#c9a227"/><ellipse cx="-3.2" cy="-21" rx="2.6" ry="4.6" transform="rotate(-28 -3.2 -21)" fill="#c9a227"/><ellipse cx="3.2" cy="-26" rx="2.6" ry="4.6" transform="rotate(28 3.2 -26)" fill="#c9a227"/><ellipse cx="-3.2" cy="-31" rx="2.6" ry="4.6" transform="rotate(-28 -3.2 -31)" fill="#c9a227"/><ellipse cx="0" cy="-37" rx="2.2" ry="4" fill="#c9a227"/></g>`,
+  "itm-nome": `
+    <rect x="6" y="26" width="88" height="48" rx="12" fill="#1e3f93" stroke="#c9a227" stroke-width="2"/>
+    <text x="50" y="50" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-size="15" fill="#fff">SEU NOME</text>
+    <text x="50" y="64" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="700" font-size="7" letter-spacing=".6" fill="#e8c55a">55 ANOS · ITAMARATY</text>`,
+  "itm-abridor": `
+    <path fill-rule="evenodd" fill="#1e3f93" stroke="#c9a227" stroke-width="2"
+      d="M30 8 H70 Q82 8 82 20 V80 Q82 92 70 92 H30 Q18 92 18 80 V20 Q18 8 30 8 Z
+         M36 64 H64 Q68 64 68 68 V74 Q68 80 62 80 H38 Q32 80 32 74 V68 Q32 64 36 64 Z"/>
+    <rect x="34" y="62" width="32" height="3" rx="1.5" fill="#9aa0a6"/>
+    <text x="50" y="44" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-style="italic" font-size="26" fill="#fff">55</text>
+    <text x="50" y="55" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="800" font-size="7" fill="#e8c55a">itamaraty</text>`,
+  "itm-xicara": `
+    <path d="M44 14 C40 20 48 22 44 28 M54 12 C50 18 58 20 54 26" fill="none" stroke="#b9c3d9" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M72 44 C86 44 86 66 70 66" fill="none" stroke="#1e3f93" stroke-width="6"/>
+    <path d="M20 34 H76 L70 74 Q68 82 60 82 H36 Q28 82 26 74 Z" fill="#1e3f93"/>
+    <ellipse cx="48" cy="34" rx="28" ry="5" fill="#5b3a24" stroke="#142c6b" stroke-width="2"/>
+    <text x="48" y="66" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-style="italic" font-size="22" fill="#e8c55a">55</text>
+    <ellipse cx="48" cy="88" rx="36" ry="5" fill="#c9a227"/>`,
+  "itm-grao": `
+    <ellipse cx="50" cy="52" rx="30" ry="40" fill="#5b3a24" stroke="#3e2617" stroke-width="2"/>
+    <path d="M50 14 C38 34 62 56 50 90" fill="none" stroke="#3e2617" stroke-width="4" stroke-linecap="round"/>
+    <ellipse cx="38" cy="36" rx="6" ry="10" fill="#ffffff22" transform="rotate(20 38 36)"/>
+    <circle cx="70" cy="76" r="13" fill="#c9a227" stroke="#fff" stroke-width="2"/>
+    <text x="70" y="81" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-size="12" fill="#1e3f93">55</text>`,
+  "itm-wafer": `
+    <rect x="16" y="22" width="68" height="66" rx="5" fill="#e9b062" stroke="#c98a3a" stroke-width="2"/>
+    <path d="M24 30 V84" stroke="#c98a3a" stroke-width="1.2"/><path d="M32 30 V84" stroke="#c98a3a" stroke-width="1.2"/><path d="M40 30 V84" stroke="#c98a3a" stroke-width="1.2"/><path d="M48 30 V84" stroke="#c98a3a" stroke-width="1.2"/><path d="M56 30 V84" stroke="#c98a3a" stroke-width="1.2"/><path d="M64 30 V84" stroke="#c98a3a" stroke-width="1.2"/><path d="M72 30 V84" stroke="#c98a3a" stroke-width="1.2"/><path d="M16 36 H84" stroke="#c98a3a" stroke-width="1.2"/><path d="M16 44 H84" stroke="#c98a3a" stroke-width="1.2"/><path d="M16 52 H84" stroke="#c98a3a" stroke-width="1.2"/><path d="M16 60 H84" stroke="#c98a3a" stroke-width="1.2"/><path d="M16 68 H84" stroke="#c98a3a" stroke-width="1.2"/><path d="M16 76 H84" stroke="#c98a3a" stroke-width="1.2"/>
+    <rect x="16" y="22" width="68" height="8" rx="3" fill="#8a4f2a"/>
+    <rect x="23.0" y="51.0" width="54" height="14.0" rx="7.0" fill="#1e3f93" stroke="#c9a227" stroke-width=".8"/><text x="50" y="61.8" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="800" font-size="10.1" fill="#fff">itamaraty</text>`,
+  "itm-trigo": `
+    <g transform="translate(50 88) rotate(0) scale(1.9)"><path d="M0 8 C0 -10 0 -24 0 -36" stroke="#c9a227" stroke-width="1.6" fill="none"/><ellipse cx="3.2" cy="-6" rx="2.6" ry="4.6" transform="rotate(28 3.2 -6)" fill="#c9a227"/><ellipse cx="-3.2" cy="-11" rx="2.6" ry="4.6" transform="rotate(-28 -3.2 -11)" fill="#c9a227"/><ellipse cx="3.2" cy="-16" rx="2.6" ry="4.6" transform="rotate(28 3.2 -16)" fill="#c9a227"/><ellipse cx="-3.2" cy="-21" rx="2.6" ry="4.6" transform="rotate(-28 -3.2 -21)" fill="#c9a227"/><ellipse cx="3.2" cy="-26" rx="2.6" ry="4.6" transform="rotate(28 3.2 -26)" fill="#c9a227"/><ellipse cx="-3.2" cy="-31" rx="2.6" ry="4.6" transform="rotate(-28 -3.2 -31)" fill="#c9a227"/><ellipse cx="0" cy="-37" rx="2.2" ry="4" fill="#c9a227"/></g>
+    <circle cx="50" cy="56" r="13" fill="#1e3f93" stroke="#fff" stroke-width="2"/>
+    <text x="50" y="61.5" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-style="italic" font-size="14" fill="#fff">55</text>`,
+  "itm-nfc": `
+    <circle cx="50" cy="50" r="40" fill="#1e3f93" stroke="#c9a227" stroke-width="2.5"/>
+    <text x="50" y="30" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-style="italic" font-size="12" fill="#e8c55a">55 anos</text>
+    <g transform="rotate(90 44 52)"><path d="M39.9 48.5 A5.4 5.4 0 0 1 48.1 48.5 M36.4 45.6 A9.9 9.9 0 0 1 51.6 45.6 M33.0 42.7 A14.4 14.4 0 0 1 55.0 42.7" fill="none" stroke="#fff" stroke-width="2.9" stroke-linecap="round"/></g><circle cx="44" cy="52" r="2.2" fill="#fff"/>
+    <text x="50" y="76" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="800" font-size="6.5" letter-spacing=".8" fill="#fff">APROXIME</text>`,
+  "itm-coracao": `
+    <path d="M50 90 C14 66 6 46 12 30 C18 14 40 12 50 28 C60 12 82 14 88 30 C94 46 86 66 50 90 Z" fill="#1e3f93" stroke="#c9a227" stroke-width="2.5"/>
+    <text x="50" y="52" text-anchor="middle" font-family="'Brush Script MT', 'Segoe Script', cursive" font-size="20" fill="#e8c55a">Paixão</text>
+    <text x="50" y="62" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="800" font-size="5.2" letter-spacing=".4" fill="#fff">EM TUDO QUE FAZ</text>
+    <text x="50" y="74" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-style="italic" font-size="9" fill="#e8c55a">55</text>`,
+  "itm-chocolate": `
+    <rect x="26" y="10" width="48" height="82" rx="4" fill="#5a3320"/>
+    <rect x="32" y="52" width="14" height="12" rx="2" fill="#4a2a18"/><rect x="32" y="66" width="14" height="12" rx="2" fill="#4a2a18"/><rect x="48" y="52" width="14" height="12" rx="2" fill="#4a2a18"/><rect x="48" y="66" width="14" height="12" rx="2" fill="#4a2a18"/><rect x="64" y="52" width="14" height="12" rx="2" fill="#4a2a18"/><rect x="64" y="66" width="14" height="12" rx="2" fill="#4a2a18"/>
+    <path d="M26 10 H74 V46 L62 52 L50 46 L38 52 L26 46 Z" fill="#1e3f93"/>
+    <rect x="26" y="10" width="48" height="5" fill="#c9a227"/>
+    <text x="50" y="30" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="800" font-size="8" fill="#fff">itamaraty</text>
+    <text x="50" y="41" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-style="italic" font-size="9" fill="#e8c55a">55 anos</text>`,
+  "itm-biscoito": `
+    <ellipse cx="50" cy="60" rx="38" ry="10" fill="#c98a3a"/>
+    <rect x="12" y="46" width="76" height="14" fill="#f4ead8"/>
+    <ellipse cx="50" cy="46" rx="38" ry="10" fill="#e9b062"/>
+    <ellipse cx="50" cy="38" rx="38" ry="30" fill="#e9b062" stroke="#c98a3a" stroke-width="2"/>
+    <ellipse cx="50" cy="38" rx="30" ry="23" fill="none" stroke="#c98a3a" stroke-width="1.5" stroke-dasharray="3 3"/>
+    <text x="50" y="36" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-size="9" fill="#a8692a">itamaraty</text>
+    <text x="50" y="48" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-style="italic" font-size="10" fill="#a8692a">55</text>`,
+  "itm-pacote-cafe": `
+    <path d="M24 16 H76 L80 92 H20 Z" fill="#1e3f93"/>
+    <path d="M24 16 L28 8 H72 L76 16 Z" fill="#142c6b"/>
+    <path d="M30 12 H70" stroke="#c9a227" stroke-width="1.5" stroke-dasharray="2 2"/>
+    <rect x="22" y="58" width="56" height="20" fill="#c9a227"/>
+    <text x="50" y="40" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-size="10" fill="#fff">itamaraty</text>
+    <text x="50" y="72" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-size="10" fill="#142c6b">CAFÉ</text>
+    <ellipse cx="41" cy="50" rx="4" ry="5.5" fill="#7a4a26"/><ellipse cx="59" cy="50" rx="4" ry="5.5" fill="#7a4a26"/>
+    <text x="50" y="88" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-style="italic" font-size="7" fill="#e8c55a">55 anos</text>`,
+  "itm-porta-copos": `
+    <path d="M14 82 H86 L82 90 H18 Z" fill="#142c6b"/>
+    <ellipse cx="50" cy="54" rx="36" ry="32" fill="#1e3f93" stroke="#c9a227" stroke-width="2"/>
+    <ellipse cx="50" cy="54" rx="29" ry="25" fill="none" stroke="#c9a227" stroke-width="1"/>
+    <text x="50" y="58" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-style="italic" font-size="22" fill="#fff">55</text>
+    <rect x="32.0" y="65.3" width="36" height="9.4" rx="4.7" fill="#1e3f93" stroke="#c9a227" stroke-width=".8"/><text x="50" y="72.5" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="800" font-size="6.7" fill="#fff">itamaraty</text>
+    <rect x="10" y="88" width="80" height="8" rx="3" fill="#1e3f93"/><rect x="13" y="89" width="74" height="2" rx="1" fill="#ffffff33"/>`,
+  "itm-prendedor": `
+    <path d="M24 30 L30 88 H70 L76 30 Z" fill="#7a4a26"/>
+    <path d="M24 30 L22 18 H78 L76 30 Z" fill="#8f5a33"/>
+    <text x="50" y="66" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="800" font-size="9" fill="#e8c55a">CAFÉ</text>
+    <rect x="14" y="22" width="72" height="10" rx="5" fill="#1e3f93" stroke="#c9a227" stroke-width="1.5"/>
+    <rect x="14" y="32" width="72" height="7" rx="3.5" fill="#142c6b"/>
+    <text x="50" y="30" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="800" font-size="7" fill="#fff">itamaraty 55</text>
+    <rect x="16" y="88" width="68" height="8" rx="3" fill="#1e3f93"/><rect x="19" y="89" width="62" height="2" rx="1" fill="#ffffff33"/>`,
+  "itm-suporte-celular": `
+    <rect x="34" y="8" width="34" height="66" rx="5" fill="#1d1d1f" transform="rotate(-10 51 41)"/>
+    <rect x="37" y="12" width="28" height="56" rx="3" fill="#2b4fae" transform="rotate(-10 51 40)"/>
+    <path d="M18 88 L30 60 H40 L36 74 H82 L84 88 Z" fill="#1e3f93"/>
+    <text x="58" y="85" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-style="italic" font-size="10" fill="#e8c55a">55 anos</text>
+    <rect x="14" y="88" width="74" height="8" rx="3" fill="#1e3f93"/><rect x="17" y="89" width="68" height="2" rx="1" fill="#ffffff33"/>`,
+  "itm-ima": `
+    <rect x="12" y="10" width="76" height="76" rx="14" fill="#fff" stroke="#1e3f93" stroke-width="3"/>
+    <circle cx="50" cy="38" r="22" fill="#1e3f93"/><circle cx="50" cy="38" r="19.8" fill="#fff"/><circle cx="50" cy="38" r="18.4" fill="none" stroke="#c9a227" stroke-width="0.9"/><text x="48.4" y="41.3" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="900" font-style="italic" font-size="18.7" fill="#1e3f93">55</text><text x="57.7" y="45.7" text-anchor="middle" font-family="'Brush Script MT', 'Segoe Script', cursive" font-size="5.5" fill="#c9a227">anos</text><rect x="37.9" y="47.0" width="24.200000000000003" height="6.3" rx="3.1" fill="#1e3f93" stroke="#c9a227" stroke-width=".8"/><text x="50" y="51.8" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="800" font-size="4.5" fill="#fff">itamaraty</text>
+    <text x="50" y="72" text-anchor="middle" font-family="'Brush Script MT', 'Segoe Script', cursive" font-size="15" fill="#c9a227">Paixão</text>
+    <text x="50" y="80" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="700" font-size="5.2" letter-spacing=".5" fill="#1e3f93">EM TUDO QUE FAZ</text>
+    <rect x="14" y="88" width="72" height="8" rx="3" fill="#1e3f93"/><rect x="17" y="89" width="66" height="2" rx="1" fill="#ffffff33"/>`,
 };

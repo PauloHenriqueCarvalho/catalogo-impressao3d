@@ -8,6 +8,7 @@ Landing page de catálogo de chaveiros impressos em 3D, com expositor em andares
 |---|---|---|
 | `/` | Catálogo geral da loja | Todas as categorias |
 | `/gustavo-campassi/` | Gustavo Campassi (salão Beauté Naturelle) | Brindes para Clientes, Outras Peças — tema natural |
+| `/itamaraty/` | Itamaraty (55 anos, 450 funcionários) | Chaveiros 55 Anos, Para a Mesa e a Cozinha — tema azul |
 
 As páginas de cliente não aparecem no Google (`noindex`) e o nome do cliente só vai na mensagem do WhatsApp.
 
@@ -19,7 +20,7 @@ As páginas de cliente não aparecem no Google (`noindex`) e o nome do cliente s
 ```js
 const CATALOGO = {
   cliente: "Maria Silva",
-  tema: "natural",          // opcional: paleta clara; sem isso usa a escura
+  tema: "natural",          // opcional: "natural" ou "azul"; sem isso usa a escura
   subtitulo: "Texto do topo", // opcional
   andares: [
     "animes",                                               // categoria inteira
@@ -35,6 +36,8 @@ A ordem de `andares` é a ordem do expositor (de cima para baixo). Os ids dos pr
 - **Artes Marciais:** faixa, faixa com nome, kimonos (branco, azul, rosa, traço) com escolha da cor da faixa, luva de boxe, luva dourada, medalhão lutador, placa com frase, medalha, troféu, katana, nunchaku, shuriken, yin-yang, kanji 武, portal torii
 - **Salão de beleza — Brindes para Clientes:** Tag NFC de Agendamento, Porta-OB, porta-anel, porta-batom, porta-óleo capilar, porta-xuxinha, espelhinho de bolsa, pente de bolso, cápsula de grampos, porta-comprimidos, gancho de bolsa, abre-porta sem toque
 - **Salão de beleza — Outras Peças (não são chaveiros):** Display NFC Instagram + Google, Placa NFC do Instagram, Placa NFC de Avaliação, Porta-Cartão com NFC
+- **Itamaraty — Chaveiros 55 Anos:** Selo 55 Anos, Chaveiro com Nome, Abridor de Garrafa 55, Xícara de Café, Grão de Café, Wafer Itamaraty, Ramo de Trigo, Tag NFC 55 Anos, Coração Paixão, Barrinha de Chocolate, Biscoito Recheado, Pacotinho de Café
+- **Itamaraty — Para a Mesa e a Cozinha (não são chaveiros):** Porta-Copos 55 Anos, Prendedor de Pacote, Suporte de Celular, Ímã de Geladeira
 - **Animes & Desenhos:** bonequinhos (Goku, Vegeta, Naruto, Sasuke, Kakashi, Luffy, Zoro, Tanjiro, Nezuko, Pikachu, Bob Esponja, Patrick), Goku, Esfera do Dragão, Nuvem Voadora, bandana da Folha, Sharingan, Kunai, Nuvem Akatsuki, Chapéu de Palha, bandeira pirata, Brinco do Tanjiro, Pokébola, Raio do Pikachu
 
 O cliente escolhe os chaveiros e envia o pedido pronto pelo WhatsApp.

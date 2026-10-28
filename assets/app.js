@@ -4,7 +4,7 @@
 //
 //   const CATALOGO = {
 //     cliente: "Nome",              // opcional: entra na mensagem do WhatsApp
-//     tema: "natural",              // opcional: paleta clara (padrão: escura)
+//     tema: "natural",              // opcional: "natural" ou "azul" (padrão: escuro)
 //     subtitulo: "Texto do topo",   // opcional
 //     andares: [
 //       "artes-marciais",            // categoria inteira
@@ -37,7 +37,7 @@ const ANDARES = CATALOGO.andares.map((a) => {
 
 // ---------- Estrutura da página ----------
 function montarPagina() {
-  if (CATALOGO.tema) document.body.classList.add(`tema-${CATALOGO.tema}`);
+  if (CATALOGO.tema) document.body.classList.add("tema-claro", `tema-${CATALOGO.tema}`);
   const temPersonagens = ANDARES.some((a) => a.categoria === "animes");
 
   const secoes = ANDARES.map((a) => `

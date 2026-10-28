@@ -253,8 +253,10 @@ h1, h2, .logo, .expositor-placa { font-family: "Bebas Neue", Impact, sans-serif;
   html { scroll-behavior: auto; }
 }
 
-/* ---------- Tema natural (paleta clara: creme, verde-oliva e dourado) ---------- */
-body.tema-natural {
+/* ---------- Temas claros ----------
+   A página recebe "tema-claro" + "tema-<nome>". Cada tema só define a paleta;
+   a estrutura clara é comum. */
+body.tema-natural { /* creme, verde-oliva e dourado */
   --fundo: #f7f3ec;
   --fundo-2: #efe8dc;
   --cartao: #fffdf9;
@@ -263,36 +265,60 @@ body.tema-natural {
   --texto-2: #6d6455;
   --laranja: #6b7d4f;
   --laranja-2: #8a6d2f;
+  --ouro: #c6a15b;
   --madeira: #b89466;
   --madeira-2: #c9a77a;
   --madeira-3: #9c7a52;
+  --painel: #efe7d9;
+  --sombra: 80, 60, 30;
+  --fonte-titulo: "Cormorant Garamond", Georgia, serif;
 }
-.tema-natural h1, .tema-natural h2, .tema-natural .logo, .tema-natural .expositor-placa {
-  font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; letter-spacing: .01em;
+body.tema-azul { /* branco, azul royal e dourado */
+  --fundo: #f5f7fc;
+  --fundo-2: #e9eef9;
+  --cartao: #ffffff;
+  --borda: #d8e0f0;
+  --texto: #14214a;
+  --texto-2: #55607d;
+  --laranja: #1e3f93;
+  --laranja-2: #a8801a;
+  --ouro: #c9a227;
+  --madeira: #c9a227;
+  --madeira-2: #e0be55;
+  --madeira-3: #a8801a;
+  --painel: #e6ecf8;
+  --sombra: 20, 33, 74;
+  --fonte-titulo: "Nunito", "Inter", sans-serif;
 }
-.tema-natural .topo { background: rgba(247, 243, 236, .9); }
-.tema-natural .hero {
+.tema-claro h1, .tema-claro h2, .tema-claro .logo, .tema-claro .expositor-placa {
+  font-family: var(--fonte-titulo); font-weight: 700; letter-spacing: .01em;
+}
+.tema-claro .topo { background: color-mix(in srgb, var(--fundo) 90%, transparent); }
+.tema-claro .hero {
   background:
-    radial-gradient(circle at 85% 20%, rgba(107, 125, 79, .18), transparent 45%),
-    radial-gradient(circle at 10% 90%, rgba(198, 161, 91, .16), transparent 40%);
+    radial-gradient(circle at 85% 20%, color-mix(in srgb, var(--laranja) 18%, transparent), transparent 45%),
+    radial-gradient(circle at 10% 90%, color-mix(in srgb, var(--ouro) 16%, transparent), transparent 40%);
 }
-.tema-natural .hero h1 span { color: var(--laranja); }
-.tema-natural .btn-primario, .tema-natural .passos span, .tema-natural .aviso, .tema-natural .expositor-placa { color: #fff; }
-.tema-natural .btn-primario:hover { background: #586941; }
-.tema-natural .logo-cubo { background: linear-gradient(135deg, #c6a15b, #6b7d4f); }
-.tema-natural .expositor-placa { background: linear-gradient(#7d8f60, #6b7d4f); box-shadow: 0 -4px 20px rgba(107, 125, 79, .3); letter-spacing: .08em; }
-.tema-natural .expositor-corpo {
+.tema-claro .hero h1 span { color: var(--laranja); }
+.tema-claro .btn-primario, .tema-claro .passos span, .tema-claro .aviso, .tema-claro .expositor-placa { color: #fff; }
+.tema-claro .btn-primario:hover { background: var(--laranja); filter: brightness(.88); }
+.tema-claro .logo-cubo { background: linear-gradient(135deg, var(--ouro), var(--laranja)); }
+.tema-claro .expositor-placa {
+  background: linear-gradient(color-mix(in srgb, var(--laranja) 85%, #fff), var(--laranja));
+  box-shadow: 0 -4px 20px color-mix(in srgb, var(--laranja) 30%, transparent); letter-spacing: .08em;
+}
+.tema-claro .expositor-corpo {
   background:
     radial-gradient(circle, rgba(0, 0, 0, .08) 1.5px, transparent 2px) 0 0 / 22px 22px,
-    linear-gradient(#fbf8f2, #efe7d9);
-  box-shadow: inset 0 0 30px rgba(120, 90, 50, .15), 0 30px 60px rgba(80, 60, 30, .18);
+    linear-gradient(#ffffff, var(--painel));
+  box-shadow: inset 0 0 30px rgba(var(--sombra), .15), 0 30px 60px rgba(var(--sombra), .18);
 }
-.tema-natural .andar + .andar { box-shadow: inset 0 10px 14px -8px rgba(80, 60, 30, .3); }
-.tema-natural .pendente { filter: drop-shadow(0 8px 6px rgba(80, 60, 30, .25)); }
-.tema-natural .etiqueta { background: #fff; border: 1px solid var(--borda); }
-.tema-natural .card-imagem, .tema-natural .modal-imagem { background: radial-gradient(circle at 50% 40%, #ffffff, #efe7d9 75%); }
-.tema-natural .arte .chaveiro-svg { filter: drop-shadow(0 10px 10px rgba(80, 60, 30, .2)); }
-.tema-natural .card:hover { border-color: var(--laranja); }
-.tema-natural .pedido { box-shadow: 0 16px 40px rgba(80, 60, 30, .25); border: 1px solid var(--borda); }
-.tema-natural .pedido-resumo span { color: var(--texto-2); }
-.tema-natural .modal::backdrop { background: rgba(47, 42, 34, .45); }
+.tema-claro .andar + .andar { box-shadow: inset 0 10px 14px -8px rgba(var(--sombra), .3); }
+.tema-claro .pendente { filter: drop-shadow(0 8px 6px rgba(var(--sombra), .25)); }
+.tema-claro .etiqueta { background: #fff; border: 1px solid var(--borda); }
+.tema-claro .card-imagem, .tema-claro .modal-imagem { background: radial-gradient(circle at 50% 40%, #ffffff, var(--painel) 75%); }
+.tema-claro .arte .chaveiro-svg { filter: drop-shadow(0 10px 10px rgba(var(--sombra), .2)); }
+.tema-claro .card:hover { border-color: var(--laranja); }
+.tema-claro .pedido { box-shadow: 0 16px 40px rgba(var(--sombra), .25); border: 1px solid var(--borda); }
+.tema-claro .pedido-resumo span { color: var(--texto-2); }
+.tema-claro .modal::backdrop { background: rgba(var(--sombra), .45); }
