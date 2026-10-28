@@ -1,8 +1,10 @@
 import os
 from collections import Counter
+from pathlib import Path
 from typing import Iterator
 
 from fastapi import Depends, FastAPI, HTTPException, Request
+from fastapi.responses import HTMLResponse
 from sqlalchemy import select
 from sqlalchemy.orm import Session
 
@@ -16,6 +18,8 @@ from .sefaz.simulada import SefazSimulada
 from .validacao.chave import ChaveInvalida, interpretar_chave
 from .validacao.cpf import cpf_valido, normalizar_cpf
 from .validacao.qrcode import extrair_chave_qrcode
+
+PAGINA_DE_TESTE = Path(__file__).parent / "static" / "teste.html"
 
 
 def criar_app(
@@ -181,6 +185,10 @@ def criar_app(
 
 def _rotas_do_simulador(app: FastAPI) -> None:
     """Rotas para montar demonstrações sem Sefaz e PIX reais. Só existem com os simuladores ativos."""
+
+    @app.get("/teste", response_class=HTMLResponse, include_in_schema=False)
+    def pagina_de_teste():
+        return PAGINA_DE_TESTE.read_text(encoding="utf-8")
 
     @app.post("/simulador/sefaz/notas", status_code=201, tags=["simulador"])
     def registrar_nota(dados: schemas.NotaSimulada, request: Request):

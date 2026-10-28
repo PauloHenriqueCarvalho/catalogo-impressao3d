@@ -192,3 +192,9 @@ def test_simulador(client, campanha):
     ).status_code == 201
     nota = client.post(f"/campanhas/{campanha['id']}/notas", json={"cpf": CPF_MARIA, "chave": chave}).json()
     assert nota["status"] == "aprovada"
+
+
+def test_pagina_de_teste(client):
+    resposta = client.get("/teste")
+    assert resposta.status_code == 200
+    assert "Teste do Antifraude" in resposta.text

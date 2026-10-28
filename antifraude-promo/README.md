@@ -57,6 +57,26 @@ python -m pytest
 
 O banco padrão é SQLite (`antifraude.db`). Para usar Postgres, defina `ANTIFRAUDE_DB=postgresql+psycopg://...` e instale o driver.
 
+## Página de teste (QR code)
+
+Abra http://localhost:8000/teste para usar uma tela simples:
+
+1. **Criar campanha de teste**
+2. Leia o QR code da nota com **Usar câmera** (webcam) ou **Foto do QR code** (celular), ou cole o link
+3. Informe o CPF do participante
+4. Informe o que a Sefaz responderia (valor, data e CPF impresso na nota), já que a Sefaz ainda é simulada
+5. **Enviar nota** e veja o status, a pontuação e os motivos
+
+Para testar pelo celular, suba a API com `uvicorn app.main:app --host 0.0.0.0` e abra `http://IP-DO-COMPUTADOR:8000/teste` (celular e computador na mesma rede Wi-Fi). Por `http` o navegador do celular não libera a câmera ao vivo; use **Foto do QR code**.
+
+Testes de fraude para fazer:
+- Enviar a mesma nota duas vezes → `nota_duplicada`
+- Colocar outro CPF em "CPF impresso na nota" → `nota_de_terceiro`
+- Valor abaixo de R$ 10,00 → `valor_abaixo_minimo`
+- Marcar "Simular foto adulterada" → `divergencia_ocr` (revisão)
+- Trocar o CPF do participante mantendo o mesmo "Aparelho" e deixar a nota sem CPF → `dispositivo_compartilhado` (revisão)
+- Enviar 5 notas no mesmo dia com o mesmo CPF → `limite_diario`
+
 ## Endpoints
 
 | Método | Rota | Uso |

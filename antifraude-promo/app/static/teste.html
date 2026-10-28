@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Teste do Antifraude</title>
+<script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.js"></script>
+<style>
+  :root { --fundo:#f5f6f8; --card:#fff; --texto:#1d2330; --suave:#667085; --borda:#d9dde5;
+          --azul:#2457d6; --verde:#147a3d; --amarelo:#9a6700; --vermelho:#b42318; --cinza:#475467; }
+  * { box-sizing:border-box; }
+  body { margin:0; font:15px/1.45 system-ui, sans-serif; background:var(--fundo); color:var(--texto); }
+  main { max-width:640px; margin:0 auto; padding:16px; }
+  h1 { font-size:20px; margin:8px 0 16px; }
+  h2 { font-size:15px; margin:0 0 10px; }
+  section { background:var(--card); border:1px solid var(--borda); border-radius:10px; padding:16px; margin-bottom:14px; }
+  label { display:block; font-size:13px; color:var(--suave); margin:10px 0 4px; }
+  input { width:100%; padding:9px 10px; border:1px solid var(--borda); border-radius:8px; font:inherit; }
+  .linha { display:flex; gap:10px; flex-wrap:wrap; }
+  .linha > * { flex:1 1 140px; }
+  button { padding:10px 14px; border:0; border-radius:8px; background:var(--azul); color:#fff; font:inherit; font-weight:600; cursor:pointer; }
+  button.secundario { background:#e8edf8; color:var(--azul); }
+  button:disabled { opacity:.5; cursor:default; }
+  .botoes { display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
+  video { width:100%; border-radius:8px; background:#000; display:none; margin-top:10px; }
+  .chave { font-family:ui-monospace, monospace; font-size:13px; word-break:break-all; background:#f0f2f6; padding:8px; border-radius:6px; margin-top:8px; }
+  .dica { font-size:13px; color:var(--suave); margin-top:6px; }
+  .check { display:flex; gap:8px; align-items:center; margin-top:12px; color:var(--texto); font-size:14px; }
+  .check input { width:auto; }
+  #resultado { display:none; }
+  .status { display:inline-block; padding:4px 10px; border-radius:999px; color:#fff; font-weight:700; text-transform:uppercase; font-size:13px; }
+  .aprovada { background:var(--verde); } .revisao { background:var(--amarelo); }
+  .rejeitada { background:var(--vermelho); } .em_validacao { background:var(--cinza); }
+  ul { padding-left:18px; margin:10px 0 0; }
+  .erro { color:var(--vermelho); margin-top:8px; }
+  pre { font-size:12px; background:#f0f2f6; padding:10px; border-radius:6px; overflow:auto; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Teste do Antifraude</h1>
+
+  <section>
+    <h2>1. Campanha</h2>
+    <div class="linha">
+      <div><label for="campanha">ID da campanha</label><input id="campanha" type="number" min="1"></div>
+      <div style="display:flex;align-items:flex-end"><button class="secundario" id="criarCampanha">Criar campanha de teste</button></div>
+    </div>
+    <p class="dica">A campanha de teste vale para notas de 2026, qualquer produto, com valor mínimo de R$ 10,00 e até 4 notas por dia.</p>
+  </section>
+
+  <section>
+    <h2>2. Ler a nota</h2>
+    <div class="botoes">
+      <button id="abrirCamera">Usar câmera</button>
+      <button class="secundario" id="tirarFoto">Foto do QR code</button>
+      <input id="arquivo" type="file" accept="image/*" capture="environment" hidden>
+    </div>
+    <video id="video" playsinline muted></video>
+    <canvas id="canvas" hidden></canvas>
+    <label for="qrcode">Ou cole o link do QR code / a chave de acesso</label>
+    <input id="qrcode" placeholder="https://...?p=3526...|2|1|1|...">
+    <div id="chaveLida"></div>
+  </section>
+
+  <section>
+    <h2>3. Participante</h2>
+    <div class="linha">
+      <div><label for="cpf">CPF</label><input id="cpf" inputmode="numeric" placeholder="000.000.000-00"></div>
+      <div><label for="telefone">Telefone</label><input id="telefone" placeholder="+55 11 99999-0000"></div>
+    </div>
+    <label for="dispositivo">Aparelho (use o mesmo valor em vários CPFs para simular fazenda de CPFs)</label>
+    <input id="dispositivo">
+  </section>
+
+  <section>
+    <h2>4. Dados da nota na Sefaz (simulador)</h2>
+    <p class="dica">A Sefaz ainda é simulada, então informe aqui o que a Sefaz responderia sobre esta nota. Sem isso, uma nota real aparece como "não encontrada".</p>
+    <label class="check"><input type="checkbox" id="registrar" checked> Registrar a nota no simulador antes de enviar</label>
+    <div class="linha">
+      <div><label for="valor">Valor da nota (R$)</label><input id="valor" type="number" step="0.01" value="25.00"></div>
+      <div><label for="dataEmissao">Data de emissão</label><input id="dataEmissao" type="datetime-local"></div>
+    </div>
+    <label for="cpfNota">CPF impresso na nota (vazio = nota sem CPF; outro CPF = nota de terceiro)</label>
+    <input id="cpfNota" inputmode="numeric">
+    <label class="check"><input type="checkbox" id="divergir"> Simular foto adulterada (leitura da foto com valor diferente)</label>
+    <div class="botoes"><button id="enviar">Enviar nota</button></div>
+    <div id="erro" class="erro"></div>
+  </section>
+
+  <section id="resultado">
+    <h2>Resultado</h2>
+    <div id="resumo"></div>
+    <ul id="motivos"></ul>
+    <details style="margin-top:12px"><summary>Resposta completa</summary><pre id="json"></pre></details>
+    <div class="botoes"><button class="secundario" id="verPainel">Ver painel da campanha</button></div>
+    <pre id="painel" hidden></pre>
+  </section>
+</main>
+
+<script>
+const $ = (id) => document.getElementById(id);
+const guardar = (k, v) => { try { localStorage.setItem(k, v); } catch {} };
+const lembrar = (k) => { try { return localStorage.getItem(k); } catch { return null; } };
+
+$("campanha").value = lembrar("campanha") || "";
+$("cpf").value = lembrar("cpf") || "";
+$("dispositivo").value = lembrar("dispositivo") || "aparelho-" + Math.random().toString(36).slice(2, 8);
+const agora = new Date(); agora.setMinutes(agora.getMinutes() - agora.getTimezoneOffset());
+$("dataEmissao").value = agora.toISOString().slice(0, 16);
+
+async function api(metodo, rota, corpo) {
+  const r = await fetch(rota, { method: metodo, headers: { "content-type": "application/json" }, body: corpo ? JSON.stringify(corpo) : undefined });
+  const texto = await r.text();
+  const dados = texto ? JSON.parse(texto) : null;
+  if (!r.ok) {
+    const d = dados && dados.detail;
+    throw new Error(Array.isArray(d) ? d.map((e) => e.msg).join("; ") : d || `Erro ${r.status}`);
+  }
+  return dados;
+}
+
+$("criarCampanha").onclick = async () => {
+  try {
+    const c = await api("POST", "/campanhas", {
+      nome: "Campanha de teste", inicio: "2026-01-01T00:00:00", fim: "2026-12-31T23:59:59",
+      valor_minimo: "10.00", max_notas_dia: 4,
+    });
+    $("campanha").value = c.id; guardar("campanha", c.id);
+  } catch (e) { $("erro").textContent = e.message; }
+};
+
+// Chave de acesso: parâmetro p= (NFC-e), chNFe= ou 44 dígitos seguidos.
+function extrairChave(texto) {
+  const t = decodeURIComponent(texto || "").toUpperCase();
+  const m = t.match(/[?&]P=([0-9A-Z]{44})/) || t.match(/CHNFE=([0-9A-Z]{44})/) || t.replace(/\s/g, "").match(/(\d{44})/);
+  return m ? m[1] : null;
+}
+function mostrarChave() {
+  const chave = extrairChave($("qrcode").value);
+  $("chaveLida").innerHTML = chave ? `<div class="chave">Chave: ${chave}</div>` : "";
+  return chave;
+}
+$("qrcode").oninput = mostrarChave;
+
+function lerImagem(origem, largura, altura) {
+  const canvas = $("canvas"); canvas.width = largura; canvas.height = altura;
+  const ctx = canvas.getContext("2d", { willReadFrequently: true });
+  ctx.drawImage(origem, 0, 0, largura, altura);
+  const qr = jsQR(ctx.getImageData(0, 0, largura, altura).data, largura, altura);
+  return qr && qr.data;
+}
+function qrLido(texto) {
+  $("qrcode").value = texto;
+  if (!mostrarChave()) $("erro").textContent = "QR code lido, mas não parece ser de uma NFC-e.";
+  else $("erro").textContent = "";
+}
+
+let fluxo = null;
+$("abrirCamera").onclick = async () => {
+  if (fluxo) return pararCamera();
+  try {
+    fluxo = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } });
+  } catch {
+    $("erro").textContent = "Não foi possível abrir a câmera. No celular, use \"Foto do QR code\".";
+    return;
+  }
+  const video = $("video"); video.srcObject = fluxo; video.style.display = "block"; await video.play();
+  $("abrirCamera").textContent = "Fechar câmera";
+  const procurar = () => {
+    if (!fluxo) return;
+    if (video.readyState === video.HAVE_ENOUGH_DATA) {
+      const texto = lerImagem(video, video.videoWidth, video.videoHeight);
+      if (texto) { qrLido(texto); return pararCamera(); }
+    }
+    requestAnimationFrame(procurar);
+  };
+  procurar();
+};
+function pararCamera() {
+  fluxo && fluxo.getTracks().forEach((t) => t.stop());
+  fluxo = null; $("video").style.display = "none"; $("abrirCamera").textContent = "Usar câmera";
+}
+
+$("tirarFoto").onclick = () => $("arquivo").click();
+$("arquivo").onchange = () => {
+  const arquivo = $("arquivo").files[0]; if (!arquivo) return;
+  const img = new Image();
+  img.onload = () => {
+    // Fotos de celular são grandes; reduzir ajuda o leitor e evita travar.
+    const escala = Math.min(1, 1600 / Math.max(img.width, img.height));
+    const texto = lerImagem(img, Math.round(img.width * escala), Math.round(img.height * escala));
+    texto ? qrLido(texto) : ($("erro").textContent = "Não achei QR code na foto. Tente mais perto e com boa luz.");
+    URL.revokeObjectURL(img.src);
+  };
+  img.src = URL.createObjectURL(arquivo);
+};
+
+$("enviar").onclick = async () => {
+  $("erro").textContent = "";
+  const campanha = $("campanha").value, chave = mostrarChave(), cpf = $("cpf").value;
+  if (!campanha) return ($("erro").textContent = "Crie ou informe a campanha.");
+  if (!chave) return ($("erro").textContent = "Leia o QR code ou cole a chave.");
+  guardar("campanha", campanha); guardar("cpf", cpf); guardar("dispositivo", $("dispositivo").value);
+  $("enviar").disabled = true;
+  try {
+    const valor = $("valor").value || "0", data = $("dataEmissao").value + ":00";
+    if ($("registrar").checked) {
+      await api("POST", "/simulador/sefaz/notas", {
+        chave, data_emissao: data, valor_total: valor, cpf_consumidor: $("cpfNota").value || null,
+        itens: [{ descricao: "Produto", valor_total: valor }],
+      });
+    }
+    const ocr = $("divergir").checked ? { valor_total: (Number(valor) + 100).toFixed(2), data_emissao: data } : { valor_total: valor, data_emissao: data };
+    const nota = await api("POST", `/campanhas/${campanha}/notas`, {
+      cpf, telefone: $("telefone").value || null, dispositivo_id: $("dispositivo").value || null, qrcode: $("qrcode").value, ocr,
+    });
+    mostrarResultado(nota);
+  } catch (e) { $("erro").textContent = e.message; }
+  finally { $("enviar").disabled = false; }
+};
+
+const NOMES = { aprovada: "Aprovada", revisao: "Revisão manual", rejeitada: "Rejeitada", em_validacao: "Em validação" };
+function mostrarResultado(nota) {
+  $("resultado").style.display = "block";
+  $("resumo").innerHTML = `<span class="status ${nota.status}">${NOMES[nota.status] || nota.status}</span>
+    &nbsp; pontuação de risco <b>${nota.pontuacao}</b>` + (nota.valor_participante ? ` · valor R$ ${nota.valor_participante}` : "");
+  $("motivos").innerHTML = nota.motivos.length
+    ? nota.motivos.map((m) => `<li><b>${m.codigo}</b>${m.pontos ? ` (+${m.pontos})` : ""}: ${m.detalhe}</li>`).join("")
+    : "<li>Nenhum sinal de risco.</li>";
+  $("json").textContent = JSON.stringify(nota, null, 2);
+  $("resultado").scrollIntoView({ behavior: "smooth" });
+}
+
+$("verPainel").onclick = async () => {
+  try {
+    const p = await api("GET", `/campanhas/${$("campanha").value}/painel`);
+    $("painel").hidden = false; $("painel").textContent = JSON.stringify(p, null, 2);
+  } catch (e) { $("erro").textContent = e.message; }
+};
+</script>
+</body>
+</html>
