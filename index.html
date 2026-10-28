@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verissimo 3D · Catálogo de Chaveiros</title>
+<meta name="description" content="Catálogo de chaveiros impressos em 3D pela Verissimo 3D: artes marciais, animes e desenhos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topo">
+  <a class="logo" href="#inicio">
+    <span class="logo-cubo" aria-hidden="true"></span>
+    <span>Verissimo <b>3D</b></span>
+  </a>
+  <nav>
+    <a href="#expositor">Expositor</a>
+    <a href="#artes-marciais">Artes Marciais</a>
+    <a href="#animes">Animes</a>
+    <a href="#como-funciona">Como pedir</a>
+  </nav>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero-texto">
+    <p class="selo">Catálogo exclusivo · Chaveiros</p>
+    <h1>Chaveiros impressos em 3D <span>do tatame ao anime</span></h1>
+    <p class="hero-sub">Peças leves, resistentes e feitas sob encomenda, organizadas em um expositor de dois andares:
+      <b>artes marciais</b> em cima e <b>animes e desenhos</b> embaixo.</p>
+    <div class="hero-acoes">
+      <a class="btn btn-primario" href="#expositor">Ver o expositor</a>
+      <a class="btn btn-secundario" href="#como-funciona">Como fazer o pedido</a>
+    </div>
+    <ul class="hero-info">
+      <li><b>PLA</b> material ecológico</li>
+      <li><b>~5 cm</b> tamanho médio</li>
+      <li><b>Cores</b> personalizáveis</li>
+    </ul>
+  </div>
+</section>
+
+<!-- EXPOSITOR DE DOIS ANDARES -->
+<section class="secao" id="expositor">
+  <div class="secao-cabecalho">
+    <p class="selo">Expositor</p>
+    <h2>Expositor de dois andares</h2>
+    <p>Toque em um chaveiro para ver os detalhes e adicionar ao pedido.</p>
+  </div>
+
+  <div class="expositor">
+    <div class="expositor-placa">VERISSIMO 3D</div>
+    <div class="expositor-corpo">
+      <div class="andar">
+        <span class="andar-rotulo">1º andar · Artes Marciais</span>
+        <div class="barra"></div>
+        <div class="ganchos" id="andar-cima"></div>
+      </div>
+      <div class="andar">
+        <span class="andar-rotulo">2º andar · Animes &amp; Desenhos</span>
+        <div class="barra"></div>
+        <div class="ganchos" id="andar-baixo"></div>
+      </div>
+    </div>
+    <div class="expositor-base"></div>
+  </div>
+</section>
+
+<section class="secao" id="artes-marciais">
+  <div class="secao-cabecalho">
+    <p class="selo">1º andar</p>
+    <h2>Artes Marciais</h2>
+    <p>Para quem vive o tatame: karatê, judô, jiu-jitsu, boxe, muay thai e kung fu.</p>
+  </div>
+  <div class="grade" id="grade-artes"></div>
+</section>
+
+<section class="secao" id="animes">
+  <div class="secao-cabecalho">
+    <p class="selo">2º andar</p>
+    <h2>Animes &amp; Desenhos</h2>
+    <p>Os personagens e símbolos favoritos de Dragon Ball, Naruto, One Piece e mais.</p>
+  </div>
+  <div class="grade" id="grade-animes"></div>
+</section>
+
+<section class="secao" id="como-funciona">
+  <div class="secao-cabecalho">
+    <p class="selo">Como pedir</p>
+    <h2>Simples assim</h2>
+  </div>
+  <ol class="passos">
+    <li><span>1</span><h3>Escolha</h3><p>Adicione os chaveiros ao pedido pelo expositor ou pelo catálogo.</p></li>
+    <li><span>2</span><h3>Envie</h3><p>Clique em “Enviar pelo WhatsApp” e a lista vai pronta na mensagem.</p></li>
+    <li><span>3</span><h3>Imprimimos</h3><p>Combinamos cores e prazo, e sua peça é impressa camada por camada.</p></li>
+  </ol>
+</section>
+
+<footer class="rodape">
+  <p><b>Verissimo 3D</b> · Impressão 3D sob encomenda</p>
+  <p class="rodape-pequeno">Imagens ilustrativas. Cores e tamanhos podem variar. Personagens pertencem aos seus respectivos criadores.</p>
+</footer>
+
+<!-- Barra do pedido -->
+<div class="pedido" id="pedido" hidden>
+  <div class="pedido-resumo">
+    <b id="pedido-qtd">0 itens</b>
+    <span id="pedido-total">R$ 0,00</span>
+  </div>
+  <button class="btn btn-secundario btn-pequeno" id="pedido-limpar" type="button">Limpar</button>
+  <a class="btn btn-primario btn-pequeno" id="pedido-enviar" target="_blank" rel="noopener">Enviar pelo WhatsApp</a>
+</div>
+
+<!-- Detalhe do produto -->
+<dialog class="modal" id="modal">
+  <button class="modal-fechar" id="modal-fechar" type="button" aria-label="Fechar">×</button>
+  <div class="modal-imagem" id="modal-imagem"></div>
+  <div class="modal-texto">
+    <p class="selo" id="modal-categoria"></p>
+    <h3 id="modal-nome"></h3>
+    <p id="modal-descricao"></p>
+    <p class="preco" id="modal-preco"></p>
+    <button class="btn btn-primario" id="modal-adicionar" type="button">Adicionar ao pedido</button>
+  </div>
+</dialog>
+
+<div class="aviso" id="aviso" role="status"></div>
+
+<script src="produtos.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
