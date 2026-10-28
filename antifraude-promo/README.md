@@ -52,7 +52,7 @@ uvicorn app.main:app --reload
 A documentação interativa fica em http://localhost:8000/docs. Para rodar os testes:
 
 ```bash
-pytest
+python -m pytest
 ```
 
 O banco padrão é SQLite (`antifraude.db`). Para usar Postgres, defina `ANTIFRAUDE_DB=postgresql+psycopg://...` e instale o driver.
