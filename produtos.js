@@ -115,6 +115,68 @@ const PRODUTOS = [
   },
 
   // ---------- 2º ANDAR · ANIMES & DESENHOS ----------
+  // Bonequinhos
+  {
+    id: "boneco-goku", andar: "baixo", nome: "Gokuzinho",
+    descricao: "Bonequinho do Goku com o uniforme laranja (Dragon Ball).",
+    foto: "img/chaveiros/boneco-goku.jpg", arte: "boneco-goku",
+  },
+  {
+    id: "boneco-vegeta", andar: "baixo", nome: "Vegetinha",
+    descricao: "Bonequinho do Vegeta com armadura saiyajin (Dragon Ball).",
+    foto: "img/chaveiros/boneco-vegeta.jpg", arte: "boneco-vegeta",
+  },
+  {
+    id: "boneco-naruto", andar: "baixo", nome: "Narutinho",
+    descricao: "Bonequinho do Naruto com bandana da Folha (Naruto).",
+    foto: "img/chaveiros/boneco-naruto.jpg", arte: "boneco-naruto",
+  },
+  {
+    id: "boneco-sasuke", andar: "baixo", nome: "Sasukinho",
+    descricao: "Bonequinho do Sasuke (Naruto).",
+    foto: "img/chaveiros/boneco-sasuke.jpg", arte: "boneco-sasuke",
+  },
+  {
+    id: "boneco-kakashi", andar: "baixo", nome: "Kakashizinho",
+    descricao: "Bonequinho do Kakashi com máscara e colete jōnin (Naruto).",
+    foto: "img/chaveiros/boneco-kakashi.jpg", arte: "boneco-kakashi",
+  },
+  {
+    id: "boneco-luffy", andar: "baixo", nome: "Luffyzinho",
+    descricao: "Bonequinho do Luffy com o chapéu de palha (One Piece).",
+    foto: "img/chaveiros/boneco-luffy.jpg", arte: "boneco-luffy",
+  },
+  {
+    id: "boneco-zoro", andar: "baixo", nome: "Zorozinho",
+    descricao: "Bonequinho do Zoro com os brincos e a faixa verde (One Piece).",
+    foto: "img/chaveiros/boneco-zoro.jpg", arte: "boneco-zoro",
+  },
+  {
+    id: "boneco-tanjiro", andar: "baixo", nome: "Tanjirozinho",
+    descricao: "Bonequinho do Tanjiro com o haori xadrez (Demon Slayer).",
+    foto: "img/chaveiros/boneco-tanjiro.jpg", arte: "boneco-tanjiro",
+  },
+  {
+    id: "boneco-nezuko", andar: "baixo", nome: "Nezukinha",
+    descricao: "Bonequinha da Nezuko com o bambu e o kimono rosa (Demon Slayer).",
+    foto: "img/chaveiros/boneco-nezuko.jpg", arte: "boneco-nezuko",
+  },
+  {
+    id: "boneco-pikachu", andar: "baixo", nome: "Pikachuzinho",
+    descricao: "Bonequinho do Pikachu com o rabo de raio (Pokémon).",
+    foto: "img/chaveiros/boneco-pikachu.jpg", arte: "boneco-pikachu",
+  },
+  {
+    id: "boneco-bob", andar: "baixo", nome: "Bob Esponja",
+    descricao: "Bonequinho do Bob Esponja de gravata (Bob Esponja).",
+    foto: "img/chaveiros/boneco-bob.jpg", arte: "boneco-bob",
+  },
+  {
+    id: "boneco-patrick", andar: "baixo", nome: "Patrick",
+    descricao: "Bonequinho do Patrick de bermuda florida (Bob Esponja).",
+    foto: "img/chaveiros/boneco-patrick.jpg", arte: "boneco-patrick",
+  },
+  // Símbolos
   {
     id: "goku", andar: "baixo", nome: "Goku · Símbolo",
     descricao: "Medalha laranja com o kanji do uniforme do Goku (Dragon Ball).",
@@ -190,6 +252,40 @@ function kimonoArte(tecido, contorno, extra = "", espessura = 2) {
     <rect x="28" y="56" width="44" height="8" style="fill: var(--faixa, #1d1d1f)" stroke="#5a5d66" stroke-width="1"/>
     <path d="M46 62 L40 80 L46 80 L50 64 Z M54 62 L60 80 L54 80 L50 64 Z" style="fill: var(--faixa, #1d1d1f)" stroke="#5a5d66" stroke-width="1"/>`;
 }
+
+// ---------- Bonequinhos (chibi) ----------
+function rostoPadrao(olhos, boca = `<path d="M47 52 Q50 54.5 53 52" fill="none" stroke="#6b3a2a" stroke-width="1.5" stroke-linecap="round"/>`) {
+  return `
+    <ellipse cx="43" cy="45" rx="3" ry="4" fill="${olhos}"/><ellipse cx="57" cy="45" rx="3" ry="4" fill="${olhos}"/>
+    <circle cx="44" cy="43.5" r="1.1" fill="#fff"/><circle cx="58" cy="43.5" r="1.1" fill="#fff"/>
+    <ellipse cx="38" cy="51" rx="3" ry="1.6" fill="#ff8a8a" opacity=".5"/><ellipse cx="62" cy="51" rx="3" ry="1.6" fill="#ff8a8a" opacity=".5"/>
+    ${boca}`;
+}
+
+function corpoChibi({ pele, roupa, calca, sapato, mangas = roupa, maos = pele, extra = "" }) {
+  return `
+    <path d="M38 60 L30 74 M62 60 L70 74" stroke="${mangas}" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="29" cy="76" r="4.5" fill="${maos}"/><circle cx="71" cy="76" r="4.5" fill="${maos}"/>
+    <rect x="40" y="78" width="8" height="11" fill="${calca}"/><rect x="52" y="78" width="8" height="11" fill="${calca}"/>
+    <ellipse cx="43" cy="91" rx="6" ry="3.5" fill="${sapato}"/><ellipse cx="57" cy="91" rx="6" ry="3.5" fill="${sapato}"/>
+    <path d="M38 58 L62 58 L65 80 L35 80 Z" fill="${roupa}"/>
+    ${extra}`;
+}
+
+function chibi({ pele = "#ffd9b8", tras = "", corpo, olhos = "#1d1d1f", rosto, extraRosto = "", frente = "" }) {
+  return `
+    ${tras}
+    ${corpo}
+    <circle cx="31" cy="45" r="4" fill="${pele}"/><circle cx="69" cy="45" r="4" fill="${pele}"/>
+    <circle cx="50" cy="42" r="19" fill="${pele}"/>
+    ${rosto ?? rostoPadrao(olhos)}
+    ${extraRosto}
+    ${frente}`;
+}
+
+const PELE = "#ffd9b8";
+const SOBRANCELHA_BRAVA = `<path d="M38 38 L46 41 M62 38 L54 41" stroke="#1d1d1f" stroke-width="2" stroke-linecap="round"/>`;
+const BOCA_SERIA = `<path d="M46 54 Q50 51.5 54 54" fill="none" stroke="#6b3a2a" stroke-width="1.5" stroke-linecap="round"/>`;
 
 const ARTES = {
   faixa: `
@@ -354,4 +450,139 @@ const ARTES = {
     <rect x="10" y="32" width="80" height="36" rx="4" fill="none" stroke="#e7eaee" stroke-width="1.5"/>
     <text x="50" y="47" text-anchor="middle" font-size="11" font-weight="700" fill="#1d1d1f" font-family="Inter,sans-serif">SÓ PERDE</text>
     <text x="50" y="61" text-anchor="middle" font-size="11" font-weight="700" fill="#1d1d1f" font-family="Inter,sans-serif">QUEM DESISTE</text>`,
+  "boneco-goku": chibi({
+    tras: `<path d="M30 46 L14 38 L28 32 L16 18 L34 22 L34 6 L48 18 L58 4 L62 20 L78 10 L74 26 L88 26 L72 44 Z" fill="#1d1d1f"/>`,
+    corpo: corpoChibi({ pele: PELE, roupa: "#f08a24", calca: "#f08a24", sapato: "#1d3c8f", extra: `
+      <path d="M44 58 L50 66 L56 58 Z" fill="#1d3c8f"/>
+      <rect x="36" y="74" width="28" height="4" fill="#1d3c8f"/>
+      <circle cx="57" cy="67" r="3" fill="#f3f1ec"/>` }),
+    frente: `<path d="M31 40 C31 24 69 24 69 40 L65 34 L63 40 L58 31 L54 37 L50 28 L46 37 L42 31 L38 39 L35 34 Z" fill="#1d1d1f"/>`,
+  }),
+  "boneco-vegeta": chibi({
+    tras: `<path d="M33 36 L28 8 L39 18 L43 4 L50 14 L57 4 L61 18 L72 8 L67 36 Z" fill="#1d1d1f"/>`,
+    corpo: corpoChibi({ pele: PELE, roupa: "#23408f", calca: "#23408f", sapato: "#f3f1ec", maos: "#f3f1ec", extra: `
+      <path d="M38 58 L62 58 L63 70 L37 70 Z" fill="#f3f1ec"/>
+      <path d="M38 58 L31 61 L35 67 Z M62 58 L69 61 L65 67 Z" fill="#e8b33a"/>` }),
+    rosto: rostoPadrao("#1d1d1f", BOCA_SERIA),
+    extraRosto: SOBRANCELHA_BRAVA,
+    frente: `<path d="M31 38 C32 26 68 26 69 38 L60 31 L50 40 L40 31 Z" fill="#1d1d1f"/>`,
+  }),
+  "boneco-naruto": chibi({
+    olhos: "#2f7fd6",
+    tras: `<path d="M30 44 L18 36 L28 30 L20 16 L36 22 L40 6 L50 18 L60 6 L64 22 L80 16 L72 30 L82 36 L70 44 Z" fill="#f5c518"/>`,
+    corpo: corpoChibi({ pele: PELE, roupa: "#f07a1a", calca: "#f07a1a", sapato: "#1d3c8f", extra: `
+      <path d="M38 58 L62 58 L63 65 L37 65 Z" fill="#1d1d1f"/>
+      <path d="M50 65 L50 80" stroke="#f3f1ec" stroke-width="1.5"/>` }),
+    extraRosto: `<path d="M34 48 L39 49 M34 51 L39 51 M34 54 L39 53 M66 48 L61 49 M66 51 L61 51 M66 54 L61 53" stroke="#6b3a2a" stroke-width="1"/>`,
+    frente: `
+      <path d="M32 36 L35 43 L39 36 L43 43 L47 36 L50 42 L53 36 L57 43 L61 36 L65 43 L68 36 Z" fill="#f5c518"/>
+      <rect x="30" y="29" width="40" height="8" rx="2" fill="#1d3c8f"/>
+      <rect x="40" y="28" width="20" height="10" rx="1.5" fill="#b9c0c8" stroke="#7d858f"/>
+      <path d="M50 35.5 c-3 0 -3 -4 0 -4 c2 0 2 2.5 0 2.5 M50 35.5 l4 -5" fill="none" stroke="#3a3f46" stroke-width="1"/>`,
+  }),
+  "boneco-sasuke": chibi({
+    tras: `<path d="M30 44 C26 30 32 18 48 18 L58 6 L62 18 L76 10 L72 22 L84 24 L70 34 L72 46 Z" fill="#1f2433"/>`,
+    corpo: corpoChibi({ pele: PELE, roupa: "#e9e9ee", calca: "#2a2f3a", sapato: "#2a2f3a", extra: `
+      <path d="M40 59 L44 55 L56 55 L60 59" fill="none" stroke="#c9cad3" stroke-width="3"/>
+      <rect x="35" y="73" width="30" height="4" fill="#6b3fa0"/>` }),
+    rosto: rostoPadrao("#1d1d1f", BOCA_SERIA),
+    frente: `<path d="M31 34 C33 22 67 22 69 34 L70 54 L66 54 L65 36 L58 31 L53 39 L48 31 L40 36 L35 54 L30 54 Z" fill="#1f2433"/>`,
+  }),
+  "boneco-kakashi": chibi({
+    tras: `<path d="M32 40 C30 24 44 18 54 16 L50 6 L64 14 L66 4 L74 18 L86 16 L76 28 L82 34 L68 40 Z" fill="#d4d8de"/>`,
+    corpo: corpoChibi({ pele: PELE, roupa: "#2a3550", calca: "#2a3550", sapato: "#2a3550", extra: `
+      <path d="M38 58 L62 58 L63 74 L37 74 Z" fill="#5b8a3e"/>
+      <path d="M42 63 L48 63 M52 63 L58 63" stroke="#3f6a2a" stroke-width="3"/>` }),
+    rosto: `<ellipse cx="57" cy="45" rx="3" ry="2.6" fill="#1d1d1f"/><path d="M53 43 L61 43" stroke="#1d1d1f" stroke-width="1.5"/>`,
+    extraRosto: `<path d="M31 48 L69 48 C68 56 60 61 50 61 C40 61 32 56 31 48 Z" fill="#2a3550"/>`,
+    frente: `
+      <path d="M29 40 L71 29 L71 38 L29 52 Z" fill="#1d3c8f"/>
+      <rect x="38" y="35" width="16" height="9" rx="1.5" fill="#b9c0c8" stroke="#7d858f" transform="rotate(-15 46 40)"/>`,
+  }),
+  "boneco-luffy": chibi({
+    corpo: corpoChibi({ pele: PELE, roupa: "#d6262b", calca: "#2f6fb5", sapato: "#c9a46a", mangas: PELE, extra: `
+      <path d="M45 58 L50 70 L55 58 Z" fill="${PELE}"/>
+      <rect x="36" y="76" width="28" height="3" fill="#e3b75c"/>` }),
+    extraRosto: `<path d="M38 50 L42 50.6" stroke="#b24a3a" stroke-width="1.2" stroke-linecap="round"/>`,
+    frente: `
+      <path d="M31 40 C30 26 70 26 69 40 L66 36 L64 42 L60 36 L56 42 L52 35 L48 42 L44 36 L40 42 L36 36 L33 42 Z" fill="#1d1d1f"/>
+      <ellipse cx="50" cy="29" rx="28" ry="6" fill="#e3b75c"/>
+      <path d="M35 29 C35 12 65 12 65 29 Z" fill="#edc36a"/>
+      <rect x="35" y="23" width="30" height="5" fill="#d6262b"/>`,
+  }),
+  "boneco-zoro": chibi({
+    corpo: corpoChibi({ pele: PELE, roupa: "#f3f1ec", calca: "#1d1d1f", sapato: "#1d1d1f", extra: `
+      <rect x="36" y="70" width="28" height="9" fill="#3f8a3c"/>
+      <g transform="rotate(25 66 74)"><rect x="64" y="60" width="3" height="24" fill="#1d1d1f"/><rect x="62" y="66" width="7" height="2" fill="#e8b33a"/></g>` }),
+    rosto: rostoPadrao("#1d1d1f", BOCA_SERIA),
+    extraRosto: `<path d="M38 39 L46 41 M62 39 L54 41" stroke="#2e6b30" stroke-width="2" stroke-linecap="round"/>
+      <g fill="#e8b33a"><circle cx="28" cy="47" r="1.5"/><circle cx="28" cy="50.5" r="1.5"/><circle cx="28" cy="54" r="1.5"/></g>`,
+    frente: `<path d="M31 40 C30 24 70 24 69 40 L64 34 L60 36 L55 31 L50 35 L45 31 L40 36 L36 34 Z" fill="#4caf50"/>`,
+  }),
+  "boneco-tanjiro": chibi({
+    olhos: "#8b1a1a",
+    tras: `<path d="M30 44 L20 34 L30 30 L24 18 L38 22 L44 10 L52 20 L62 10 L64 22 L78 18 L72 30 L80 36 L70 44 Z" fill="#4a1c1c"/>`,
+    corpo: `
+      <defs><pattern id="xadrez" width="6" height="6" patternUnits="userSpaceOnUse"><rect width="6" height="6" fill="#1d1d1f"/><rect width="3" height="3" fill="#2e9e6a"/><rect x="3" y="3" width="3" height="3" fill="#2e9e6a"/></pattern></defs>
+      ${corpoChibi({ pele: PELE, roupa: "url(#xadrez)", calca: "#1d1d1f", sapato: "#f3f1ec", extra: `<path d="M45 58 L50 66 L55 58 Z" fill="#1d1d1f"/>` })}`,
+    extraRosto: `<g fill="#f3f1ec" stroke="#c4161c" stroke-width=".8"><rect x="26.5" y="47" width="4" height="7"/><rect x="69.5" y="47" width="4" height="7"/></g>`,
+    frente: `
+      <path d="M31 40 C31 24 69 24 69 40 L64 33 L60 40 L55 30 L50 37 L45 30 L40 40 L36 33 Z" fill="#4a1c1c"/>
+      <path d="M37 36 q3 -3 6 0" fill="none" stroke="#b24a3a" stroke-width="1.6"/>`,
+  }),
+  "boneco-nezuko": chibi({
+    olhos: "#e86aa0",
+    tras: `<path d="M30 40 C24 58 26 74 30 84 L70 84 C74 74 76 58 70 40 Z" fill="#1d1d1f"/><path d="M28 78 L72 78 L70 84 L30 84 Z" fill="#f07a1a"/>`,
+    corpo: corpoChibi({ pele: PELE, roupa: "#f5a3c0", calca: "#f5a3c0", sapato: "#2a2f3a", extra: `
+      <path d="M44 58 L50 66 L56 58" fill="none" stroke="#f3f1ec" stroke-width="2"/>
+      <rect x="36" y="70" width="28" height="6" fill="#8a5a31"/>` }),
+    rosto: rostoPadrao("#e86aa0", `<rect x="40" y="51" width="20" height="5" rx="2.5" fill="#7fa65a" stroke="#4f7a3a"/>`),
+    frente: `
+      <path d="M31 42 C30 24 70 24 69 42 L64 34 L58 38 L54 32 L50 36 L46 32 L42 38 L36 34 Z" fill="#1d1d1f"/>
+      <path d="M60 26 L69 20 L69 31 Z M60 26 L67 33 L58 33 Z" fill="#f06ba8"/>`,
+  }),
+  "boneco-pikachu": `
+    <path d="M66 82 L82 72 L76 66 L92 54 L86 48 L96 36 L76 44 L80 50 L66 60 L70 66 Z" fill="#ffd84a" stroke="#c48f00" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M36 34 Q24 18 16 6 Q32 10 44 28 Z" fill="#ffd84a" stroke="#c48f00" stroke-width="1.5"/>
+    <path d="M16 6 Q22 8 27 13 L23 17 Q19 11 16 6 Z" fill="#1d1d1f"/>
+    <path d="M64 34 Q76 18 84 6 Q68 10 56 28 Z" fill="#ffd84a" stroke="#c48f00" stroke-width="1.5"/>
+    <path d="M84 6 Q78 8 73 13 L77 17 Q81 11 84 6 Z" fill="#1d1d1f"/>
+    <ellipse cx="41" cy="91" rx="6" ry="3" fill="#ffd84a" stroke="#c48f00" stroke-width="1.5"/>
+    <ellipse cx="59" cy="91" rx="6" ry="3" fill="#ffd84a" stroke="#c48f00" stroke-width="1.5"/>
+    <ellipse cx="50" cy="76" rx="19" ry="16" fill="#ffd84a" stroke="#c48f00" stroke-width="1.5"/>
+    <ellipse cx="38" cy="72" rx="3" ry="5" fill="#ffd84a" stroke="#c48f00" stroke-width="1.2" transform="rotate(30 38 72)"/>
+    <ellipse cx="62" cy="72" rx="3" ry="5" fill="#ffd84a" stroke="#c48f00" stroke-width="1.2" transform="rotate(-30 62 72)"/>
+    <ellipse cx="50" cy="46" rx="22" ry="19" fill="#ffd84a" stroke="#c48f00" stroke-width="1.5"/>
+    <circle cx="42" cy="44" r="3.5" fill="#1d1d1f"/><circle cx="58" cy="44" r="3.5" fill="#1d1d1f"/>
+    <circle cx="43" cy="42.6" r="1.2" fill="#fff"/><circle cx="59" cy="42.6" r="1.2" fill="#fff"/>
+    <circle cx="50" cy="48.5" r=".9" fill="#1d1d1f"/>
+    <path d="M46 52 Q48 54.5 50 52 Q52 54.5 54 52" fill="none" stroke="#1d1d1f" stroke-width="1.2"/>
+    <circle cx="34" cy="52" r="4.5" fill="#e8392c"/><circle cx="66" cy="52" r="4.5" fill="#e8392c"/>`,
+  "boneco-bob": `
+    <path d="M24 50 L16 62 M76 50 L84 62" stroke="#fff35c" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="16" cy="63" r="3.5" fill="#fff35c"/><circle cx="84" cy="63" r="3.5" fill="#fff35c"/>
+    <path d="M40 78 L40 89 M60 78 L60 89" stroke="#fff35c" stroke-width="3"/>
+    <rect x="37.5" y="84" width="5" height="5" fill="#f3f1ec"/><rect x="57.5" y="84" width="5" height="5" fill="#f3f1ec"/>
+    <ellipse cx="38" cy="92" rx="5" ry="3" fill="#1d1d1f"/><ellipse cx="62" cy="92" rx="5" ry="3" fill="#1d1d1f"/>
+    <rect x="24" y="10" width="52" height="56" rx="4" fill="#fff35c" stroke="#c9b200" stroke-width="2"/>
+    <g fill="#d6c836"><ellipse cx="30" cy="18" rx="3" ry="2"/><ellipse cx="70" cy="20" rx="2.5" ry="3"/><ellipse cx="31" cy="58" rx="3" ry="2.5"/><ellipse cx="69" cy="57" rx="2" ry="3"/><ellipse cx="50" cy="15" rx="2" ry="1.5"/></g>
+    <rect x="24" y="64" width="52" height="7" fill="#f3f1ec"/>
+    <rect x="24" y="70" width="52" height="9" fill="#8a5a31"/>
+    <path d="M28 74 L34 74 M40 74 L46 74 M54 74 L60 74 M66 74 L72 74" stroke="#1d1d1f" stroke-width="1.5"/>
+    <path d="M48 64 L52 64 L53 73 L50 76 L47 73 Z" fill="#d6262b"/>
+    <circle cx="41" cy="31" r="8" fill="#fff" stroke="#1d1d1f" stroke-width="1"/><circle cx="59" cy="31" r="8" fill="#fff" stroke="#1d1d1f" stroke-width="1"/>
+    <circle cx="42" cy="31" r="4" fill="#3fa7e0"/><circle cx="58" cy="31" r="4" fill="#3fa7e0"/>
+    <circle cx="42" cy="31" r="2" fill="#1d1d1f"/><circle cx="58" cy="31" r="2" fill="#1d1d1f"/>
+    <ellipse cx="50" cy="40" rx="3" ry="4" fill="#f5e64a" stroke="#c9b200"/>
+    <circle cx="36" cy="45" r="3" fill="#ff9a7a" opacity=".6"/><circle cx="64" cy="45" r="3" fill="#ff9a7a" opacity=".6"/>
+    <path d="M37 46 Q50 58 63 46 Z" fill="#8b1a1a" stroke="#1d1d1f" stroke-width="1.5"/>
+    <rect x="45.5" y="46.5" width="4" height="4" fill="#fff"/><rect x="50.5" y="46.5" width="4" height="4" fill="#fff"/>`,
+  "boneco-patrick": `
+    <path d="M50 6 C54 6 58 30 60 38 C70 40 90 46 88 52 C86 58 66 60 62 62 C64 72 68 90 62 92 C56 94 52 80 50 74 C48 80 44 94 38 92 C32 90 36 72 38 62 C34 60 14 58 12 52 C10 46 30 40 40 38 C42 30 46 6 50 6 Z" fill="#f7a1b5" stroke="#d9748d" stroke-width="2"/>
+    <path d="M38 60 L62 60 L64 74 L54 74 L50 68 L46 74 L36 74 Z" fill="#7cc242"/>
+    <g fill="#8a4fc4"><circle cx="42" cy="66" r="2"/><circle cx="55" cy="64" r="2"/><circle cx="58" cy="70" r="2"/></g>
+    <ellipse cx="46" cy="28" rx="3.5" ry="4.5" fill="#fff" stroke="#1d1d1f"/><ellipse cx="54" cy="28" rx="3.5" ry="4.5" fill="#fff" stroke="#1d1d1f"/>
+    <circle cx="46.5" cy="29" r="1.6" fill="#1d1d1f"/><circle cx="53.5" cy="29" r="1.6" fill="#1d1d1f"/>
+    <path d="M42 22 L47 21 M53 21 L58 22" stroke="#1d1d1f" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M42 39 Q50 48 58 39 Z" fill="#b23a5a" stroke="#1d1d1f" stroke-width="1.5"/>`,
 };

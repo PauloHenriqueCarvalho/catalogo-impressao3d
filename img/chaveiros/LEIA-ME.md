@@ -34,5 +34,17 @@ Coloque aqui as fotos reais dos chaveiros com estes nomes (formato .jpg, de pref
 | luvadourada.jpg | Luva Dourada |
 | lutador.jpg | Medalhão Lutador |
 | frase.jpg | Placa com Frase |
+| boneco-goku.jpg | Gokuzinho |
+| boneco-vegeta.jpg | Vegetinha |
+| boneco-naruto.jpg | Narutinho |
+| boneco-sasuke.jpg | Sasukinho |
+| boneco-kakashi.jpg | Kakashizinho |
+| boneco-luffy.jpg | Luffyzinho |
+| boneco-zoro.jpg | Zorozinho |
+| boneco-tanjiro.jpg | Tanjirozinho |
+| boneco-nezuko.jpg | Nezukinha |
+| boneco-pikachu.jpg | Pikachuzinho |
+| boneco-bob.jpg | Bob Esponja |
+| boneco-patrick.jpg | Patrick |
 
 Enquanto a foto não existir, o site mostra a ilustração do chaveiro automaticamente.
