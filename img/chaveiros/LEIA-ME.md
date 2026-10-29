@@ -115,7 +115,6 @@ Coloque aqui as fotos reais dos chaveiros com estes nomes (formato .jpg, de pref
 | enc-topper-docinho.jpg | Topper de Docinho |
 | enc-tag-mala.jpg | Tag de Mala |
 | enc-cracha.jpg | Crachá com Nome |
-
 | enc-kit-professores.jpg | Kit Dia dos Professores |
 | enc-chav-esqueleto.jpg | Chaveiro Esqueleto Articulado |
 | enc-caneca.jpg | Caneca de Porcelana |
