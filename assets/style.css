@@ -308,6 +308,23 @@ body.tema-azul { /* branco, azul royal e dourado */
   --sombra: 20, 33, 74;
   --fonte-titulo: "Nunito", "Inter", sans-serif;
 }
+body.tema-loja { /* branco quente com o laranja da Verissimo 3D */
+  --fundo: #fbf8f4;
+  --fundo-2: #f3ede4;
+  --cartao: #ffffff;
+  --borda: #ebe2d6;
+  --texto: #22180f;
+  --texto-2: #6b5d50;
+  --laranja: #d9560b;
+  --laranja-2: #b4470a;
+  --ouro: #f0a24a;
+  --madeira: #a87a4f;
+  --madeira-2: #c09466;
+  --madeira-3: #8a6038;
+  --painel: #f4ece1;
+  --sombra: 70, 45, 20;
+  --fonte-titulo: "Nunito", "Inter", sans-serif;
+}
 .tema-claro h1, .tema-claro h2, .tema-claro .logo, .tema-claro .expositor-placa {
   font-family: var(--fonte-titulo); font-weight: 700; letter-spacing: .01em;
 }

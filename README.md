@@ -9,7 +9,7 @@ Landing page de catálogo de chaveiros impressos em 3D, com expositor em andares
 | `/` | Catálogo geral da loja | Todas as categorias |
 | `/gustavo-campassi/` | Gustavo Campassi (salão Beauté Naturelle) | Brindes para Clientes, Outras Peças — tema natural |
 | `/itamaraty/` | Itamaraty (55 anos, 450 funcionários) | Chaveiros 55 Anos, Para a Mesa e a Cozinha — tema azul |
-| `/encomendas/` | Anúncios: encomendas grandes de eventos, igrejas, empresas e festas | Kits, Chaveiros, Bottons, Quadros, Caixinhas, Outras Lembranças — pergunta os dados do evento antes de enviar |
+| `/encomendas/` | Anúncios: encomendas grandes de eventos, igrejas, empresas e festas | Kits, Chaveiros, Bottons, Quadros, Caixinhas, Outras Lembranças — tema claro "loja"; pergunta os dados do evento antes de enviar |
 
 As páginas de cliente não aparecem no Google (`noindex`) e o nome do cliente só vai na mensagem do WhatsApp.
 
@@ -21,7 +21,7 @@ As páginas de cliente não aparecem no Google (`noindex`) e o nome do cliente s
 ```js
 const CATALOGO = {
   cliente: "Maria Silva",
-  tema: "natural",          // opcional: "natural" ou "azul"; sem isso usa a escura
+  tema: "natural",          // opcional: "natural", "azul" ou "loja" (claro com laranja); sem isso usa a escura
   subtitulo: "Texto do topo", // opcional
   precos: { "itamaraty-chaveiros": 4.5 }, // opcional: preço por categoria ou por id de produto
   andares: [
