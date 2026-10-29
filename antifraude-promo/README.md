@@ -57,6 +57,14 @@ python -m pytest
 
 O banco padrão é SQLite (`antifraude.db`). Para usar Postgres, defina `ANTIFRAUDE_DB=postgresql+psycopg://...` e instale o driver.
 
+## Demonstração completa
+
+```bash
+python demo.py
+```
+
+Roda em memória 19 cenários (compra legítima, cada tipo de fraude, Sefaz fora do ar, revisão manual e checagem do ganhador) e mostra o resultado de cada um. Não precisa subir a API.
+
 ## Página de teste (QR code)
 
 Abra http://localhost:8000/teste para usar uma tela simples:
