@@ -99,5 +99,21 @@ Coloque aqui as fotos reais dos chaveiros com estes nomes (formato .jpg, de pref
 | enc-topo-bolo.jpg | Topo de Bolo |
 | enc-porta-copos.jpg | Porta-Copos |
 | enc-suporte-celular.jpg | Suporte de Celular |
+| enc-kit-festa.jpg | Kit Festa |
+| enc-kit-formatura.jpg | Kit Formatura |
+| enc-kit-encontro.jpg | Kit Encontro |
+| enc-kit-fim-de-ano.jpg | Kit Fim de Ano |
+| enc-botton-espelho.jpg | Botton Espelho |
+| enc-botton-abridor.jpg | Botton Abridor |
+| enc-botton-ima.jpg | Botton Ímã |
+| enc-botton-chaveiro.jpg | Botton Chaveiro |
+| enc-mini-quadro.jpg | Mini Quadro 10×10 cm |
+| enc-tag-bombom.jpg | Tag para Bombom |
+| enc-sacolinha.jpg | Sacolinha com a Arte |
+| enc-adesivos.jpg | Adesivos com a Arte |
+| enc-medalha.jpg | Medalha com Fita |
+| enc-topper-docinho.jpg | Topper de Docinho |
+| enc-tag-mala.jpg | Tag de Mala |
+| enc-cracha.jpg | Crachá com Nome |
 
 Enquanto a foto não existir, o site mostra a ilustração do chaveiro automaticamente.
