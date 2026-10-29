@@ -116,4 +116,21 @@ Coloque aqui as fotos reais dos chaveiros com estes nomes (formato .jpg, de pref
 | enc-tag-mala.jpg | Tag de Mala |
 | enc-cracha.jpg | Crachá com Nome |
 
+| enc-kit-professores.jpg | Kit Dia dos Professores |
+| enc-chav-esqueleto.jpg | Chaveiro Esqueleto Articulado |
+| enc-caneca.jpg | Caneca de Porcelana |
+| enc-caneca-colher.jpg | Caneca com Colherzinha |
+| enc-caneca-aluminio.jpg | Caneca de Alumínio |
+| enc-copo-canudo.jpg | Copo com Tampa e Canudo |
+| enc-garrafinha.jpg | Garrafinha Personalizada |
+| enc-agenda.jpg | Agenda Personalizada |
+| enc-caderno.jpg | Caderno Personalizado |
+| enc-pantufa.jpg | Pantufa Personalizada |
+| enc-caixa-nome.jpg | Caixa com Nome |
+| enc-caixa-presente.jpg | Caixa Presente com Fita |
+| enc-jogo-velha.jpg | Jogo da Velha Personalizado |
+| enc-letras-3d.jpg | Letras e Palavras 3D |
+| enc-vaso-planta.jpg | Vaso com Planta 3D |
+| enc-imagem-santa.jpg | Imagem Religiosa 3D |
+
 Enquanto a foto não existir, o site mostra a ilustração do chaveiro automaticamente.

@@ -2,7 +2,8 @@
 // CONFIGURAÇÃO DA LOJA — edite aqui
 // ============================================================
 const LOJA = {
-  nome: "Verissimo 3D",
+  nome: "Verissimo Arte",
+  instagram: "verissimo.arte", // sem o @
   // Número do WhatsApp com DDI + DDD, só números. Ex.: "5511999998888"
   whatsapp: "5543991950011",
 };
@@ -69,6 +70,30 @@ const CATEGORIAS = {
     nome: "Caixinhas e Papelaria",
     curto: "Papelaria",
     descricao: "Caixinhas, cartões, tags e adesivos com a arte do evento, para o presente chegar bonito.",
+    peca: true,
+  },
+  "enc-canecas": {
+    nome: "Canecas, Copos e Garrafinhas",
+    curto: "Canecas",
+    descricao: "Com nome, frase ou a arte do evento. Presente útil que vai para a mesa todo dia.",
+    peca: true,
+  },
+  "enc-cadernos": {
+    nome: "Cadernos e Agendas",
+    curto: "Agendas",
+    descricao: "Capa personalizada com nome, arte ou foto. Úteis o ano inteiro.",
+    peca: true,
+  },
+  "enc-presentes": {
+    nome: "Presentes Personalizados",
+    curto: "Presentes",
+    descricao: "Peças com nome, frase ou tema para presentear em datas especiais.",
+    peca: true,
+  },
+  "enc-decoracao": {
+    nome: "Decoração 3D",
+    curto: "Decoração",
+    descricao: "Peças impressas em 3D para decorar a casa, a festa ou o escritório.",
     peca: true,
   },
   "enc-lembrancas": {
@@ -497,6 +522,11 @@ const PRODUTOS = [
     descricao: "Chaveiro abridor, ímã e cartão de boas-festas na caixinha. O brinde de fim de ano para a equipe e os clientes.",
     foto: "img/chaveiros/enc-kit-fim-de-ano.jpg", arte: "enc-kit-fim-de-ano",
   },
+  {
+    id: "enc-kit-professores", categoria: "enc-kits", nome: "Kit Dia dos Professores",
+    descricao: "Caixa com caneca personalizada e cartão de mensagem. Para a escola homenagear cada professor.",
+    foto: "img/chaveiros/enc-kit-professores.jpg", arte: "enc-kit-professores",
+  },
 
   // ---------- ENCOMENDAS · Chaveiros ----------
   {
@@ -523,6 +553,11 @@ const PRODUTOS = [
     id: "enc-chav-qr", categoria: "enc-chaveiros", nome: "Chaveiro com QR Code",
     descricao: "Leva para o Instagram, o site ou o WhatsApp da empresa. Brinde que vira divulgação.",
     foto: "img/chaveiros/enc-chav-qr.jpg", arte: "enc-chav-qr",
+  },
+  {
+    id: "enc-chav-esqueleto", categoria: "enc-chaveiros", nome: "Chaveiro Esqueleto Articulado",
+    descricao: "Esqueleto com braços e pernas que mexem. Divertido para o Halloween e para a criançada.",
+    foto: "img/chaveiros/enc-chav-esqueleto.jpg", arte: "enc-chav-esqueleto",
   },
 
   // ---------- ENCOMENDAS · Bottons ----------
@@ -666,6 +701,76 @@ const PRODUTOS = [
     id: "enc-cracha", categoria: "enc-lembrancas", nome: "Crachá com Nome",
     descricao: "Identifica a equipe e os convidados no evento. Combina com o botton com nome.",
     foto: "img/chaveiros/enc-cracha.jpg", arte: "enc-cracha",
+  },
+  {
+    id: "enc-caneca", categoria: "enc-canecas", nome: "Caneca de Porcelana",
+    descricao: "Caneca branca com a arte, o nome ou uma frase. Para professores, aniversários e datas especiais.",
+    foto: "img/chaveiros/enc-caneca.jpg", arte: "enc-caneca",
+  },
+  {
+    id: "enc-caneca-colher", categoria: "enc-canecas", nome: "Caneca com Colherzinha",
+    descricao: "Colorida por dentro, com colher combinando. Ainda mais caprichada para presente.",
+    foto: "img/chaveiros/enc-caneca-colher.jpg", arte: "enc-caneca-colher",
+  },
+  {
+    id: "enc-caneca-aluminio", categoria: "enc-canecas", nome: "Caneca de Alumínio",
+    descricao: "Não quebra: ótima para crianças, festas e para levar na bolsa.",
+    foto: "img/chaveiros/enc-caneca-aluminio.jpg", arte: "enc-caneca-aluminio",
+  },
+  {
+    id: "enc-copo-canudo", categoria: "enc-canecas", nome: "Copo com Tampa e Canudo",
+    descricao: "O queridinho das festas infantis e de 15 anos, com o nome e o tema da festa.",
+    foto: "img/chaveiros/enc-copo-canudo.jpg", arte: "enc-copo-canudo",
+  },
+  {
+    id: "enc-garrafinha", categoria: "enc-canecas", nome: "Garrafinha Personalizada",
+    descricao: "Com a inicial ou o nome, para a academia, a escola e o trabalho.",
+    foto: "img/chaveiros/enc-garrafinha.jpg", arte: "enc-garrafinha",
+  },
+  {
+    id: "enc-agenda", categoria: "enc-cadernos", nome: "Agenda Personalizada",
+    descricao: "Capa com nome, arte ou tema e o ano. Presente que acompanha o ano todo.",
+    foto: "img/chaveiros/enc-agenda.jpg", arte: "enc-agenda",
+  },
+  {
+    id: "enc-caderno", categoria: "enc-cadernos", nome: "Caderno Personalizado",
+    descricao: "Caderno com capa exclusiva, para escola, faculdade ou trabalho.",
+    foto: "img/chaveiros/enc-caderno.jpg", arte: "enc-caderno",
+  },
+  {
+    id: "enc-pantufa", categoria: "enc-presentes", nome: "Pantufa Personalizada",
+    descricao: "Pantufa macia com a arte ou o nome. Presente que faz sucesso em aniversários e no Dia das Mães.",
+    foto: "img/chaveiros/enc-pantufa.jpg", arte: "enc-pantufa",
+  },
+  {
+    id: "enc-caixa-nome", categoria: "enc-presentes", nome: "Caixa com Nome",
+    descricao: "Caixa de presente com o nome em destaque, para guardar lembranças ou montar um kit.",
+    foto: "img/chaveiros/enc-caixa-nome.jpg", arte: "enc-caixa-nome",
+  },
+  {
+    id: "enc-caixa-presente", categoria: "enc-presentes", nome: "Caixa Presente com Fita",
+    descricao: "Caixa com tampa e laço de cetim, para entregar qualquer presente com capricho.",
+    foto: "img/chaveiros/enc-caixa-presente.jpg", arte: "enc-caixa-presente",
+  },
+  {
+    id: "enc-jogo-velha", categoria: "enc-presentes", nome: "Jogo da Velha Personalizado",
+    descricao: "Tabuleiro com peças no tema da festa. Lembrancinha que as crianças usam de verdade.",
+    foto: "img/chaveiros/enc-jogo-velha.jpg", arte: "enc-jogo-velha",
+  },
+  {
+    id: "enc-letras-3d", categoria: "enc-decoracao", nome: "Letras e Palavras 3D",
+    descricao: "Nomes e palavras em letras grandes, em pé na mesa, na estante ou na mesa da festa.",
+    foto: "img/chaveiros/enc-letras-3d.jpg", arte: "enc-letras-3d",
+  },
+  {
+    id: "enc-vaso-planta", categoria: "enc-decoracao", nome: "Vaso com Planta 3D",
+    descricao: "Plantinha que nunca murcha, impressa em 3D com vaso combinando.",
+    foto: "img/chaveiros/enc-vaso-planta.jpg", arte: "enc-vaso-planta",
+  },
+  {
+    id: "enc-imagem-santa", categoria: "enc-decoracao", nome: "Imagem Religiosa 3D",
+    descricao: "Imagens de santos e peças religiosas, na cor e no tamanho que quiser.",
+    foto: "img/chaveiros/enc-imagem-santa.jpg", arte: "enc-imagem-santa",
   },
 ];
 
@@ -1655,4 +1760,152 @@ const ARTES = {
     <circle cx="50" cy="52" r="10" fill="${ENC.bege}"/><circle cx="50" cy="49" r="4" fill="${ENC.begeEscuro}"/><path d="M42 59 Q50 50 58 59" fill="${ENC.begeEscuro}"/>
     <text x="50" y="74" text-anchor="middle" ${F_ENC} font-weight="900" font-size="9" fill="${ENC.preto}">Carla</text>
     <rect x="36" y="79" width="28" height="1.5" fill="#ccc"/>`,
+  // Encomendas: produtos do Instagram
+  "enc-kit-professores": `
+    ${encSombra(40)}
+    <rect x="6" y="46" width="52" height="46" rx="2" fill="${ENC.bege}" stroke="${ENC.begeEscuro}" stroke-width="1"/>
+    <rect x="6" y="56" width="52" height="5" fill="${ENC.vermelho}"/>
+    <text x="32" y="80" text-anchor="middle" ${F_ENC_LETRA} font-size="10" textLength="40" lengthAdjust="spacingAndGlyphs" fill="${ENC.marrom}">Professores</text>
+    <path d="M84 46 C96 46 96 70 84 70" fill="none" stroke="#e9e5de" stroke-width="5"/>
+    <rect x="52" y="36" width="34" height="54" rx="3" fill="#fff" stroke="#dcd6cc" stroke-width="1"/>
+    <ellipse cx="69" cy="36" rx="17" ry="3" fill="#ece8e1"/>
+    ${encCoracao(69, 56, 8, ENC.vermelho)}
+    <text x="69" y="76" text-anchor="middle" ${F_ENC} font-weight="900" font-size="5" fill="${ENC.marrom}">OBRIGADO!</text>`,
+  "enc-chav-esqueleto": `
+    <g fill="${ENC.branco}" stroke="#9aa0a6" stroke-width="1">
+      <path d="M38 18 C38 6 62 6 62 18 C62 25 58 27 58 31 H42 C42 27 38 25 38 18 Z"/>
+      <rect x="48.5" y="31" width="3" height="32" rx="1.5"/>
+      <path d="M38 38 Q50 34 62 38 M37 44 Q50 40 63 44 M38 50 Q50 46 62 50" fill="none" stroke-width="3" stroke="#d9dce0"/>
+      <path d="M38 38 Q50 34 62 38 M37 44 Q50 40 63 44 M38 50 Q50 46 62 50" fill="none" stroke-width="1.6" stroke="${ENC.branco}"/>
+      <path d="M36 36 L26 52 L24 62 M64 36 L74 52 L76 62" fill="none" stroke-width="3.2" stroke-linecap="round"/>
+      <ellipse cx="50" cy="65" rx="10" ry="5"/>
+      <path d="M44 68 L40 82 L41 92 M56 68 L60 82 L59 92" fill="none" stroke-width="3.4" stroke-linecap="round"/>
+    </g>
+    <ellipse cx="45" cy="17" rx="3.4" ry="4" fill="${ENC.preto}"/><ellipse cx="55" cy="17" rx="3.4" ry="4" fill="${ENC.preto}"/>
+    <path d="M49 22 L50 24.5 L51 22 Z" fill="${ENC.preto}"/>
+    <path d="M45 28 V30 M48 28 V30 M51 28 V30 M54 28 V30" stroke="#9aa0a6" stroke-width=".8"/>`,
+
+  "enc-caneca": `
+    ${encSombra(32)}
+    <path d="M70 36 C90 36 90 72 70 72" fill="none" stroke="#e4dfd7" stroke-width="8"/>
+    <path d="M70 36 C90 36 90 72 70 72" fill="none" stroke="#fff" stroke-width="5"/>
+    <rect x="20" y="22" width="52" height="70" rx="4" fill="#fff" stroke="#dcd6cc" stroke-width="1"/>
+    <ellipse cx="46" cy="22" rx="26" ry="4" fill="#ece8e1"/>
+    ${encCoracao(46, 46, 11, ENC.vermelho)}
+    <text x="46" y="72" text-anchor="middle" ${F_ENC_LETRA} font-size="12" textLength="38" lengthAdjust="spacingAndGlyphs" fill="${ENC.marrom}">Com carinho</text>`,
+  "enc-caneca-colher": `
+    ${encSombra(32)}
+    <rect x="52" y="4" width="5" height="36" rx="2.5" fill="${ENC.verde}" transform="rotate(14 54 22)"/>
+    <ellipse cx="58" cy="6" rx="5" ry="7" fill="${ENC.verde}" transform="rotate(14 58 6)"/>
+    <path d="M70 36 C90 36 90 72 70 72" fill="none" stroke="${ENC.verde}" stroke-width="6"/>
+    <rect x="20" y="22" width="52" height="70" rx="4" fill="#fff" stroke="#dcd6cc" stroke-width="1"/>
+    <ellipse cx="46" cy="22" rx="26" ry="4.5" fill="${ENC.verde}"/>
+    <rect x="20" y="86" width="52" height="6" rx="2" fill="${ENC.verde}"/>
+    <circle cx="36" cy="52" r="5" fill="${ENC.vermelho}"/><circle cx="56" cy="46" r="4" fill="${ENC.ouroClaro}"/><circle cx="50" cy="62" r="4.5" fill="${ENC.vermelho}"/>
+    <path d="M30 60 Q36 56 40 60 M58 56 Q62 50 66 54" fill="none" stroke="${ENC.verde}" stroke-width="1.5"/>
+    <text x="46" y="78" text-anchor="middle" ${F_ENC} font-weight="900" font-size="6" fill="${ENC.verde}">SEU NOME</text>`,
+  "enc-caneca-aluminio": `
+    ${encSombra(32)}
+    <path d="M70 36 C90 36 90 72 70 72" fill="none" stroke="#9aa0a6" stroke-width="5"/>
+    <rect x="20" y="22" width="52" height="70" rx="3" fill="#c9ced6"/>
+    <rect x="24" y="22" width="6" height="70" fill="#e4e8ed" opacity=".8"/><rect x="62" y="22" width="4" height="70" fill="#aab0b9" opacity=".6"/>
+    <ellipse cx="46" cy="22" rx="26" ry="4" fill="#dfe3e8" stroke="#9aa0a6" stroke-width="1.5"/>
+    ${encCoracao(46, 48, 9, ENC.vermelho)}
+    <text x="46" y="72" text-anchor="middle" ${F_ENC_LETRA} font-size="15" textLength="30" lengthAdjust="spacingAndGlyphs" fill="${ENC.marromEscuro}">Vovó</text>`,
+  "enc-copo-canudo": `
+    ${encSombra(26)}
+    <rect x="56" y="4" width="4" height="30" rx="2" fill="#5b2a8c" transform="rotate(10 58 20)"/>
+    <path d="M28 30 Q50 18 72 30 Z" fill="#9b5bd0"/>
+    <rect x="26" y="29" width="48" height="6" rx="3" fill="#7b3fb0"/>
+    <path d="M28 35 H72 L66 92 H34 Z" fill="#7b3fb0" opacity=".9"/>
+    <path d="M32 38 L36 88" stroke="#fff" stroke-width="2.5" opacity=".25"/>
+    <circle cx="50" cy="62" r="12" fill="#fff"/>
+    <text x="50" y="65" text-anchor="middle" ${F_ENC} font-weight="900" font-size="8" fill="#7b3fb0">Ana</text>`,
+  "enc-garrafinha": `
+    ${encSombra(22)}
+    <rect x="41" y="6" width="18" height="12" rx="3" fill="${ENC.preto}"/>
+    <rect x="43" y="17" width="14" height="6" fill="#55595f"/>
+    <path d="M43 23 H57 Q68 27 68 38 V86 Q68 92 62 92 H38 Q32 92 32 86 V38 Q32 27 43 23 Z" fill="#9b5bd0"/>
+    <path d="M37 36 V86" stroke="#fff" stroke-width="3" opacity=".25"/>
+    <text x="50" y="72" text-anchor="middle" font-family="Georgia, serif" font-weight="700" font-size="30" fill="#fff">E</text>`,
+
+  "enc-agenda": `
+    ${encSombra(30)}
+    <rect x="24" y="8" width="56" height="84" rx="3" fill="#fbe9e4" stroke="#e8c9c0" stroke-width="1"/>
+    <g fill="none" stroke="#8d939c" stroke-width="1.6">${[16, 26, 36, 46, 56, 66, 76, 86].map((y) => `<ellipse cx="24" cy="${y}" rx="3.5" ry="2.4"/>`).join("")}</g>
+    <circle cx="66" cy="22" r="8" fill="#e8838f"/><circle cx="72" cy="30" r="5" fill="${ENC.vermelho}" opacity=".7"/><circle cx="36" cy="80" r="7" fill="#e8838f"/>
+    <path d="M58 28 Q54 36 60 40 M40 74 Q44 68 50 70" fill="none" stroke="${ENC.verde}" stroke-width="1.6"/>
+    <text x="52" y="54" text-anchor="middle" ${F_ENC_LETRA} font-size="15" textLength="30" lengthAdjust="spacingAndGlyphs" fill="${ENC.marrom}">Clara</text>
+    <text x="52" y="64" text-anchor="middle" ${F_ENC} font-weight="900" font-size="6" letter-spacing="1.5" fill="${ENC.ouro}">2027</text>`,
+  "enc-caderno": `
+    ${encSombra(30)}
+    <rect x="24" y="8" width="56" height="84" rx="3" fill="${ENC.preto}"/>
+    <g fill="none" stroke="#c9ced6" stroke-width="1.6">${[16, 26, 36, 46, 56, 66, 76, 86].map((y) => `<ellipse cx="24" cy="${y}" rx="3.5" ry="2.4"/>`).join("")}</g>
+    <rect x="34" y="34" width="38" height="30" rx="2" fill="none" stroke="${ENC.ouroClaro}" stroke-width="1"/>
+    <text x="53" y="47" text-anchor="middle" ${F_ENC} font-weight="900" font-size="6" letter-spacing="1" fill="#fff">SEU NOME</text>
+    <rect x="42" y="52" width="22" height="1.2" fill="${ENC.ouroClaro}"/>
+    <text x="53" y="80" text-anchor="middle" ${F_ENC} font-weight="700" font-size="4.5" letter-spacing="1" fill="#9aa0a6">CADERNO</text>`,
+
+  "enc-pantufa": `
+    ${encSombra(38)}
+    <g transform="rotate(-8 32 56)">
+      <ellipse cx="32" cy="58" rx="17" ry="34" fill="#f3d6dc" stroke="#e2b9c2" stroke-width="1"/>
+      <path d="M15 52 Q32 36 49 52 L49 72 Q32 94 15 72 Z" fill="#fff"/>
+      <circle cx="32" cy="64" r="8" fill="${ENC.vermelho}" opacity=".85"/>${encCoracao(32, 64.5, 4.5, "#fff")}
+    </g>
+    <g transform="rotate(8 68 56)">
+      <ellipse cx="68" cy="58" rx="17" ry="34" fill="#f3d6dc" stroke="#e2b9c2" stroke-width="1"/>
+      <path d="M51 52 Q68 36 85 52 L85 72 Q68 94 51 72 Z" fill="#fff"/>
+      <circle cx="68" cy="64" r="8" fill="${ENC.vermelho}" opacity=".85"/>${encCoracao(68, 64.5, 4.5, "#fff")}
+    </g>`,
+  "enc-caixa-nome": `
+    ${encSombra(40)}
+    <rect x="10" y="52" width="80" height="38" rx="2" fill="#f6efe9"/>
+    <rect x="8" y="30" width="84" height="26" rx="2" fill="#fff" stroke="#e8dcd2" stroke-width="1"/>
+    <circle cx="16" cy="36" r="6" fill="#e8838f"/><circle cx="23" cy="33" r="4" fill="${ENC.vermelho}" opacity=".7"/>
+    <path d="M14 44 Q20 40 26 44" fill="none" stroke="${ENC.verde}" stroke-width="1.4"/>
+    <circle cx="84" cy="50" r="5" fill="#e8838f"/>
+    <text x="52" y="49" text-anchor="middle" ${F_ENC_LETRA} font-size="18" textLength="34" lengthAdjust="spacingAndGlyphs" fill="${ENC.marrom}">Malu</text>
+    <rect x="10" y="56" width="80" height="3" fill="#e6d9cc"/>`,
+  "enc-caixa-presente": `
+    ${encSombra(36)}
+    <rect x="18" y="44" width="64" height="48" fill="#fff" stroke="#e1dcd4" stroke-width="1"/>
+    <rect x="15" y="34" width="70" height="14" rx="1" fill="#fbfaf8" stroke="#e1dcd4" stroke-width="1"/>
+    <rect x="46" y="34" width="8" height="58" fill="#efe3c8"/>
+    <rect x="15" y="39" width="70" height="5" fill="#efe3c8"/>
+    <path d="M50 34 C38 18 28 26 36 32 Z M50 34 C62 18 72 26 64 32 Z" fill="#efe3c8" stroke="#e1d2b0" stroke-width="1"/>
+    <path d="M50 35 L42 52 M50 35 L58 52" stroke="#e1d2b0" stroke-width="3"/>
+    <circle cx="50" cy="34" r="3.5" fill="#e1d2b0"/>`,
+  "enc-jogo-velha": `
+    ${encSombra(38)}
+    <rect x="14" y="16" width="72" height="72" rx="6" fill="#fff" stroke="#e8c9d6" stroke-width="2"/>
+    <path d="M38 22 V82 M62 22 V82 M20 40 H80 M20 64 H80" stroke="#e8838f" stroke-width="2.4" stroke-linecap="round"/>
+    <g stroke="#7b3fb0" stroke-width="3" stroke-linecap="round"><path d="M22 22 L32 34 M32 22 L22 34"/><path d="M68 70 L78 82 M78 70 L68 82"/></g>
+    ${encCoracao(50, 52, 6, "#e8838f")}${encCoracao(73, 29, 6, "#e8838f")}${encCoracao(27, 76, 6, "#e8838f")}`,
+
+  "enc-letras-3d": `
+    ${encSombra(42)}
+    <g ${F_ENC} font-weight="900" font-size="30" text-anchor="middle">
+      <text x="52" y="72" fill="#c9c4bb" textLength="80" lengthAdjust="spacingAndGlyphs">AMOR</text>
+      <text x="50" y="70" fill="#fff" stroke="#e1dcd4" stroke-width=".8" textLength="80" lengthAdjust="spacingAndGlyphs">AMOR</text>
+    </g>
+    <rect x="8" y="74" width="84" height="6" rx="2" fill="#ece7df"/>`,
+  "enc-vaso-planta": `
+    ${encSombra(22)}
+    <path d="M50 56 C48 40 44 30 36 20 M50 56 C54 40 60 30 70 22 M50 56 C50 44 50 34 52 14" fill="none" stroke="#2a6a3f" stroke-width="2"/>
+    <path d="M36 20 C20 18 14 34 26 40 C34 44 40 32 36 20 Z" fill="${ENC.verde}"/>
+    <path d="M70 22 C86 18 92 36 80 42 C70 46 66 34 70 22 Z" fill="${ENC.verde}"/>
+    <path d="M52 14 C44 4 30 10 38 22 C44 30 56 24 52 14 Z" fill="#3f9a5f"/>
+    <path d="M26 30 L33 27 M80 32 L74 30 M45 14 L48 19" stroke="#1b4f31" stroke-width="1.2"/>
+    <path d="M32 56 H68 L64 92 H36 Z" fill="${ENC.marrom}"/>
+    <path d="M33 62 H67 M34 70 H66 M35 78 H65 M36 86 H64" stroke="${ENC.marromClaro}" stroke-width="2"/>
+    <rect x="30" y="54" width="40" height="6" rx="2" fill="${ENC.marromEscuro}"/>`,
+  "enc-imagem-santa": `
+    ${encSombra(24)}
+    <rect x="30" y="84" width="40" height="8" rx="2" fill="#ece7df"/>
+    <path d="M50 22 C38 26 34 44 32 84 H68 C66 44 62 26 50 22 Z" fill="#fff" stroke="#dcd6cc" stroke-width="1"/>
+    <path d="M50 30 C44 34 42 50 42 84 H58 C58 50 56 34 50 30 Z" fill="#f4f1ec"/>
+    <path d="M46 44 L50 52 L54 44" fill="none" stroke="#dcd6cc" stroke-width="1.2"/>
+    <circle cx="50" cy="20" r="7" fill="#fff" stroke="#dcd6cc" stroke-width="1"/>
+    <path d="M43 12 L45 6 L48 10 L50 4 L52 10 L55 6 L57 12 Z" fill="${ENC.ouro}"/>`,
 };

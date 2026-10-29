@@ -84,7 +84,7 @@ function montarPagina() {
     <header class="topo">
       <a class="logo" href="#inicio">
         <span class="logo-cubo" aria-hidden="true"></span>
-        <span>Verissimo <b>3D</b></span>
+        <span>Verissimo <b>Arte</b></span>
       </a>
       <nav>
         ${GALERIA ? `<a href="#trabalhos">Trabalhos</a>` : ""}
@@ -97,7 +97,7 @@ function montarPagina() {
     <section class="hero" id="inicio">
       <div class="hero-texto">
         <p class="selo">${TEXTOS.seloHero}</p>
-        <h1>Verissimo <span>3D</span></h1>
+        <h1>Verissimo <span>Arte</span></h1>
         <p class="hero-sub">${CATALOGO.subtitulo || TEXTOS.subtitulo}</p>
         <div class="hero-acoes">
           <a class="btn btn-primario" href="#expositor">${TEXTOS.botaoVer}</a>
@@ -139,7 +139,7 @@ function montarPagina() {
         <p>${TEXTOS.dicaExpositor}</p>
       </div>
       <div class="expositor">
-        <div class="expositor-placa">VERISSIMO 3D</div>
+        <div class="expositor-placa">VERISSIMO ARTE</div>
         <div class="expositor-corpo">
           ${ANDARES.map((a) => `
             <div class="andar">
@@ -164,7 +164,7 @@ function montarPagina() {
     </section>
 
     <footer class="rodape">
-      <p><b>Verissimo 3D</b> · Impressão 3D sob encomenda</p>
+      <p><b>${LOJA.nome}</b> · Personalizados sob encomenda${LOJA.instagram ? ` · <a href="https://instagram.com/${LOJA.instagram}" target="_blank" rel="noopener">@${LOJA.instagram}</a>` : ""}</p>
       <p class="rodape-pequeno">Imagens ilustrativas. Cores e tamanhos podem variar.${temPersonagens ? " Personagens pertencem aos seus respectivos criadores." : ""}</p>
     </footer>
 

@@ -1,4 +1,4 @@
-# Verissimo 3D · Catálogo de Chaveiros
+# Verissimo Arte · Catálogo de Personalizados
 
 Landing page de catálogo de chaveiros impressos em 3D, com expositor em andares e uma página separada para cada cliente.
 
@@ -49,11 +49,15 @@ Opcionais (usados em `/encomendas/`; sem eles a página fica igual às outras):
 - **Salão de beleza — Outras Peças (não são chaveiros):** Display NFC Instagram + Google, Placa NFC do Instagram, Placa NFC de Avaliação, Porta-Cartão com NFC
 - **Itamaraty — Chaveiros 55 Anos:** Selo 55 Anos, Chaveiro com Nome, Abridor de Garrafa 55, Xícara de Café, Grão de Café, Wafer Itamaraty, Ramo de Trigo, Coração Paixão, Barrinha de Chocolate, Biscoito Recheado, Pacotinho de Café
 - **Itamaraty — Para a Mesa e a Cozinha (não são chaveiros):** Porta-Copos 55 Anos, Prendedor de Pacote, Ímã de Geladeira
-- **Encomendas — Kits Montados (não são chaveiros):** Kit Lembrança, Kit Boas-Vindas, Kit Homenagem, Kit Festa, Kit Formatura, Kit Encontro, Kit Fim de Ano
-- **Encomendas — Chaveiros Personalizados:** com a sua arte, com nome, com frase, abridor, com QR Code
+- **Encomendas — Kits Montados (não são chaveiros):** Kit Lembrança, Kit Boas-Vindas, Kit Homenagem, Kit Festa, Kit Formatura, Kit Encontro, Kit Fim de Ano, Kit Dia dos Professores
+- **Encomendas — Chaveiros Personalizados:** com a sua arte, com nome, com frase, abridor, com QR Code, esqueleto articulado
 - **Encomendas — Bottons:** 4,5 cm, 3,5 cm, com nome, espelho, abridor, ímã, chaveiro
 - **Encomendas — Quadros e Plaquinhas:** quadro 15×20 cm, quadro com nomes, mini quadro 10×10 cm, plaquinha de mesa, placa QR Code de balcão
 - **Encomendas — Caixinhas e Papelaria:** caixinha para chaveiro e botton, caixa para quadro, cartão de mensagem, tag para bombom, sacolinha, adesivos
+- **Encomendas — Canecas, Copos e Garrafinhas:** caneca de porcelana, caneca com colherzinha, caneca de alumínio, copo com tampa e canudo, garrafinha
+- **Encomendas — Cadernos e Agendas:** agenda, caderno
+- **Encomendas — Presentes Personalizados:** pantufa, caixa com nome, caixa presente com fita, jogo da velha
+- **Encomendas — Decoração 3D:** letras e palavras 3D, vaso com planta 3D, imagem religiosa 3D
 - **Encomendas — Outras Lembranças:** ímã de geladeira, marcador de página, topo de bolo, porta-copos, suporte de celular, medalha com fita, topper de docinho, tag de mala, crachá com nome
 - **Animes & Desenhos:** bonequinhos (Goku, Vegeta, Naruto, Sasuke, Kakashi, Luffy, Zoro, Tanjiro, Nezuko, Pikachu, Bob Esponja, Patrick), Goku, Esfera do Dragão, Nuvem Voadora, bandana da Folha, Sharingan, Kunai, Nuvem Akatsuki, Chapéu de Palha, bandeira pirata, Brinco do Tanjiro, Pokébola, Raio do Pikachu
 
