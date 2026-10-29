@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verissimo 3D · Encomendas para Eventos e Empresas</title>
+<meta name="description" content="Chaveiros, bottons, quadros e caixinhas personalizados para igrejas, empresas e festas. Monte sua encomenda e receba o orçamento pelo WhatsApp.">
+<meta property="og:title" content="Verissimo 3D · Encomendas personalizadas">
+<meta property="og:description" content="Chaveiros, bottons, quadros e caixinhas com a arte do seu evento. Monte sua encomenda e peça o orçamento pelo WhatsApp.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,700;0,800;0,900;1,900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+<script>
+// Catálogo de encomendas grandes (eventos, igrejas, empresas e festas).
+// É a página dos anúncios: a pessoa escolhe tudo o que quer, diz a quantidade
+// e envia pelo WhatsApp com os dados do evento para receber o orçamento.
+const CATALOGO = {
+  textos: {
+    menuExpositor: "Vitrine",
+    seloHero: "Encomendas · Eventos e empresas",
+    subtitulo: "Chaveiros, bottons, quadros e caixinhas com a arte do seu evento. Monte a sua encomenda e receba o orçamento pelo WhatsApp.",
+    botaoVer: "Ver produtos",
+    info: [["Sua arte", "em cada peça"], ["Kits", "montados na caixinha"], ["Grandes", "quantidades"]],
+    tituloExpositor: "Tudo o que fazemos",
+    dicaExpositor: "Toque em uma peça para ver os detalhes e escolher a quantidade.",
+    passos: [
+      ["Escolha", "Adicione as peças que quiser e a quantidade de cada uma."],
+      ["Envie", "Conte sobre o evento e envie a lista pronta pelo WhatsApp."],
+      ["Receba", "Mandamos o orçamento, combinamos a arte e o prazo, e entregamos tudo pronto."],
+    ],
+  },
+  quantidade: 10, // quantidade sugerida ao abrir uma peça
+  perguntas: ["Seu nome", "Tipo de evento (igreja, empresa, festa...)", "Data do evento", "Tema, cores ou arte"],
+  andares: ["enc-kits", "enc-chaveiros", "enc-bottons", "enc-quadros", "enc-caixas", "enc-lembrancas"],
+};
+</script>
+<script src="../assets/produtos.js"></script>
+<script src="../assets/app.js"></script>
+</body>
+</html>

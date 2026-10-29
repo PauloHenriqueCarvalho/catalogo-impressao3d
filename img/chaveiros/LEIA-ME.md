@@ -76,5 +76,28 @@ Coloque aqui as fotos reais dos chaveiros com estes nomes (formato .jpg, de pref
 | itm-chocolate.jpg | Barrinha de Chocolate |
 | itm-biscoito.jpg | Biscoito Recheado |
 | itm-pacote-cafe.jpg | Pacotinho de Café |
+| enc-kit-lembranca.jpg | Kit Lembrança |
+| enc-kit-boas-vindas.jpg | Kit Boas-Vindas |
+| enc-kit-homenagem.jpg | Kit Homenagem |
+| enc-chav-arte.jpg | Chaveiro com a Sua Arte |
+| enc-chav-nome.jpg | Chaveiro com Nome |
+| enc-chav-frase.jpg | Chaveiro com Frase |
+| enc-chav-abridor.jpg | Chaveiro Abridor |
+| enc-chav-qr.jpg | Chaveiro com QR Code |
+| enc-botton-grande.jpg | Botton 4,5 cm |
+| enc-botton-pequeno.jpg | Botton 3,5 cm |
+| enc-botton-nome.jpg | Botton com Nome |
+| enc-quadro-arte.jpg | Quadro 15×20 cm |
+| enc-quadro-nomes.jpg | Quadro com Nomes |
+| enc-placa-mesa.jpg | Plaquinha de Mesa |
+| enc-placa-qr.jpg | Placa QR Code de Balcão |
+| enc-caixa-kit.jpg | Caixinha para Chaveiro e Botton |
+| enc-caixa-quadro.jpg | Caixa para Quadro |
+| enc-cartao.jpg | Cartão de Mensagem |
+| enc-ima.jpg | Ímã de Geladeira |
+| enc-marcador.jpg | Marcador de Página |
+| enc-topo-bolo.jpg | Topo de Bolo |
+| enc-porta-copos.jpg | Porta-Copos |
+| enc-suporte-celular.jpg | Suporte de Celular |
 
 Enquanto a foto não existir, o site mostra a ilustração do chaveiro automaticamente.

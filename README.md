@@ -9,6 +9,7 @@ Landing page de catálogo de chaveiros impressos em 3D, com expositor em andares
 | `/` | Catálogo geral da loja | Todas as categorias |
 | `/gustavo-campassi/` | Gustavo Campassi (salão Beauté Naturelle) | Brindes para Clientes, Outras Peças — tema natural |
 | `/itamaraty/` | Itamaraty (55 anos, 450 funcionários) | Chaveiros 55 Anos, Para a Mesa e a Cozinha — tema azul |
+| `/encomendas/` | Anúncios: encomendas grandes de eventos, igrejas, empresas e festas | Kits, Chaveiros, Bottons, Quadros, Caixinhas, Outras Lembranças — pergunta os dados do evento antes de enviar |
 
 As páginas de cliente não aparecem no Google (`noindex`) e o nome do cliente só vai na mensagem do WhatsApp.
 
@@ -30,7 +31,15 @@ const CATALOGO = {
 };
 ```
 
-A ordem de `andares` é a ordem do expositor (de cima para baixo). Os ids dos produtos e as categorias estão em `assets/produtos.js`.
+A ordem de `andares` é a ordem do expositor (de cima para baixo).
+
+Opcionais (usados em `/encomendas/`; sem eles a página fica igual às outras):
+
+```js
+  textos: { botaoVer: "Ver produtos", tituloExpositor: "Tudo o que fazemos" }, // troca os textos padrão (lista em TEXTOS no app.js)
+  quantidade: 10,                          // quantidade sugerida ao abrir uma peça
+  perguntas: ["Seu nome", "Data do evento"], // perguntadas antes de enviar; vão na mensagem do WhatsApp
+``` Os ids dos produtos e as categorias estão em `assets/produtos.js`.
 
 ## Chaveiros
 
@@ -39,6 +48,12 @@ A ordem de `andares` é a ordem do expositor (de cima para baixo). Os ids dos pr
 - **Salão de beleza — Outras Peças (não são chaveiros):** Display NFC Instagram + Google, Placa NFC do Instagram, Placa NFC de Avaliação, Porta-Cartão com NFC
 - **Itamaraty — Chaveiros 55 Anos:** Selo 55 Anos, Chaveiro com Nome, Abridor de Garrafa 55, Xícara de Café, Grão de Café, Wafer Itamaraty, Ramo de Trigo, Coração Paixão, Barrinha de Chocolate, Biscoito Recheado, Pacotinho de Café
 - **Itamaraty — Para a Mesa e a Cozinha (não são chaveiros):** Porta-Copos 55 Anos, Prendedor de Pacote, Ímã de Geladeira
+- **Encomendas — Kits Montados (não são chaveiros):** Kit Lembrança, Kit Boas-Vindas, Kit Homenagem
+- **Encomendas — Chaveiros Personalizados:** com a sua arte, com nome, com frase, abridor, com QR Code
+- **Encomendas — Bottons:** 4,5 cm, 3,5 cm, com nome
+- **Encomendas — Quadros e Plaquinhas:** quadro 15×20 cm, quadro com nomes, plaquinha de mesa, placa QR Code de balcão
+- **Encomendas — Caixinhas e Embalagens:** caixinha para chaveiro e botton, caixa para quadro, cartão de mensagem
+- **Encomendas — Outras Lembranças:** ímã de geladeira, marcador de página, topo de bolo, porta-copos, suporte de celular
 - **Animes & Desenhos:** bonequinhos (Goku, Vegeta, Naruto, Sasuke, Kakashi, Luffy, Zoro, Tanjiro, Nezuko, Pikachu, Bob Esponja, Patrick), Goku, Esfera do Dragão, Nuvem Voadora, bandana da Folha, Sharingan, Kunai, Nuvem Akatsuki, Chapéu de Palha, bandeira pirata, Brinco do Tanjiro, Pokébola, Raio do Pikachu
 
 O cliente escolhe os chaveiros e envia o pedido pronto pelo WhatsApp.

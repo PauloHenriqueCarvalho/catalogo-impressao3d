@@ -40,6 +40,41 @@ const CATEGORIAS = {
     curto: "Outras Peças",
     descricao: "Displays com NFC para o balcão: a cliente encosta o celular e segue, avalia ou agenda.",
     peca: true, // não são chaveiros: aparecem apoiadas na prateleira
+  },  // ---------- ENCOMENDAS (eventos, igrejas e empresas) ----------
+  "enc-kits": {
+    nome: "Kits Montados",
+    curto: "Kits",
+    descricao: "Tudo junto na caixinha, pronto para entregar. É só mandar o tema e a quantidade.",
+    peca: true,
+  },
+  "enc-chaveiros": {
+    nome: "Chaveiros Personalizados",
+    curto: "Chaveiros",
+    descricao: "Com a arte, o nome ou a frase do seu evento. A lembrança que a pessoa usa todo dia.",
+  },
+  "enc-bottons": {
+    nome: "Bottons",
+    curto: "Bottons",
+    descricao: "Bottons com alfinete e a arte do seu evento, para usar no dia e guardar de lembrança.",
+    peca: true,
+  },
+  "enc-quadros": {
+    nome: "Quadros e Plaquinhas",
+    curto: "Quadros",
+    descricao: "Para homenagear, presentear e sinalizar: quadros em relevo e placas de mesa.",
+    peca: true,
+  },
+  "enc-caixas": {
+    nome: "Caixinhas e Embalagens",
+    curto: "Caixinhas",
+    descricao: "Embalagens com a arte do evento, para o presente chegar bonito e pronto para entregar.",
+    peca: true,
+  },
+  "enc-lembrancas": {
+    nome: "Outras Lembranças",
+    curto: "Lembranças",
+    descricao: "Mais peças úteis para completar o kit ou pedir separado.",
+    peca: true,
   },
 };
 
@@ -425,6 +460,132 @@ const PRODUTOS = [
     descricao: "Ímã com o selo “Paixão em tudo que faz” para a geladeira de casa.",
     foto: "img/chaveiros/itm-ima.jpg", arte: "itm-ima",
   },
+  // ---------- ENCOMENDAS · Kits ----------
+  {
+    id: "enc-kit-lembranca", categoria: "enc-kits", nome: "Kit Lembrança",
+    descricao: "Chaveiro + botton na caixinha com a arte do evento. O mais pedido para igrejas, festas e encontros.",
+    foto: "img/chaveiros/enc-kit-lembranca.jpg", arte: "enc-kit-lembranca",
+  },
+  {
+    id: "enc-kit-boas-vindas", categoria: "enc-kits", nome: "Kit Boas-Vindas",
+    descricao: "Caixinha com chaveiro da marca, ímã e cartão de mensagem. Para receber funcionários, alunos ou clientes.",
+    foto: "img/chaveiros/enc-kit-boas-vindas.jpg", arte: "enc-kit-boas-vindas",
+  },
+  {
+    id: "enc-kit-homenagem", categoria: "enc-kits", nome: "Kit Homenagem",
+    descricao: "Quadro 15×20 cm com a arte ou os nomes, na caixa própria. Para pastores, líderes, formandos e parceiros.",
+    foto: "img/chaveiros/enc-kit-homenagem.jpg", arte: "enc-kit-homenagem",
+  },
+
+  // ---------- ENCOMENDAS · Chaveiros ----------
+  {
+    id: "enc-chav-arte", categoria: "enc-chaveiros", nome: "Chaveiro com a Sua Arte",
+    descricao: "Logo, tema ou símbolo do evento, no formato da arte e com relevo em duas cores.",
+    foto: "img/chaveiros/enc-chav-arte.jpg", arte: "enc-chav-arte",
+  },
+  {
+    id: "enc-chav-nome", categoria: "enc-chaveiros", nome: "Chaveiro com Nome",
+    descricao: "Um para cada pessoa, com o nome dela. É o que mais emociona quem recebe.",
+    foto: "img/chaveiros/enc-chav-nome.jpg", arte: "enc-chav-nome",
+  },
+  {
+    id: "enc-chav-frase", categoria: "enc-chaveiros", nome: "Chaveiro com Frase",
+    descricao: "Plaquinha com versículo, frase ou a data do evento.",
+    foto: "img/chaveiros/enc-chav-frase.jpg", arte: "enc-chav-frase",
+  },
+  {
+    id: "enc-chav-abridor", categoria: "enc-chaveiros", nome: "Chaveiro Abridor",
+    descricao: "Abridor de garrafa com a sua marca: útil e sempre à mão.",
+    foto: "img/chaveiros/enc-chav-abridor.jpg", arte: "enc-chav-abridor",
+  },
+  {
+    id: "enc-chav-qr", categoria: "enc-chaveiros", nome: "Chaveiro com QR Code",
+    descricao: "Leva para o Instagram, o site ou o WhatsApp da empresa. Brinde que vira divulgação.",
+    foto: "img/chaveiros/enc-chav-qr.jpg", arte: "enc-chav-qr",
+  },
+
+  // ---------- ENCOMENDAS · Bottons ----------
+  {
+    id: "enc-botton-grande", categoria: "enc-bottons", nome: "Botton 4,5 cm",
+    descricao: "O tamanho que mais aparece. Ideal para a arte principal do evento.",
+    foto: "img/chaveiros/enc-botton-grande.jpg", arte: "enc-botton-grande",
+  },
+  {
+    id: "enc-botton-pequeno", categoria: "enc-bottons", nome: "Botton 3,5 cm",
+    descricao: "Mais discreto, para usar na roupa, na bolsa ou na mochila.",
+    foto: "img/chaveiros/enc-botton-pequeno.jpg", arte: "enc-botton-pequeno",
+  },
+  {
+    id: "enc-botton-nome", categoria: "enc-bottons", nome: "Botton com Nome",
+    descricao: "Identifica a equipe, os voluntários ou a organização no dia do evento.",
+    foto: "img/chaveiros/enc-botton-nome.jpg", arte: "enc-botton-nome",
+  },
+
+  // ---------- ENCOMENDAS · Quadros e plaquinhas ----------
+  {
+    id: "enc-quadro-arte", categoria: "enc-quadros", nome: "Quadro 15×20 cm",
+    descricao: "A arte do evento em relevo, em duas ou três cores. Fica em pé na mesa ou vai na parede.",
+    foto: "img/chaveiros/enc-quadro-arte.jpg", arte: "enc-quadro-arte",
+  },
+  {
+    id: "enc-quadro-nomes", categoria: "enc-quadros", nome: "Quadro com Nomes",
+    descricao: "Os nomes da equipe, da turma ou da família num quadro só. Uma homenagem que fica.",
+    foto: "img/chaveiros/enc-quadro-nomes.jpg", arte: "enc-quadro-nomes",
+  },
+  {
+    id: "enc-placa-mesa", categoria: "enc-quadros", nome: "Plaquinha de Mesa",
+    descricao: "Número ou nome da mesa, ou “reservado”. Para casamentos, festas e jantares.",
+    foto: "img/chaveiros/enc-placa-mesa.jpg", arte: "enc-placa-mesa",
+  },
+  {
+    id: "enc-placa-qr", categoria: "enc-quadros", nome: "Placa QR Code de Balcão",
+    descricao: "QR Code do Pix, do Instagram ou do cardápio, em pé no balcão.",
+    foto: "img/chaveiros/enc-placa-qr.jpg", arte: "enc-placa-qr",
+  },
+
+  // ---------- ENCOMENDAS · Caixinhas e embalagens ----------
+  {
+    id: "enc-caixa-kit", categoria: "enc-caixas", nome: "Caixinha para Chaveiro e Botton",
+    descricao: "Cabe o chaveiro e o botton, com a arte do evento na tampa.",
+    foto: "img/chaveiros/enc-caixa-kit.jpg", arte: "enc-caixa-kit",
+  },
+  {
+    id: "enc-caixa-quadro", categoria: "enc-caixas", nome: "Caixa para Quadro",
+    descricao: "Caixa sob medida para o quadro 15×20 cm, com fita, pronta para presentear.",
+    foto: "img/chaveiros/enc-caixa-quadro.jpg", arte: "enc-caixa-quadro",
+  },
+  {
+    id: "enc-cartao", categoria: "enc-caixas", nome: "Cartão de Mensagem",
+    descricao: "Vai dentro da caixinha: versículo, agradecimento ou boas-vindas, com a arte do evento.",
+    foto: "img/chaveiros/enc-cartao.jpg", arte: "enc-cartao",
+  },
+
+  // ---------- ENCOMENDAS · Outras lembranças ----------
+  {
+    id: "enc-ima", categoria: "enc-lembrancas", nome: "Ímã de Geladeira",
+    descricao: "Com a arte ou a frase do evento, para lembrar todo dia na cozinha.",
+    foto: "img/chaveiros/enc-ima.jpg", arte: "enc-ima",
+  },
+  {
+    id: "enc-marcador", categoria: "enc-lembrancas", nome: "Marcador de Página",
+    descricao: "Para a Bíblia, a agenda ou o livro. Leve, fino e com a arte que quiser.",
+    foto: "img/chaveiros/enc-marcador.jpg", arte: "enc-marcador",
+  },
+  {
+    id: "enc-topo-bolo", categoria: "enc-lembrancas", nome: "Topo de Bolo",
+    descricao: "Com o nome, a idade ou o tema da festa, combinando com as lembrancinhas.",
+    foto: "img/chaveiros/enc-topo-bolo.jpg", arte: "enc-topo-bolo",
+  },
+  {
+    id: "enc-porta-copos", categoria: "enc-lembrancas", nome: "Porta-Copos",
+    descricao: "Protege a mesa e deixa a marca da empresa ou do evento à vista.",
+    foto: "img/chaveiros/enc-porta-copos.jpg", arte: "enc-porta-copos",
+  },
+  {
+    id: "enc-suporte-celular", categoria: "enc-lembrancas", nome: "Suporte de Celular",
+    descricao: "Deixa o celular em pé na mesa do trabalho ou de casa, com a sua marca na frente.",
+    foto: "img/chaveiros/enc-suporte-celular.jpg", arte: "enc-suporte-celular",
+  },
 ];
 
 // ============================================================
@@ -482,6 +643,45 @@ function personagem({ pele = PELE, atras = "", tras = "", corpo, olhos = "#1d1d1
 const PELE = "#ffd9b8";
 const SOBRANCELHA_BRAVA = `<path d="M37 36 L46 39.5 M63 36 L54 39.5" stroke="#1d1d1f" stroke-width="2.4" stroke-linecap="round"/>`;
 const BOCA_SERIA = `<path d="M46 56 Q50 54 54 56" fill="none" stroke="#8a4a3a" stroke-width="1.5" stroke-linecap="round"/>`;
+
+// ---------- Encomendas: cores dos filamentos e ajudantes ----------
+// Só cores que existem em filamento: marrom, bege, dourado, branco, preto, vermelho e verde.
+const ENC = {
+  ouro: "#c9a227", ouroClaro: "#e8c55a", marrom: "#7a4a26", marromClaro: "#8f5a33", marromEscuro: "#4e2e17",
+  bege: "#eadcc0", begeEscuro: "#cdb88f", branco: "#f6f3ec", preto: "#1d1d1f", vermelho: "#c4161c", verde: "#2e7d4f",
+};
+const F_ENC = `font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif"`;
+const F_ENC_LETRA = `font-family="'Brush Script MT', 'Segoe Script', cursive"`;
+
+// Estrela de 5 pontas centrada em (cx, cy)
+function encEstrela(cx, cy, r, cor) {
+  const pts = Array.from({ length: 10 }, (_, i) => {
+    const ang = (-90 + 36 * i) * Math.PI / 180;
+    const raio = i % 2 ? r * 0.42 : r;
+    return `${(cx + raio * Math.cos(ang)).toFixed(1)},${(cy + raio * Math.sin(ang)).toFixed(1)}`;
+  });
+  return `<polygon points="${pts.join(" ")}" fill="${cor}"/>`;
+}
+
+// Coração centrado em (cx, cy), com largura aproximada 2r
+function encCoracao(cx, cy, r, cor) {
+  return `<path transform="translate(${cx} ${cy}) scale(${r / 10})" d="M0 9 C-14 0 -11 -11 -5 -11 C-2 -11 0 -8 0 -6 C0 -8 2 -11 5 -11 C11 -11 14 0 0 9 Z" fill="${cor}"/>`;
+}
+
+// QR Code ilustrativo (não é um código de verdade): 21×21 módulos
+function encQr(x, y, tam, cor = ENC.preto) {
+  const n = 21, m = tam / n;
+  let d = "", semente = 7;
+  const aleatorio = () => (semente = (semente * 1103515245 + 12345) % 2147483648) / 2147483648;
+  const quadrado = (i, j, w = 1) => `M${(x + i * m).toFixed(2)} ${(y + j * m).toFixed(2)}h${(w * m).toFixed(2)}v${(w * m).toFixed(2)}h${(-w * m).toFixed(2)}z`;
+  const naQuina = (i, j) => (i < 8 && j < 8) || (i > 12 && j < 8) || (i < 8 && j > 12);
+  for (let j = 0; j < n; j++) for (let i = 0; i < n; i++) if (!naQuina(i, j) && aleatorio() < 0.48) d += quadrado(i, j);
+  const quina = (i, j) => `<path d="${quadrado(i, j, 7)}" fill="${cor}"/><path d="${quadrado(i + 1, j + 1, 5)}" fill="#fff"/><path d="${quadrado(i + 2, j + 2, 3)}" fill="${cor}"/>`;
+  return `<rect x="${x}" y="${y}" width="${tam}" height="${tam}" fill="#fff"/><path d="${d}" fill="${cor}"/>${quina(0, 0)}${quina(14, 0)}${quina(0, 14)}`;
+}
+
+// Sombra da peça apoiada na prateleira
+const encSombra = (rx = 32) => `<ellipse cx="50" cy="94" rx="${rx}" ry="2.6" fill="#000" opacity=".28"/>`;
 
 const ARTES = {
   faixa: `
@@ -979,4 +1179,224 @@ const ARTES = {
     <text x="50" y="72" text-anchor="middle" font-family="'Brush Script MT', 'Segoe Script', cursive" font-size="15" fill="#c9a227">Paixão</text>
     <text x="50" y="80" text-anchor="middle" font-family="Nunito, 'Arial Rounded MT Bold', Arial, sans-serif" font-weight="700" font-size="5.2" letter-spacing=".5" fill="#1e3f93">EM TUDO QUE FAZ</text>
     <rect x="14" y="88" width="72" height="8" rx="3" fill="#1e3f93"/><rect x="17" y="89" width="66" height="2" rx="1" fill="#ffffff33"/>`,
+  // ---------- ENCOMENDAS ----------
+  // Kits
+  "enc-kit-lembranca": `
+    ${encSombra(36)}
+    <g transform="rotate(-7 50 30)">
+      <rect x="20" y="10" width="60" height="36" rx="3" fill="${ENC.marrom}"/>
+      <circle cx="50" cy="27" r="10" fill="${ENC.ouro}"/>${encEstrela(50, 27.5, 7, ENC.marrom)}
+    </g>
+    <rect x="14" y="44" width="72" height="14" fill="${ENC.begeEscuro}"/>
+    <circle cx="35" cy="52" r="14" fill="${ENC.branco}" stroke="${ENC.ouro}" stroke-width="2.5"/>${encCoracao(35, 52, 7, ENC.vermelho)}
+    <circle cx="64" cy="36" r="4.5" fill="none" stroke="#aab0b9" stroke-width="2"/>
+    <rect x="55" y="40" width="18" height="22" rx="4" fill="${ENC.marrom}" stroke="${ENC.ouro}" stroke-width="1.5"/>${encEstrela(64, 50, 6, ENC.ouroClaro)}
+    <rect x="12" y="58" width="76" height="34" rx="2" fill="${ENC.bege}" stroke="${ENC.begeEscuro}" stroke-width="1"/>
+    <rect x="12" y="68" width="76" height="6" fill="${ENC.ouro}"/>
+    <text x="50" y="86" text-anchor="middle" ${F_ENC} font-weight="800" font-size="6.2" letter-spacing="1" fill="${ENC.marrom}">LEMBRANÇA</text>`,
+  "enc-kit-boas-vindas": `
+    ${encSombra(40)}
+    <rect x="8" y="40" width="54" height="52" rx="2" fill="${ENC.marrom}"/>
+    <rect x="6" y="34" width="58" height="12" rx="2" fill="${ENC.marromClaro}"/>
+    <rect x="32" y="34" width="6" height="58" fill="${ENC.ouro}"/>
+    <ellipse cx="29" cy="30" rx="7" ry="4" fill="${ENC.ouroClaro}" transform="rotate(-20 29 30)"/>
+    <ellipse cx="41" cy="30" rx="7" ry="4" fill="${ENC.ouroClaro}" transform="rotate(20 41 30)"/>
+    <circle cx="35" cy="32" r="3" fill="${ENC.ouro}"/>
+    <g transform="rotate(6 72 70)">
+      <rect x="52" y="46" width="40" height="46" rx="2" fill="#fff" stroke="${ENC.ouro}" stroke-width="1.5"/>
+      <text x="72" y="62" text-anchor="middle" ${F_ENC} font-weight="900" font-size="7.5" fill="${ENC.marrom}">BEM-</text>
+      <text x="72" y="71" text-anchor="middle" ${F_ENC} font-weight="900" font-size="7.5" fill="${ENC.marrom}">VINDO!</text>
+      <rect x="60" y="76" width="24" height="1.6" rx=".8" fill="${ENC.begeEscuro}"/>
+      <rect x="63" y="81" width="18" height="1.6" rx=".8" fill="${ENC.begeEscuro}"/>
+    </g>`,
+  "enc-kit-homenagem": `
+    ${encSombra(42)}
+    <rect x="6" y="30" width="46" height="62" rx="2" fill="${ENC.bege}" stroke="${ENC.begeEscuro}" stroke-width="1"/>
+    <rect x="26" y="30" width="6" height="62" fill="${ENC.ouro}"/>
+    <path d="M70 80 L82 93 H74 Z" fill="${ENC.marromEscuro}"/>
+    <rect x="38" y="12" width="50" height="68" rx="2" fill="${ENC.marrom}"/>
+    <rect x="43" y="17" width="40" height="58" fill="${ENC.bege}"/>
+    ${encEstrela(63, 34, 10, ENC.ouro)}
+    <text x="63" y="56" text-anchor="middle" ${F_ENC} font-weight="900" font-size="5.6" textLength="32" lengthAdjust="spacingAndGlyphs" fill="${ENC.marrom}">HOMENAGEM</text>
+    <rect x="49" y="61" width="28" height="1.6" rx=".8" fill="${ENC.ouro}"/>
+    <rect x="52" y="66" width="22" height="1.6" rx=".8" fill="${ENC.begeEscuro}"/>`,
+
+  // Chaveiros
+  "enc-chav-arte": `
+    <path d="M50 6 L84 16 V46 C84 70 68 86 50 94 C32 86 16 70 16 46 V16 Z" fill="${ENC.marrom}" stroke="${ENC.ouro}" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M50 13 L77 21 V46 C77 66 64 79 50 86 C36 79 23 66 23 46 V21 Z" fill="none" stroke="${ENC.ouro}" stroke-width="1" opacity=".7"/>
+    ${encEstrela(50, 43, 17, ENC.ouroClaro)}
+    <text x="50" y="71" text-anchor="middle" ${F_ENC} font-weight="900" font-size="8.5" textLength="40" lengthAdjust="spacingAndGlyphs" fill="${ENC.ouroClaro}">SUA ARTE</text>`,
+  "enc-chav-nome": `
+    <circle cx="50" cy="13" r="7" fill="${ENC.bege}" stroke="${ENC.marrom}" stroke-width="2"/>
+    <circle cx="50" cy="12" r="2.6" fill="${ENC.marromEscuro}"/>
+    <rect x="6" y="20" width="88" height="50" rx="25" fill="${ENC.bege}" stroke="${ENC.marrom}" stroke-width="2.5"/>
+    <text x="50" y="50" text-anchor="middle" ${F_ENC} font-weight="900" font-size="17" textLength="70" lengthAdjust="spacingAndGlyphs" fill="${ENC.marrom}">Ana Clara</text>
+    <text x="50" y="61" text-anchor="middle" ${F_ENC} font-weight="800" font-size="6.5" letter-spacing="1" fill="${ENC.ouro}">· 2026 ·</text>`,
+  "enc-chav-frase": `
+    <rect x="22" y="6" width="56" height="88" rx="8" fill="${ENC.marrom}" stroke="${ENC.ouro}" stroke-width="2"/>
+    <rect x="27" y="22" width="46" height="66" rx="4" fill="none" stroke="${ENC.ouro}" stroke-width=".8"/>
+    <circle cx="50" cy="14" r="3" fill="${ENC.marromEscuro}" stroke="${ENC.ouro}" stroke-width="1"/>
+    <text x="50" y="49" text-anchor="middle" ${F_ENC_LETRA} font-size="15" textLength="40" lengthAdjust="spacingAndGlyphs" fill="${ENC.ouroClaro}">Gratidão</text>
+    <text x="50" y="61" text-anchor="middle" ${F_ENC} font-weight="800" font-size="6" letter-spacing="1" fill="${ENC.bege}">POR TUDO</text>
+    <rect x="40" y="67" width="20" height="1.2" fill="${ENC.ouro}"/>
+    <text x="50" y="79" text-anchor="middle" ${F_ENC} font-weight="800" font-size="5.6" letter-spacing=".8" fill="${ENC.ouroClaro}">NOV · 2026</text>`,
+  "enc-chav-abridor": `
+    <path fill-rule="evenodd" fill="${ENC.preto}" stroke="${ENC.ouro}" stroke-width="2"
+      d="M30 8 H70 Q82 8 82 20 V80 Q82 92 70 92 H30 Q18 92 18 80 V20 Q18 8 30 8 Z
+         M36 64 H64 Q68 64 68 68 V74 Q68 80 62 80 H38 Q32 80 32 74 V68 Q32 64 36 64 Z"/>
+    <rect x="34" y="62" width="32" height="3" rx="1.5" fill="#9aa0a6"/>
+    <text x="50" y="36" text-anchor="middle" ${F_ENC} font-weight="900" font-size="11" fill="#fff">SUA</text>
+    <text x="50" y="50" text-anchor="middle" ${F_ENC} font-weight="900" font-size="11" fill="${ENC.ouroClaro}">MARCA</text>`,
+  "enc-chav-qr": `
+    <rect x="14" y="6" width="72" height="88" rx="10" fill="#fff" stroke="${ENC.preto}" stroke-width="2.5"/>
+    ${encQr(24, 16, 52)}
+    <text x="50" y="84" text-anchor="middle" ${F_ENC} font-weight="900" font-size="8.5" fill="${ENC.preto}">@sualoja</text>`,
+
+  // Bottons
+  "enc-botton-grande": `
+    ${encSombra(30)}
+    <circle cx="51.5" cy="51.5" r="41" fill="#8d939c"/>
+    <circle cx="50" cy="50" r="40" fill="${ENC.marrom}"/>
+    <circle cx="50" cy="50" r="35" fill="none" stroke="${ENC.ouro}" stroke-width="1.5"/>
+    ${encEstrela(50, 42, 16, ENC.ouroClaro)}
+    <text x="50" y="70" text-anchor="middle" ${F_ENC} font-weight="900" font-size="8" letter-spacing=".6" fill="${ENC.ouroClaro}">SUA ARTE</text>
+    <path d="M22 34 A32 32 0 0 1 46 16" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".18"/>`,
+  "enc-botton-pequeno": `
+    ${encSombra(22)}
+    <circle cx="51.2" cy="62.2" r="30" fill="#8d939c"/>
+    <circle cx="50" cy="61" r="29" fill="#fff"/>
+    <circle cx="50" cy="61" r="25" fill="none" stroke="${ENC.ouro}" stroke-width="1.3"/>
+    ${encCoracao(50, 62, 13, ENC.vermelho)}
+    <path d="M30 50 A22 22 0 0 1 47 37" fill="none" stroke="${ENC.begeEscuro}" stroke-width="2.5" stroke-linecap="round" opacity=".5"/>`,
+  "enc-botton-nome": `
+    ${encSombra(28)}
+    <circle cx="51.4" cy="53.4" r="39" fill="#8d939c"/>
+    <circle cx="50" cy="52" r="38" fill="${ENC.ouroClaro}"/>
+    <circle cx="50" cy="52" r="33" fill="none" stroke="${ENC.marrom}" stroke-width="1.3"/>
+    <text x="50" y="38" text-anchor="middle" ${F_ENC} font-weight="900" font-size="6.5" letter-spacing="1.5" fill="${ENC.marrom}">EQUIPE</text>
+    <text x="50" y="61" text-anchor="middle" ${F_ENC} font-weight="900" font-size="20" fill="${ENC.marrom}">Davi</text>
+    ${encEstrela(50, 72, 4.5, ENC.marrom)}
+    <path d="M24 36 A30 30 0 0 1 44 22" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".35"/>`,
+
+  // Quadros e plaquinhas
+  "enc-quadro-arte": `
+    ${encSombra(30)}
+    <path d="M60 86 L72 94 H64 Z" fill="${ENC.marromEscuro}"/>
+    <rect x="18" y="6" width="64" height="84" rx="2" fill="${ENC.marrom}"/>
+    <rect x="23" y="11" width="54" height="74" fill="${ENC.bege}"/>
+    <circle cx="50" cy="36" r="10" fill="${ENC.ouro}"/>
+    <g stroke="${ENC.ouro}" stroke-width="1.8" stroke-linecap="round">
+      <path d="M50 20 V23 M50 49 V52 M34 36 H37 M63 36 H66 M39 25 L41 27 M59 45 L61 47 M61 25 L59 27 M41 45 L39 47"/>
+    </g>
+    <path d="M23 70 Q36 52 50 62 T77 56 V85 H23 Z" fill="${ENC.marromClaro}"/>
+    <path d="M23 76 Q42 64 58 72 T77 70 V85 H23 Z" fill="${ENC.marrom}"/>
+    <text x="50" y="81" text-anchor="middle" ${F_ENC} font-weight="900" font-size="6" letter-spacing=".8" fill="${ENC.ouroClaro}">SEU EVENTO</text>`,
+  "enc-quadro-nomes": `
+    ${encSombra(30)}
+    <path d="M60 86 L72 94 H64 Z" fill="${ENC.marromEscuro}"/>
+    <rect x="18" y="6" width="64" height="84" rx="2" fill="${ENC.marrom}"/>
+    <rect x="23" y="11" width="54" height="74" fill="${ENC.bege}"/>
+    <text x="50" y="23" text-anchor="middle" ${F_ENC} font-weight="900" font-size="6.5" textLength="44" lengthAdjust="spacingAndGlyphs" fill="${ENC.marrom}">NOSSA EQUIPE</text>
+    <rect x="32" y="27" width="36" height="1.4" fill="${ENC.ouro}"/>
+    <g ${F_ENC} font-weight="800" font-size="5.6" fill="${ENC.marrom}" text-anchor="middle">
+      <text x="37" y="39">Ana</text><text x="63" y="39">Fábio</text>
+      <text x="37" y="48">Bruno</text><text x="63" y="48">Gabi</text>
+      <text x="37" y="57">Carla</text><text x="63" y="57">Hugo</text>
+      <text x="37" y="66">Davi</text><text x="63" y="66">Isa</text>
+      <text x="37" y="75">Elisa</text><text x="63" y="75">João</text>
+    </g>
+    ${encEstrela(50, 80, 2.8, ENC.ouro)}`,
+  "enc-placa-mesa": `
+    ${encSombra(32)}
+    <rect x="20" y="84" width="60" height="9" rx="2" fill="${ENC.ouro}"/>
+    <rect x="24" y="14" width="52" height="72" rx="4" fill="#fff" stroke="${ENC.ouro}" stroke-width="2.5"/>
+    <rect x="29" y="19" width="42" height="62" rx="2" fill="none" stroke="${ENC.ouro}" stroke-width=".8"/>
+    <text x="50" y="36" text-anchor="middle" ${F_ENC} font-weight="900" font-size="8" letter-spacing="2.5" fill="${ENC.marrom}">MESA</text>
+    <text x="50" y="72" text-anchor="middle" ${F_ENC} font-weight="900" font-size="34" fill="${ENC.marrom}">5</text>`,
+  "enc-placa-qr": `
+    ${encSombra(34)}
+    <rect x="18" y="85" width="64" height="8" rx="3" fill="${ENC.preto}"/>
+    <rect x="22" y="6" width="56" height="81" rx="6" fill="#fff" stroke="${ENC.preto}" stroke-width="2"/>
+    <text x="50" y="19" text-anchor="middle" ${F_ENC} font-weight="900" font-size="5.4" textLength="44" lengthAdjust="spacingAndGlyphs" fill="${ENC.preto}">APONTE A CÂMERA</text>
+    ${encQr(30, 24, 40)}
+    <text x="50" y="76" text-anchor="middle" ${F_ENC} font-weight="900" font-size="8" fill="${ENC.preto}">PIX</text>`,
+
+  // Caixinhas e embalagens
+  "enc-caixa-kit": `
+    ${encSombra(38)}
+    <polygon points="70,46 84,36 84,80 70,90" fill="${ENC.marromEscuro}"/>
+    <rect x="14" y="46" width="56" height="44" fill="${ENC.marrom}"/>
+    <polygon points="14,38 70,38 84,28 28,28" fill="${ENC.marromClaro}"/>
+    <rect x="14" y="38" width="56" height="10" fill="#6b4020"/>
+    <polygon points="70,38 84,28 84,38 70,48" fill="#3f2512"/>
+    <circle cx="42" cy="69" r="12" fill="${ENC.ouro}"/>${encEstrela(42, 69.5, 8, ENC.marrom)}`,
+  "enc-caixa-quadro": `
+    ${encSombra(32)}
+    <polygon points="72,14 80,8 80,84 72,90" fill="${ENC.begeEscuro}"/>
+    <polygon points="22,14 72,14 80,8 30,8" fill="#f3e8d2"/>
+    <rect x="22" y="14" width="50" height="76" fill="${ENC.bege}"/>
+    <rect x="44" y="14" width="6" height="76" fill="${ENC.ouro}"/>
+    <rect x="22" y="49" width="50" height="6" fill="${ENC.ouro}"/>
+    <polygon points="72,49 80,43 80,49 72,55" fill="#a8801a"/>
+    <ellipse cx="41" cy="48" rx="7" ry="4" fill="${ENC.ouroClaro}" transform="rotate(-25 41 48)"/>
+    <ellipse cx="53" cy="48" rx="7" ry="4" fill="${ENC.ouroClaro}" transform="rotate(25 53 48)"/>
+    <circle cx="47" cy="50" r="3" fill="${ENC.ouro}"/>`,
+  "enc-cartao": `
+    ${encSombra(34)}
+    <g transform="rotate(-3 50 55)">
+      <rect x="16" y="18" width="68" height="74" rx="3" fill="#fff" stroke="${ENC.ouro}" stroke-width="1.5"/>
+      <rect x="21" y="23" width="58" height="64" rx="2" fill="none" stroke="${ENC.ouro}" stroke-width=".6"/>
+      <text x="50" y="46" text-anchor="middle" ${F_ENC_LETRA} font-size="16" textLength="50" lengthAdjust="spacingAndGlyphs" fill="${ENC.marrom}">Obrigado!</text>
+      <rect x="30" y="55" width="40" height="1.8" rx=".9" fill="${ENC.begeEscuro}"/>
+      <rect x="33" y="61" width="34" height="1.8" rx=".9" fill="${ENC.begeEscuro}"/>
+      <rect x="36" y="67" width="28" height="1.8" rx=".9" fill="${ENC.begeEscuro}"/>
+      ${encCoracao(50, 79, 4.5, ENC.ouro)}
+    </g>`,
+
+  // Outras lembranças
+  "enc-ima": `
+    ${encSombra(34)}
+    <rect x="12" y="10" width="76" height="80" rx="14" fill="#fff" stroke="${ENC.vermelho}" stroke-width="3"/>
+    ${encCoracao(50, 40, 15, ENC.vermelho)}
+    <text x="50" y="74" text-anchor="middle" ${F_ENC_LETRA} font-size="17" textLength="52" lengthAdjust="spacingAndGlyphs" fill="${ENC.marrom}">Família</text>`,
+  "enc-marcador": `
+    ${encSombra(16)}
+    <path d="M50 13 C44 24 30 26 28 40" fill="none" stroke="${ENC.ouro}" stroke-width="1.3"/>
+    <path d="M28 38 L24 54 H32 Z" fill="${ENC.ouro}"/><rect x="25.5" y="37" width="5" height="3" rx="1" fill="${ENC.ouroClaro}"/>
+    <rect x="38" y="6" width="24" height="88" rx="3" fill="${ENC.bege}" stroke="${ENC.marrom}" stroke-width="1.6"/>
+    <circle cx="50" cy="13" r="2.4" fill="${ENC.marromEscuro}"/>
+    <path d="M50 22 C56 30 44 38 50 46 S44 62 50 70 S56 80 50 86" fill="none" stroke="${ENC.verde}" stroke-width="1.6"/>
+    <g fill="${ENC.verde}">
+      <ellipse cx="55" cy="30" rx="4" ry="2" transform="rotate(-30 55 30)"/>
+      <ellipse cx="45" cy="42" rx="4" ry="2" transform="rotate(30 45 42)"/>
+      <ellipse cx="55" cy="54" rx="4" ry="2" transform="rotate(-30 55 54)"/>
+      <ellipse cx="45" cy="66" rx="4" ry="2" transform="rotate(30 45 66)"/>
+      <ellipse cx="55" cy="78" rx="4" ry="2" transform="rotate(-30 55 78)"/>
+    </g>`,
+  "enc-topo-bolo": `
+    ${encSombra(26)}
+    <rect x="31" y="50" width="3.5" height="44" rx="1.5" fill="${ENC.ouro}"/>
+    <rect x="65.5" y="50" width="3.5" height="44" rx="1.5" fill="${ENC.ouro}"/>
+    <rect x="16" y="44" width="68" height="6" rx="3" fill="${ENC.ouro}"/>
+    <text x="50" y="40" text-anchor="middle" ${F_ENC_LETRA} font-size="24" textLength="70" lengthAdjust="spacingAndGlyphs" fill="${ENC.ouro}" stroke="#a8801a" stroke-width=".6">Parabéns</text>
+    ${encEstrela(80, 18, 5, ENC.ouroClaro)}${encEstrela(20, 22, 3.5, ENC.ouroClaro)}`,
+  "enc-porta-copos": `
+    ${encSombra(38)}
+    <rect x="14" y="86" width="72" height="8" rx="3" fill="${ENC.ouro}"/>
+    <circle cx="50" cy="50" r="37" fill="${ENC.marrom}" stroke="${ENC.ouro}" stroke-width="2"/>
+    <circle cx="50" cy="50" r="30" fill="none" stroke="${ENC.ouro}" stroke-width="1"/>
+    ${encEstrela(50, 44, 13, ENC.ouroClaro)}
+    <text x="50" y="68" text-anchor="middle" ${F_ENC} font-weight="900" font-size="7" letter-spacing=".6" fill="${ENC.ouroClaro}">SUA MARCA</text>`,
+  "enc-suporte-celular": `
+    ${encSombra(38)}
+    <polygon points="50,84 62,84 44,26 35,28" fill="${ENC.marromClaro}"/>
+    <g transform="rotate(-17 40 50)">
+      <rect x="25" y="16" width="30" height="60" rx="5" fill="${ENC.preto}"/>
+      <rect x="27.5" y="20" width="25" height="51" rx="2.5" fill="#2e3a4f"/>
+      <rect x="36" y="17.5" width="8" height="1.2" rx=".6" fill="#555"/>
+    </g>
+    <rect x="12" y="84" width="76" height="9" rx="3" fill="${ENC.marrom}"/>
+    <rect x="16" y="76" width="28" height="9" rx="2" fill="${ENC.marrom}"/>
+    <text x="66" y="90.6" text-anchor="middle" ${F_ENC} font-weight="900" font-size="5" letter-spacing=".5" fill="${ENC.ouroClaro}">SUA MARCA</text>`,
 };

@@ -11,6 +11,10 @@
 //       "artes-marciais",            // categoria inteira
 //       { categoria: "animes", produtos: ["boneco-goku", "esfera"] }, // só alguns
 //     ],
+//     // Opcionais para páginas de encomenda (sem eles, a página fica como sempre foi):
+//     textos: { botaoVer: "Ver produtos", ... }, // troca os textos padrão (veja TEXTOS abaixo)
+//     quantidade: 10,               // quantidade sugerida; o botão do card abre o detalhe
+//     perguntas: ["Tipo de evento", "Data"], // perguntadas antes de enviar; vão na mensagem
 //   };
 // ============================================================
 const $ = (sel) => document.querySelector(sel);
@@ -19,6 +23,25 @@ const $ = (sel) => document.querySelector(sel);
 const BASE = new URL("..", document.currentScript.src);
 
 const FAIXAS_CLARAS = ["Branca", "Cinza", "Amarela"];
+
+// Textos da página. Os padrões são os do catálogo de chaveiros;
+// uma página pode trocar qualquer um em CATALOGO.textos.
+const TEXTOS = {
+  menuExpositor: "Chaveiros",
+  seloHero: "Catálogo · Chaveiros",
+  subtitulo: "Chaveiros impressos em 3D, leves, resistentes e feitos sob encomenda.",
+  botaoVer: "Ver chaveiros",
+  info: [["PLA", "material ecológico"], ["~5 cm", "tamanho médio"], ["Cores", "personalizáveis"]],
+  tituloExpositor: "Nossos chaveiros",
+  dicaExpositor: "Toque em um chaveiro para ver os detalhes.",
+  passos: [
+    ["Escolha", "Adicione os chaveiros ao pedido pelo expositor ou pelo catálogo."],
+    ["Envie", "Clique em “Enviar pelo WhatsApp” e a lista vai pronta na mensagem."],
+    ["Imprimimos", "Combinamos cores e prazo, e sua peça é impressa camada por camada."],
+  ],
+  ...CATALOGO.textos,
+};
+const PERGUNTAS = CATALOGO.perguntas || [];
 
 const reais = (v) => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 // Preço definido na página do cliente (por produto ou por categoria); sem preço, não mostra
@@ -62,7 +85,7 @@ function montarPagina() {
         <span>Verissimo <b>3D</b></span>
       </a>
       <nav>
-        <a href="#expositor">Chaveiros</a>
+        <a href="#expositor">${TEXTOS.menuExpositor}</a>
         ${ANDARES.map((a) => `<a href="#${a.categoria}">${a.curto}</a>`).join("")}
         <a href="#como-funciona">Como pedir</a>
       </nav>
@@ -70,17 +93,15 @@ function montarPagina() {
 
     <section class="hero" id="inicio">
       <div class="hero-texto">
-        <p class="selo">Catálogo · Chaveiros</p>
+        <p class="selo">${TEXTOS.seloHero}</p>
         <h1>Verissimo <span>3D</span></h1>
-        <p class="hero-sub">${CATALOGO.subtitulo || "Chaveiros impressos em 3D, leves, resistentes e feitos sob encomenda."}</p>
+        <p class="hero-sub">${CATALOGO.subtitulo || TEXTOS.subtitulo}</p>
         <div class="hero-acoes">
-          <a class="btn btn-primario" href="#expositor">Ver chaveiros</a>
+          <a class="btn btn-primario" href="#expositor">${TEXTOS.botaoVer}</a>
           <a class="btn btn-secundario" href="#como-funciona">Como fazer o pedido</a>
         </div>
         <ul class="hero-info">
-          <li><b>PLA</b> material ecológico</li>
-          <li><b>~5 cm</b> tamanho médio</li>
-          <li><b>Cores</b> personalizáveis</li>
+          ${TEXTOS.info.map(([forte, texto]) => `<li><b>${forte}</b> ${texto}</li>`).join("")}
         </ul>
       </div>
     </section>
@@ -88,8 +109,8 @@ function montarPagina() {
     <section class="secao" id="expositor">
       <div class="secao-cabecalho">
         <p class="selo">Coleção</p>
-        <h2>Nossos chaveiros</h2>
-        <p>Toque em um chaveiro para ver os detalhes.</p>
+        <h2>${TEXTOS.tituloExpositor}</h2>
+        <p>${TEXTOS.dicaExpositor}</p>
       </div>
       <div class="expositor">
         <div class="expositor-placa">VERISSIMO 3D</div>
@@ -112,9 +133,7 @@ function montarPagina() {
         <h2>Simples assim</h2>
       </div>
       <ol class="passos">
-        <li><span>1</span><h3>Escolha</h3><p>Adicione os chaveiros ao pedido pelo expositor ou pelo catálogo.</p></li>
-        <li><span>2</span><h3>Envie</h3><p>Clique em “Enviar pelo WhatsApp” e a lista vai pronta na mensagem.</p></li>
-        <li><span>3</span><h3>Imprimimos</h3><p>Combinamos cores e prazo, e sua peça é impressa camada por camada.</p></li>
+        ${TEXTOS.passos.map(([titulo, texto], i) => `<li><span>${i + 1}</span><h3>${titulo}</h3><p>${texto}</p></li>`).join("")}
       </ol>
     </section>
 
@@ -145,6 +164,18 @@ function montarPagina() {
         <button class="btn btn-primario" id="modal-adicionar" type="button">Adicionar ao pedido</button>
       </div>
     </dialog>
+
+    ${PERGUNTAS.length ? `
+    <dialog class="modal modal-evento" id="evento">
+      <button class="modal-fechar" id="evento-fechar" type="button" aria-label="Fechar">×</button>
+      <form class="modal-texto" id="evento-form" method="dialog">
+        <p class="selo">Quase lá</p>
+        <h3>Conte sobre a sua encomenda</h3>
+        <p>Assim já te passo o orçamento certo. Pode deixar em branco o que ainda não sabe.</p>
+        ${PERGUNTAS.map((q, i) => `<label class="campo">${q}<input type="text" name="p${i}" autocomplete="off"></label>`).join("")}
+        <a class="btn btn-primario" id="evento-enviar" target="_blank" rel="noopener">Enviar pelo WhatsApp</a>
+      </form>
+    </dialog>` : ""}
 
     <div class="aviso" id="aviso" role="status"></div>`);
 }
@@ -224,7 +255,7 @@ function montarGrades() {
           </div>
         </div>`;
       card.querySelector(".card-imagem").addEventListener("click", () => abrirModal(p));
-      card.querySelector(".card-rodape button").addEventListener("click", () => (p.faixa ? abrirModal(p) : adicionar(p)));
+      card.querySelector(".card-rodape button").addEventListener("click", () => (p.faixa || CATALOGO.quantidade ? abrirModal(p) : adicionar(p)));
       alvo.appendChild(card);
     });
   }
@@ -243,7 +274,7 @@ function abrirModal(p) {
   $("#modal-descricao").textContent = p.descricao;
   $("#modal-preco").hidden = preco(p) === null;
   if (preco(p) !== null) $("#modal-preco").innerHTML = `${reais(preco(p))} <small>cada</small>`;
-  $("#modal-qtd").value = 1;
+  $("#modal-qtd").value = CATALOGO.quantidade || 1;
   $("#modal").showModal();
 }
 // Seletor de cor da faixa
@@ -271,6 +302,7 @@ function montarCores(p) {
 
 // ---------- Pedido ----------
 const pedido = new Map(); // "id|cor" -> quantidade
+const respostas = []; // respostas das PERGUNTAS, na mesma ordem
 
 const nomeItem = (p, cor) => (cor ? `${p.nome} (faixa ${cor.toLowerCase()})` : p.nome);
 
@@ -300,8 +332,11 @@ function atualizarPedido() {
     .join("\n");
   const msg = `Olá, ${LOJA.nome}! Quero encomendar:\n\n${linhas}`
     + (comPreco ? `\n\nTotal: ${reais(total)}` : "")
+    + (PERGUNTAS.length ? `\n\n${PERGUNTAS.map((q, i) => `${q}: ${respostas[i] || ""}`).join("\n")}` : "")
     + (CATALOGO.cliente ? `\n\nCliente: ${CATALOGO.cliente}` : "");
-  $("#pedido-enviar").href = `https://wa.me/${LOJA.whatsapp}?text=${encodeURIComponent(msg)}`;
+  const link = `https://wa.me/${LOJA.whatsapp}?text=${encodeURIComponent(msg)}`;
+  $("#pedido-enviar").href = link;
+  if (PERGUNTAS.length) $("#evento-enviar").href = link;
 }
 
 let timerAviso;
@@ -325,3 +360,15 @@ $("#modal-adicionar").addEventListener("click", () => {
   $("#modal").close();
 });
 $("#pedido-limpar").addEventListener("click", () => { pedido.clear(); atualizarPedido(); });
+
+// Perguntas antes de enviar: o botão da barra abre o formulário
+if (PERGUNTAS.length) {
+  $("#pedido-enviar").addEventListener("click", (e) => { e.preventDefault(); $("#evento").showModal(); });
+  $("#evento-fechar").addEventListener("click", () => $("#evento").close());
+  $("#evento").addEventListener("click", (e) => { if (e.target === e.currentTarget) $("#evento").close(); });
+  $("#evento-form").addEventListener("input", (e) => {
+    respostas[Number(e.target.name.slice(1))] = e.target.value.trim();
+    atualizarPedido();
+  });
+  $("#evento-enviar").addEventListener("click", () => $("#evento").close());
+}
