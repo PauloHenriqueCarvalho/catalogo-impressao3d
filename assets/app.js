@@ -15,6 +15,7 @@
 //     textos: { botaoVer: "Ver produtos", ... }, // troca os textos padrão (veja TEXTOS abaixo)
 //     quantidade: 10,               // quantidade sugerida; o botão do card abre o detalhe
 //     perguntas: ["Tipo de evento", "Data"], // perguntadas antes de enviar; vão na mensagem
+//     galeria: { titulo, descricao, fotos: [{ foto: "img/trabalhos/x.jpg", legenda: "..." }] }, // fotos de trabalhos entregues
 //   };
 // ============================================================
 const $ = (sel) => document.querySelector(sel);
@@ -42,6 +43,7 @@ const TEXTOS = {
   ...CATALOGO.textos,
 };
 const PERGUNTAS = CATALOGO.perguntas || [];
+const GALERIA = CATALOGO.galeria?.fotos?.length ? CATALOGO.galeria : null;
 
 const reais = (v) => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 // Preço definido na página do cliente (por produto ou por categoria); sem preço, não mostra
@@ -85,6 +87,7 @@ function montarPagina() {
         <span>Verissimo <b>3D</b></span>
       </a>
       <nav>
+        ${GALERIA ? `<a href="#trabalhos">Trabalhos</a>` : ""}
         <a href="#expositor">${TEXTOS.menuExpositor}</a>
         ${ANDARES.map((a) => `<a href="#${a.categoria}">${a.curto}</a>`).join("")}
         <a href="#como-funciona">Como pedir</a>
@@ -105,6 +108,29 @@ function montarPagina() {
         </ul>
       </div>
     </section>
+
+    ${GALERIA ? `
+    <section class="secao" id="trabalhos">
+      <div class="secao-cabecalho">
+        <p class="selo">Trabalhos entregues</p>
+        <h2>${GALERIA.titulo || "Feito por nós"}</h2>
+        ${GALERIA.descricao ? `<p>${GALERIA.descricao}</p>` : ""}
+      </div>
+      <div class="galeria">
+        ${GALERIA.fotos.map((f, i) => `
+          <figure>
+            <button type="button" class="galeria-foto" data-foto="${i}" aria-label="Ampliar: ${f.legenda}">
+              <img src="${new URL(f.foto, BASE).href}" alt="${f.legenda}" loading="lazy">
+            </button>
+            <figcaption>${f.legenda}</figcaption>
+          </figure>`).join("")}
+      </div>
+    </section>
+    <dialog class="foto-ampliada" id="foto-ampliada">
+      <button class="modal-fechar" id="foto-fechar" type="button" aria-label="Fechar">×</button>
+      <img id="foto-ampliada-img" alt="">
+      <p id="foto-ampliada-legenda"></p>
+    </dialog>` : ""}
 
     <section class="secao" id="expositor">
       <div class="secao-cabecalho">
@@ -371,4 +397,17 @@ if (PERGUNTAS.length) {
     atualizarPedido();
   });
   $("#evento-enviar").addEventListener("click", () => $("#evento").close());
+}
+
+// Galeria de trabalhos entregues: toque na foto para ampliar
+if (GALERIA) {
+  document.querySelectorAll(".galeria-foto").forEach((b) => b.addEventListener("click", () => {
+    const f = GALERIA.fotos[Number(b.dataset.foto)];
+    $("#foto-ampliada-img").src = new URL(f.foto, BASE).href;
+    $("#foto-ampliada-img").alt = f.legenda;
+    $("#foto-ampliada-legenda").textContent = f.legenda;
+    $("#foto-ampliada").showModal();
+  }));
+  $("#foto-fechar").addEventListener("click", () => $("#foto-ampliada").close());
+  $("#foto-ampliada").addEventListener("click", (e) => { if (e.target === e.currentTarget) $("#foto-ampliada").close(); });
 }

@@ -39,6 +39,7 @@ Opcionais (usados em `/encomendas/`; sem eles a página fica igual às outras):
   textos: { botaoVer: "Ver produtos", tituloExpositor: "Tudo o que fazemos" }, // troca os textos padrão (lista em TEXTOS no app.js)
   quantidade: 10,                          // quantidade sugerida ao abrir uma peça
   perguntas: ["Seu nome", "Data do evento"], // perguntadas antes de enviar; vão na mensagem do WhatsApp
+  galeria: { titulo: "...", descricao: "...", fotos: [{ foto: "img/trabalhos/x.jpg", legenda: "..." }] }, // seção “Trabalhos entregues”
 ``` Os ids dos produtos e as categorias estão em `assets/produtos.js`.
 
 ## Chaveiros
@@ -61,7 +62,7 @@ O cliente escolhe os chaveiros e envia o pedido pronto pelo WhatsApp.
 ## Como editar
 
 - **WhatsApp, categorias e produtos:** `assets/produtos.js`.
-- **Fotos reais:** coloque em `img/chaveiros/` com os nomes listados em `img/chaveiros/LEIA-ME.md`.
+- **Fotos reais:** coloque em `img/chaveiros/` com os nomes listados em `img/chaveiros/LEIA-ME.md` (quadradas, uns 800 px). As fotos de trabalhos entregues ficam em `img/trabalhos/`.
 - **Visual:** `assets/style.css`. **Estrutura da página:** `assets/app.js`.
 
 ## Ver localmente
