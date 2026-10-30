@@ -10,6 +10,7 @@ Landing page de catálogo de chaveiros impressos em 3D, com expositor em andares
 | `/gustavo-campassi/` | Gustavo Campassi (salão Beauté Naturelle) | Brindes para Clientes, Outras Peças — tema natural |
 | `/itamaraty/` | Itamaraty (55 anos, 450 funcionários) | Chaveiros 55 Anos, Para a Mesa e a Cozinha — tema azul |
 | `/encomendas/` | Anúncios: encomendas grandes de festas, eventos e empresas | Kits, Chaveiros, Bottons, Quadros, Caixinhas, Outras Lembranças — tema claro "loja"; pergunta os dados do evento antes de enviar |
+| `/nota-fiscal/` | Teste (MVP): leitor de nota fiscal, sem login | — Cupom (QR Code da NFC-e) e nota de distribuidor (chave de 44 dígitos por código de barras, foto + OCR ou digitação). Backend em `api/nfce.js` e `api/nfe.js`; variáveis opcionais na Vercel: `NFPARSE_API_KEY`, `NFPARSE_API_URL`, `NFE_API_URL`, `NFE_API_KEY` |
 
 As páginas de cliente não aparecem no Google (`noindex`) e o nome do cliente só vai na mensagem do WhatsApp.
 
