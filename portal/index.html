@@ -217,6 +217,31 @@ a{color:inherit}
 .appfoot{text-align:center;color:var(--muted);font-size:.76rem;padding:20px 16px 30px;line-height:1.6}
 .appfoot b{color:var(--ink)}
 
+/* Student card */
+.idcard{max-width:420px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line);background:#fff;position:relative}
+.idcard .idc-head{background:linear-gradient(120deg,var(--primary-700),var(--accent));color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px}
+.idcard .idc-head .brand-mark{width:34px;height:34px;background:rgba(255,255,255,.18);box-shadow:none}
+.idcard .idc-head .brand-mark svg{width:20px;height:20px}
+.idcard .idc-head .ti{font-weight:800;letter-spacing:-.01em;line-height:1.1}
+.idcard .idc-head .ti small{display:block;font-weight:500;font-size:.68rem;opacity:.85;letter-spacing:.02em}
+.idcard .idc-body{display:flex;gap:14px;padding:16px}
+.idcard .idc-photo{width:96px;height:120px;border-radius:10px;overflow:hidden;background:#eef2ff;color:var(--primary);display:grid;place-items:center;flex:0 0 auto;border:1px solid var(--line)}
+.idcard .idc-photo img{width:100%;height:100%;object-fit:cover}
+.idcard .idc-photo svg{width:46px;height:46px}
+.idcard .idc-info{flex:1;min-width:0}
+.idcard .idc-info .nm{font-weight:800;font-size:1.05rem;letter-spacing:-.01em;line-height:1.15;word-break:break-word}
+.idcard .idc-field{margin-top:8px}
+.idcard .idc-field .l{font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:700}
+.idcard .idc-field .v{font-weight:600;font-variant-numeric:tabular-nums;word-break:break-word}
+.idcard .idc-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px;border-top:1px dashed var(--line);background:#f8fafc}
+.idcard .idc-foot .val{font-size:.74rem;color:var(--muted)}
+.idcard .barcode{height:26px;width:88px;border-radius:3px;
+  background:repeating-linear-gradient(90deg,#1e293b 0 2px,#fff 2px 4px,#1e293b 4px 5px,#fff 5px 8px)}
+.idcard .watermark{position:absolute;right:12px;top:58px;font-size:.7rem;font-weight:800;letter-spacing:.16em;
+  color:rgba(79,70,229,.12);transform:rotate(-8deg);pointer-events:none}
+.demo-chip{font-size:.6rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--warn);
+  background:#fff7ed;border:1px solid #fed7aa;padding:4px 8px;border-radius:999px;white-space:nowrap}
+
 /* ---------- ADMIN ---------- */
 #view-admin{min-height:100dvh;background:var(--bg);display:flex;flex-direction:column}
 .admin-top{background:var(--ink);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px;
@@ -388,6 +413,7 @@ const DEFAULT_DATA = {
     periodo:'5º período',
     turno:'Matutino',
     email:'aluno@portalacademico.demo',
+    validade:'12/2026',
     foto:''
   },
   mural:[
@@ -558,6 +584,7 @@ function renderSection(id){
   el.innerHTML = (map[id]||secHome)();
   // wire portais clicks
   el.querySelectorAll('[data-portal]').forEach(c=>c.addEventListener('click',()=>renderSection('home')));
+  wireCartaoPhoto();
 }
 
 function secHome(){
@@ -643,25 +670,58 @@ function secFinanceiro(){
 }
 
 function secCartao(){
+  const a = DATA.aluno;
+  const photo = a.foto
+    ? `<img src="${esc(a.foto)}" alt="Foto do aluno">`
+    : '<svg viewBox="0 0 24 24" fill="none"><path d="M20 21a8 8 0 10-16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/></svg>';
   return `
-    <div class="crumbs"><span>Início</span><span class="sep">»</span><b>Cartão estudantil</b><span class="sep">»</span><span>Upload</span></div>
-    <div class="panel"><div class="panel-b">
-      <div class="info-box">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M12 8v4m0 4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-        <div>
-          <strong>Informativo!</strong> Você ainda não possui foto no seu cartão estudantil. Faça o upload do arquivo pelo protocolo eletrônico.
+    <div class="crumbs"><span>Início</span><span class="sep">»</span><b>Cartão estudantil</b></div>
+    <div class="page-title">Cartão estudantil</div>
+
+    <div class="idcard">
+      <div class="watermark">DEMONSTRAÇÃO</div>
+      <div class="idc-head">
+        <div class="brand-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3L2 8l10 5 8-4v6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 11v4c0 1.1 2.7 3 6 3s6-1.9 6-3v-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <div class="ti">${esc(DATA.instituicao)}<small>Carteira de Estudante</small></div>
+      </div>
+      <div class="idc-body">
+        <div class="idc-photo">${photo}</div>
+        <div class="idc-info">
+          <div class="nm">${esc(a.nome)}</div>
+          <div class="idc-field"><div class="l">Curso</div><div class="v">${esc(a.curso)}</div></div>
+          <div class="idc-field"><div class="l">Matrícula</div><div class="v">${esc(a.matricula)}</div></div>
+          <div class="idc-field"><div class="l">CPF</div><div class="v">${esc(a.cpf)}</div></div>
         </div>
       </div>
-      <ul style="margin:16px 4px 0;padding-left:18px;color:var(--muted);font-size:.9rem;line-height:1.9">
-        <li>Tamanho máximo permitido: <b>8MB</b></li>
-        <li>Tamanho ideal mínimo para não distorcer: <b>230×230 pixels</b></li>
-        <li>Arquivos permitidos: <b>.pdf</b></li>
-      </ul>
-      <div style="text-align:center;margin-top:20px">
-        <button class="btn sm" onclick="toast('Demonstração — upload não enviado')">Clique aqui</button>
+      <div class="idc-foot">
+        <span class="val">Válido até ${esc(a.validade)}</span>
+        <span class="barcode" aria-hidden="true"></span>
+      </div>
+    </div>
+
+    <div class="panel" style="max-width:420px;margin:16px auto 0"><div class="panel-b">
+      <div style="font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:8px">Foto do cartão <span class="demo-chip">Modelo de demonstração</span></div>
+      <input type="file" id="cartaoFoto" accept="image/*" style="font-size:.9rem">
+      ${a.foto?'<div style="margin-top:10px"><button class="btn ghost sm" id="cartaoFotoClear" style="padding:4px 6px">Remover foto</button></div>':''}
+      <div style="color:var(--muted);font-size:.8rem;margin-top:12px;line-height:1.5">
+        Protótipo de demonstração com dados fictícios da ${esc(DATA.instituicao)}. Não é um documento oficial.
       </div>
     </div></div>
   `;
+}
+
+function wireCartaoPhoto(){
+  const inp = document.getElementById('cartaoFoto');
+  if(!inp) return;
+  inp.addEventListener('change',()=>{
+    const f = inp.files[0]; if(!f) return;
+    if(f.size > 1.6*1024*1024){ alert('Imagem muito grande (máx. ~1.5MB para o modo demonstração).'); inp.value=''; return; }
+    const r = new FileReader();
+    r.onload = ()=>{ DATA.aluno.foto = r.result; save(); syncAvatars(); renderSection('cartao'); toast('Foto adicionada'); };
+    r.readAsDataURL(f);
+  });
+  const cl = document.getElementById('cartaoFotoClear');
+  if(cl) cl.addEventListener('click',()=>{ DATA.aluno.foto=''; save(); syncAvatars(); renderSection('cartao'); });
 }
 
 function secPlaceholder(title,msg,ic){
@@ -736,6 +796,10 @@ function renderAdmin(){
         <div class="inp"><label>Turno</label><input id="f_turno" value="${esc(a.turno)}"></div>
         <div class="inp"><label>E-mail</label><input id="f_email" value="${esc(a.email)}"></div>
       </div>
+      <div class="grid2">
+        <div class="inp"><label>Validade do cartão</label><input id="f_validade" value="${esc(a.validade)}" placeholder="12/2026"></div>
+        <div class="inp"></div>
+      </div>
       <button class="btn sm" id="saveAluno">Salvar dados do aluno</button>
     </div>
 
@@ -804,7 +868,7 @@ function wireAdmin(){
     const g=id=>document.getElementById(id).value;
     Object.assign(DATA.aluno,{
       nome:g('f_nome'), cpf:g('f_cpf'), senha:g('f_senha'), matricula:g('f_matricula'),
-      curso:g('f_curso'), periodo:g('f_periodo'), turno:g('f_turno'), email:g('f_email')
+      curso:g('f_curso'), periodo:g('f_periodo'), turno:g('f_turno'), email:g('f_email'), validade:g('f_validade')
     });
     save(); syncAvatars(); toast('Dados do aluno salvos');
   });
