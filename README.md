@@ -11,6 +11,7 @@ Landing page de catálogo de chaveiros impressos em 3D, com expositor em andares
 | `/itamaraty/` | Itamaraty (55 anos, 450 funcionários) | Chaveiros 55 Anos, Para a Mesa e a Cozinha — tema azul |
 | `/encomendas/` | Anúncios: encomendas grandes de festas, eventos e empresas | Kits, Chaveiros, Bottons, Quadros, Caixinhas, Outras Lembranças — tema claro "loja"; pergunta os dados do evento antes de enviar |
 | `/nota-fiscal/` | Teste (MVP): leitor de nota fiscal, sem login | — Cupom (QR Code da NFC-e) e nota de distribuidor (chave de 44 dígitos por código de barras, foto + OCR ou digitação). Backend em `api/nfce.js` e `api/nfe.js`; variáveis opcionais na Vercel: `NFPARSE_API_KEY`, `NFPARSE_API_URL`, `NFE_API_URL`, `NFE_API_KEY` |
+| `/portal/` | Projeto pessoal: Portal Acadêmico de demonstração (marca própria, dados fictícios) | — App estático de página única. Login por CPF + senha, dashboard (mural/recados), acadêmico (notas), financeiro e cartão estudantil. Painel de administração (link "Administração" no login) para configurar os dados de demonstração — nome, CPF, senha, foto, curso, notas etc. Tudo salvo no `localStorage` do navegador; não há servidor nem dados reais |
 
 As páginas de cliente não aparecem no Google (`noindex`) e o nome do cliente só vai na mensagem do WhatsApp.
 

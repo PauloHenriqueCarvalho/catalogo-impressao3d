@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Portal Acadêmico</title>
+<meta name="description" content="Portal Acadêmico — projeto pessoal de demonstração.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#4f46e5;
+  --primary-dark:#4338ca;
+  --primary-700:#3730a3;
+  --accent:#0d9488;
+  --accent-light:#14b8a6;
+  --ink:#1e293b;
+  --muted:#64748b;
+  --line:#e2e8f0;
+  --bg:#f1f5f9;
+  --card:#ffffff;
+  --info:#0ea5b7;
+  --danger:#e11d48;
+  --ok:#16a34a;
+  --warn:#d97706;
+  --radius:14px;
+  --shadow:0 1px 3px rgba(15,23,42,.08),0 8px 24px rgba(15,23,42,.06);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  background:var(--bg);color:var(--ink);
+  -webkit-font-smoothing:antialiased;line-height:1.45;
+}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+a{color:inherit}
+.hidden{display:none !important}
+
+/* ---------- Brand mark ---------- */
+.brand-mark{
+  width:46px;height:46px;border-radius:12px;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  display:grid;place-items:center;flex:0 0 auto;
+  box-shadow:0 4px 12px rgba(79,70,229,.35);
+}
+.brand-mark svg{width:26px;height:26px}
+.brand-lockup{display:flex;align-items:center;gap:12px}
+.brand-lockup .name{font-weight:800;letter-spacing:-.02em;line-height:1.05}
+.brand-lockup .name small{display:block;font-weight:500;font-size:.72rem;color:var(--muted);letter-spacing:.02em}
+
+/* ---------- LOGIN ---------- */
+#view-login{
+  min-height:100dvh;display:grid;place-items:center;padding:28px 20px;
+  background:
+    radial-gradient(900px 500px at 50% -10%,rgba(79,70,229,.14),transparent 60%),
+    radial-gradient(700px 400px at 100% 110%,rgba(13,148,136,.12),transparent 60%),
+    var(--bg);
+}
+.login-card{
+  width:100%;max-width:400px;background:var(--card);border-radius:20px;
+  box-shadow:var(--shadow);padding:34px 26px 26px;text-align:center;
+  border:1px solid var(--line);
+}
+.login-logo{
+  width:72px;height:72px;border-radius:20px;margin:0 auto 16px;
+  background:linear-gradient(135deg,var(--primary),var(--accent));
+  display:grid;place-items:center;box-shadow:0 10px 24px rgba(79,70,229,.35);
+}
+.login-logo svg{width:40px;height:40px}
+.login-card h1{font-size:1.5rem;letter-spacing:-.03em;margin-bottom:4px}
+.login-card .sub{color:var(--muted);font-size:.92rem;margin-bottom:26px}
+.field{text-align:left;margin-bottom:18px}
+.field label{display:block;font-size:.72rem;font-weight:600;color:var(--muted);
+  letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.field input{
+  width:100%;border:none;border-bottom:2px solid var(--line);
+  background:transparent;font-size:1.05rem;padding:8px 2px;color:var(--ink);
+  outline:none;transition:border-color .18s;
+}
+.field input:focus{border-color:var(--primary)}
+.login-row{display:flex;flex-direction:column;gap:10px;align-items:center;
+  font-size:.88rem;color:var(--muted);margin:4px 0 22px}
+.login-row a{color:var(--primary);font-weight:600;text-decoration:none}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  width:100%;padding:13px 18px;border-radius:12px;font-weight:700;font-size:1rem;
+  background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;
+  transition:transform .12s,box-shadow .18s;box-shadow:0 6px 16px rgba(79,70,229,.3);
+}
+.btn:active{transform:translateY(1px)}
+.btn.secondary{background:#fff;color:var(--primary);border:1.5px solid var(--line);box-shadow:none}
+.btn.ghost{background:transparent;color:var(--muted);box-shadow:none;font-weight:600}
+.btn.sm{width:auto;padding:9px 14px;font-size:.88rem}
+.btn.danger{background:linear-gradient(135deg,#f43f5e,#e11d48);box-shadow:0 6px 16px rgba(225,29,72,.3)}
+.login-foot{margin-top:22px;font-size:.78rem;color:var(--muted);line-height:1.6}
+.login-foot .adm{display:inline-flex;align-items:center;gap:6px;color:var(--muted);
+  margin-top:14px;font-weight:600;font-size:.8rem}
+.login-foot .adm svg{width:15px;height:15px}
+.login-error{background:#fef2f2;color:#b91c1c;border:1px solid #fecaca;border-radius:10px;
+  padding:9px 12px;font-size:.85rem;margin-bottom:16px;text-align:left}
+
+/* ---------- APP SHELL ---------- */
+#view-app{min-height:100dvh;display:flex;flex-direction:column}
+.topbar{
+  position:sticky;top:0;z-index:40;
+  background:linear-gradient(120deg,var(--primary-700),var(--primary));
+  color:#fff;display:flex;align-items:center;gap:12px;padding:12px 16px;
+  box-shadow:0 2px 10px rgba(30,27,75,.25);
+}
+.topbar .menu-btn{color:#fff;display:flex;flex-direction:column;align-items:center;gap:2px;
+  font-size:.62rem;font-weight:600;opacity:.95}
+.topbar .menu-btn svg{width:24px;height:24px}
+.topbar .brand-lockup .name{color:#fff;font-size:1.05rem}
+.topbar .brand-lockup .name small{color:rgba(255,255,255,.8)}
+.topbar .brand-mark{background:rgba(255,255,255,.16);box-shadow:none;width:38px;height:38px}
+.topbar .brand-mark svg{width:22px;height:22px}
+.topbar .spacer{flex:1}
+.topbar .avatar{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.2);
+  display:grid;place-items:center;position:relative;overflow:hidden}
+.topbar .avatar svg{width:22px;height:22px;color:#fff}
+.topbar .avatar img{width:100%;height:100%;object-fit:cover}
+.topbar .avatar .dot{position:absolute;right:1px;bottom:1px;width:9px;height:9px;border-radius:50%;
+  background:#22c55e;border:2px solid var(--primary)}
+
+.content{flex:1;padding:16px 16px 40px;max-width:760px;width:100%;margin:0 auto}
+
+/* ---------- DRAWER ---------- */
+.scrim{position:fixed;inset:0;background:rgba(15,23,42,.5);z-index:50;opacity:0;
+  pointer-events:none;transition:opacity .22s}
+.scrim.open{opacity:1;pointer-events:auto}
+.drawer{
+  position:fixed;top:0;left:0;height:100dvh;width:290px;max-width:84vw;z-index:60;
+  background:var(--card);box-shadow:4px 0 24px rgba(15,23,42,.18);
+  transform:translateX(-100%);transition:transform .24s cubic-bezier(.4,0,.2,1);
+  display:flex;flex-direction:column;overflow-y:auto;
+}
+.drawer.open{transform:translateX(0)}
+.drawer-head{
+  background:linear-gradient(135deg,var(--primary-700),var(--accent));
+  color:#fff;padding:22px 20px 20px;position:relative;
+}
+.drawer-head .d-avatar{width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.22);
+  display:grid;place-items:center;overflow:hidden;margin-bottom:12px}
+.drawer-head .d-avatar svg{width:34px;height:34px;color:#fff}
+.drawer-head .d-avatar img{width:100%;height:100%;object-fit:cover}
+.drawer-head .d-name{font-weight:700;font-size:1.05rem;letter-spacing:-.01em}
+.drawer-head .d-role{font-size:.8rem;opacity:.85}
+.drawer-nav{padding:8px}
+.nav-item{display:flex;align-items:center;gap:14px;width:100%;text-align:left;
+  padding:13px 14px;border-radius:10px;color:var(--ink);font-weight:500;font-size:.96rem;
+  transition:background .14s}
+.nav-item:hover,.nav-item:focus{background:#f1f5f9}
+.nav-item svg{width:22px;height:22px;color:var(--muted);flex:0 0 auto}
+.nav-item .chev{margin-left:auto;width:16px;height:16px;opacity:.5}
+.drawer-foot{margin-top:auto;padding:14px;border-top:1px solid var(--line)}
+
+/* ---------- CARDS / SECTIONS ---------- */
+.panel{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);
+  border:1px solid var(--line);overflow:hidden;margin-bottom:16px}
+.panel-h{padding:16px 18px 4px;font-size:1.15rem;font-weight:700;letter-spacing:-.01em}
+.panel-b{padding:14px 18px 18px}
+.info-box{background:linear-gradient(135deg,var(--info),#0891b2);color:#fff;border-radius:12px;
+  padding:16px 18px;display:flex;gap:12px;align-items:flex-start;font-weight:500}
+.info-box svg{width:22px;height:22px;flex:0 0 auto;margin-top:1px}
+.info-box.soft{background:#ecfeff;color:#155e75;border:1px solid #a5f3fc}
+.info-box.soft svg{color:#0891b2}
+
+.crumbs{display:flex;flex-wrap:wrap;gap:6px;align-items:center;color:var(--muted);
+  font-size:.9rem;margin-bottom:14px;font-weight:500}
+.crumbs .sep{color:#cbd5e1}
+.crumbs b{color:var(--ink);font-weight:700}
+.page-title{font-size:1.35rem;font-weight:800;letter-spacing:-.02em;margin-bottom:14px}
+
+/* Portais cards */
+.portal-card{border-radius:14px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:16px;
+  border:1px solid var(--line);background:var(--card);cursor:pointer;transition:transform .14s}
+.portal-card:active{transform:scale(.99)}
+.portal-banner{height:150px;position:relative;display:flex;align-items:flex-end;padding:16px;color:#fff}
+.portal-banner.grad{background:linear-gradient(120deg,#4338ca,#6d28d9)}
+.portal-banner.resp{background:linear-gradient(120deg,#0f766e,#0d9488)}
+.portal-banner .accent-bar{position:absolute;left:0;top:18px;bottom:18px;width:6px;
+  background:var(--accent-light);border-radius:3px}
+.portal-banner .kicker{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.9;font-weight:600}
+.portal-banner .big{font-size:1.55rem;font-weight:800;letter-spacing:-.01em;line-height:1}
+.portal-tag{position:absolute;top:12px;left:12px;background:rgba(15,23,42,.55);color:#fff;
+  padding:6px 12px;border-radius:8px;font-size:.78rem;font-weight:600;backdrop-filter:blur(4px)}
+
+/* Table / list */
+.table{width:100%;border-collapse:collapse;font-size:.9rem}
+.table th,.table td{padding:11px 10px;text-align:left;border-bottom:1px solid var(--line)}
+.table th{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700}
+.table td.num{font-variant-numeric:tabular-nums;font-weight:600}
+.badge{display:inline-block;padding:3px 9px;border-radius:999px;font-size:.74rem;font-weight:700}
+.badge.ok{background:#dcfce7;color:#15803d}
+.badge.warn{background:#fef3c7;color:#b45309}
+.badge.danger{background:#ffe4e6;color:#be123c}
+.empty{color:var(--muted);font-size:.9rem;padding:8px 2px}
+
+.list-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.list-item:last-child{border-bottom:none}
+.list-item .li-ic{width:36px;height:36px;border-radius:10px;background:#eef2ff;color:var(--primary);
+  display:grid;place-items:center;flex:0 0 auto}
+.list-item .li-ic svg{width:20px;height:20px}
+.list-item .li-body .t{font-weight:600}
+.list-item .li-body .d{font-size:.82rem;color:var(--muted)}
+
+.cards-mini{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:16px}
+.mini{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;box-shadow:var(--shadow)}
+.mini .k{font-size:.72rem;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;font-weight:600}
+.mini .v{font-size:1.3rem;font-weight:800;letter-spacing:-.02em;margin-top:2px}
+.mini .v.sm{font-size:1rem}
+
+.appfoot{text-align:center;color:var(--muted);font-size:.76rem;padding:20px 16px 30px;line-height:1.6}
+.appfoot b{color:var(--ink)}
+
+/* ---------- ADMIN ---------- */
+#view-admin{min-height:100dvh;background:var(--bg);display:flex;flex-direction:column}
+.admin-top{background:var(--ink);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px;
+  position:sticky;top:0;z-index:30}
+.admin-top .brand-mark{width:34px;height:34px;background:rgba(255,255,255,.14);box-shadow:none}
+.admin-top .brand-mark svg{width:20px;height:20px}
+.admin-top h2{font-size:1rem;font-weight:700}
+.admin-top .spacer{flex:1}
+.admin-wrap{max-width:760px;width:100%;margin:0 auto;padding:16px 16px 48px}
+.admin-note{background:#fffbeb;border:1px solid #fde68a;color:#92400e;border-radius:12px;
+  padding:12px 14px;font-size:.84rem;margin-bottom:18px;display:flex;gap:10px}
+.admin-note svg{width:20px;height:20px;flex:0 0 auto}
+.form-card{background:var(--card);border:1px solid var(--line);border-radius:14px;
+  box-shadow:var(--shadow);padding:18px;margin-bottom:18px}
+.form-card h3{font-size:1.02rem;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+.form-card h3 svg{width:18px;height:18px;color:var(--primary)}
+.form-card .hint{color:var(--muted);font-size:.82rem;margin-bottom:14px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.inp{margin-bottom:12px}
+.inp label{display:block;font-size:.76rem;font-weight:600;color:var(--muted);margin-bottom:5px}
+.inp input,.inp select,.inp textarea{
+  width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;
+  font-size:.95rem;font-family:inherit;color:var(--ink);background:#fff;outline:none;transition:border-color .16s}
+.inp input:focus,.inp select:focus,.inp textarea:focus{border-color:var(--primary)}
+.inp textarea{resize:vertical;min-height:62px}
+.row-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
+.sub-row{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:10px}
+.sub-row .sr-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.sub-row .sr-top strong{font-size:.9rem}
+.icon-btn{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;color:var(--danger);background:#fff1f2}
+.icon-btn svg{width:16px;height:16px}
+.add-link{color:var(--primary);font-weight:700;font-size:.88rem;display:inline-flex;align-items:center;gap:6px;margin-top:4px}
+.add-link svg{width:16px;height:16px}
+.avatar-edit{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.avatar-edit .prev{width:60px;height:60px;border-radius:50%;background:#eef2ff;color:var(--primary);
+  display:grid;place-items:center;overflow:hidden;flex:0 0 auto;border:1px solid var(--line)}
+.avatar-edit .prev svg{width:30px;height:30px}
+.avatar-edit .prev img{width:100%;height:100%;object-fit:cover}
+
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);
+  background:var(--ink);color:#fff;padding:12px 20px;border-radius:999px;font-weight:600;font-size:.9rem;
+  box-shadow:0 10px 30px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:all .25s;z-index:200;
+  display:flex;align-items:center;gap:8px}
+.toast svg{width:18px;height:18px;color:#4ade80}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media(min-width:560px){
+  .login-row{flex-direction:row;justify-content:space-between}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ LOGIN ============ -->
+<section id="view-login">
+  <div class="login-card">
+    <div class="login-logo" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 3L2 8l10 5 8-4v6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 11v4c0 1.1 2.7 3 6 3s6-1.9 6-3v-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <h1>Portal Acadêmico</h1>
+    <p class="sub">Para acessar, informe os dados abaixo.</p>
+
+    <div id="loginError" class="login-error hidden"></div>
+
+    <form id="loginForm" autocomplete="off">
+      <div class="field">
+        <label for="cpf">CPF</label>
+        <input id="cpf" inputmode="numeric" placeholder="000.000.000-00" maxlength="14">
+      </div>
+      <div class="field">
+        <label for="senha">Senha</label>
+        <input id="senha" type="password" placeholder="Sua senha">
+      </div>
+      <div class="login-row">
+        <span>Aluno estrangeiro? <a href="#" onclick="return false">clique aqui</a></span>
+        <a href="#" onclick="return false">Esqueceu a senha?</a>
+      </div>
+      <button type="submit" class="btn">Acessar</button>
+    </form>
+
+    <div class="login-foot">
+      Não possui acesso? <a href="#" style="color:var(--primary);font-weight:600;text-decoration:none" onclick="return false">Cadastre-se</a>
+      <br>
+      <button class="adm" id="openAdmin" type="button">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" stroke-width="2"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        Administração
+      </button>
+      <div style="margin-top:14px;color:#94a3b8;font-size:.72rem">
+        Projeto pessoal de demonstração · dados fictícios
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APP ============ -->
+<section id="view-app" class="hidden">
+  <header class="topbar">
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      Menu
+    </button>
+    <div class="brand-lockup">
+      <div class="brand-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3L2 8l10 5 8-4v6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 11v4c0 1.1 2.7 3 6 3s6-1.9 6-3v-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="name">Portal Acadêmico<small>Área do aluno</small></div>
+    </div>
+    <div class="spacer"></div>
+    <div class="avatar" id="topAvatar">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M20 21a8 8 0 10-16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/></svg>
+      <span class="dot"></span>
+    </div>
+  </header>
+
+  <main class="content" id="appContent"><!-- rendered by JS --></main>
+
+  <footer class="appfoot">
+    &copy; 2017–2026 — <b>Portal Acadêmico</b>. Todos os direitos reservados.<br>
+    Projeto pessoal de demonstração.
+  </footer>
+</section>
+
+<!-- Drawer -->
+<div class="scrim" id="scrim"></div>
+<nav class="drawer" id="drawer" aria-label="Menu principal">
+  <div class="drawer-head">
+    <div class="d-avatar" id="drawerAvatar">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M20 21a8 8 0 10-16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/></svg>
+    </div>
+    <div class="d-name" id="drawerName">Aluno</div>
+    <div class="d-role">Portal Acadêmico</div>
+  </div>
+  <div class="drawer-nav" id="drawerNav"><!-- items by JS --></div>
+  <div class="drawer-foot">
+    <button class="btn secondary sm" id="logoutBtn" style="width:100%">
+      <svg viewBox="0 0 24 24" fill="none" style="width:18px;height:18px"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4M16 17l5-5-5-5M21 12H9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Sair
+    </button>
+  </div>
+</nav>
+
+<!-- ============ ADMIN ============ -->
+<section id="view-admin" class="hidden">
+  <div class="admin-top">
+    <div class="brand-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3L2 8l10 5 8-4v6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 11v4c0 1.1 2.7 3 6 3s6-1.9 6-3v-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <h2>Administração</h2>
+    <div class="spacer"></div>
+    <button class="btn ghost sm" style="color:#cbd5e1" id="adminExit">Fechar</button>
+  </div>
+  <div class="admin-wrap" id="adminWrap"><!-- rendered by JS --></div>
+</section>
+
+<div class="toast" id="toast"><svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><span id="toastMsg">Salvo</span></div>
+
+<script>
+/* ============================================================
+   Portal Acadêmico — app estático de demonstração
+   Dados ficam no navegador (localStorage). Nenhum servidor.
+   ============================================================ */
+const STORE_KEY = 'portal_academico_v1';
+
+const DEFAULT_DATA = {
+  aluno:{
+    nome:'Aluno de Demonstração',
+    cpf:'123.456.789-00',
+    senha:'123456',
+    curso:'Engenharia de Software',
+    matricula:'261466046',
+    periodo:'5º período',
+    turno:'Matutino',
+    email:'aluno@portalacademico.demo',
+    foto:''
+  },
+  mural:[
+    {titulo:'Rematrícula aberta', texto:'A rematrícula para o próximo semestre está disponível em Acadêmico.', data:'01/11/2026'}
+  ],
+  recados:[],
+  notas:[
+    {disciplina:'Estrutura de Dados', n1:'8.5', n2:'9.0', media:'8.8', situacao:'Aprovado'},
+    {disciplina:'Banco de Dados', n1:'7.0', n2:'8.0', media:'7.5', situacao:'Aprovado'},
+    {disciplina:'Engenharia de Software II', n1:'6.0', n2:'5.5', media:'5.8', situacao:'Recuperação'}
+  ],
+  financeiro:[
+    {descricao:'Mensalidade - Nov/2026', vencimento:'10/11/2026', valor:'R$ 890,00', situacao:'Em aberto'},
+    {descricao:'Mensalidade - Out/2026', vencimento:'10/10/2026', valor:'R$ 890,00', situacao:'Pago'}
+  ],
+  adminPin:'' // vazio = sem senha de administração
+};
+
+let DATA = load();
+
+function load(){
+  try{
+    const raw = localStorage.getItem(STORE_KEY);
+    if(!raw) return structuredClone(DEFAULT_DATA);
+    const parsed = JSON.parse(raw);
+    return Object.assign(structuredClone(DEFAULT_DATA), parsed);
+  }catch(e){ return structuredClone(DEFAULT_DATA); }
+}
+function save(){
+  try{ localStorage.setItem(STORE_KEY, JSON.stringify(DATA)); }catch(e){}
+}
+const onlyDigits = s => (s||'').replace(/\D/g,'');
+const esc = s => (s==null?'':String(s)).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* ---------- CPF mask ---------- */
+const cpfInput = document.getElementById('cpf');
+cpfInput.addEventListener('input',()=>{
+  let v = onlyDigits(cpfInput.value).slice(0,11);
+  v = v.replace(/(\d{3})(\d)/,'$1.$2').replace(/(\d{3})\.(\d{3})(\d)/,'$1.$2.$3')
+       .replace(/(\d{3})\.(\d{3})\.(\d{3})(\d)/,'$1.$2.$3-$4');
+  cpfInput.value = v;
+});
+
+/* ---------- Toast ---------- */
+let toastTimer;
+function toast(msg){
+  document.getElementById('toastMsg').textContent = msg;
+  const t = document.getElementById('toast');
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove('show'),1900);
+}
+
+/* ---------- Views ---------- */
+const views = {
+  login: document.getElementById('view-login'),
+  app:   document.getElementById('view-app'),
+  admin: document.getElementById('view-admin')
+};
+function showView(name){
+  Object.values(views).forEach(v=>v.classList.add('hidden'));
+  views[name].classList.remove('hidden');
+  window.scrollTo(0,0);
+}
+
+/* ---------- LOGIN ---------- */
+document.getElementById('loginForm').addEventListener('submit', e=>{
+  e.preventDefault();
+  const err = document.getElementById('loginError');
+  const cpf = onlyDigits(document.getElementById('cpf').value);
+  const senha = document.getElementById('senha').value;
+  if(onlyDigits(DATA.aluno.cpf)===cpf && DATA.aluno.senha===senha && cpf){
+    err.classList.add('hidden');
+    document.getElementById('senha').value='';
+    enterApp('home');
+  }else{
+    err.textContent = 'CPF ou senha incorretos. Verifique os dados no painel de Administração.';
+    err.classList.remove('hidden');
+  }
+});
+
+function enterApp(section){
+  buildDrawer();
+  showView('app');
+  syncAvatars();
+  renderSection(section||'home');
+}
+
+/* ---------- Avatars ---------- */
+function avatarSVG(){return '<svg viewBox="0 0 24 24" fill="none"><path d="M20 21a8 8 0 10-16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/></svg>';}
+function syncAvatars(){
+  const foto = DATA.aluno.foto;
+  const top = document.getElementById('topAvatar');
+  const dw = document.getElementById('drawerAvatar');
+  const inner = foto ? `<img src="${esc(foto)}" alt="">` : avatarSVG();
+  top.innerHTML = inner + '<span class="dot"></span>';
+  dw.innerHTML = inner;
+  document.getElementById('drawerName').textContent = DATA.aluno.nome || 'Aluno';
+}
+
+/* ---------- Drawer ---------- */
+const NAV = [
+  {id:'home', label:'Início', icon:'home'},
+  {id:'portais', label:'Meus portais', icon:'grid'},
+  {id:'academico', label:'Acadêmico', icon:'cap', chev:true},
+  {id:'prova', label:'Prova online', icon:'doc'},
+  {id:'biblioteca', label:'Biblioteca virtual', icon:'book'},
+  {id:'financeiro', label:'Financeiro', icon:'card', chev:true},
+  {id:'cartao', label:'Cartão estudantil', icon:'id'},
+  {id:'protocolo', label:'Protocolo', icon:'file'},
+  {id:'email', label:'Criar e-mail', icon:'mail'}
+];
+function icon(name){
+  const p = {
+    home:'<path d="M3 10l9-7 9 7v9a2 2 0 01-2 2h-4v-6H9v6H5a2 2 0 01-2-2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+    grid:'<rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2"/>',
+    cap:'<path d="M12 4L2 9l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M6 11.5V16c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-4.5" stroke="currentColor" stroke-width="2"/>',
+    doc:'<path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9l-6-6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 3v6h6M8 13h8M8 17h5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+    book:'<path d="M4 5a2 2 0 012-2h13v16H6a2 2 0 00-2 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M4 19a2 2 0 012-2h13" stroke="currentColor" stroke-width="2"/>',
+    card:'<rect x="2" y="5" width="20" height="14" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M2 10h20" stroke="currentColor" stroke-width="2"/>',
+    id:'<rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="11" r="2" stroke="currentColor" stroke-width="2"/><path d="M14 10h4M14 13h4M6 16c.7-1.2 1.8-2 3-2s2.3.8 3 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>',
+    file:'<path d="M14 3H6a2 2 0 00-2 2v14a2 2 0 002 2h12a2 2 0 002-2V9z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M14 3v6h6" stroke="currentColor" stroke-width="2"/>',
+    mail:'<rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>'
+  };
+  const chev = '<svg class="chev" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  return {body:p[name]||'', chev};
+}
+function buildDrawer(){
+  const nav = document.getElementById('drawerNav');
+  nav.innerHTML = NAV.map(it=>{
+    const ic = icon(it.icon);
+    return `<button class="nav-item" data-go="${it.id}">
+      <svg viewBox="0 0 24 24" fill="none">${ic.body}</svg>
+      <span>${it.label}</span>${it.chev?ic.chev:''}</button>`;
+  }).join('');
+  nav.querySelectorAll('[data-go]').forEach(b=>{
+    b.addEventListener('click',()=>{ closeDrawer(); renderSection(b.dataset.go); });
+  });
+}
+const drawer = document.getElementById('drawer');
+const scrim = document.getElementById('scrim');
+function openDrawer(){drawer.classList.add('open');scrim.classList.add('open');}
+function closeDrawer(){drawer.classList.remove('open');scrim.classList.remove('open');}
+document.getElementById('menuBtn').addEventListener('click',openDrawer);
+scrim.addEventListener('click',closeDrawer);
+document.getElementById('logoutBtn').addEventListener('click',()=>{ closeDrawer(); showView('login'); document.getElementById('cpf').value=''; });
+
+/* ---------- Sections ---------- */
+function renderSection(id){
+  const el = document.getElementById('appContent');
+  const map = {
+    home:secHome, portais:secPortais, academico:secAcademico, financeiro:secFinanceiro,
+    cartao:secCartao, prova:()=>secPlaceholder('Prova online','Nenhuma prova online disponível no momento.','doc'),
+    biblioteca:()=>secPlaceholder('Biblioteca virtual','Acervo digital em breve. Nenhum título liberado para o seu curso agora.','book'),
+    protocolo:()=>secPlaceholder('Protocolo','Você não possui protocolos abertos. Abra uma solicitação quando precisar.','file'),
+    email:()=>secPlaceholder('Criar e-mail','Solicite seu e-mail acadêmico institucional de demonstração por aqui.','mail')
+  };
+  el.innerHTML = (map[id]||secHome)();
+  // wire portais clicks
+  el.querySelectorAll('[data-portal]').forEach(c=>c.addEventListener('click',()=>renderSection('home')));
+}
+
+function secHome(){
+  const a = DATA.aluno;
+  const mural = DATA.mural.length
+    ? DATA.mural.map(m=>`<div class="list-item"><div class="li-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 8v4m0 4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></div><div class="li-body"><div class="t">${esc(m.titulo)}</div><div class="d">${esc(m.texto)} ${m.data?'· '+esc(m.data):''}</div></div></div>`).join('')
+    : `<div class="info-box soft"><svg viewBox="0 0 24 24" fill="none"><path d="M12 8v4m0 4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Não existem informativos no momento</div>`;
+  const recados = DATA.recados.length
+    ? DATA.recados.map(m=>`<div class="list-item"><div class="li-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg></div><div class="li-body"><div class="t">${esc(m.titulo)}</div><div class="d">${esc(m.texto)} ${m.data?'· '+esc(m.data):''}</div></div></div>`).join('')
+    : `<div class="info-box soft"><svg viewBox="0 0 24 24" fill="none"><path d="M12 8v4m0 4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>Não existem recados disponíveis!</div>`;
+  return `
+    <div class="panel">
+      <div class="panel-b" style="display:flex;gap:14px;align-items:center">
+        <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;background:#eef2ff;color:var(--primary);display:grid;place-items:center;flex:0 0 auto">
+          ${a.foto?`<img src="${esc(a.foto)}" alt="" style="width:100%;height:100%;object-fit:cover">`:avatarSVG()}
+        </div>
+        <div>
+          <div style="font-weight:800;font-size:1.1rem;letter-spacing:-.01em">${esc(a.nome)}</div>
+          <div style="color:var(--muted);font-size:.86rem">${esc(a.curso)} · ${esc(a.periodo)}</div>
+        </div>
+      </div>
+    </div>
+    <div class="cards-mini">
+      <div class="mini"><div class="k">Matrícula</div><div class="v sm">${esc(a.matricula)}</div></div>
+      <div class="mini"><div class="k">Turno</div><div class="v sm">${esc(a.turno)}</div></div>
+    </div>
+    <div class="panel"><div class="panel-h">Mural Informativo</div><div class="panel-b">${mural}</div></div>
+    <div class="panel"><div class="panel-h">Meus Recados</div><div class="panel-b">${recados}</div></div>
+  `;
+}
+
+function secPortais(){
+  const a = DATA.aluno;
+  return `
+    <div class="crumbs"><span>Início</span><span class="sep">»</span><b>Meus portais</b></div>
+    <div class="portal-card" data-portal="grad">
+      <div class="portal-banner grad">
+        <div class="accent-bar"></div>
+        <div class="portal-tag">${esc(a.curso)} · ${esc(a.matricula)}</div>
+        <div><div class="kicker">Aluno</div><div class="big">Graduação</div></div>
+      </div>
+    </div>
+    <div class="portal-card" data-portal="resp">
+      <div class="portal-banner resp">
+        <div class="accent-bar"></div>
+        <div><div class="kicker">Portal do</div><div class="big">Responsável</div></div>
+      </div>
+    </div>
+    <div class="panel"><div class="panel-h">Painel de eventos</div><div class="panel-b"><div class="empty">Nenhum evento programado.</div></div></div>
+  `;
+}
+
+function secAcademico(){
+  const rows = DATA.notas.length ? DATA.notas.map(n=>{
+    const sit = (n.situacao||'').toLowerCase();
+    const cls = sit.includes('aprov')?'ok':(sit.includes('recup')||sit.includes('exame')?'warn':(sit.includes('reprov')?'danger':'ok'));
+    return `<tr><td>${esc(n.disciplina)}</td><td class="num">${esc(n.n1)}</td><td class="num">${esc(n.n2)}</td><td class="num">${esc(n.media)}</td><td><span class="badge ${cls}">${esc(n.situacao)}</span></td></tr>`;
+  }).join('') : `<tr><td colspan="5" class="empty">Nenhuma nota lançada.</td></tr>`;
+  return `
+    <div class="crumbs"><span>Início</span><span class="sep">»</span><b>Acadêmico</b><span class="sep">»</span><span>Notas</span></div>
+    <div class="page-title">Notas e situação</div>
+    <div class="panel"><div class="panel-b" style="padding:6px 8px">
+      <table class="table"><thead><tr><th>Disciplina</th><th>N1</th><th>N2</th><th>Média</th><th>Situação</th></tr></thead>
+      <tbody>${rows}</tbody></table>
+    </div></div>
+  `;
+}
+
+function secFinanceiro(){
+  const rows = DATA.financeiro.length ? DATA.financeiro.map(f=>{
+    const sit=(f.situacao||'').toLowerCase();
+    const cls = sit.includes('pago')?'ok':(sit.includes('venc')||sit.includes('atras')?'danger':'warn');
+    return `<tr><td>${esc(f.descricao)}</td><td>${esc(f.vencimento)}</td><td class="num">${esc(f.valor)}</td><td><span class="badge ${cls}">${esc(f.situacao)}</span></td></tr>`;
+  }).join('') : `<tr><td colspan="4" class="empty">Nenhum lançamento financeiro.</td></tr>`;
+  return `
+    <div class="crumbs"><span>Início</span><span class="sep">»</span><b>Financeiro</b></div>
+    <div class="page-title">Financeiro do aluno</div>
+    <div class="panel"><div class="panel-b" style="padding:6px 8px">
+      <table class="table"><thead><tr><th>Descrição</th><th>Vencimento</th><th>Valor</th><th>Situação</th></tr></thead>
+      <tbody>${rows}</tbody></table>
+    </div></div>
+  `;
+}
+
+function secCartao(){
+  return `
+    <div class="crumbs"><span>Início</span><span class="sep">»</span><b>Cartão estudantil</b><span class="sep">»</span><span>Upload</span></div>
+    <div class="panel"><div class="panel-b">
+      <div class="info-box">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M12 8v4m0 4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <div>
+          <strong>Informativo!</strong> Você ainda não possui foto no seu cartão estudantil. Faça o upload do arquivo pelo protocolo eletrônico.
+        </div>
+      </div>
+      <ul style="margin:16px 4px 0;padding-left:18px;color:var(--muted);font-size:.9rem;line-height:1.9">
+        <li>Tamanho máximo permitido: <b>8MB</b></li>
+        <li>Tamanho ideal mínimo para não distorcer: <b>230×230 pixels</b></li>
+        <li>Arquivos permitidos: <b>.pdf</b></li>
+      </ul>
+      <div style="text-align:center;margin-top:20px">
+        <button class="btn sm" onclick="toast('Demonstração — upload não enviado')">Clique aqui</button>
+      </div>
+    </div></div>
+  `;
+}
+
+function secPlaceholder(title,msg,ic){
+  return `
+    <div class="crumbs"><span>Início</span><span class="sep">»</span><b>${esc(title)}</b></div>
+    <div class="page-title">${esc(title)}</div>
+    <div class="panel"><div class="panel-b">
+      <div class="info-box soft"><svg viewBox="0 0 24 24" fill="none"><path d="M12 8v4m0 4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>${esc(msg)}</div>
+    </div></div>
+  `;
+}
+
+/* ============================================================
+   ADMIN
+   ============================================================ */
+document.getElementById('openAdmin').addEventListener('click',()=>{
+  if(DATA.adminPin){
+    const pin = prompt('Senha de administração:');
+    if(pin===null) return;
+    if(pin!==DATA.adminPin){ alert('Senha incorreta.'); return; }
+  }
+  openAdmin();
+});
+document.getElementById('adminExit').addEventListener('click',()=>showView('login'));
+
+function openAdmin(){ showView('admin'); renderAdmin(); }
+
+function renderAdmin(){
+  const a = DATA.aluno;
+  const w = document.getElementById('adminWrap');
+  w.innerHTML = `
+    <div class="admin-note">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 9v4m0 4h.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div>Área de configuração dos <b>dados de demonstração</b>. Tudo é salvo só no seu navegador. Use apenas dados fictícios.</div>
+    </div>
+
+    <div class="form-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M20 21a8 8 0 10-16 0" stroke="currentColor" stroke-width="2"/></svg> Dados do aluno</h3>
+      <p class="hint">O nome e o CPF definidos aqui são os que aparecem no portal e os usados no login.</p>
+
+      <div class="avatar-edit">
+        <div class="prev" id="admPrev">${a.foto?`<img src="${esc(a.foto)}" alt="">`:avatarSVG()}</div>
+        <div>
+          <input type="file" id="admFoto" accept="image/*" style="font-size:.82rem">
+          <div style="margin-top:6px"><button class="btn ghost sm" id="admFotoClear" style="padding:4px 6px">Remover foto</button></div>
+        </div>
+      </div>
+
+      <div class="grid2">
+        <div class="inp"><label>Nome que aparece</label><input id="f_nome" value="${esc(a.nome)}"></div>
+        <div class="inp"><label>CPF (login)</label><input id="f_cpf" value="${esc(a.cpf)}" inputmode="numeric" placeholder="000.000.000-00"></div>
+      </div>
+      <div class="grid2">
+        <div class="inp"><label>Senha (login)</label><input id="f_senha" value="${esc(a.senha)}"></div>
+        <div class="inp"><label>Matrícula</label><input id="f_matricula" value="${esc(a.matricula)}"></div>
+      </div>
+      <div class="grid2">
+        <div class="inp"><label>Curso</label><input id="f_curso" value="${esc(a.curso)}"></div>
+        <div class="inp"><label>Período</label><input id="f_periodo" value="${esc(a.periodo)}"></div>
+      </div>
+      <div class="grid2">
+        <div class="inp"><label>Turno</label><input id="f_turno" value="${esc(a.turno)}"></div>
+        <div class="inp"><label>E-mail</label><input id="f_email" value="${esc(a.email)}"></div>
+      </div>
+      <button class="btn sm" id="saveAluno">Salvar dados do aluno</button>
+    </div>
+
+    ${listCard('Mural informativo','mural',[['titulo','Título'],['texto','Texto'],['data','Data']])}
+    ${listCard('Recados','recados',[['titulo','Título'],['texto','Texto'],['data','Data']])}
+    ${listCard('Notas','notas',[['disciplina','Disciplina'],['n1','N1'],['n2','N2'],['media','Média'],['situacao','Situação']])}
+    ${listCard('Financeiro','financeiro',[['descricao','Descrição'],['vencimento','Vencimento'],['valor','Valor'],['situacao','Situação']])}
+
+    <div class="form-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><rect x="3" y="11" width="18" height="10" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2"/></svg> Senha de administração</h3>
+      <p class="hint">Opcional. Se preencher, será pedida ao abrir esta área. Deixe vazio para acesso livre.</p>
+      <div class="inp"><label>PIN de administração</label><input id="f_pin" value="${esc(DATA.adminPin)}" placeholder="(vazio = sem senha)"></div>
+      <div class="row-actions">
+        <button class="btn sm" id="savePin">Salvar PIN</button>
+        <button class="btn secondary sm" id="previewLogin">Ver portal</button>
+        <button class="btn danger sm" id="resetAll">Restaurar padrão</button>
+      </div>
+    </div>
+  `;
+  wireAdmin();
+}
+
+function listCard(title,key,fields){
+  const items = DATA[key]||[];
+  const rows = items.map((it,i)=>`
+    <div class="sub-row" data-key="${key}" data-i="${i}">
+      <div class="sr-top"><strong>#${i+1}</strong>
+        <button class="icon-btn" data-del="${key}" data-di="${i}" title="Remover">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m2 0v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      ${fields.map(([fk,fl])=>`<div class="inp"><label>${fl}</label><input data-f="${key}:${i}:${fk}" value="${esc(it[fk]||'')}"></div>`).join('')}
+    </div>`).join('') || `<div class="empty" style="padding:4px 2px 10px">Nenhum item.</div>`;
+  const icons={mural:'<path d="M12 8v4m0 4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" stroke="currentColor" stroke-width="2"/>',
+    recados:'<path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+    notas:'<path d="M12 4L2 9l10 5 10-5-10-5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+    financeiro:'<rect x="2" y="5" width="20" height="14" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M2 10h20" stroke="currentColor" stroke-width="2"/>'};
+  return `
+    <div class="form-card">
+      <h3><svg viewBox="0 0 24 24" fill="none">${icons[key]||''}</svg> ${title}</h3>
+      <div data-list="${key}">${rows}</div>
+      <button class="add-link" data-add="${key}"><svg viewBox="0 0 24 24" fill="none"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg> Adicionar</button>
+    </div>`;
+}
+
+function wireAdmin(){
+  // foto
+  const fotoInput = document.getElementById('admFoto');
+  fotoInput.addEventListener('change',()=>{
+    const file = fotoInput.files[0]; if(!file) return;
+    if(file.size>1.6*1024*1024){ alert('Imagem muito grande (máx. ~1.5MB para o modo demonstração).'); fotoInput.value=''; return; }
+    const r = new FileReader();
+    r.onload = ()=>{ DATA.aluno.foto = r.result; document.getElementById('admPrev').innerHTML=`<img src="${esc(r.result)}" alt="">`; };
+    r.readAsDataURL(file);
+  });
+  document.getElementById('admFotoClear').addEventListener('click',()=>{ DATA.aluno.foto=''; document.getElementById('admPrev').innerHTML=avatarSVG(); });
+
+  document.getElementById('saveAluno').addEventListener('click',()=>{
+    const g=id=>document.getElementById(id).value;
+    Object.assign(DATA.aluno,{
+      nome:g('f_nome'), cpf:g('f_cpf'), senha:g('f_senha'), matricula:g('f_matricula'),
+      curso:g('f_curso'), periodo:g('f_periodo'), turno:g('f_turno'), email:g('f_email')
+    });
+    save(); syncAvatars(); toast('Dados do aluno salvos');
+  });
+
+  // list field edits (live)
+  document.querySelectorAll('[data-f]').forEach(inp=>{
+    inp.addEventListener('input',()=>{
+      const [key,i,fk]=inp.dataset.f.split(':');
+      DATA[key][+i][fk]=inp.value;
+    });
+  });
+  // delete
+  document.querySelectorAll('[data-del]').forEach(b=>{
+    b.addEventListener('click',()=>{ DATA[b.dataset.del].splice(+b.dataset.di,1); save(); renderAdmin(); });
+  });
+  // add
+  document.querySelectorAll('[data-add]').forEach(b=>{
+    b.addEventListener('click',()=>{
+      const key=b.dataset.add;
+      const blanks={mural:{titulo:'',texto:'',data:''},recados:{titulo:'',texto:'',data:''},
+        notas:{disciplina:'',n1:'',n2:'',media:'',situacao:''},financeiro:{descricao:'',vencimento:'',valor:'',situacao:''}};
+      DATA[key].push(structuredClone(blanks[key])); save(); renderAdmin();
+    });
+  });
+  document.getElementById('savePin').addEventListener('click',()=>{ DATA.adminPin=document.getElementById('f_pin').value.trim(); save(); toast('PIN salvo'); });
+  document.getElementById('previewLogin').addEventListener('click',()=>{ save(); enterApp('home'); });
+  document.getElementById('resetAll').addEventListener('click',()=>{
+    if(confirm('Restaurar todos os dados de demonstração para o padrão? Isso apaga suas alterações.')){
+      DATA=structuredClone(DEFAULT_DATA); save(); renderAdmin(); toast('Dados restaurados');
+    }
+  });
+  // auto-save list edits on blur
+  window.addEventListener('beforeunload',save);
+}
+
+/* ---------- Boot ---------- */
+showView('login');
+</script>
+</body>
+</html>
