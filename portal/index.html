@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Portal Acadêmico</title>
+<title>Portal Acadêmico · Universidade Horizonte</title>
 <meta name="description" content="Portal Acadêmico — projeto pessoal de demonstração.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -276,8 +276,8 @@ a{color:inherit}
     <div class="login-logo" aria-hidden="true">
       <svg viewBox="0 0 24 24" fill="none"><path d="M12 3L2 8l10 5 8-4v6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 11v4c0 1.1 2.7 3 6 3s6-1.9 6-3v-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
-    <h1>Portal Acadêmico</h1>
-    <p class="sub">Para acessar, informe os dados abaixo.</p>
+    <h1 id="brandInstituicao">Universidade Horizonte</h1>
+    <p class="sub">Portal do Aluno · informe os dados abaixo.</p>
 
     <div id="loginError" class="login-error hidden"></div>
 
@@ -320,7 +320,7 @@ a{color:inherit}
     </button>
     <div class="brand-lockup">
       <div class="brand-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3L2 8l10 5 8-4v6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 11v4c0 1.1 2.7 3 6 3s6-1.9 6-3v-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="name">Portal Acadêmico<small>Área do aluno</small></div>
+      <div class="name"><span id="brandSigla">UniHorizonte</span><small>Portal do Aluno</small></div>
     </div>
     <div class="spacer"></div>
     <div class="avatar" id="topAvatar">
@@ -332,7 +332,7 @@ a{color:inherit}
   <main class="content" id="appContent"><!-- rendered by JS --></main>
 
   <footer class="appfoot">
-    &copy; 2017–2026 — <b>Portal Acadêmico</b>. Todos os direitos reservados.<br>
+    &copy; 2017–2026 — <b id="brandInstituicaoFoot">Universidade Horizonte</b>. Todos os direitos reservados.<br>
     Projeto pessoal de demonstração.
   </footer>
 </section>
@@ -345,7 +345,7 @@ a{color:inherit}
       <svg viewBox="0 0 24 24" fill="none"><path d="M20 21a8 8 0 10-16 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/></svg>
     </div>
     <div class="d-name" id="drawerName">Aluno</div>
-    <div class="d-role">Portal Acadêmico</div>
+    <div class="d-role">Portal do Aluno</div>
   </div>
   <div class="drawer-nav" id="drawerNav"><!-- items by JS --></div>
   <div class="drawer-foot">
@@ -377,6 +377,8 @@ a{color:inherit}
 const STORE_KEY = 'portal_academico_v1';
 
 const DEFAULT_DATA = {
+  instituicao:'Universidade Horizonte',
+  sigla:'UniHorizonte',
   aluno:{
     nome:'Aluno de Demonstração',
     cpf:'123.456.789-00',
@@ -418,6 +420,15 @@ function save(){
   try{ localStorage.setItem(STORE_KEY, JSON.stringify(DATA)); }catch(e){}
 }
 const onlyDigits = s => (s||'').replace(/\D/g,'');
+function applyBrand(){
+  const inst = DATA.instituicao || 'Universidade';
+  const sig = DATA.sigla || inst;
+  document.title = 'Portal Acadêmico · ' + inst;
+  const set = (id,t)=>{ const e=document.getElementById(id); if(e) e.textContent=t; };
+  set('brandInstituicao', inst);
+  set('brandSigla', sig);
+  set('brandInstituicaoFoot', inst);
+}
 const esc = s => (s==null?'':String(s)).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 /* ---------- CPF mask ---------- */
@@ -468,6 +479,7 @@ document.getElementById('loginForm').addEventListener('submit', e=>{
 });
 
 function enterApp(section){
+  applyBrand();
   buildDrawer();
   showView('app');
   syncAvatars();
@@ -687,6 +699,16 @@ function renderAdmin(){
     </div>
 
     <div class="form-card">
+      <h3><svg viewBox="0 0 24 24" fill="none"><path d="M12 3L2 8l10 5 8-4v6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M6 11v4c0 1.1 2.7 3 6 3s6-1.9 6-3v-4" stroke="currentColor" stroke-width="2"/></svg> Identidade da instituição</h3>
+      <p class="hint">Nome que aparece no login, no topo e no rodapé do portal.</p>
+      <div class="grid2">
+        <div class="inp"><label>Nome da instituição</label><input id="f_inst" value="${esc(DATA.instituicao)}"></div>
+        <div class="inp"><label>Sigla / nome curto</label><input id="f_sigla" value="${esc(DATA.sigla)}"></div>
+      </div>
+      <button class="btn sm" id="saveInst">Salvar identidade</button>
+    </div>
+
+    <div class="form-card">
       <h3><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="2"/><path d="M20 21a8 8 0 10-16 0" stroke="currentColor" stroke-width="2"/></svg> Dados do aluno</h3>
       <p class="hint">O nome e o CPF definidos aqui são os que aparecem no portal e os usados no login.</p>
 
@@ -771,6 +793,13 @@ function wireAdmin(){
   });
   document.getElementById('admFotoClear').addEventListener('click',()=>{ DATA.aluno.foto=''; document.getElementById('admPrev').innerHTML=avatarSVG(); });
 
+  const si = document.getElementById('saveInst');
+  if(si) si.addEventListener('click',()=>{
+    DATA.instituicao = document.getElementById('f_inst').value.trim() || 'Universidade';
+    DATA.sigla = document.getElementById('f_sigla').value.trim() || DATA.instituicao;
+    save(); applyBrand(); toast('Identidade salva');
+  });
+
   document.getElementById('saveAluno').addEventListener('click',()=>{
     const g=id=>document.getElementById(id).value;
     Object.assign(DATA.aluno,{
@@ -812,6 +841,7 @@ function wireAdmin(){
 }
 
 /* ---------- Boot ---------- */
+applyBrand();
 showView('login');
 </script>
 </body>
