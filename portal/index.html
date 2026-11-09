@@ -4,50 +4,74 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Portal Acadêmico · Universidade Horizonte</title>
-<meta name="description" content="Portal Acadêmico — projeto pessoal de demonstração.">
+<title>Portal Acadêmico · Centro Universitário Monte Real</title>
+<link rel="icon" href="brand/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
+<meta name="theme-color" content="#0B1F44">
+<meta name="description" content="Portal Acadêmico do Centro Universitário Monte Real (UNIMR) — marca fictícia, protótipo acadêmico sem validade oficial.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --primary:#4f46e5;
-  --primary-dark:#4338ca;
-  --primary-700:#3730a3;
-  --accent:#0d9488;
-  --accent-light:#14b8a6;
-  --ink:#1e293b;
-  --muted:#64748b;
-  --line:#e2e8f0;
-  --bg:#f1f5f9;
+  /* ===== Marca UNIMR (fictícia) — tokens centrais ===== */
+  --unimr-navy:#0B1F44;     /* azul institucional */
+  --unimr-blue:#2563EB;     /* azul principal */
+  --unimr-sky:#60A5FA;      /* azul claro */
+  --unimr-white:#F8FAFC;    /* branco */
+  --unimr-green:#10B981;    /* verde complementar */
+  /* tons derivados */
+  --unimr-navy-2:#122C5E;
+  --unimr-blue-dark:#1D4ED8;
+  --unimr-blue-50:#EFF5FF;
+  --unimr-blue-100:#DCE8FC;
+  --unimr-blue-200:#C2D6F5;
+  --grad-brand:linear-gradient(105deg,var(--unimr-navy) 0%,var(--unimr-navy-2) 62%,#173A7A 100%);
+  /* papéis da interface */
+  --primary:var(--unimr-blue);
+  --primary-dark:var(--unimr-blue-dark);
+  --primary-700:var(--unimr-navy);
+  --accent:var(--unimr-green);
+  --accent-light:var(--unimr-sky);
+  --ink:var(--unimr-navy);
+  --muted:#5B6B86;
+  --line:#DCE4F0;
+  --bg:#EEF3FA;
   --card:#ffffff;
-  --info:#0ea5b7;
+  --info:var(--unimr-blue);
   --danger:#e11d48;
-  --ok:#16a34a;
+  --ok:var(--unimr-green);
   --warn:#d97706;
   --radius:14px;
-  --shadow:0 1px 3px rgba(15,23,42,.08),0 8px 24px rgba(15,23,42,.06);
+  --shadow:0 1px 3px rgba(11,31,68,.08),0 8px 24px rgba(11,31,68,.07);
+  /* carteira */
+  --idc-border:rgba(11,31,68,.10);
+  --idc-line:#DDE6F2;
+  --idc-foot-bg:#EEF4FC;
+  --idc-proto:#7A89A3;
+  --idc-shadow:0 1px 2px rgba(11,31,68,.06),0 6px 16px -4px rgba(11,31,68,.10),0 22px 44px -16px rgba(11,31,68,.35);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%}
 body{
-  font-family:'Inter',system-ui,-apple-system,sans-serif;
+  font-family:'Montserrat',system-ui,-apple-system,sans-serif;
   background:var(--bg);color:var(--ink);
   -webkit-font-smoothing:antialiased;line-height:1.45;
 }
 img{max-width:100%;display:block}
 button{font-family:inherit;cursor:pointer;border:none;background:none}
+input,select,textarea{font-family:inherit}
 a{color:inherit}
 .hidden{display:none !important}
 
 /* ---------- Brand mark ---------- */
 .brand-mark{
   width:46px;height:46px;border-radius:12px;
-  background:linear-gradient(135deg,var(--primary),var(--accent));
+  background:var(--grad-brand);
   display:grid;place-items:center;flex:0 0 auto;
-  box-shadow:0 4px 12px rgba(79,70,229,.35);
+  box-shadow:0 4px 12px rgba(37,99,235,.35);
 }
-.brand-mark svg{width:26px;height:26px}
+.brand-mark svg{width:32px;height:auto}
 .brand-lockup{display:flex;align-items:center;gap:12px}
 .brand-lockup .name{font-weight:800;letter-spacing:-.02em;line-height:1.05}
 .brand-lockup .name small{display:block;font-weight:500;font-size:.72rem;color:var(--muted);letter-spacing:.02em}
@@ -56,8 +80,8 @@ a{color:inherit}
 #view-login{
   min-height:100dvh;display:grid;place-items:center;padding:28px 20px;
   background:
-    radial-gradient(900px 500px at 50% -10%,rgba(79,70,229,.14),transparent 60%),
-    radial-gradient(700px 400px at 100% 110%,rgba(13,148,136,.12),transparent 60%),
+    radial-gradient(900px 500px at 50% -10%,rgba(37,99,235,.14),transparent 60%),
+    radial-gradient(700px 400px at 100% 110%,rgba(96,165,250,.16),transparent 60%),
     var(--bg);
 }
 .login-card{
@@ -66,13 +90,16 @@ a{color:inherit}
   border:1px solid var(--line);
 }
 .login-logo{
-  width:72px;height:72px;border-radius:20px;margin:0 auto 16px;
-  background:linear-gradient(135deg,var(--primary),var(--accent));
-  display:grid;place-items:center;box-shadow:0 10px 24px rgba(79,70,229,.35);
+  width:84px;height:84px;border-radius:22px;margin:0 auto 18px;
+  background:var(--grad-brand);
+  display:grid;place-items:center;box-shadow:0 10px 24px rgba(37,99,235,.35);
 }
-.login-logo svg{width:40px;height:40px}
-.login-card h1{font-size:1.5rem;letter-spacing:-.03em;margin-bottom:4px}
-.login-card .sub{color:var(--muted);font-size:.92rem;margin-bottom:26px}
+.login-logo svg{width:56px;height:auto}
+.login-card h1{font-size:1.65rem;font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:6px;color:var(--unimr-navy)}
+.login-card h1 small{display:block;font-size:.95rem;font-weight:500;letter-spacing:0;color:var(--muted);margin-bottom:2px}
+.login-card .sub{color:var(--muted);font-size:.9rem;margin-bottom:26px}
+.login-tag{margin:2px 0 10px;font-size:.62rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--unimr-blue)}
+.proto-note{display:inline-block;margin-top:16px;padding:5px 10px;border-radius:999px;background:var(--unimr-blue-50);border:1px solid var(--unimr-blue-100);color:var(--muted);font-size:.64rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 .field{text-align:left;margin-bottom:18px}
 .field label{display:block;font-size:.72rem;font-weight:600;color:var(--muted);
   letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
@@ -83,13 +110,14 @@ a{color:inherit}
 }
 .field input:focus{border-color:var(--primary)}
 .login-row{display:flex;flex-direction:column;gap:10px;align-items:center;
-  font-size:.88rem;color:var(--muted);margin:4px 0 22px}
+  font-size:.82rem;color:var(--muted);margin:4px 0 22px}
+.login-row a{white-space:nowrap}
 .login-row a{color:var(--primary);font-weight:600;text-decoration:none}
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
   width:100%;padding:13px 18px;border-radius:12px;font-weight:700;font-size:1rem;
   background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:#fff;
-  transition:transform .12s,box-shadow .18s;box-shadow:0 6px 16px rgba(79,70,229,.3);
+  transition:transform .12s,box-shadow .18s;box-shadow:0 6px 16px rgba(37,99,235,.3);
 }
 .btn:active{transform:translateY(1px)}
 .btn.secondary{background:#fff;color:var(--primary);border:1.5px solid var(--line);box-shadow:none}
@@ -107,41 +135,43 @@ a{color:inherit}
 #view-app{min-height:100dvh;display:flex;flex-direction:column}
 .topbar{
   position:sticky;top:0;z-index:40;
-  background:linear-gradient(120deg,var(--primary-700),var(--primary));
-  color:#fff;display:flex;align-items:center;gap:12px;padding:12px 16px;
-  box-shadow:0 2px 10px rgba(30,27,75,.25);
+  background:var(--grad-brand);
+  color:var(--unimr-white);display:flex;align-items:center;gap:12px;padding:12px 16px;
+  box-shadow:0 2px 12px rgba(11,31,68,.3);
 }
 .topbar .menu-btn{color:#fff;display:flex;flex-direction:column;align-items:center;gap:2px;
   font-size:.62rem;font-weight:600;opacity:.95}
 .topbar .menu-btn svg{width:24px;height:24px}
-.topbar .brand-lockup .name{color:#fff;font-size:1.05rem}
-.topbar .brand-lockup .name small{color:rgba(255,255,255,.8)}
-.topbar .brand-mark{background:rgba(255,255,255,.16);box-shadow:none;width:38px;height:38px}
-.topbar .brand-mark svg{width:22px;height:22px}
+.topbar .brand-lockup .name{color:var(--unimr-white);font-size:1.08rem;letter-spacing:.02em}
+.topbar .brand-lockup .name small{color:var(--unimr-sky);letter-spacing:.06em}
+.topbar .brand-mark{background:none;box-shadow:none;width:auto;height:auto;border-radius:0}
+.topbar .brand-mark svg{width:46px}
+.topbar .brand-lockup .div{width:1.5px;height:30px;background:rgba(248,250,252,.45);border-radius:1px}
+
 .topbar .spacer{flex:1}
 .topbar .avatar{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.2);
   display:grid;place-items:center;position:relative;overflow:hidden}
 .topbar .avatar svg{width:22px;height:22px;color:#fff}
 .topbar .avatar img{width:100%;height:100%;object-fit:cover}
 .topbar .avatar .dot{position:absolute;right:1px;bottom:1px;width:9px;height:9px;border-radius:50%;
-  background:#22c55e;border:2px solid var(--primary)}
+  background:var(--unimr-green);border:2px solid var(--unimr-navy)}
 
 .content{flex:1;padding:16px 16px 40px;max-width:760px;width:100%;margin:0 auto}
 
 /* ---------- DRAWER ---------- */
-.scrim{position:fixed;inset:0;background:rgba(15,23,42,.5);z-index:50;opacity:0;
+.scrim{position:fixed;inset:0;background:rgba(11,31,68,.5);z-index:50;opacity:0;
   pointer-events:none;transition:opacity .22s}
 .scrim.open{opacity:1;pointer-events:auto}
 .drawer{
   position:fixed;top:0;left:0;height:100dvh;width:290px;max-width:84vw;z-index:60;
-  background:var(--card);box-shadow:4px 0 24px rgba(15,23,42,.18);
+  background:var(--card);box-shadow:4px 0 24px rgba(11,31,68,.18);
   transform:translateX(-100%);transition:transform .24s cubic-bezier(.4,0,.2,1);
   display:flex;flex-direction:column;overflow-y:auto;
 }
 .drawer.open{transform:translateX(0)}
 .drawer-head{
-  background:linear-gradient(135deg,var(--primary-700),var(--accent));
-  color:#fff;padding:22px 20px 20px;position:relative;
+  background:radial-gradient(120% 120% at 100% 0%,rgba(37,99,235,.45),transparent 60%),var(--grad-brand);
+  color:var(--unimr-white);padding:22px 20px 20px;position:relative;
 }
 .drawer-head .d-avatar{width:60px;height:60px;border-radius:50%;background:rgba(255,255,255,.22);
   display:grid;place-items:center;overflow:hidden;margin-bottom:12px}
@@ -153,7 +183,8 @@ a{color:inherit}
 .nav-item{display:flex;align-items:center;gap:14px;width:100%;text-align:left;
   padding:13px 14px;border-radius:10px;color:var(--ink);font-weight:500;font-size:.96rem;
   transition:background .14s}
-.nav-item:hover,.nav-item:focus{background:#f1f5f9}
+.nav-item:hover,.nav-item:focus{background:var(--unimr-blue-50)}
+.nav-item:hover svg,.nav-item:focus svg{color:var(--unimr-blue)}
 .nav-item svg{width:22px;height:22px;color:var(--muted);flex:0 0 auto}
 .nav-item .chev{margin-left:auto;width:16px;height:16px;opacity:.5}
 .drawer-foot{margin-top:auto;padding:14px;border-top:1px solid var(--line)}
@@ -163,15 +194,15 @@ a{color:inherit}
   border:1px solid var(--line);overflow:hidden;margin-bottom:16px}
 .panel-h{padding:16px 18px 4px;font-size:1.15rem;font-weight:700;letter-spacing:-.01em}
 .panel-b{padding:14px 18px 18px}
-.info-box{background:linear-gradient(135deg,var(--info),#0891b2);color:#fff;border-radius:12px;
+.info-box{background:linear-gradient(135deg,var(--unimr-blue),var(--unimr-blue-dark));color:#fff;border-radius:12px;
   padding:16px 18px;display:flex;gap:12px;align-items:flex-start;font-weight:500}
 .info-box svg{width:22px;height:22px;flex:0 0 auto;margin-top:1px}
-.info-box.soft{background:#ecfeff;color:#155e75;border:1px solid #a5f3fc}
-.info-box.soft svg{color:#0891b2}
+.info-box.soft{background:var(--unimr-blue-50);color:var(--unimr-navy);border:1px solid var(--unimr-blue-200)}
+.info-box.soft svg{color:var(--unimr-blue)}
 
 .crumbs{display:flex;flex-wrap:wrap;gap:6px;align-items:center;color:var(--muted);
   font-size:.9rem;margin-bottom:14px;font-weight:500}
-.crumbs .sep{color:#cbd5e1}
+.crumbs .sep{color:var(--unimr-blue-200)}
 .crumbs b{color:var(--ink);font-weight:700}
 .page-title{font-size:1.35rem;font-weight:800;letter-spacing:-.02em;margin-bottom:14px}
 
@@ -180,13 +211,13 @@ a{color:inherit}
   border:1px solid var(--line);background:var(--card);cursor:pointer;transition:transform .14s}
 .portal-card:active{transform:scale(.99)}
 .portal-banner{height:150px;position:relative;display:flex;align-items:flex-end;padding:16px;color:#fff}
-.portal-banner.grad{background:linear-gradient(120deg,#4338ca,#6d28d9)}
-.portal-banner.resp{background:linear-gradient(120deg,#0f766e,#0d9488)}
+.portal-banner.grad{background:radial-gradient(90% 140% at 100% 0%,rgba(96,165,250,.45),transparent 60%),var(--grad-brand)}
+.portal-banner.resp{background:linear-gradient(120deg,var(--unimr-navy) 35%,var(--unimr-green) 170%)}
 .portal-banner .accent-bar{position:absolute;left:0;top:18px;bottom:18px;width:6px;
   background:var(--accent-light);border-radius:3px}
 .portal-banner .kicker{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;opacity:.9;font-weight:600}
 .portal-banner .big{font-size:1.55rem;font-weight:800;letter-spacing:-.01em;line-height:1}
-.portal-tag{position:absolute;top:12px;left:12px;background:rgba(15,23,42,.55);color:#fff;
+.portal-tag{position:absolute;top:12px;left:12px;background:rgba(11,31,68,.55);color:#fff;
   padding:6px 12px;border-radius:8px;font-size:.78rem;font-weight:600;backdrop-filter:blur(4px)}
 
 /* Table / list */
@@ -195,14 +226,14 @@ a{color:inherit}
 .table th{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);font-weight:700}
 .table td.num{font-variant-numeric:tabular-nums;font-weight:600}
 .badge{display:inline-block;padding:3px 9px;border-radius:999px;font-size:.74rem;font-weight:700}
-.badge.ok{background:#dcfce7;color:#15803d}
+.badge.ok{background:#D1FAE5;color:#047857}
 .badge.warn{background:#fef3c7;color:#b45309}
 .badge.danger{background:#ffe4e6;color:#be123c}
 .empty{color:var(--muted);font-size:.9rem;padding:8px 2px}
 
 .list-item{display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
 .list-item:last-child{border-bottom:none}
-.list-item .li-ic{width:36px;height:36px;border-radius:10px;background:#eef2ff;color:var(--primary);
+.list-item .li-ic{width:36px;height:36px;border-radius:10px;background:var(--unimr-blue-50);color:var(--primary);
   display:grid;place-items:center;flex:0 0 auto}
 .list-item .li-ic svg{width:20px;height:20px}
 .list-item .li-body .t{font-weight:600}
@@ -216,139 +247,115 @@ a{color:inherit}
 
 .appfoot{text-align:center;color:var(--muted);font-size:.76rem;padding:20px 16px 30px;line-height:1.6}
 .appfoot b{color:var(--ink)}
+.appfoot-sig{font-weight:600;color:var(--unimr-blue)}
+.appfoot .proto-note{margin-top:10px}
 
-/* ---------- Student card (carteira de estudante) ---------- */
-.idc-stage{max-width:460px;margin:4px auto 0}
+/* ---------- Carteira de estudante (marca UNIMR) ---------- */
+.idc-stage{max-width:500px;margin:4px auto 0}
 .idcard{
-  --idc-navy:#0a2240;
-  --idc-blue:#123f6e;
-  --idc-petrol:#0a6467;
-  --idc-ink:#0f172a;
-  --idc-label:#64748b;
-  --idc-line:#e5e9f0;
   position:relative;overflow:hidden;isolation:isolate;
-  background:#fff;border-radius:18px;
-  border:1px solid rgba(15,23,42,.08);
-  box-shadow:
-    0 1px 2px rgba(15,23,42,.05),
-    0 6px 16px -4px rgba(15,23,42,.08),
-    0 22px 44px -16px rgba(10,34,64,.28);
-  color:var(--idc-ink);
   display:flex;flex-direction:column;
+  background:#fff;border-radius:18px;
+  border:1px solid var(--idc-border);
+  box-shadow:var(--idc-shadow);
+  color:var(--unimr-navy);
 }
 
-/* Cabeçalho */
+/* Cabeçalho: azul institucional + arcos azuis à direita */
 .idc-head{
   position:relative;display:flex;align-items:center;gap:14px;
-  padding:18px 20px;min-height:80px;color:#fff;
-  background:linear-gradient(90deg,var(--idc-navy) 0%,var(--idc-blue) 48%,var(--idc-petrol) 100%);
+  padding:16px 20px;min-height:84px;color:var(--unimr-white);
+  background:var(--grad-brand);
 }
 .idc-head::before{ /* brilho suave no topo */
   content:"";position:absolute;inset:0;pointer-events:none;
-  background:
-    linear-gradient(180deg,rgba(255,255,255,.10),rgba(255,255,255,0) 55%),
-    radial-gradient(120% 140% at 100% 0%,rgba(94,234,212,.16),transparent 55%);
+  background:linear-gradient(180deg,rgba(248,250,252,.08),rgba(248,250,252,0) 60%);
 }
-.idc-head::after{ /* linha de acabamento entre cabeçalho e corpo */
-  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
-  background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.28),rgba(255,255,255,0));
-}
-.idc-arcs{position:absolute;right:-18px;top:50%;width:150px;height:150px;transform:translateY(-50%);
-  opacity:.14;pointer-events:none}
-.idc-logo{
-  position:relative;flex:0 0 auto;width:46px;height:46px;border-radius:12px;
-  display:grid;place-items:center;
-  background:linear-gradient(160deg,rgba(255,255,255,.22),rgba(255,255,255,.08));
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.28),0 4px 12px rgba(4,18,36,.25);
-}
-.idc-logo svg{width:30px;height:30px}
-.idc-inst{position:relative;min-width:0;flex:1}
-.idc-inst-name{font-size:1.06rem;font-weight:700;letter-spacing:-.015em;line-height:1.2;
-  overflow-wrap:anywhere}
-.idc-inst-sub{margin-top:3px;font-size:.66rem;font-weight:600;letter-spacing:.16em;
-  text-transform:uppercase;color:rgba(255,255,255,.78)}
+.idc-arcs{position:absolute;right:0;top:0;height:100%;width:52%;pointer-events:none}
+.idc-arcs svg,.idc-wm svg{display:block;width:100%;height:100%}
+.idc-logo{position:relative;flex:0 0 auto;width:58px;display:block}
+.idc-logo svg{display:block;width:100%;height:auto}
+.idc-div{position:relative;flex:0 0 auto;width:1.5px;align-self:stretch;margin:6px 0;border-radius:1px;background:rgba(248,250,252,.55)}
+.idc-inst{position:relative;min-width:0;flex:1;line-height:1.1}
+.idc-inst-k{display:block;font-size:.74rem;font-weight:500;color:rgba(248,250,252,.92)}
+.idc-inst-name{display:block;margin-top:1px;font-size:1.3rem;font-weight:800;letter-spacing:-.01em;line-height:1.1;overflow-wrap:anywhere}
+.idc-inst-sig{display:block;margin-top:4px;font-size:.66rem;font-weight:700;letter-spacing:.55em;color:var(--unimr-sky)}
 
-/* Identificação */
-.idc-body{position:relative;flex:1;padding:20px 20px 18px}
-.idc-body::before{ /* textura muito sutil de fundo */
-  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
-  background:
-    radial-gradient(90% 70% at 100% 100%,rgba(10,100,103,.05),transparent 60%),
-    radial-gradient(70% 60% at 0% 0%,rgba(18,63,110,.04),transparent 60%);
-}
-.idc-id{display:flex;align-items:flex-start;gap:18px}
-.idc-who{padding-top:2px}
+/* Corpo */
+.idc-body{position:relative;flex:1;padding:16px 20px 18px;
+  background:linear-gradient(180deg,#fff 0%,var(--unimr-white) 100%)}
+.idc-wm{position:absolute;right:-18px;bottom:-8px;width:58%;max-width:250px;aspect-ratio:120/84;opacity:.06;pointer-events:none;z-index:0}
+.idc-doc{position:relative;display:flex;align-items:center;gap:8px;margin-bottom:14px;
+  font-size:.62rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--unimr-navy)}
+.idc-doc::before{content:"";width:16px;height:3px;border-radius:2px;background:var(--unimr-blue)}
+.idc-id{position:relative;display:flex;align-items:flex-start;gap:18px}
 .idc-photo{
-  position:relative;flex:0 0 auto;width:112px;aspect-ratio:1/1;border-radius:14px;overflow:hidden;
+  position:relative;flex:0 0 auto;width:118px;aspect-ratio:1/1;border-radius:14px;overflow:hidden;
   display:grid;place-items:center;
-  background:linear-gradient(145deg,#e8eef6,#dfe9ec);
-  border:1px solid rgba(15,23,42,.10);
-  box-shadow:0 1px 2px rgba(15,23,42,.06),0 8px 18px -8px rgba(15,23,42,.25);
-}
-.idc-photo::after{ /* brilho interno discreto sobre a foto */
-  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);
+  background:linear-gradient(160deg,var(--unimr-blue-100),var(--unimr-blue-50));
+  border:1px solid var(--unimr-blue-200);
+  box-shadow:0 1px 2px rgba(11,31,68,.06),0 8px 18px -10px rgba(11,31,68,.35);
 }
 .idc-photo img{width:100%;height:100%;object-fit:cover}
-.idc-initials{font-size:2.1rem;font-weight:700;letter-spacing:-.02em;
-  background:linear-gradient(135deg,var(--idc-blue),var(--idc-petrol));
-  -webkit-background-clip:text;background-clip:text;color:transparent}
-.idc-who{min-width:0;flex:1}
-.idc-l{display:block;font-size:.64rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--idc-label);line-height:1.2}
-.idc-name{margin-top:3px;font-size:1.16rem;font-weight:700;letter-spacing:-.018em;line-height:1.22;
-  color:var(--idc-ink);overflow-wrap:anywhere}
-.idc-course{margin-top:12px}
-.idc-v{display:block;margin-top:3px;font-size:.92rem;font-weight:600;line-height:1.3;color:#1e293b;
+.idc-initials{font-size:2.2rem;font-weight:800;letter-spacing:-.02em;color:var(--unimr-navy)}
+.idc-who{min-width:0;flex:1;display:grid;gap:10px;padding-top:1px}
+.idc-l{display:block;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--unimr-blue);line-height:1.2}
+.idc-v{display:block;margin-top:2px;font-size:.9rem;font-weight:600;line-height:1.3;color:var(--unimr-navy);
   overflow-wrap:anywhere}
+.idc-name{margin-top:2px;font-size:1.08rem;font-weight:700;letter-spacing:-.01em;line-height:1.22;
+  color:var(--unimr-navy);overflow-wrap:anywhere}
 .idc-v.mono{font-variant-numeric:tabular-nums;letter-spacing:.01em}
 
-.idc-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
-.idc-cell{padding:10px 12px;border-radius:10px;background:#f7f9fb;border:1px solid #edf1f5;min-width:0}
-
 /* Rodapé */
-.idc-foot{background:#f5f7fa;border-top:1px solid var(--idc-line)}
-.idc-foot-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 20px}
-.idc-valid .idc-v{font-size:1rem;font-weight:700;color:var(--idc-ink)}
-.idc-barcode{display:block;width:132px;height:36px;flex:0 0 auto;color:#1e293b}
+.idc-foot{position:relative;background:var(--idc-foot-bg);border-top:1px solid var(--idc-line)}
+.idc-foot-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 20px}
+.idc-valid{display:flex;align-items:center;gap:10px}
+.idc-valid svg{width:22px;height:22px;flex:0 0 auto;color:var(--unimr-blue)}
+.idc-valid .idc-v{font-size:.98rem;font-weight:700}
+.idc-barcode{display:block;width:140px;height:34px;flex:0 0 auto;color:var(--unimr-navy)}
 .idc-proto{
   display:flex;align-items:center;justify-content:center;gap:6px;
-  padding:8px 16px 10px;border-top:1px dashed #dde3ea;
-  font-size:.6rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8a96a8;
+  padding:7px 16px 9px;border-top:1px dashed var(--idc-line);
+  font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--idc-proto);
   text-align:center;line-height:1.3;
 }
 .idc-proto svg{width:12px;height:12px;flex:0 0 auto}
 
 /* ---------- Frente e verso (rotação 3D) ---------- */
 .idc-flip{perspective:1800px;cursor:pointer;-webkit-tap-highlight-color:transparent;border-radius:18px}
-.idc-flip:focus-visible{outline:2px solid #123f6e;outline-offset:4px}
+.idc-flip:focus-visible{outline:2px solid var(--unimr-blue);outline-offset:4px}
 .idc-inner{display:grid;transform-style:preserve-3d;-webkit-transform-style:preserve-3d;
   transition:transform .75s cubic-bezier(.3,.7,.2,1)}
 .idc-inner>.idcard{grid-area:1/1;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .idc-inner>.idc-front{transform:rotateY(0deg)}
-.idc-front .idc-body{display:flex;flex-direction:column;justify-content:center}
-.idc-export .idc-front .idc-body{display:flex;flex-direction:column;justify-content:center}
 .idc-inner>.idc-back{transform:rotateY(180deg)}
 .idc-flip.is-back .idc-inner{transform:rotateY(180deg)}
+.idc-front .idc-body,.idc-back .idc-body{display:flex;flex-direction:column;justify-content:flex-start}
+.idc-front .idc-id{margin-block:auto}
+.idc-back .idc-qr-row{margin-top:auto}
+.idc-back .idc-backnote{margin-bottom:auto}
+.idc-front .idc-doc,.idc-back .idc-doc{margin-top:-2px}
 @media (prefers-reduced-motion:reduce){.idc-inner{transition:none}}
 
 /* Verso */
-.idc-back-body{display:flex;flex-direction:column;gap:16px}
-.idc-qr-row{display:flex;align-items:center;gap:18px}
-.idc-qr{position:relative;flex:0 0 auto;width:132px;aspect-ratio:1/1;padding:9px;border-radius:14px;
-  background:#fff;border:1px solid rgba(15,23,42,.10);display:grid;place-items:center;color:#0a2240;
-  box-shadow:0 1px 2px rgba(15,23,42,.06),0 8px 18px -8px rgba(15,23,42,.25)}
+.idc-back-body{gap:14px}
+.idc-back-body .idc-doc{margin-bottom:0}
+.idc-qr-row{position:relative;display:flex;align-items:center;gap:18px}
+.idc-qr{position:relative;flex:0 0 auto;width:128px;aspect-ratio:1/1;padding:9px;border-radius:14px;
+  background:#fff;border:1px solid var(--unimr-blue-200);display:grid;place-items:center;color:var(--unimr-navy);
+  box-shadow:0 1px 2px rgba(11,31,68,.06),0 8px 18px -10px rgba(11,31,68,.35)}
 .idc-qr svg{display:block;width:100%;height:100%}
 .idc-qr.is-loading::before{content:"";position:absolute;inset:9px;border-radius:6px;
-  background:linear-gradient(100deg,#eef2f6 30%,#f8fafc 50%,#eef2f6 70%);background-size:220% 100%;
+  background:linear-gradient(100deg,var(--unimr-blue-50) 30%,#fff 50%,var(--unimr-blue-50) 70%);background-size:220% 100%;
   animation:idcShimmer 1.2s linear infinite}
-.idc-qr .ph{font-size:.62rem;font-weight:600;color:var(--idc-label);text-align:center;line-height:1.35;padding:6px}
+.idc-qr .ph{font-size:.62rem;font-weight:600;color:var(--muted);text-align:center;line-height:1.35;padding:6px}
 @keyframes idcShimmer{to{background-position:-220% 0}}
 .idc-qr-info{min-width:0;flex:1}
-.idc-qr-info p{margin-top:4px;font-size:.84rem;line-height:1.45;color:#475569}
-.idc-qr-info .idc-id-code{margin-top:12px}
-.idc-backnote{padding:10px 12px;border-radius:10px;background:#f7f9fb;border:1px solid #edf1f5;
-  font-size:.74rem;line-height:1.5;color:#526075}
+.idc-qr-info p{margin-top:4px;font-size:.8rem;line-height:1.5;color:var(--muted)}
+.idc-qr-info .idc-id-code{margin-top:10px}
+.idc-backnote{position:relative;padding:10px 12px;border-radius:10px;background:var(--unimr-blue-50);border:1px solid var(--unimr-blue-100);
+  font-size:.72rem;line-height:1.5;color:var(--muted)}
 .idc-foot-row .idc-right{text-align:right}
 .idc-holder{min-width:0}
 .idc-holder .idc-v{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
@@ -356,41 +363,41 @@ a{color:inherit}
 /* Ações: alternar face + exportar */
 .idc-actions{margin-top:16px;display:grid;gap:12px}
 .idc-seg{position:relative;display:grid;grid-template-columns:1fr 1fr;padding:4px;border-radius:12px;
-  background:#e7ecf2;border:1px solid #dbe2ea}
+  background:var(--unimr-blue-100);border:1px solid var(--unimr-blue-200)}
 .idc-seg::before{content:"";position:absolute;top:4px;bottom:4px;left:4px;width:calc(50% - 4px);border-radius:9px;
-  background:#fff;box-shadow:0 1px 2px rgba(15,23,42,.08),0 3px 8px rgba(15,23,42,.08);transition:transform .3s cubic-bezier(.3,.7,.2,1)}
+  background:#fff;box-shadow:0 1px 2px rgba(11,31,68,.08),0 3px 8px rgba(11,31,68,.1);transition:transform .3s cubic-bezier(.3,.7,.2,1)}
 .idc-seg.is-back::before{transform:translateX(100%)}
 .idc-seg button{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:7px;
-  padding:9px 10px;border-radius:9px;font-size:.88rem;font-weight:600;color:#64748b;transition:color .2s}
-.idc-seg button[aria-pressed="true"]{color:#0a2240}
+  padding:9px 10px;border-radius:9px;font-size:.86rem;font-weight:600;color:var(--muted);transition:color .2s}
+.idc-seg button[aria-pressed="true"]{color:var(--unimr-navy);font-weight:700}
 .idc-seg button svg{width:16px;height:16px}
-.idc-exp-h{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.72rem;font-weight:700;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:0 2px}
+.idc-exp-h{display:flex;align-items:center;justify-content:space-between;gap:10px;font-size:.68rem;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:0 2px}
 .idc-exp{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .idc-exp button{display:flex;align-items:center;justify-content:center;gap:8px;padding:11px 8px;border-radius:11px;
-  background:#fff;border:1px solid var(--line);color:#0f2f52;font-size:.88rem;font-weight:600;
-  box-shadow:0 1px 2px rgba(15,23,42,.05);transition:background .15s,border-color .15s,transform .1s,opacity .15s}
-.idc-exp button:hover{background:#f4f8fb;border-color:#cbd8e5}
+  background:#fff;border:1px solid var(--line);color:var(--unimr-navy);font-size:.86rem;font-weight:700;
+  box-shadow:0 1px 2px rgba(11,31,68,.05);transition:background .15s,border-color .15s,transform .1s,opacity .15s}
+.idc-exp button:hover{background:var(--unimr-blue-50);border-color:var(--unimr-blue-200)}
 .idc-exp button:active{transform:translateY(1px)}
 .idc-exp button:disabled{opacity:.55;cursor:progress}
-.idc-exp button svg{width:17px;height:17px;flex:0 0 auto}
-.idc-exp button.is-busy{opacity:1;background:#eef4fa;border-color:#c3d4e6}
-.idc-spin{width:16px;height:16px;border-radius:50%;border:2px solid #c3d4e6;border-top-color:#123f6e;
+.idc-exp button svg{width:17px;height:17px;flex:0 0 auto;color:var(--unimr-blue)}
+.idc-exp button.is-busy{opacity:1;background:var(--unimr-blue-50);border-color:var(--unimr-blue-200)}
+.idc-spin{width:16px;height:16px;border-radius:50%;border:2px solid var(--unimr-blue-200);border-top-color:var(--unimr-blue);
   animation:idcSpin .7s linear infinite;flex:0 0 auto}
 @keyframes idcSpin{to{transform:rotate(360deg)}}
-.idc-status{min-height:1.2em;font-size:.78rem;color:var(--muted);text-align:center}
+.idc-status{min-height:1.2em;font-size:.76rem;color:var(--muted);text-align:center}
 .idc-status.err{color:var(--danger)}
-.idc-flip.is-exporting .idcard{filter:saturate(.9);opacity:.92;transition:opacity .2s}
+.idc-flip.is-exporting .idcard{opacity:.92;transition:opacity .2s}
 
 /* Folha de exportação (fora da tela; usada para PNG, PDF e impressão) */
-.idc-export{position:absolute;left:-10000px;top:0;width:1016px;padding:28px 32px 26px;background:#fff;
-  display:grid;grid-template-columns:460px 460px;gap:32px;font-family:'Inter',system-ui,sans-serif}
+.idc-export{position:absolute;left:-10000px;top:0;width:1096px;padding:28px 32px 26px;background:#fff;
+  display:grid;grid-template-columns:500px 500px;gap:32px;font-family:'Montserrat',system-ui,sans-serif}
 .idc-export .idc-col{display:flex;flex-direction:column;gap:10px}
-.idc-export .idc-col-l{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#94a3b8;padding-left:4px}
+.idc-export .idc-col-l{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding-left:4px}
 .idc-export .idcard{flex:1;transform:none !important}
-.idc-export .idc-initials{background:none;color:#0f4c6e;-webkit-text-fill-color:#0f4c6e}
-/* ajustes para o rasterizador (html2canvas) não distorcer texto e sombras internas */
-.idc-export .idc-photo::after{display:none}
+.idc-export .idc-wm{opacity:.045}
+.idc-doc,.idc-id,.idc-qr-row,.idc-backnote{z-index:1}
+/* ajustes para o rasterizador (html2canvas) não distorcer texto */
 .idc-export .idc-v.mono{letter-spacing:0;font-variant-numeric:normal}
 .idc-export .idc-holder .idc-v{overflow:visible;white-space:normal;line-height:1.4}
 
@@ -401,7 +408,7 @@ a{color:inherit}
   body.idc-printing > *:not(#idcPrintArea){display:none !important}
   body.idc-printing #idcPrintArea{display:block !important}
   #idcPrintArea img{display:block;width:100%;height:auto}
-  #idcPrintArea p{margin-top:4mm;font:9pt 'Inter',sans-serif;color:#64748b;text-align:center}
+  #idcPrintArea p{margin-top:4mm;font:9pt 'Montserrat',sans-serif;color:#5B6B86;text-align:center}
 }
 
 /* Painel de foto abaixo da carteira */
@@ -412,42 +419,44 @@ a{color:inherit}
 .idc-upload .hn{color:var(--muted);font-size:.8rem;margin-top:2px;line-height:1.45}
 .idc-upload .acts{display:flex;gap:8px;align-items:center}
 .file-btn{position:relative;display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border-radius:10px;
-  font-weight:600;font-size:.86rem;color:#123f6e;background:#eef4fa;border:1px solid #d6e2ee;cursor:pointer;
+  font-weight:700;font-size:.86rem;color:var(--unimr-navy);background:var(--unimr-blue-50);border:1px solid var(--unimr-blue-200);cursor:pointer;
   transition:background .15s,border-color .15s}
-.file-btn:hover{background:#e3edf7;border-color:#c3d4e6}
-.file-btn:focus-within{outline:2px solid #123f6e;outline-offset:2px}
-.file-btn svg{width:16px;height:16px}
+.file-btn:hover{background:var(--unimr-blue-100)}
+.file-btn:focus-within{outline:2px solid var(--unimr-blue);outline-offset:2px}
+.file-btn svg{width:16px;height:16px;color:var(--unimr-blue)}
 .file-btn input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%}
 .link-btn{font-size:.84rem;font-weight:600;color:var(--muted);padding:9px 6px;border-radius:8px}
 .link-btn:hover{color:var(--danger)}
-.idc-note{margin-top:12px;text-align:center;color:var(--muted);font-size:.76rem;line-height:1.5}
+.idc-note{margin-top:12px;text-align:center;color:var(--muted);font-size:.74rem;line-height:1.5}
 
-@media(max-width:420px){
-  .idc-head{padding:16px;gap:12px;min-height:72px}
-  .idc-logo{width:42px;height:42px;border-radius:11px}
-  .idc-logo svg{width:25px;height:25px}
-  .idc-inst-name{font-size:1rem}
-  .idc-inst-sub{font-size:.6rem;letter-spacing:.14em}
-  .idc-body{padding:16px 16px 16px}
+@media(max-width:440px){
+  .idc-head{padding:14px 16px;gap:11px;min-height:74px}
+  .idc-logo{width:48px}
+  .idc-inst-k{font-size:.66rem}
+  .idc-inst-name{font-size:1.1rem}
+  .idc-inst-sig{font-size:.6rem;letter-spacing:.5em}
+  .idc-body{padding:14px 16px 16px}
   .idc-id{gap:14px}
   .idc-photo{width:96px;border-radius:12px}
   .idc-initials{font-size:1.8rem}
-  .idc-name{font-size:1.04rem}
-  .idc-v{font-size:.88rem}
-  .idc-grid{gap:10px;margin-top:16px}
-  .idc-cell{padding:9px 10px}
-  .idc-foot-row{padding:12px 16px}
-  .idc-barcode{width:112px;height:32px}
-  .idc-qr{width:112px;padding:8px}
+  .idc-who{gap:8px}
+  .idc-name{font-size:1rem}
+  .idc-v{font-size:.84rem}
+  .idc-foot-row{padding:11px 16px}
+  .idc-barcode{width:112px;height:30px}
+  .idc-qr{width:110px;padding:8px}
   .idc-qr-row{gap:14px}
-  .idc-qr-info p{font-size:.8rem}
-  .idc-exp button{flex-direction:column;gap:4px;padding:10px 6px;font-size:.82rem}
+  .idc-qr-info p{font-size:.76rem}
+  .idc-exp button{flex-direction:column;gap:4px;padding:10px 6px;font-size:.8rem}
 }
-@media(max-width:340px){
-  .idc-photo{width:84px}
-  .idc-grid{grid-template-columns:1fr}
-  .idc-proto{letter-spacing:.1em}
-  .idc-qr{width:96px;padding:7px}
+@media(max-width:350px){
+  .idc-photo{width:80px}
+  .idc-head{gap:9px}
+  .idc-logo{width:42px}
+  .idc-inst-name{font-size:1rem}
+  .idc-proto{letter-spacing:.08em}
+  .idc-qr{width:92px;padding:7px}
+  .idc-barcode{width:96px}
 }
 @media(min-width:900px){
   .idc-stage{margin-top:12px}
@@ -455,10 +464,10 @@ a{color:inherit}
 
 /* ---------- ADMIN ---------- */
 #view-admin{min-height:100dvh;background:var(--bg);display:flex;flex-direction:column}
-.admin-top{background:var(--ink);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:12px;
+.admin-top{background:var(--grad-brand);color:var(--unimr-white);padding:14px 16px;display:flex;align-items:center;gap:12px;
   position:sticky;top:0;z-index:30}
-.admin-top .brand-mark{width:34px;height:34px;background:rgba(255,255,255,.14);box-shadow:none}
-.admin-top .brand-mark svg{width:20px;height:20px}
+.admin-top .brand-mark{width:auto;height:auto;background:none;box-shadow:none}
+.admin-top .brand-mark svg{width:42px}
 .admin-top h2{font-size:1rem;font-weight:700}
 .admin-top .spacer{flex:1}
 .admin-wrap{max-width:760px;width:100%;margin:0 auto;padding:16px 16px 48px}
@@ -479,7 +488,7 @@ a{color:inherit}
 .inp input:focus,.inp select:focus,.inp textarea:focus{border-color:var(--primary)}
 .inp textarea{resize:vertical;min-height:62px}
 .row-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:6px}
-.sub-row{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:10px}
+.sub-row{background:var(--unimr-white);border:1px solid var(--line);border-radius:10px;padding:12px;margin-bottom:10px}
 .sub-row .sr-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
 .sub-row .sr-top strong{font-size:.9rem}
 .icon-btn{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;color:var(--danger);background:#fff1f2}
@@ -487,7 +496,7 @@ a{color:inherit}
 .add-link{color:var(--primary);font-weight:700;font-size:.88rem;display:inline-flex;align-items:center;gap:6px;margin-top:4px}
 .add-link svg{width:16px;height:16px}
 .avatar-edit{display:flex;align-items:center;gap:14px;margin-bottom:12px}
-.avatar-edit .prev{width:60px;height:60px;border-radius:50%;background:#eef2ff;color:var(--primary);
+.avatar-edit .prev{width:60px;height:60px;border-radius:50%;background:var(--unimr-blue-50);color:var(--primary);
   display:grid;place-items:center;overflow:hidden;flex:0 0 auto;border:1px solid var(--line)}
 .avatar-edit .prev svg{width:30px;height:30px}
 .avatar-edit .prev img{width:100%;height:100%;object-fit:cover}
@@ -496,7 +505,7 @@ a{color:inherit}
   background:var(--ink);color:#fff;padding:12px 20px;border-radius:999px;font-weight:600;font-size:.9rem;
   box-shadow:0 10px 30px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:all .25s;z-index:200;
   display:flex;align-items:center;gap:8px}
-.toast svg{width:18px;height:18px;color:#4ade80}
+.toast svg{width:18px;height:18px;color:var(--unimr-green)}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 .toast.err{background:#9f1239}
 .toast.err svg{display:none}
@@ -512,9 +521,10 @@ a{color:inherit}
 <section id="view-login">
   <div class="login-card">
     <div class="login-logo" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none"><path d="M12 3L2 8l10 5 8-4v6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 11v4c0 1.1 2.7 3 6 3s6-1.9 6-3v-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <svg viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M3 74 L37 24 L47 38 L66 8 L118 70 L110 68.5 Q60 31 11 72.5 Z" fill="#F8FAFC"/><path d="M66 8 L118 70 L110 68.5 Q101 61.5 90 56.6 L73 27 Z M37 24 L47 38 L42.6 44.5 Z" fill="#CBD5E1"/><path d="M15 78 Q60 37 114 73.5 Q62 50 15 78 Z" fill="#2563EB"/><path d="M51.5 84 L59.5 68.5 L65.5 68.5 L74 84 Z" fill="#2563EB"/></svg>
     </div>
-    <h1 id="brandInstituicao">Universidade Horizonte</h1>
+    <h1 id="brandInstituicao"><small>Centro Universitário</small>Monte Real</h1>
+    <p class="login-tag">Conhecimento que transforma</p>
     <p class="sub">Portal do Aluno · informe os dados abaixo.</p>
 
     <div id="loginError" class="login-error hidden"></div>
@@ -542,9 +552,7 @@ a{color:inherit}
         <svg viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" stroke-width="2"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
         Administração
       </button>
-      <div style="margin-top:14px;color:#94a3b8;font-size:.72rem">
-        Universidade Horizonte
-      </div>
+      <div class="proto-note">Protótipo acadêmico · marca fictícia · sem validade oficial</div>
     </div>
   </div>
 </section>
@@ -557,8 +565,9 @@ a{color:inherit}
       Menu
     </button>
     <div class="brand-lockup">
-      <div class="brand-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3L2 8l10 5 8-4v6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 11v4c0 1.1 2.7 3 6 3s6-1.9 6-3v-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <div class="name"><span id="brandSigla">UniHorizonte</span><small>Portal do Aluno</small></div>
+      <div class="brand-mark"><svg viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M3 74 L37 24 L47 38 L66 8 L118 70 L110 68.5 Q60 31 11 72.5 Z" fill="#F8FAFC"/><path d="M66 8 L118 70 L110 68.5 Q101 61.5 90 56.6 L73 27 Z M37 24 L47 38 L42.6 44.5 Z" fill="#CBD5E1"/><path d="M15 78 Q60 37 114 73.5 Q62 50 15 78 Z" fill="#2563EB"/><path d="M51.5 84 L59.5 68.5 L65.5 68.5 L74 84 Z" fill="#2563EB"/></svg></div>
+      <span class="div" aria-hidden="true"></span>
+      <div class="name"><span id="brandSigla">UNIMR</span><small>Portal do Aluno</small></div>
     </div>
     <div class="spacer"></div>
     <div class="avatar" id="topAvatar">
@@ -570,8 +579,9 @@ a{color:inherit}
   <main class="content" id="appContent"><!-- rendered by JS --></main>
 
   <footer class="appfoot">
-    &copy; 2017–2026 — <b id="brandInstituicaoFoot">Universidade Horizonte</b>. Todos os direitos reservados.<br>
-    
+    &copy; 2026 · <b id="brandInstituicaoFoot">Centro Universitário Monte Real</b><br>
+    <span class="appfoot-sig">Seu futuro, nossa universidade.</span><br>
+    <span class="proto-note">Protótipo acadêmico · marca fictícia · sem validade oficial</span>
   </footer>
 </section>
 
@@ -597,7 +607,7 @@ a{color:inherit}
 <!-- ============ ADMIN ============ -->
 <section id="view-admin" class="hidden">
   <div class="admin-top">
-    <div class="brand-mark"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3L2 8l10 5 8-4v6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 11v4c0 1.1 2.7 3 6 3s6-1.9 6-3v-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="brand-mark"><svg viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="M3 74 L37 24 L47 38 L66 8 L118 70 L110 68.5 Q60 31 11 72.5 Z" fill="#F8FAFC"/><path d="M66 8 L118 70 L110 68.5 Q101 61.5 90 56.6 L73 27 Z M37 24 L47 38 L42.6 44.5 Z" fill="#CBD5E1"/><path d="M15 78 Q60 37 114 73.5 Q62 50 15 78 Z" fill="#2563EB"/><path d="M51.5 84 L59.5 68.5 L65.5 68.5 L74 84 Z" fill="#2563EB"/></svg></div>
     <h2>Administração</h2>
     <div class="spacer"></div>
     <button class="btn ghost sm" style="color:#cbd5e1" id="adminExit">Fechar</button>
@@ -615,8 +625,8 @@ a{color:inherit}
 const STORE_KEY = 'portal_academico_v1';
 
 const DEFAULT_DATA = {
-  instituicao:'Universidade Horizonte',
-  sigla:'UniHorizonte',
+  instituicao:'Centro Universitário Monte Real',
+  sigla:'UNIMR',
   aluno:{
     nome:'Aluno de Demonstração',
     cpf:'123.456.789-00',
@@ -645,14 +655,18 @@ const DEFAULT_DATA = {
   adminPin:'' // vazio = sem senha de administração
 };
 
+const LEGACY_NAMES = ['Universidade Horizonte','UniHorizonte']; // identidade anterior (apenas migração)
 let DATA = load();
 
 function load(){
   try{
     const raw = localStorage.getItem(STORE_KEY);
     if(!raw) return structuredClone(DEFAULT_DATA);
-    const parsed = JSON.parse(raw);
-    return Object.assign(structuredClone(DEFAULT_DATA), parsed);
+    const d = Object.assign(structuredClone(DEFAULT_DATA), JSON.parse(raw));
+    // dados salvos com a identidade antiga passam para a marca atual
+    if(LEGACY_NAMES.includes(d.instituicao)) d.instituicao = DEFAULT_DATA.instituicao;
+    if(LEGACY_NAMES.includes(d.sigla)) d.sigla = DEFAULT_DATA.sigla;
+    return d;
   }catch(e){ return structuredClone(DEFAULT_DATA); }
 }
 function save(){
@@ -664,7 +678,8 @@ function applyBrand(){
   const sig = DATA.sigla || inst;
   document.title = 'Portal Acadêmico · ' + inst;
   const set = (id,t)=>{ const e=document.getElementById(id); if(e) e.textContent=t; };
-  set('brandInstituicao', inst);
+  const h = document.getElementById('brandInstituicao');
+  if(h){ const b = brandParts(inst); h.innerHTML = (b.k?`<small>${esc(b.k)}</small>`:'') + esc(b.n); }
   set('brandSigla', sig);
   set('brandInstituicaoFoot', inst);
 }
@@ -813,7 +828,7 @@ function secHome(){
   return `
     <div class="panel">
       <div class="panel-b" style="display:flex;gap:14px;align-items:center">
-        <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;background:#eef2ff;color:var(--primary);display:grid;place-items:center;flex:0 0 auto">
+        <div style="width:54px;height:54px;border-radius:50%;overflow:hidden;background:var(--unimr-blue-50);color:var(--primary);display:grid;place-items:center;flex:0 0 auto">
           ${a.foto?`<img src="${esc(a.foto)}" alt="" style="width:100%;height:100%;object-fit:cover">`:avatarSVG()}
         </div>
         <div>
@@ -902,14 +917,42 @@ function decorativeBarcode(){
   IDC_BARS.forEach((w,i)=>{ if(i%2===0) rects+=`<rect x="${x}" y="0" width="${w}" height="36"/>`; x+=w; });
   return `<svg class="idc-barcode" viewBox="0 0 ${x} 36" preserveAspectRatio="none" aria-hidden="true" focusable="false"><g fill="currentColor">${rects}</g></svg>`;
 }
-/* Marca fictícia da instituição: sol nascendo sobre o horizonte */
-const IDC_LOGO = `<svg viewBox="0 0 32 32" fill="none" aria-hidden="true" focusable="false">
-  <path d="M7 20a9 9 0 0118 0" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
-  <path d="M11.5 20a4.5 4.5 0 019 0" fill="#fff" fill-opacity=".9"/>
-  <path d="M16 6.5v3M7.3 10.3l2.1 2.1M24.7 10.3l-2.1 2.1" stroke="#5eead4" stroke-width="2" stroke-linecap="round"/>
-  <path d="M4 20h24" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
-  <path d="M8 24.5h16" stroke="#fff" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"/>
-</svg>`;
+/* Símbolo UNIMR (montanha geométrica) com cores literais: funciona inline e na exportação */
+const UNIMR_PATHS = {m:'M3 74 L37 24 L47 38 L66 8 L118 70 L110 68.5 Q60 31 11 72.5 Z', s:'M66 8 L118 70 L110 68.5 Q101 61.5 90 56.6 L73 27 Z M37 24 L47 38 L42.6 44.5 Z', a:'M15 78 Q60 37 114 73.5 Q62 50 15 78 Z', p:'M51.5 84 L59.5 68.5 L65.5 68.5 L74 84 Z'};
+const UNIMR_WAYS = {
+  negativo:{m:'#F8FAFC', s:'#CBD5E1', a:'#2563EB'},
+  positivo:{m:'#0B1F44', s:'#1E3A6E', a:'#2563EB'},
+  'mono-branco':{m:'#F8FAFC', s:'#F8FAFC', a:'#F8FAFC'},
+  'mono-azul':{m:'#0B1F44', s:'#0B1F44', a:'#0B1F44'}
+};
+function unimrSymbol(way='negativo', cls=''){
+  const c = UNIMR_WAYS[way], P = UNIMR_PATHS;
+  return `<svg${cls?` class="${cls}"`:''} viewBox="0 0 120 84" aria-hidden="true" focusable="false"><path d="${P.m}" fill="${c.m}"/><path d="${P.s}" fill="${c.s}"/><path d="${P.a}" fill="${c.a}"/><path d="${P.p}" fill="${c.a}"/></svg>`;
+}
+/* "Centro Universitário Monte Real" -> prefixo pequeno + nome em destaque */
+function brandParts(nome){
+  const m = (nome||'').trim().match(/^(Centro Universit[áa]rio|Universidade|Faculdade|Instituto)\s+(.+)$/i);
+  return m ? {k:m[1], n:m[2]} : {k:'', n:(nome||'').trim()};
+}
+const IDC_ARCS = `<div class="idc-arcs" aria-hidden="true"><svg viewBox="0 0 200 100" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
+  <path d="M34 100 C70 34 132 -2 200 -10" fill="none" stroke="#60A5FA" stroke-opacity=".28" stroke-width="1.4"/>
+  <path d="M64 100 C96 46 142 14 200 6 L200 30 C152 37 116 63 98 100 Z" fill="#2563EB"/>
+  <path d="M112 100 C134 72 162 55 200 50 L200 64 C172 68 150 82 136 100 Z" fill="#60A5FA" fill-opacity=".5"/>
+</svg></div>`;
+function cardHeadHTML(){
+  const b = brandParts(DATA.instituicao);
+  return `<header class="idc-head">
+          ${IDC_ARCS}
+          <div class="idc-logo">${unimrSymbol('negativo')}</div>
+          <span class="idc-div" aria-hidden="true"></span>
+          <div class="idc-inst">
+            ${b.k?`<span class="idc-inst-k">${esc(b.k)}</span>`:''}
+            <span class="idc-inst-name">${esc(b.n)}</span>
+            ${DATA.sigla?`<span class="idc-inst-sig">${esc(DATA.sigla.toUpperCase())}</span>`:''}
+          </div>
+        </header>`;
+}
+const ICO_CAL = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7.5 14h2M11 14h2M14.5 14h2M7.5 17.5h2M11 17.5h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 
 /* ---------- Carteira: verso, QR demonstrativo, frente/verso e exportação ---------- */
 let idcFace = 'front';
@@ -984,20 +1027,11 @@ function cardBackHTML(a){
   const hidden = idcFace==='back' ? '' : ' aria-hidden="true" inert';
   return `
       <article class="idcard idc-back" aria-label="Verso da carteira de estudante — protótipo acadêmico sem validade"${hidden}>
-        <header class="idc-head">
-          <svg class="idc-arcs" viewBox="0 0 100 100" fill="none" aria-hidden="true">
-            <circle cx="50" cy="50" r="22" stroke="#fff" stroke-width="1.2"/>
-            <circle cx="50" cy="50" r="34" stroke="#fff" stroke-width="1.2"/>
-            <circle cx="50" cy="50" r="46" stroke="#fff" stroke-width="1.2"/>
-          </svg>
-          <div class="idc-logo">${IDC_LOGO}</div>
-          <div class="idc-inst">
-            <div class="idc-inst-name">${esc(DATA.instituicao)}</div>
-            <div class="idc-inst-sub">Carteira de Estudante · Verso</div>
-          </div>
-        </header>
+        ${cardHeadHTML()}
 
         <div class="idc-body idc-back-body">
+          <div class="idc-wm" aria-hidden="true">${unimrSymbol('mono-azul')}</div>
+          <div class="idc-doc">Carteira de Estudante · Verso</div>
           <div class="idc-qr-row">
             <div class="idc-qr is-loading" id="idcQr"></div>
             <div class="idc-qr-info">
@@ -1010,7 +1044,7 @@ function cardBackHTML(a){
             </div>
           </div>
           <div class="idc-backnote">
-            Carteira gerada com instituição e dados fictícios para fins de estudo. O QR Code abre apenas uma
+            Protótipo acadêmico com marca (UNIMR) e dados fictícios, criado para fins de estudo. O QR Code abre apenas uma
             página demonstrativa: não confirma identidade, matrícula nem autenticidade.
           </div>
         </div>
@@ -1018,7 +1052,7 @@ function cardBackHTML(a){
         <footer class="idc-foot">
           <div class="idc-foot-row">
             <div class="idc-holder"><span class="idc-l">Titular</span><span class="idc-v">${esc(a.nome)}</span></div>
-            <div class="idc-right"><span class="idc-l">Válida até</span><span class="idc-v mono">${esc(a.validade||'—')}</span></div>
+            <div class="idc-right"><span class="idc-l">Válido até</span><span class="idc-v mono">${esc(a.validade||'—')}</span></div>
           </div>
           <div class="idc-proto">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 11v5M12 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -1122,12 +1156,13 @@ async function exportCard(kind,btn){
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF({orientation:'portrait', unit:'mm', format:'a4', compress:true});
       const margin = 12, w = 210 - margin*2, h = w * canvas.height / canvas.width;
-      doc.setProperties({title:'Carteira de estudante — protótipo acadêmico', subject:'Protótipo acadêmico sem validade, com dados fictícios'});
-      doc.setFont('helvetica','bold'); doc.setFontSize(9); doc.setTextColor(100,116,139);
+      doc.setProperties({title:'Carteira de estudante UNIMR — protótipo acadêmico', subject:'Protótipo acadêmico sem validade oficial; marca e dados fictícios'});
+      doc.setFont('helvetica','bold'); doc.setFontSize(9); doc.setTextColor(11,31,68);
       doc.text('CARTEIRA DE ESTUDANTE — PROTÓTIPO ACADÊMICO — SEM VALIDADE', margin, margin+2);
+      doc.setTextColor(91,107,134);
       doc.addImage(canvas.toDataURL('image/png'), 'PNG', margin, margin+6, w, h, undefined, 'FAST');
       doc.setFont('helvetica','normal'); doc.setFontSize(8);
-      doc.text('Instituição e dados fictícios. O QR Code abre apenas uma página demonstrativa.', margin, margin+6+h+6);
+      doc.text('Centro Universitário Monte Real (UNIMR) é uma marca fictícia. Dados fictícios; o QR Code abre apenas uma página demonstrativa.', margin, margin+6+h+6);
       doc.save(fileSlug()+'.pdf');
       status.textContent = 'PDF baixado (A4, frente e verso).';
       toast('PDF baixado');
@@ -1154,7 +1189,7 @@ function printCardImage(src){
   return new Promise((resolve,reject)=>{
     let area = document.getElementById('idcPrintArea');
     if(!area){ area = document.createElement('div'); area.id='idcPrintArea'; document.body.appendChild(area); }
-    area.innerHTML = '<img alt="Carteira de estudante — frente e verso"><p>Protótipo acadêmico — sem validade · instituição e dados fictícios</p>';
+    area.innerHTML = '<img alt="Carteira de estudante — frente e verso"><p>Protótipo acadêmico — sem validade oficial · marca UNIMR e dados fictícios</p>';
     const img = area.querySelector('img');
     const done = ()=>{ document.body.classList.remove('idc-printing'); window.removeEventListener('afterprint',done); };
     img.onload = ()=>{
@@ -1181,40 +1216,25 @@ function secCartao(){
            aria-label="Carteira de estudante — toque para virar">
       <div class="idc-inner">
       <article class="idcard idc-front" aria-label="Frente da carteira de estudante — protótipo acadêmico sem validade"${idcFace==='back'?' aria-hidden="true" inert':''}>
-        <header class="idc-head">
-          <svg class="idc-arcs" viewBox="0 0 100 100" fill="none" aria-hidden="true">
-            <circle cx="50" cy="50" r="22" stroke="#fff" stroke-width="1.2"/>
-            <circle cx="50" cy="50" r="34" stroke="#fff" stroke-width="1.2"/>
-            <circle cx="50" cy="50" r="46" stroke="#fff" stroke-width="1.2"/>
-          </svg>
-          <div class="idc-logo">${IDC_LOGO}</div>
-          <div class="idc-inst">
-            <div class="idc-inst-name">${esc(DATA.instituicao)}</div>
-            <div class="idc-inst-sub">Carteira de Estudante</div>
-          </div>
-        </header>
+        ${cardHeadHTML()}
 
         <div class="idc-body">
+          <div class="idc-wm" aria-hidden="true">${unimrSymbol('mono-azul')}</div>
+          <div class="idc-doc">Carteira de Estudante</div>
           <div class="idc-id">
             <div class="idc-photo">${photo}</div>
             <div class="idc-who">
-              <span class="idc-l">Nome</span>
-              <div class="idc-name">${esc(a.nome)}</div>
-              <div class="idc-course">
-                <span class="idc-l">Curso</span>
-                <span class="idc-v">${esc(a.curso)}</span>
-              </div>
+              <div><span class="idc-l">Nome</span><div class="idc-name">${esc(a.nome)}</div></div>
+              <div><span class="idc-l">Curso</span><span class="idc-v">${esc(a.curso)}</span></div>
+              <div><span class="idc-l">Matrícula</span><span class="idc-v mono">${esc(a.matricula)}</span></div>
+              <div><span class="idc-l">CPF</span><span class="idc-v mono">${esc(maskCPF(a.cpf))}</span></div>
             </div>
-          </div>
-          <div class="idc-grid">
-            <div class="idc-cell"><span class="idc-l">Matrícula</span><span class="idc-v mono">${esc(a.matricula)}</span></div>
-            <div class="idc-cell"><span class="idc-l">CPF</span><span class="idc-v mono">${esc(maskCPF(a.cpf))}</span></div>
           </div>
         </div>
 
         <footer class="idc-foot">
           <div class="idc-foot-row">
-            <div class="idc-valid"><span class="idc-l">Válida até</span><span class="idc-v mono">${esc(a.validade||'—')}</span></div>
+            <div class="idc-valid">${ICO_CAL}<div><span class="idc-l">Válido até</span><span class="idc-v mono">${esc(a.validade||'—')}</span></div></div>
             ${decorativeBarcode()}
           </div>
           <div class="idc-proto">
@@ -1255,7 +1275,7 @@ ${cardBackHTML(a)}
           ${a.foto?'<button class="link-btn" id="cartaoFotoClear" type="button">Remover</button>':''}
         </div>
       </div>
-      <p class="idc-note">Protótipo acadêmico com instituição e dados fictícios. Não é um documento oficial.</p>
+      <p class="idc-note">Protótipo acadêmico com marca e dados fictícios. Não é um documento oficial.</p>
     </div>
   `;
 }
