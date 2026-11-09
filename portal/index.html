@@ -8,7 +8,7 @@
 <link rel="icon" href="brand/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="brand/apple-touch-icon.png">
 <meta name="theme-color" content="#0B1F44">
-<meta name="description" content="Portal Acadêmico do Centro Universitário Monte Real (UNIMR) — marca fictícia, protótipo acadêmico sem validade oficial.">
+<meta name="description" content="Portal Acadêmico do Centro Universitário Monte Real (UNIMR).">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -552,7 +552,6 @@ a{color:inherit}
         <svg viewBox="0 0 24 24" fill="none"><path d="M12 15a3 3 0 100-6 3 3 0 000 6z" stroke="currentColor" stroke-width="2"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
         Administração
       </button>
-      <div class="proto-note">Protótipo acadêmico · marca fictícia · sem validade oficial</div>
     </div>
   </div>
 </section>
@@ -581,7 +580,6 @@ a{color:inherit}
   <footer class="appfoot">
     &copy; 2026 · <b id="brandInstituicaoFoot">Centro Universitário Monte Real</b><br>
     <span class="appfoot-sig">Seu futuro, nossa universidade.</span><br>
-    <span class="proto-note">Protótipo acadêmico · marca fictícia · sem validade oficial</span>
   </footer>
 </section>
 
@@ -1026,7 +1024,7 @@ function cardBackHTML(a){
   const id = demoQrId();
   const hidden = idcFace==='back' ? '' : ' aria-hidden="true" inert';
   return `
-      <article class="idcard idc-back" aria-label="Verso da carteira de estudante — protótipo acadêmico sem validade"${hidden}>
+      <article class="idcard idc-back" aria-label="Verso da carteira de estudante"${hidden}>
         ${cardHeadHTML()}
 
         <div class="idc-body idc-back-body">
@@ -1036,17 +1034,14 @@ function cardBackHTML(a){
             <div class="idc-qr is-loading" id="idcQr"></div>
             <div class="idc-qr-info">
               <span class="idc-l">QR Code demonstrativo</span>
-              <p>Aponte a câmera para abrir a página de demonstração deste protótipo.</p>
+              <p>Aponte a câmera para abrir a página.</p>
               <div class="idc-id-code">
-                <span class="idc-l">Identificador fictício</span>
+                <span class="idc-l">Identificador</span>
                 <span class="idc-v mono">${esc(id)}</span>
               </div>
             </div>
           </div>
-          <div class="idc-backnote">
-            Protótipo acadêmico com marca (UNIMR) e dados fictícios, criado para fins de estudo. O QR Code abre apenas uma
-            página demonstrativa: não confirma identidade, matrícula nem autenticidade.
-          </div>
+ 
         </div>
 
         <footer class="idc-foot">
@@ -1056,7 +1051,6 @@ function cardBackHTML(a){
           </div>
           <div class="idc-proto">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 11v5M12 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            Protótipo acadêmico — sem validade
           </div>
         </footer>
       </article>`;
@@ -1156,13 +1150,13 @@ async function exportCard(kind,btn){
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF({orientation:'portrait', unit:'mm', format:'a4', compress:true});
       const margin = 12, w = 210 - margin*2, h = w * canvas.height / canvas.width;
-      doc.setProperties({title:'Carteira de estudante UNIMR — protótipo acadêmico', subject:'Protótipo acadêmico sem validade oficial; marca e dados fictícios'});
+      doc.setProperties({title:'Carteira de estudante UNIMR, subject:''});
       doc.setFont('helvetica','bold'); doc.setFontSize(9); doc.setTextColor(11,31,68);
-      doc.text('CARTEIRA DE ESTUDANTE — PROTÓTIPO ACADÊMICO — SEM VALIDADE', margin, margin+2);
+      doc.text('CARTEIRA DE ESTUDANTE', margin, margin+2);
       doc.setTextColor(91,107,134);
       doc.addImage(canvas.toDataURL('image/png'), 'PNG', margin, margin+6, w, h, undefined, 'FAST');
       doc.setFont('helvetica','normal'); doc.setFontSize(8);
-      doc.text('Centro Universitário Monte Real (UNIMR) é uma marca fictícia. Dados fictícios; o QR Code abre apenas uma página demonstrativa.', margin, margin+6+h+6);
+      doc.text('Centro Universitário Monte Real (UNIMR)', margin, margin+6+h+6);
       doc.save(fileSlug()+'.pdf');
       status.textContent = 'PDF baixado (A4, frente e verso).';
       toast('PDF baixado');
@@ -1189,7 +1183,7 @@ function printCardImage(src){
   return new Promise((resolve,reject)=>{
     let area = document.getElementById('idcPrintArea');
     if(!area){ area = document.createElement('div'); area.id='idcPrintArea'; document.body.appendChild(area); }
-    area.innerHTML = '<img alt="Carteira de estudante — frente e verso"><p>Protótipo acadêmico — sem validade oficial · marca UNIMR e dados fictícios</p>';
+    area.innerHTML = '<img alt="Carteira de estudante — frente e verso"><p></p>';
     const img = area.querySelector('img');
     const done = ()=>{ document.body.classList.remove('idc-printing'); window.removeEventListener('afterprint',done); };
     img.onload = ()=>{
@@ -1215,7 +1209,7 @@ function secCartao(){
       <div class="idc-flip${idcFace==='back'?' is-back':''}" id="idcFlip" tabindex="0" role="group"
            aria-label="Carteira de estudante — toque para virar">
       <div class="idc-inner">
-      <article class="idcard idc-front" aria-label="Frente da carteira de estudante — protótipo acadêmico sem validade"${idcFace==='back'?' aria-hidden="true" inert':''}>
+      <article class="idcard idc-front" aria-label="Frente da carteira de estudante"${idcFace==='back'?' aria-hidden="true" inert':''}>
         ${cardHeadHTML()}
 
         <div class="idc-body">
@@ -1239,7 +1233,7 @@ function secCartao(){
           </div>
           <div class="idc-proto">
             <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 11v5M12 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
-            Protótipo acadêmico — sem validade
+           
           </div>
         </footer>
       </article>
@@ -1275,7 +1269,6 @@ ${cardBackHTML(a)}
           ${a.foto?'<button class="link-btn" id="cartaoFotoClear" type="button">Remover</button>':''}
         </div>
       </div>
-      <p class="idc-note">Protótipo acadêmico com marca e dados fictícios. Não é um documento oficial.</p>
     </div>
   `;
 }
@@ -1325,7 +1318,7 @@ function renderAdmin(){
   w.innerHTML = `
     <div class="admin-note">
       <svg viewBox="0 0 24 24" fill="none"><path d="M12 9v4m0 4h.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <div>Área de configuração dos <b>dados de demonstração</b>. Tudo é salvo só no seu navegador. Use apenas dados fictícios.</div>
+      <div>Área de configuração dos <b>dados de demonstração</b>. Tudo é salvo só no seu navegador. Use apenas dados ícios.</div>
     </div>
 
     <div class="form-card">
