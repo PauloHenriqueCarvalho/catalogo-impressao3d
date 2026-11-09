@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Marca UNIMR · Protótipo acadêmico</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --unimr-navy:#0B1F44; --unimr-blue:#2563EB; --unimr-sky:#60A5FA; --unimr-white:#F8FAFC; --unimr-green:#10B981;
+  --ink:#0B1F44; --muted:#5B6B86; --line:#DCE4F0; --bg:#EEF3FA;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Montserrat',system-ui,sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+header{background:radial-gradient(120% 140% at 100% 0%,rgba(37,99,235,.35),transparent 55%),var(--unimr-navy);color:var(--unimr-white);padding:40px 16px 48px}
+.wrap{max-width:1040px;margin:0 auto}
+header img{width:min(420px,100%);height:auto;display:block}
+header .tag{margin-top:22px;font-size:.78rem;font-weight:600;letter-spacing:.45em;text-transform:uppercase}
+header .proto{display:inline-block;margin-top:18px;font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  padding:6px 10px;border-radius:999px;background:rgba(248,250,252,.1);border:1px solid rgba(248,250,252,.25)}
+main{padding:28px 16px 48px}
+h2{font-size:.74rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin:30px 0 14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px}
+.tile{border-radius:16px;border:1px solid var(--line);overflow:hidden;background:#fff}
+.tile .art{height:170px;display:flex;align-items:center;justify-content:center;padding:22px}
+.tile .art img{display:block;max-width:100%;max-height:120px;width:auto;height:auto}
+.tile .art.dark{background:var(--unimr-navy)} .tile .art.light{background:var(--unimr-white)} .tile .art.blue{background:var(--unimr-blue)}
+.tile .cap{padding:10px 14px;border-top:1px solid var(--line);font-size:.78rem;font-weight:600;display:flex;justify-content:space-between;gap:8px}
+.tile .cap a{color:var(--unimr-blue);text-decoration:none;font-weight:700}
+.sw{display:flex;flex-wrap:wrap;gap:14px}
+.sw div{width:130px}
+.sw i{display:block;height:74px;border-radius:14px;border:1px solid var(--line)}
+.sw b{display:block;margin-top:8px;font-size:.8rem} .sw span{font-size:.74rem;color:var(--muted)}
+.type{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px}
+.type .big{font-size:2rem;font-weight:800;letter-spacing:-.01em}
+.type .w{display:flex;flex-wrap:wrap;gap:18px;margin-top:10px;font-size:1.05rem}
+.sig{margin-top:12px;font-size:1.15rem;font-weight:500}
+footer{text-align:center;font-size:.74rem;color:var(--muted);padding:0 16px 32px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <img src="unimr-horizontal-negativo.svg" alt="Centro Universitário Monte Real — UNIMR">
+  <div class="tag">Conhecimento que transforma</div>
+  <div class="proto">Marca fictícia · protótipo acadêmico sem validade oficial</div>
+</div></header>
+<main class="wrap">
+  <h2>Logotipo</h2>
+  <div class="grid" id="logos"></div>
+  <h2>Cores</h2>
+  <div class="sw">
+    <div><i style="background:#0B1F44"></i><b>Azul institucional</b><span>#0B1F44</span></div>
+    <div><i style="background:#2563EB"></i><b>Azul principal</b><span>#2563EB</span></div>
+    <div><i style="background:#60A5FA"></i><b>Azul claro</b><span>#60A5FA</span></div>
+    <div><i style="background:#F8FAFC"></i><b>Branco</b><span>#F8FAFC</span></div>
+    <div><i style="background:#10B981"></i><b>Verde complementar</b><span>#10B981</span></div>
+  </div>
+  <h2>Tipografia</h2>
+  <div class="type">
+    <div class="big">Montserrat</div>
+    <div class="w"><span style="font-weight:400">Regular</span><span style="font-weight:500">Medium</span><span style="font-weight:600">Semibold</span><span style="font-weight:700">Bold</span><span style="font-weight:800">Extrabold</span></div>
+    <div class="sig">Seu futuro, nossa universidade.</div>
+  </div>
+</main>
+<footer>Centro Universitário Monte Real (UNIMR) é uma marca fictícia criada para um protótipo acadêmico. Sem validade oficial.</footer>
+<script>
+  const L=[['Horizontal','horizontal'],['Vertical','vertical'],['Símbolo','simbolo']];
+  const W=[['negativo','dark','Para fundo escuro'],['positivo','light','Para fundo claro'],['mono-branco','blue','Monocromática branca'],['mono-azul','light','Monocromática azul']];
+  document.getElementById('logos').innerHTML = L.flatMap(([ln,lk])=>W.map(([wk,bg,wl])=>{
+    const f=`unimr-${lk}-${wk}.svg`;
+    return `<div class="tile"><div class="art ${bg}"><img src="${f}" alt="${ln} — ${wl}"></div><div class="cap"><span>${ln} · ${wl}</span><a href="${f}" download>SVG</a></div></div>`;
+  })).join('');
+</script>
+</body>
+</html>

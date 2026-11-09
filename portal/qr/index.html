@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>QR demonstrativo · UNIMR · Protótipo acadêmico</title>
+<link rel="icon" href="../brand/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0B1F44">
+<meta name="description" content="Página de demonstração do QR Code de um protótipo acadêmico de carteira de estudante. Sem validade oficial.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Marca UNIMR (fictícia) — mesmos tokens do portal */
+  --unimr-navy:#0B1F44; --unimr-blue:#2563EB; --unimr-sky:#60A5FA; --unimr-white:#F8FAFC; --unimr-green:#10B981;
+  --unimr-navy-2:#122C5E; --unimr-blue-50:#EFF5FF; --unimr-blue-100:#DCE8FC; --unimr-blue-200:#C2D6F5;
+  --grad-brand:linear-gradient(105deg,var(--unimr-navy) 0%,var(--unimr-navy-2) 62%,#173A7A 100%);
+  --ink:var(--unimr-navy);--muted:#5B6B86;--line:#DCE4F0;--bg:#EEF3FA;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Montserrat',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--ink);
+  -webkit-font-smoothing:antialiased;line-height:1.5;min-height:100dvh;display:flex;flex-direction:column}
+.top{background:var(--grad-brand);color:var(--unimr-white);
+  padding:18px 16px 64px;position:relative;overflow:hidden}
+.top::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(70% 160% at 100% 0%,rgba(37,99,235,.55),transparent 60%),
+    radial-gradient(50% 120% at 100% 100%,rgba(96,165,250,.25),transparent 60%)}
+.top-in{max-width:560px;margin:0 auto;display:flex;align-items:center;gap:12px;position:relative;z-index:1}
+.top-in{flex-wrap:wrap;justify-content:space-between;row-gap:14px}
+.brand{display:block;height:56px;width:auto}
+.top-r{text-align:right}
+@media(max-width:480px){.top-r{text-align:left;width:100%}.brand{height:48px}}
+.top .t{font-weight:700;font-size:.9rem}
+.top .s{font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--unimr-sky)}
+main{flex:1;width:100%;max-width:560px;margin:-44px auto 0;padding:0 16px 32px;position:relative;z-index:2}
+.card{background:#fff;border:1px solid rgba(11,31,68,.08);border-radius:18px;overflow:hidden;
+  box-shadow:0 1px 2px rgba(11,31,68,.05),0 6px 16px -4px rgba(11,31,68,.08),0 22px 44px -16px rgba(11,31,68,.28)}
+.banner{display:flex;gap:12px;align-items:flex-start;padding:16px 18px;background:#fffbeb;border-bottom:1px solid #fde68a;color:#92400e}
+.banner svg{width:22px;height:22px;flex:0 0 auto;margin-top:1px}
+.banner b{display:block;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+.banner span{font-size:.88rem}
+.body{padding:22px 18px 20px}
+h1{font-size:1.22rem;font-weight:800;letter-spacing:-.01em;line-height:1.3}
+.lead{margin-top:8px;color:var(--muted);font-size:.92rem}
+.id{margin-top:18px;padding:12px 14px;border-radius:12px;background:var(--unimr-blue-50);border:1px solid var(--unimr-blue-100)}
+.l{display:block;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--unimr-blue)}
+.v{display:block;margin-top:3px;font-weight:700;font-variant-numeric:tabular-nums;letter-spacing:.02em;overflow-wrap:anywhere}
+.status{margin-top:12px;display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:12px;
+  border:1px dashed var(--unimr-blue-200);color:var(--muted);font-size:.88rem;font-weight:600}
+.status i{width:10px;height:10px;border-radius:50%;background:#94a3b8;flex:0 0 auto}
+ul{margin-top:18px;list-style:none;display:grid;gap:10px}
+li{display:flex;gap:10px;font-size:.88rem;color:var(--ink)}
+li svg{width:18px;height:18px;flex:0 0 auto;margin-top:2px;color:var(--unimr-blue)}
+.foot{padding:12px 18px;border-top:1px dashed #DDE6F2;background:#EEF4FC;text-align:center;
+  font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7A89A3}
+.back{display:inline-flex;align-items:center;gap:6px;margin-top:18px;color:var(--unimr-blue);font-weight:600;
+  font-size:.9rem;text-decoration:none}
+.back svg{width:16px;height:16px}
+.note{margin-top:14px;text-align:center;color:var(--muted);font-size:.76rem}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <img class="brand" src="../brand/unimr-horizontal-negativo.svg" alt="Centro Universitário Monte Real — UNIMR (marca fictícia)" width="230" height="56">
+    <div class="top-r">
+      <div class="t">Página de demonstração</div>
+      <div class="s">QR Code · Carteira de Estudante</div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <article class="card">
+    <div class="banner" role="note">
+      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 9v4m0 4h.01M10.3 3.9L2 18a2 2 0 001.7 3h16.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div><b>Protótipo acadêmico — sem validade oficial</b>
+        <span>Centro Universitário Monte Real (UNIMR) é uma marca fictícia. Esta página faz parte de um projeto de estudo e não é serviço de nenhuma instituição de ensino.</span></div>
+    </div>
+    <div class="body">
+      <h1>Você escaneou o QR Code de uma carteira de demonstração</h1>
+      <p class="lead">A carteira que levou você até aqui foi criada em um protótipo de portal acadêmico, com instituição e dados fictícios.</p>
+
+      <div class="id">
+        <span class="l">Identificador fictício</span>
+        <span class="v" id="demoId">—</span>
+      </div>
+      <div class="status"><i aria-hidden="true"></i>Nenhuma verificação foi realizada</div>
+
+      <ul>
+        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 11v5M12 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          O identificador acima é aleatório e não corresponde a nenhum estudante, matrícula ou CPF.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 11v5M12 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Esta página não consulta banco de dados e não confirma identidade, vínculo estudantil ou autenticidade.</li>
+        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 11v5M12 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          A carteira não pode ser usada como documento nem para obter benefícios como meia-entrada.</li>
+      </ul>
+
+      <a class="back" href="../">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Abrir o portal de demonstração
+      </a>
+    </div>
+    <div class="foot">Protótipo acadêmico — sem validade</div>
+  </article>
+  <p class="note">Seu futuro, nossa universidade. · Projeto de estudo com marca e dados fictícios</p>
+</main>
+
+<script>
+  // Mostra apenas o identificador fictício recebido no QR (sanitizado). Nada é validado.
+  const raw = new URLSearchParams(location.search).get('id') || '';
+  const id = raw.toUpperCase().replace(/[^A-Z0-9-]/g,'').slice(0,24);
+  document.getElementById('demoId').textContent = id || 'não informado';
+</script>
+</body>
+</html>
