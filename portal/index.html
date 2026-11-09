@@ -806,7 +806,7 @@ function renderSection(id){
     cartao:secCartao, prova:()=>secPlaceholder('Prova online','Nenhuma prova online disponível no momento.','doc'),
     biblioteca:()=>secPlaceholder('Biblioteca virtual','Acervo digital em breve. Nenhum título liberado para o seu curso agora.','book'),
     protocolo:()=>secPlaceholder('Protocolo','Você não possui protocolos abertos. Abra uma solicitação quando precisar.','file'),
-    email:()=>secPlaceholder('Criar e-mail','Solicite seu e-mail acadêmico institucional de demonstração por aqui.','mail')
+    email:()=>secPlaceholder('Criar e-mail','Solicite seu e-mail acadêmico institucional por aqui.','mail')
   };
   el.innerHTML = (map[id]||secHome)();
   // wire portais clicks
@@ -952,7 +952,6 @@ function cardHeadHTML(){
 }
 const ICO_CAL = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2.5" stroke="currentColor" stroke-width="2"/><path d="M3 10h18M8 3v4M16 3v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7.5 14h2M11 14h2M14.5 14h2M7.5 17.5h2M11 17.5h2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 
-/* ---------- Carteira: verso, QR demonstrativo, frente/verso e exportação ---------- */
 let idcFace = 'front';
 const ICO = {
   front:'<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="11" r="2" stroke="currentColor" stroke-width="2"/><path d="M14 10h4M14 13h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
@@ -972,7 +971,6 @@ function demoQrId(){
   }
   return DATA.aluno.qrId;
 }
-/* URL da página de demonstração (portal/qr/), resolvida a partir da pasta do portal */
 function demoQrUrl(){
   let path = location.pathname.replace(/[^/]*\.html?$/,'');
   if(!path.endsWith('/')) path += '/';
@@ -1002,7 +1000,7 @@ function qrSVG(text){
   const qr = qrcode(0,'M'); qr.addData(text); qr.make();
   const n = qr.getModuleCount(); let d='';
   for(let r=0;r<n;r++) for(let c=0;c<n;c++) if(qr.isDark(r,c)) d+=`M${c} ${r}h1v1h-1z`;
-  return `<svg viewBox="-1 -1 ${n+2} ${n+2}" shape-rendering="crispEdges" role="img" aria-label="QR Code da página de demonstração"><rect x="-1" y="-1" width="${n+2}" height="${n+2}" fill="#fff"/><path d="${d}" fill="currentColor"/></svg>`;
+  return `<svg viewBox="-1 -1 ${n+2} ${n+2}" shape-rendering="crispEdges" role="img" aria-label="QR Code"><rect x="-1" y="-1" width="${n+2}" height="${n+2}" fill="#fff"/><path d="${d}" fill="currentColor"/></svg>`;
 }
 async function renderCardQR(){
   const box = document.getElementById('idcQr');
@@ -1033,7 +1031,7 @@ function cardBackHTML(a){
           <div class="idc-qr-row">
             <div class="idc-qr is-loading" id="idcQr"></div>
             <div class="idc-qr-info">
-              <span class="idc-l">QR Code demonstrativo</span>
+              <span class="idc-l">QR Code</span>
               <p>Aponte a câmera para abrir a página.</p>
               <div class="idc-id-code">
                 <span class="idc-l">Identificador</span>
@@ -1280,7 +1278,7 @@ function wireCartaoPhoto(){
   if(!inp) return;
   inp.addEventListener('change',()=>{
     const f = inp.files[0]; if(!f) return;
-    if(f.size > 1.6*1024*1024){ alert('Imagem muito grande (máx. ~1.5MB para o modo demonstração).'); inp.value=''; return; }
+    if(f.size > 1.6*1024*1024){ alert('Imagem muito grande (máx. ~1.5MB).'); inp.value=''; return; }
     const r = new FileReader();
     r.onload = ()=>{ DATA.aluno.foto = r.result; save(); syncAvatars(); renderSection('cartao'); toast('Foto adicionada'); };
     r.readAsDataURL(f);
@@ -1414,7 +1412,7 @@ function wireAdmin(){
   const fotoInput = document.getElementById('admFoto');
   fotoInput.addEventListener('change',()=>{
     const file = fotoInput.files[0]; if(!file) return;
-    if(file.size>1.6*1024*1024){ alert('Imagem muito grande (máx. ~1.5MB para o modo demonstração).'); fotoInput.value=''; return; }
+    if(file.size>1.6*1024*1024){ alert('Imagem muito grande (máx. ~1.5MB).'); fotoInput.value=''; return; }
     const r = new FileReader();
     r.onload = ()=>{ DATA.aluno.foto = r.result; document.getElementById('admPrev').innerHTML=`<img src="${esc(r.result)}" alt="">`; };
     r.readAsDataURL(file);
@@ -1460,7 +1458,7 @@ function wireAdmin(){
   document.getElementById('savePin').addEventListener('click',()=>{ DATA.adminPin=document.getElementById('f_pin').value.trim(); save(); toast('PIN salvo'); });
   document.getElementById('previewLogin').addEventListener('click',()=>{ save(); enterApp('home'); });
   document.getElementById('resetAll').addEventListener('click',()=>{
-    if(confirm('Restaurar todos os dados de demonstração para o padrão? Isso apaga suas alterações.')){
+    if(confirm('Restaurar todos os dados para o padrão? Isso apaga suas alterações.')){
       DATA=structuredClone(DEFAULT_DATA); save(); renderAdmin(); toast('Dados restaurados');
     }
   });
