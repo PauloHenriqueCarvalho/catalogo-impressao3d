@@ -1150,8 +1150,10 @@ async function exportCard(kind,btn){
       const { jsPDF } = window.jspdf;
       const doc = new jsPDF({orientation:'portrait', unit:'mm', format:'a4', compress:true});
       const margin = 12, w = 210 - margin*2, h = w * canvas.height / canvas.width;
-      doc.setProperties({title:'Carteira de estudante UNIMR, subject:''});
-      doc.setFont('helvetica','bold'); doc.setFontSize(9); doc.setTextColor(11,31,68);
+doc.setProperties({
+    title: 'Carteira de estudante UNIMAR', 
+    subject: ''
+});      doc.setFont('helvetica','bold'); doc.setFontSize(9); doc.setTextColor(11,31,68);
       doc.text('CARTEIRA DE ESTUDANTE', margin, margin+2);
       doc.setTextColor(91,107,134);
       doc.addImage(canvas.toDataURL('image/png'), 'PNG', margin, margin+6, w, h, undefined, 'FAST');
